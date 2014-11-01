@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 		  	files: ['./index.php']
 		  },
 		  scripts: {
-		  	files: ['./js/*', './Gruntfile.js']
+		  	files: ['./javascript/*', './Gruntfile.js']
 		  }
 		}
 	});
