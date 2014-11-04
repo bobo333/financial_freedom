@@ -3,7 +3,7 @@ var RetirementCalculatorModule = angular.module('RetirementCalculatorModule', []
 RetirementCalculatorModule.service('RetirementCalculatorService', function() {
 	var WITHDRAWAL_RATE = .04;
 	var INFLATION_RATE = .035;
-	var INCOME_INCREASE_RATE = .1;
+	var INCOME_INCREASE_RATE = .05;
 	var GROWTH_RATE = .075;
 	
 	this.calculateYearsToRetirement = function(net_worth, annual_expenses, annual_salary) {
