@@ -23,4 +23,10 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(RetirementCalculatorService.calculateYearsToRetirement(5000, 0, 0)).toBe(0);
     });
     
+    it('should return a reasonable range for someone who has normal expenses, salary, and net worth', function() {
+        var timeToRetire = RetirementCalculatorService.calculateYearsToRetirement(50000, 70000, 40000);
+        expect(timeToRetire).toBeGreaterThan(0);
+        expect(timeToRetire).toBeLessThan(10000);
+    });
+    
 });
