@@ -1,6 +1,7 @@
 var FinancialFreedom = angular.module('FinancialFreedom', ['RetirementCalculatorModule']);
 
-FinancialFreedom.controller('SandboxController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+FinancialFreedom.controller('RetirementCalculatorController', 
+    ['$scope', 'RetirementCalculatorService',  function($scope, RetirementCalculatorService) {
     $scope.retirement = {
         net_worth: '',
         annual_expenses: '',
@@ -16,4 +17,5 @@ FinancialFreedom.controller('SandboxController', ['$scope', 'RetirementCalculato
         years = RetirementCalculatorService.calculateYearsToRetirement(net_worth, annual_salary, annual_expenses);
         $scope.retirement.years_to_retirement = years;
     };
+
 }]);

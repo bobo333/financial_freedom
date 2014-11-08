@@ -13,7 +13,7 @@
     </head>
     
     <body>
-        <div ng-controller="SandboxController" class="first-div">
+        <div ng-controller="RetirementCalculatorController" class="first-div">
             <?php echo "this is php" ?>
             <br><br>
             
