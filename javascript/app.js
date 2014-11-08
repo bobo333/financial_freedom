@@ -1,7 +1,6 @@
 var FinancialFreedom = angular.module('FinancialFreedom', ['RetirementCalculatorModule']);
 
-FinancialFreedom.controller('RetirementCalculatorController', 
-    ['$scope', 'RetirementCalculatorService',  function($scope, RetirementCalculatorService) {
+FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'RetirementCalculatorService',  function($scope, RetirementCalculatorService) {
     $scope.retirement = {
         net_worth: '',
         annual_expenses: '',
