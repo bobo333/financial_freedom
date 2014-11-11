@@ -23,6 +23,14 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return years;
     };
     
+    this.calculatePeriodInterestRate = function(annual_rate, number_of_periods) {
+        base = annual_rate + 1;
+        console.log(base);
+        exponent = 1 / number_of_periods;
+        console.log(exponent);
+        return Math.pow((base), (exponent)) - 1;
+    };
+    
     var checkIfCanRetire = function(investment_amount, expenses) {
         return WITHDRAWAL_RATE * investment_amount >= expenses;
     };

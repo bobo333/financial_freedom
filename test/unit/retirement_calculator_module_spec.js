@@ -29,4 +29,22 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(timeToRetire).toBeLessThan(100);
     });
     
+    it('should have calculatePeriodInterestRate function', function() {
+        expect(angular.isFunction(RetirementCalculatorService.calculatePeriodInterestRate)).toBe(true);
+    });
+    
+    it('should convert 10% annual to .797% monthly', function() {
+        val = RetirementCalculatorService.calculatePeriodInterestRate(.10, 12);
+        rounded = Math.round(val * 100000) / 100000;
+        expect(rounded).toBe(.00797);
+    });
+    
+    it('should convert 6% annual to .487% monthly', function() {
+    val = RetirementCalculatorService.calculatePeriodInterestRate(.06, 12);
+        rounded = Math.round(val * 100000) / 100000;
+        expect(rounded).toBe(.00487);
+    });
+    
+    
+    
 });

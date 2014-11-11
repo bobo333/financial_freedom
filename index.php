@@ -28,6 +28,8 @@
             
             Time to retire: <span class="retirement-years" ng-bind="retirement.years_to_retirement + ' years'"></span>
             
+            <br><br> {{ test }}
+            
         </div>
     </body>
 
