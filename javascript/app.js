@@ -16,7 +16,4 @@ FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'Retire
         years = RetirementCalculatorService.calculateYearsToRetirement(net_worth, annual_salary, annual_expenses);
         $scope.retirement.years_to_retirement = years;
     };
-    
-    $scope.test = RetirementCalculatorService.calculatePeriodInterestRate(.10, 12);
-
 }]);
