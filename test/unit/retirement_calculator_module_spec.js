@@ -71,7 +71,6 @@ describe('Unit: RetirementCalculatorModule', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement(52000, 5000, 2000);
         expect(val).toBeLessThan(300);
         expect(val).toBeGreaterThan(12);
-
     });
     
 });

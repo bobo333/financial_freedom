@@ -9,8 +9,6 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     this.calculateYearsToRetirement = function(net_worth, annual_pay, annual_expenses) {
         var years = 0;
         
-        
-        
         while (!checkIfCanRetire(net_worth, annual_expenses)) {
             net_worth = updateNetWorth(net_worth, annual_pay, annual_expenses, GROWTH_RATE);
             annual_pay = addInterest(annual_pay, INCOME_INCREASE_RATE);
@@ -22,7 +20,6 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             }
         }
         
-        
         return years;
     };
 
@@ -31,7 +28,6 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         var MONTHLY_GROWTH_RATE = this.calculatePeriodInterestRate(GROWTH_RATE, 12);
         var months = 0;
 
-        
         while (!checkIfCanRetire(net_worth, monthly_expenses * 12)) {
             net_worth = updateNetWorth(net_worth, monthly_pay, monthly_expenses, MONTHLY_GROWTH_RATE);
             monthly_expenses = addInterest(monthly_expenses, MONTHLY_INFLATION_RATE);
@@ -45,7 +41,6 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
                 break;
             }
         }
-        
         
         return months;
     };
