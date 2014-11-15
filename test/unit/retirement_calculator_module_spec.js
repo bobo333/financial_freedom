@@ -54,23 +54,33 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return 1200 for zero net worth and zero income from calculatMonthsToRetirement', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement(0, 0, 5000);
-        expect(val).toBe(1200);
+        expect(val.months).toBe(1200);
     });
     
     it('should return 0 for someone with no expenses and positive net worth from calculateMOnthsToRetirement', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement(50000, 0, 0);
-        expect(val).toBe(0);
+        expect(val.months).toBe(0);
     });
     
     it('should return 0 for someone with no expenses and positive take home pay from calculateMOnthsToRetirement', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement(0, 1000, 0);
-        expect(val).toBe(0);
+        expect(val.months).toBe(0);
     });
     
     it('should return within a reasonable range for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement(52000, 5000, 2000);
-        expect(val).toBeLessThan(300);
-        expect(val).toBeGreaterThan(12);
+        expect(val.months).toBeLessThan(300);
+        expect(val.months).toBeGreaterThan(12);
+    });
+    
+    it('should return the same number of data points to graph as number of months for 0 months', function() {
+        var val = RetirementCalculatorService.calculateMonthsToRetirement(520, 0, 0);
+        expect(val.months + 1).toBe(val.data_to_graph.length);
+    });
+    
+    it('should return the same number of data points to graph as number of months for more than 0 months', function() {
+        var val = RetirementCalculatorService.calculateMonthsToRetirement(52000, 5000, 2000);
+        expect(val.months + 1).toBe(val.data_to_graph.length);
     });
     
 });
