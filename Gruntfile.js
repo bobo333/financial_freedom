@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	  	sass: {     
 			dist: {   
 		    	files: {
-		      	'./css/main.css': './compass/sass/custom.scss'
+		      	'./css/main.css': './compass/stylesheets/main.scss'
 		      }
 		    }
 	    },
