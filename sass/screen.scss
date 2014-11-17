@@ -9,3 +9,23 @@
 .retirement-years {
     color: green;
 }
+
+.expense-line, .withdraw-line {
+    stroke-width: 1;
+    fill: none;
+    shapeRendering: crispEdges;
+}
+
+.expense-line {
+    stroke: red;
+}
+
+.withdraw-line {
+    stroke: green;
+}
+
+.axis line, .axis path {
+    fill: none;
+    stroke: #000000;
+    shapeRendering: crispEdges;
+}
