@@ -3,10 +3,9 @@
 <html ng-app="FinancialFreedom">
 
     <head>
-        
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
-
+        <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="vendor/javascript/angular.min.js"></script>
         <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
         <script type="text/javascript" src="javascript/app.js"></script>
@@ -25,19 +24,20 @@
             
             <br><br>
             
-            <form ng-submit="calculateYearsToRetirement()">
+            <form ng-submit="calculateMonthsToRetirement()">
                 Net worth: $<input placeholder="50000" ng-model="retirement.net_worth" /><br>
-                Annual expenses: $<input placeholder="40000" ng-model="retirement.annual_expenses" /><br>
-                Annual salary: $<input placeholder="70000" ng-model="retirement.annual_salary" /><br>
+                Monthly expenses: $<input placeholder="2000" ng-model="retirement.monthly_expenses" /><br>
+                Monthly pay: $<input placeholder="5000" ng-model="retirement.monthly_pay" /><br>
                 <input type="submit">
             </form>
             
             <br><br>
             
-            Time to retire: <span class="retirement-years" ng-bind="retirement.years_to_retirement + ' years'"></span>
-
-            <br>
-            <?php echo "this is php" ?>
+            Months to retire: <span class="retirement-years" ng-bind="retirement.months_to_retirement"></span>
+            
+            <br><br>
+            
+            <svg id="retirement-graph"></svg>
             
         </div>
     </body>

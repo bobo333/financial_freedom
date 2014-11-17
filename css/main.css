@@ -1,0 +1,20 @@
+.retirement-years {
+  color: red; }
+
+.expense-line, .withdraw-line {
+  stroke-width: 1;
+  fill: none;
+  shapeRendering: crispEdges; }
+
+.expense-line {
+  stroke: red; }
+
+.withdraw-line {
+  stroke: green; }
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000000;
+  shapeRendering: crispEdges; }
+
+/*# sourceMappingURL=main.css.map */
