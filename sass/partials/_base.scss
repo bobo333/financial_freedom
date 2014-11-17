@@ -27,4 +27,13 @@ $header-font-weight: $bold;
 $primary-green: #1D8E3B;
 $dark-green: #055D1C;
 
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 //@import "../modules/*";

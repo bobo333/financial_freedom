@@ -10,12 +10,20 @@ $titleColor: #FFFFFF;
 .header {
 	@include background-image(linear-gradient($header-gradient-top,$header-gradient-bottom));
 	height: 150px;
+	position: relative;
+}
+
+.headerText {
+	color: $titleColor;
+	text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
+	text-align: center;
+	@include vertical-align;
 }
 
 .productName {
-	color: $titleColor;
+	font-size: $base-font-size*2;
 }
 
 .tagLine {
-	color: $titleColor;
+
 }

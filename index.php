@@ -17,8 +17,10 @@
     <body>
 
         <div class="header navbar navbar-default">
-            <p class="productName">Beanstalk</p>
-            <p class="tagLine">Countdown to retirement</p>
+            <div class="headerText">
+                <p class="productName">Beanstalk</p>
+                <p class="tagLine">Countdown to retirement</p>
+            </div>
         </div>
 
         <div ng-controller="RetirementCalculatorController" class="first-div">

@@ -76,16 +76,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-image: -webkit-linear-gradient(#276036, #1e8e3b);
   background-image: linear-gradient(#276036, #1e8e3b);
   height: 150px;
+  position: relative;
 }
 
-/* line 15, ../../sass/partials/_header.scss */
+/* line 16, ../../sass/partials/_header.scss */
+.headerText {
+  color: white;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* line 22, ../../sass/partials/_header.scss */
 .productName {
-  color: white;
-}
-
-/* line 19, ../../sass/partials/_header.scss */
-.tagLine {
-  color: white;
+  font-size: 26px;
 }
 
 /* line 9, ../../sass/screen.scss */
