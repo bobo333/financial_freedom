@@ -1,0 +1,21 @@
+// Header
+
+
+
+// Colors
+$header-gradient-top: #276036;
+$header-gradient-bottom: #1E8E3B;
+$titleColor: #FFFFFF;
+
+.header {
+	@include background-image(linear-gradient($header-gradient-top,$header-gradient-bottom));
+	height: 150px;
+}
+
+.productName {
+	color: $titleColor;
+}
+
+.tagLine {
+	color: $titleColor;
+}

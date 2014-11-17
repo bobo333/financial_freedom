@@ -1,5 +1,7 @@
 // Use Compass ('cause it rocks!)
-@import "compass";
+@import "compass/css3";
+@import "compass/reset";
+@import "compass/utilities";
 
 // Font weights
 $light: 100;
@@ -20,4 +22,9 @@ $fixed-line-height: $base-line-height;
 // Headings
 $header-font-weight: $bold;
 
-@import "modules/all";
+// Colors
+
+$primary-green: #1D8E3B;
+$dark-green: #055D1C;
+
+//@import "../modules/*";

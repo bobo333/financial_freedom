@@ -67,7 +67,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../../sass/screen.scss */
+/* line 10, ../../sass/partials/_header.scss */
+.header {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI3NjAzNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFlOGUzYiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #276036), color-stop(100%, #1e8e3b));
+  background-image: -moz-linear-gradient(#276036, #1e8e3b);
+  background-image: -webkit-linear-gradient(#276036, #1e8e3b);
+  background-image: linear-gradient(#276036, #1e8e3b);
+  height: 150px;
+}
+
+/* line 15, ../../sass/partials/_header.scss */
+.productName {
+  color: white;
+}
+
+/* line 19, ../../sass/partials/_header.scss */
+.tagLine {
+  color: white;
+}
+
+/* line 9, ../../sass/screen.scss */
 .retirement-years {
   color: green;
 }
