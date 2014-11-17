@@ -49,14 +49,35 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             }
         }
         
+        var points_to_add = data_to_graph.length / 2;
+        
+        for (i=0; i < points_to_add; i++) {
+        
+            if (months >= 1200) {
+                break;
+            }
+        
+            data_to_graph.push(
+                {
+                    expenses: monthly_expenses, 
+                    withdraw_limit: .04 * net_worth / 12
+                }
+            );
+            net_worth = updateNetWorth(net_worth, monthly_pay, monthly_expenses, MONTHLY_GROWTH_RATE);
+            monthly_expenses = addInterest(monthly_expenses, MONTHLY_INFLATION_RATE);
+            months++;
+            
+            if (months % 12 === 0) {
+                monthly_pay = addInterest(monthly_pay, INCOME_INCREASE_RATE);
+            }
+        }
+        
         data_to_graph.push(
             {
                 expenses: monthly_expenses, 
                 withdraw_limit: .04 * net_worth / 12
             }
         );
-        
-        // add extra data points to show continuation of graph?
         
         return_value = {
             months: months,
