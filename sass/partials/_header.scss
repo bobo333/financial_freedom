@@ -14,16 +14,19 @@ $titleColor: #FFFFFF;
 }
 
 .headerText {
+	font-family: 'Oxygen', sans-serif;
 	color: $titleColor;
 	text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
 	text-align: center;
 	@include vertical-align;
+	
 }
 
 .productName {
-	font-size: $base-font-size*2;
+	font-size: $base-font-size*3;
+	font-weight: 700;
 }
 
 .tagLine {
-
+	font-weight: 300;
 }
