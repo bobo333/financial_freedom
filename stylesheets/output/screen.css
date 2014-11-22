@@ -79,7 +79,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: relative;
 }
 
-/* line 16, ../../sass/partials/_header.scss */
+/* line 20, ../../sass/partials/_header.scss */
 .headerText {
   font-family: 'Oxygen', sans-serif;
   color: white;
@@ -92,15 +92,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   transform: translateY(-50%);
 }
 
-/* line 25, ../../sass/partials/_header.scss */
+/* line 30, ../../sass/partials/_header.scss */
 .productName {
   font-size: 39px;
   font-weight: 700;
 }
 
-/* line 30, ../../sass/partials/_header.scss */
+/* line 35, ../../sass/partials/_header.scss */
 .tagLine {
   font-weight: 300;
+}
+
+/* line 39, ../../sass/partials/_header.scss */
+.navbar {
+  border: none;
+  border-radius: 0px;
 }
 
 /* line 9, ../../sass/screen.scss */

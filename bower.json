@@ -20,5 +20,8 @@
     "bootstrap": "~3.3.0",
     "jquery": "~2.1.1",
     "d3": "~3.4.13"
+  },
+  "devDependencies": {
+    "sass-mediaqueries": "~1.4.0"
   }
 }
