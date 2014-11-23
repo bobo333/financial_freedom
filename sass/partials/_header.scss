@@ -3,19 +3,39 @@
 
 
 // Colors
-$header-gradient-top: #276036;
-$header-gradient-bottom: #1E8E3B;
-$titleColor: #FFFFFF;
+$header_gradient_top: #276036;
+$header_gradient_bottom: #1E8E3B;
+$title_color: #FFFFFF;
 
 .header {
-	@include background-image(linear-gradient($header-gradient-top,$header-gradient-bottom));
+	@include background-image(linear-gradient($header_gradient_bottom,$header_gradient_top));
 	height: 150px;
+	position: relative;
+}
+
+@include min-screen($screen_sm_min) 
+{
+}
+
+.headerText {
+font-family: 'Oxygen', sans-serif;
+color: $title_color;
+text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
+text-align: center;
+@include vertical-align;
+
 }
 
 .productName {
-	color: $titleColor;
+	font-size: $base_font_size*3;
+	font-weight: 700;
 }
 
 .tagLine {
-	color: $titleColor;
+	font-weight: 300;
+}
+
+.navbar {
+	border: none;
+	border-radius: 0px;
 }

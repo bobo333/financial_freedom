@@ -3,28 +3,44 @@
 @import "compass/reset";
 @import "compass/utilities";
 
+// Sass media queries
+@import "../bower_components/sass-mediaqueries/media-queries";
+
 // Font weights
 $light: 100;
 $regular: 300;
 $bold: 600;
 
 // Base Font
-$base-font-family: sans-serif;
-$base-font-weight: $regular;
-$base-font-size: 13px;
-$base-line-height: 1.4;
+$base_font_family: sans-serif;
+$base_font_weight: $regular;
+$base_font_size: 13px;
+$base_line_height: 1.4;
 
 // Fixed Font
-$fixed-font-family: monospace;
-$fixed-font-size: 85%;
-$fixed-line-height: $base-line-height;
+$fixed_font_family: monospace;
+$fixed_font_size: 85%;
+$fixed_line_height: $base_line_height;
 
 // Headings
-$header-font-weight: $bold;
+$header_font_weight: $bold;
 
 // Colors
+$primary_green: #1D8E3B;
+$dark_green: #055D1C;
 
-$primary-green: #1D8E3B;
-$dark-green: #055D1C;
+// Alignment
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// Breakpoints
+$screen_sm_min: 768px;
+$screen_md_min: 992px;
+$screen_lg_min: 1200px;
 
 //@import "../modules/*";
