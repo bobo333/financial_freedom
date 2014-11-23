@@ -1,4 +1,24 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['RetirementCalculatorModule']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'RetirementCalculatorModule']);
+
+FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+    $routeProvider.when('/income', {
+        templateUrl: 'partials/income_input.html',
+        controller: 'IncomeInputController'
+    })
+    .when('/assets', {
+        templateUrl: 'partials/assets_input.html',
+        controller: 'AssetsInputController',
+    })
+    .when('/expenses', {
+        templateUrl: 'partials/expenses_input.html',
+        conroller: 'ExpensesInputController'
+    })
+    .when('/time-to-retirement', {
+        templateUrl: 'partials/time_to_retirement.html',
+        controller: 'TimeToRetirementController'
+    });
+}]);
 
 FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'RetirementCalculatorService',  function($scope, RetirementCalculatorService) {
     $scope.retirement = {
@@ -93,4 +113,20 @@ FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'Retire
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
             
     };
+}]);
+
+FinancialFreedom.controller('IncomeInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    // RetirementCalculatorService.setMonthlyPay
+}]);
+
+FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    // RetirementCalculatorService.setTotalAssets
+}]);
+
+FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    // RetirementCalculatorService.setMonthlyExpenses
+}]);
+
+FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    // RetirementCalculatorService.calculateMonthsToRetirement
 }]);

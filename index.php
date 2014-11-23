@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="vendor/javascript/angular.min.js"></script>
+        <script type="text/javascript" src="vendor/javascript/angular-route.js"></script>
         <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
         <script type="text/javascript" src="javascript/app.js"></script>
     
@@ -20,26 +21,8 @@
             <p class="tagLine">Countdown to retirement</p>
         </div>
 
-        <div ng-controller="RetirementCalculatorController" class="first-div">
-            
-            <br><br>
-            
-            <form ng-submit="calculateMonthsToRetirement()">
-                Net worth: $<input placeholder="50000" ng-model="retirement.net_worth" /><br>
-                Monthly expenses: $<input placeholder="2000" ng-model="retirement.monthly_expenses" /><br>
-                Monthly pay: $<input placeholder="5000" ng-model="retirement.monthly_pay" /><br>
-                <input type="submit">
-            </form>
-            
-            <br><br>
-            
-            Months to retire: <span class="retirement-years" ng-bind="retirement.months_to_retirement"></span>
-            
-            <br><br>
-            
-            <svg id="retirement-graph"></svg>
-            
-        </div>
+        <div ng-view></div>
+        
     </body>
 
 </html>

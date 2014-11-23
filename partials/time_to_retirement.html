@@ -1,0 +1,25 @@
+<div>
+    retirement output
+</div>
+
+
+<div ng-controller="RetirementCalculatorController" class="first-div">
+            
+            <br><br>
+            
+            <form ng-submit="calculateMonthsToRetirement()">
+                Net worth: $<input placeholder="50000" ng-model="retirement.net_worth" /><br>
+                Monthly expenses: $<input placeholder="2000" ng-model="retirement.monthly_expenses" /><br>
+                Monthly pay: $<input placeholder="5000" ng-model="retirement.monthly_pay" /><br>
+                <input type="submit">
+            </form>
+            
+            <br><br>
+            
+            Months to retire: <span class="retirement-years" ng-bind="retirement.months_to_retirement"></span>
+            
+            <br><br>
+            
+            <svg id="retirement-graph"></svg>
+            
+        </div>
