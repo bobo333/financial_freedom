@@ -17,6 +17,9 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     .when('/time-to-retirement', {
         templateUrl: 'partials/time_to_retirement.html',
         controller: 'TimeToRetirementController'
+    })
+    .otherwise({
+        redirectTo: '/income'
     });
 }]);
 
