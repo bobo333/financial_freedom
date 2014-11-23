@@ -1,4 +1,4 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'RetirementCalculatorModule']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'RetirementCalculatorModule', 'ng-currency']);
 
 FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -12,7 +12,7 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     })
     .when('/expenses', {
         templateUrl: 'partials/expenses_input.html',
-        conroller: 'ExpensesInputController'
+        controller: 'ExpensesInputController'
     })
     .when('/time-to-retirement', {
         templateUrl: 'partials/time_to_retirement.html',
@@ -24,23 +24,42 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
 }]);
 
 FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'RetirementCalculatorService',  function($scope, RetirementCalculatorService) {
-    $scope.retirement = {
-        net_worth: '',
-        monthly_expenses: '',
-        monthly_pay: '',
-        months_to_retirement: '???'
-    };
     
-    $scope.calculateMonthsToRetirement = function() {
-        net_worth = parseInt($scope.retirement.net_worth);
-        monthly_pay = parseInt($scope.retirement.monthly_pay);
-        monthly_expenses = parseInt($scope.retirement.monthly_expenses);
+
+}]);
+
+FinancialFreedom.controller('IncomeInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    $scope.income = {};
     
-        retirement_data = RetirementCalculatorService.calculateMonthsToRetirement(net_worth, monthly_pay, monthly_expenses);
-        $scope.retirement.months_to_retirement = retirement_data['months'];
-        
-        createRetirementGraph(retirement_data['data_to_graph']);
-    };
+    $scope.$watch('income.value', function() {
+        RetirementCalculatorService.setMonthlyIncome($scope.income.value);
+    });
+
+}]);
+
+FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    $scope.assets = {};
+    
+    $scope.$watch('assets.value', function() {
+        RetirementCalculatorService.setTotalAssets($scope.assets.value);
+    });
+}]);
+
+FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    $scope.expenses = {};
+    
+    $scope.$watch('expenses.value', function() {
+        RetirementCalculatorService.setMonthlyExpenses($scope.expenses.value);
+    });
+}]);
+
+FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+    $scope.retirement = {};
+    
+    retirement_data = RetirementCalculatorService.calculateMonthsToRetirement();
+    $scope.retirement.months_to_retirement = retirement_data['months'];
+    
+    createRetirementGraph(retirement_data['data_to_graph']);
     
     function createRetirementGraph(data_to_graph) {
         var margin = {top: 20, right: 20, bottom: 30, left: 100},
@@ -52,8 +71,6 @@ FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'Retire
         end_date.setMonth(end_date.getMonth() + data_to_graph.length);
         
         var max_value = d3.max(data_to_graph, function(d) { return d.withdraw_limit; });
-        console.log(max_value);
-        console.log(data_to_graph);
         
         var chart = d3.select('#retirement-graph');
         
@@ -116,20 +133,4 @@ FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'Retire
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
             
     };
-}]);
-
-FinancialFreedom.controller('IncomeInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
-    // RetirementCalculatorService.setMonthlyPay
-}]);
-
-FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
-    // RetirementCalculatorService.setTotalAssets
-}]);
-
-FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
-    // RetirementCalculatorService.setMonthlyExpenses
-}]);
-
-FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
-    // RetirementCalculatorService.calculateMonthsToRetirement
 }]);

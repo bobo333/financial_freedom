@@ -21,7 +21,8 @@
     "jquery": "~2.1.1",
     "d3": "~3.4.13",
     "angular": "~1.3.0",
-    "angular-route": "~1.3.3"
+    "angular-route": "~1.3.3",
+    "angular-i18n": "~1.3.3"
   },
   "devDependencies": {
     "sass-mediaqueries": "~1.4.0"

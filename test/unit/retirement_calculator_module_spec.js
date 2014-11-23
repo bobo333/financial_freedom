@@ -31,7 +31,7 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return 1200 for zero net worth and zero income from calculatMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(0);
-        RetirementCalculatorService.setMonthlyPay(0);
+        RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(5000);
         
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
@@ -40,7 +40,7 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return 0 for someone with no expenses and positive net worth from calculateMOnthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(50000);
-        RetirementCalculatorService.setMonthlyPay(0);
+        RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
@@ -49,7 +49,7 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return 0 for someone with no expenses and positive take home pay from calculateMOnthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(0);
-        RetirementCalculatorService.setMonthlyPay(1000);
+        RetirementCalculatorService.setMonthlyIncome(1000);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
@@ -58,7 +58,7 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return within a reasonable range for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(52000);
-        RetirementCalculatorService.setMonthlyPay(5000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
@@ -68,7 +68,7 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return the same number of data points to graph as number of months for 0 months', function() {
         RetirementCalculatorService.setTotalAssets(520);
-        RetirementCalculatorService.setMonthlyPay(0);
+        RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(0);
     
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
@@ -77,7 +77,7 @@ describe('Unit: RetirementCalculatorModule', function() {
     
     it('should return the same number of data points to graph as number of months for more than 0 months', function() {
         RetirementCalculatorService.setTotalAssets(52000);
-        RetirementCalculatorService.setMonthlyPay(5000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
         var val = RetirementCalculatorService.calculateMonthsToRetirement(52000, 5000, 2000);

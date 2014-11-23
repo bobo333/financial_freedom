@@ -7,7 +7,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     var GROWTH_RATE = .075;
     
     var total_assets = 0;
-    var monthly_pay = 0;
+    var monthly_income = 0;
     var monthly_expenses = 0;
 
     this.calculateMonthsToRetirement = function() {
@@ -23,12 +23,12 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
                     withdraw_limit: .04 * total_assets / 12
                 }
             );
-            total_assets = updateTotalAssets(total_assets, monthly_pay, monthly_expenses, MONTHLY_GROWTH_RATE);
+            total_assets = updateTotalAssets(total_assets, monthly_income, monthly_expenses, MONTHLY_GROWTH_RATE);
             monthly_expenses = addInterest(monthly_expenses, MONTHLY_INFLATION_RATE);
             months++;
             
             if (months % 12 === 0) {
-                monthly_pay = addInterest(monthly_pay, INCOME_INCREASE_RATE);
+                monthly_income = addInterest(monthly_income, INCOME_INCREASE_RATE);
             }
             
             if (months >= 1200) {
@@ -50,12 +50,12 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
                     withdraw_limit: .04 * total_assets / 12
                 }
             );
-            total_assets = updateTotalAssets(total_assets, monthly_pay, monthly_expenses, MONTHLY_GROWTH_RATE);
+            total_assets = updateTotalAssets(total_assets, monthly_income, monthly_expenses, MONTHLY_GROWTH_RATE);
             monthly_expenses = addInterest(monthly_expenses, MONTHLY_INFLATION_RATE);
             months++;
             
             if (months % 12 === 0) {
-                monthly_pay = addInterest(monthly_pay, INCOME_INCREASE_RATE);
+                monthly_income = addInterest(monthly_income, INCOME_INCREASE_RATE);
             }
         }
         
@@ -92,12 +92,12 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return original_total * (1 + interest_rate);
     };
     
-    this.setTotalAssets = function(new_total_assets) {
-        total_assets = new_total_assets;
+    this.setMonthlyIncome = function(new_monthly_income) {
+        monthly_income = new_monthly_income;
     };
     
-    this.setMonthlyPay = function(new_monthly_pay) {
-        monthly_pay = new_monthly_pay;
+    this.setTotalAssets = function(new_total_assets) {
+        total_assets = new_total_assets;
     };
     
     this.setMonthlyExpenses = function(new_monthly_expenses) {
