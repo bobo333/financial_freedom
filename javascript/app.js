@@ -62,8 +62,11 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     createRetirementGraph(retirement_data['data_to_graph']);
     
     function createRetirementGraph(data_to_graph) {
+        window_width = $(window).width();
+        scroll_bar_width = 20;
+    
         var margin = {top: 20, right: 20, bottom: 30, left: 100},
-            width = 960 - margin.left - margin.right,
+            width = window_width - margin.left - margin.right - scroll_bar_width,
             height = 500 - margin.top - margin.bottom;
         
         var cur_date = new Date();
