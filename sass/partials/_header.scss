@@ -18,7 +18,7 @@ $title_color: #FFFFFF;
 }
 
 .header-text {
-font-family: 'Oxygen', sans-serif;
+font-family: $brand_font_family;
 color: $title_color;
 text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
 text-align: center;
@@ -32,11 +32,11 @@ text-align: center;
 
 .productName {
 	font-size: $base_font_size*3;
-	font-weight: 700;
+	font-weight: $brand_font_weight_bold;
 }
 
 .tagLine {
-	font-weight: 300;
+	font-weight: $brand_font_weight_light;
 }
 
 .navbar {

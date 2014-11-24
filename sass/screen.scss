@@ -6,6 +6,10 @@
 @import "partials/base";
 @import "partials/header";
 
+body {
+	font-family: $base_font_family;
+}
+
 .retirement-years {
     color: green;
 }

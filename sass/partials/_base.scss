@@ -7,15 +7,20 @@
 @import "../bower_components/sass-mediaqueries/media-queries";
 
 // Font weights
-$light: 100;
-$regular: 300;
-$bold: 600;
+
+// Brand Name Font
+$brand_font_family: 'Oxygen', sans-serif;
+$brand_font_weight_light: 300;
+$brand_font_weight_bold: 700;
 
 // Base Font
-$base_font_family: sans-serif;
-$base_font_weight: $regular;
+$base_font_family: 'Open Sans', sans-serif;
 $base_font_size: 13px;
 $base_line_height: 1.4;
+$base_font_weight_light: 300;
+$base_font_weight_normal: 300;
+$base_font_weight_semi_bold: 600;
+$base_font_weight: $base_font_weight_normal;
 
 // Fixed Font
 $fixed_font_family: monospace;
@@ -23,7 +28,7 @@ $fixed_font_size: 85%;
 $fixed_line_height: $base_line_height;
 
 // Headings
-$header_font_weight: $bold;
+
 
 // Colors
 $primary_green: #1D8E3B;
