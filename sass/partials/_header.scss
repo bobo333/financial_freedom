@@ -17,12 +17,16 @@ $title_color: #FFFFFF;
 {
 }
 
-.headerText {
+.header-text {
 font-family: 'Oxygen', sans-serif;
 color: $title_color;
 text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
 text-align: center;
 @include vertical-align;
+	a, a:hover {
+		color: $title_color;
+		text-decoration: none;
+	}
 
 }
 

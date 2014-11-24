@@ -25,9 +25,11 @@
     <body>
 
         <div class="header navbar navbar-default">
-            <div class="headerText">
-                <p class="productName">Beanstalk</p>
-                <p class="tagLine">Countdown to retirement</p>
+            <div class="header-text">
+                <a href="#income">
+                    <p class="productName">Beanstalk</p>
+                    <p class="tagLine">Countdown to retirement</p>
+                </a>
             </div>
         </div>
 
