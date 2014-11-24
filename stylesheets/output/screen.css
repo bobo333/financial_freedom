@@ -114,12 +114,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-radius: 0px;
 }
 
-/* line 3, ../../sass/partials/_input.scss */
-.view-title {
+/* line 2, ../../sass/partials/_input.scss */
+.input-title {
   font-size: 65px;
   color: #404040;
   line-height: 117px;
   font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* line 10, ../../sass/screen.scss */
