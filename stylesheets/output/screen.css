@@ -114,34 +114,42 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-radius: 0px;
 }
 
-/* line 9, ../../sass/screen.scss */
+/* line 3, ../../sass/partials/_input.scss */
+.view-title {
+  font-size: 65px;
+  color: #404040;
+  line-height: 117px;
+  font-weight: 600;
+}
+
+/* line 10, ../../sass/screen.scss */
 body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* line 13, ../../sass/screen.scss */
+/* line 14, ../../sass/screen.scss */
 .retirement-years {
   color: green;
 }
 
-/* line 17, ../../sass/screen.scss */
+/* line 18, ../../sass/screen.scss */
 .expense-line, .withdraw-line {
   stroke-width: 1;
   fill: none;
   shapeRendering: crispEdges;
 }
 
-/* line 23, ../../sass/screen.scss */
+/* line 24, ../../sass/screen.scss */
 .expense-line {
   stroke: red;
 }
 
-/* line 27, ../../sass/screen.scss */
+/* line 28, ../../sass/screen.scss */
 .withdraw-line {
   stroke: green;
 }
 
-/* line 31, ../../sass/screen.scss */
+/* line 32, ../../sass/screen.scss */
 .axis line, .axis path {
   fill: none;
   stroke: #000000;

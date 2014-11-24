@@ -8,7 +8,7 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     })
     .when('/assets', {
         templateUrl: 'partials/assets_input.html',
-        controller: 'AssetsInputController',
+        controller: 'AssetsInputController'
     })
     .when('/expenses', {
         templateUrl: 'partials/expenses_input.html',

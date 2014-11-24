@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div ng-view></div>
+        <div ng-view class="input-view"></div>
 
     </body>
 
