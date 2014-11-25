@@ -57,5 +57,9 @@ text-align: center;
             border-right: none;
             width: 33.4%; // to fix the .1% offset it was showing
         }
+        
+        &.active {
+            font-weight: bold;
+        }
     }
 }

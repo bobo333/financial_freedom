@@ -125,6 +125,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-right: none;
   width: 33.4%;
 }
+/* line 61, ../../sass/partials/_header.scss */
+.header-tabs .tab.active {
+  font-weight: bold;
+}
 
 /* line 9, ../../sass/screen.scss */
 .retirement-years {

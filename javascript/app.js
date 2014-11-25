@@ -23,8 +23,10 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     });
 }]);
 
-FinancialFreedom.controller('RetirementCalculatorController', ['$scope', 'RetirementCalculatorService',  function($scope, RetirementCalculatorService) {
-    
+FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
+    $scope.isActive = function(route) {
+        return route == $location.path();
+    };
 
 }]);
 

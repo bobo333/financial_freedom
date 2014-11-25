@@ -24,7 +24,7 @@
     
     <body>
 
-        <div class="header-wrap">
+        <div class="header-wrap" ng-controller="HeaderController">
             <div class="header navbar navbar-default">
                 <div class="headerText">
                     <p class="productName">Beanstalk</p>
@@ -33,11 +33,11 @@
             </div>
             
             <div class="header-tabs">
-                <div class="tab income-tab">
+                <div class="tab income-tab" ng-class="{'active': isActive('/income')}">
                     Income
-                </div><div class="tab assets-tab">
+                </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}">
                     Assets
-                </div><div class="tab expenses-tab">
+                </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}">
                     Expenses
                 </div>
             </div>
