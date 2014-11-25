@@ -27,6 +27,10 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     $scope.isActive = function(route) {
         return route == $location.path();
     };
+    
+    $scope.goToRoute = function(route) {
+        $location.path(route);
+    };
 
 }]);
 

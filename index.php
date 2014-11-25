@@ -33,11 +33,11 @@
             </div>
             
             <div class="header-tabs">
-                <div class="tab income-tab" ng-class="{'active': isActive('/income')}">
+                <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
                     Income
-                </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}">
+                </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
                     Assets
-                </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}">
+                </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
                     Expenses
                 </div>
             </div>

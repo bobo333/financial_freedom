@@ -129,6 +129,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .header-tabs .tab.active {
   font-weight: bold;
 }
+/* line 65, ../../sass/partials/_header.scss */
+.header-tabs .tab:hover {
+  cursor: pointer;
+}
 
 /* line 9, ../../sass/screen.scss */
 .retirement-years {
