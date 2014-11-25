@@ -38,8 +38,8 @@ FinancialFreedom.controller('IncomeInputController', ['$scope', 'RetirementCalcu
     $scope.income = {};
     $scope.income.value = RetirementCalculatorService.getMonthlyIncome();
     
-    $scope.$watch('income.value', function() {
-        RetirementCalculatorService.setMonthlyIncome($scope.income.value);
+    $scope.$watch('income.value', function(new_value) {
+        RetirementCalculatorService.setMonthlyIncome(new_value);
     });
 
 }]);
@@ -48,8 +48,8 @@ FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalcu
     $scope.assets = {};
     $scope.assets.value = RetirementCalculatorService.getTotalAssets();
     
-    $scope.$watch('assets.value', function() {
-        RetirementCalculatorService.setTotalAssets($scope.assets.value);
+    $scope.$watch('assets.value', function(new_value) {
+        RetirementCalculatorService.setTotalAssets(new_value);
     });
 }]);
 
@@ -57,8 +57,8 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCal
     $scope.expenses = {};
     $scope.expenses.value = RetirementCalculatorService.getMonthlyExpenses();
     
-    $scope.$watch('expenses.value', function() {
-        RetirementCalculatorService.setMonthlyExpenses($scope.expenses.value);
+    $scope.$watch('expenses.value', function(new_value) {
+        RetirementCalculatorService.setMonthlyExpenses(new_value);
     });
 }]);
 
