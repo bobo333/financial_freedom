@@ -24,13 +24,25 @@
     
     <body>
 
-        <div class="header navbar navbar-default">
-            <div class="headerText">
-                <p class="productName">Beanstalk</p>
-                <p class="tagLine">Countdown to retirement</p>
+        <div class="header-wrap">
+            <div class="header navbar navbar-default">
+                <div class="headerText">
+                    <p class="productName">Beanstalk</p>
+                    <p class="tagLine">Countdown to retirement</p>
+                </div>
+            </div>
+            
+            <div class="header-tabs">
+                <div class="tab income-tab">
+                    Income
+                </div><div class="tab assets-tab">
+                    Assets
+                </div><div class="tab expenses-tab">
+                    Expenses
+                </div>
             </div>
         </div>
-
+        
         <div ng-view></div>
 
     </body>
