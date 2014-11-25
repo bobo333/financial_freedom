@@ -6,29 +6,32 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     var INCOME_INCREASE_RATE = .05;
     var GROWTH_RATE = .075;
     
-    var total_assets = 0;
-    var monthly_income = 0;
-    var monthly_expenses = 0;
+    var total_assets;
+    var monthly_income;
+    var monthly_expenses;
 
     this.calculateMonthsToRetirement = function() {
         var MONTHLY_INFLATION_RATE = this.calculatePeriodInterestRate(INFLATION_RATE, 12);
         var MONTHLY_GROWTH_RATE = this.calculatePeriodInterestRate(GROWTH_RATE, 12);
         var months = 0;
         var data_to_graph = [];
+        var local_total_assets = total_assets;
+        var local_monthly_income = monthly_income;
+        var local_monthly_expenses = monthly_expenses;
 
-        while (!checkIfCanRetire(total_assets, monthly_expenses * 12)) {
+        while (!checkIfCanRetire(local_total_assets, local_monthly_expenses * 12)) {
             data_to_graph.push(
                 {
-                    expenses: monthly_expenses, 
-                    withdraw_limit: .04 * total_assets / 12
+                    expenses: local_monthly_expenses, 
+                    withdraw_limit: .04 * local_total_assets / 12
                 }
             );
-            total_assets = updateTotalAssets(total_assets, monthly_income, monthly_expenses, MONTHLY_GROWTH_RATE);
-            monthly_expenses = addInterest(monthly_expenses, MONTHLY_INFLATION_RATE);
+            local_total_assets = updateTotalAssets(local_total_assets, local_monthly_income, local_monthly_expenses, MONTHLY_GROWTH_RATE);
+            local_monthly_expenses = addInterest(local_monthly_expenses, MONTHLY_INFLATION_RATE);
             months++;
             
             if (months % 12 === 0) {
-                monthly_income = addInterest(monthly_income, INCOME_INCREASE_RATE);
+                local_monthly_income = addInterest(local_monthly_income, INCOME_INCREASE_RATE);
             }
             
             if (months >= 1200) {
@@ -46,23 +49,23 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         
             data_to_graph.push(
                 {
-                    expenses: monthly_expenses, 
-                    withdraw_limit: .04 * total_assets / 12
+                    expenses: local_monthly_expenses, 
+                    withdraw_limit: .04 * local_total_assets / 12
                 }
             );
-            total_assets = updateTotalAssets(total_assets, monthly_income, monthly_expenses, MONTHLY_GROWTH_RATE);
-            monthly_expenses = addInterest(monthly_expenses, MONTHLY_INFLATION_RATE);
+            local_total_assets = updateTotalAssets(local_total_assets, local_monthly_income, local_monthly_expenses, MONTHLY_GROWTH_RATE);
+            local_monthly_expenses = addInterest(local_monthly_expenses, MONTHLY_INFLATION_RATE);
             months++;
             
             if (months % 12 === 0) {
-                monthly_income = addInterest(monthly_income, INCOME_INCREASE_RATE);
+                local_monthly_income = addInterest(local_monthly_income, INCOME_INCREASE_RATE);
             }
         }
         
         data_to_graph.push(
             {
-                expenses: monthly_expenses, 
-                withdraw_limit: .04 * total_assets / 12
+                expenses: local_monthly_expenses, 
+                withdraw_limit: .04 * local_total_assets / 12
             }
         );
         
@@ -92,12 +95,24 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return original_total * (1 + interest_rate);
     };
     
+    this.getMonthlyIncome = function() {
+        return monthly_income;
+    };
+    
     this.setMonthlyIncome = function(new_monthly_income) {
         monthly_income = new_monthly_income;
     };
     
+    this.getTotalAssets = function() {
+        return total_assets;
+    };
+    
     this.setTotalAssets = function(new_total_assets) {
         total_assets = new_total_assets;
+    };
+    
+    this.getMonthlyExpenses = function() {
+        return monthly_expenses;
     };
     
     this.setMonthlyExpenses = function(new_monthly_expenses) {
