@@ -5,6 +5,7 @@
 
 @import "partials/base";
 @import "partials/header";
+@import "partials/next_button";
 
 .retirement-years {
     color: green;
@@ -28,4 +29,8 @@
     fill: none;
     stroke: #000000;
     shapeRendering: crispEdges;
+}
+
+.view-content {
+    padding-bottom: $next-button-height;
 }

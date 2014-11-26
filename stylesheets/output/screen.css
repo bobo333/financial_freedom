@@ -92,18 +92,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   transform: translateY(-50%);
 }
 
-/* line 30, ../../sass/partials/_header.scss */
+/* line 29, ../../sass/partials/_header.scss */
 .productName {
   font-size: 39px;
   font-weight: 700;
 }
 
-/* line 35, ../../sass/partials/_header.scss */
+/* line 34, ../../sass/partials/_header.scss */
 .tagLine {
   font-weight: 300;
 }
 
-/* line 39, ../../sass/partials/_header.scss */
+/* line 38, ../../sass/partials/_header.scss */
 .navbar {
   border: none;
   border-radius: 0px;
@@ -111,54 +111,87 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-bottom: 1px solid black;
 }
 
-/* line 48, ../../sass/partials/_header.scss */
+/* line 47, ../../sass/partials/_header.scss */
 .header-tabs .tab {
+  font-family: 'Oxygen', sans-serif;
   display: inline-block;
   width: 33.3%;
   text-align: center;
   border-right: 1px solid black;
   background: #1E8E3B;
   color: #FFFFFF;
+  padding: 10px;
 }
-/* line 56, ../../sass/partials/_header.scss */
+/* line 57, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   border-right: none;
   width: 33.4%;
 }
-/* line 61, ../../sass/partials/_header.scss */
+/* line 62, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
 }
-/* line 65, ../../sass/partials/_header.scss */
+/* line 66, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
 }
 
-/* line 9, ../../sass/screen.scss */
+/* line 3, ../../sass/partials/_next_button.scss */
+.next-button {
+  font-family: 'Oxygen', sans-serif;
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #1E8E3B;
+  text-align: center;
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+/* line 14, ../../sass/partials/_next_button.scss */
+.next-button.active {
+  opacity: 1;
+  cursor: pointer;
+}
+/* line 19, ../../sass/partials/_next_button.scss */
+.next-button .text {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 10, ../../sass/screen.scss */
 .retirement-years {
   color: green;
 }
 
-/* line 13, ../../sass/screen.scss */
+/* line 14, ../../sass/screen.scss */
 .expense-line, .withdraw-line {
   stroke-width: 1;
   fill: none;
   shapeRendering: crispEdges;
 }
 
-/* line 19, ../../sass/screen.scss */
+/* line 20, ../../sass/screen.scss */
 .expense-line {
   stroke: red;
 }
 
-/* line 23, ../../sass/screen.scss */
+/* line 24, ../../sass/screen.scss */
 .withdraw-line {
   stroke: green;
 }
 
-/* line 27, ../../sass/screen.scss */
+/* line 28, ../../sass/screen.scss */
 .axis line, .axis path {
   fill: none;
   stroke: #000000;
   shapeRendering: crispEdges;
+}
+
+/* line 34, ../../sass/screen.scss */
+.view-content {
+  padding-bottom: 70px;
 }

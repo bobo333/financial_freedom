@@ -23,6 +23,29 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     });
 }]);
 
+FinancialFreedom.directive('nextButton', ['$location', function($location) {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            inputValue: '@',
+            nextRoute: '@'
+        },
+        template: '<div ng-click="goToNextRoute()" ng-class="{active: isButtonActive()}" class="next-button"><div class="text">Next</div></div>',
+        link: function(scope, element, attributes) {
+            scope.goToNextRoute = function() {
+                if (scope.isButtonActive()) {
+                    $location.path(scope.nextRoute);
+                }
+            };
+            
+            scope.isButtonActive = function() {
+                return (scope.inputValue != undefined) && (scope.inputValue != '') && (!isNaN(scope.inputValue));
+            };
+        }
+    }
+}]);
+
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
     $scope.isActive = function(route) {
         return route == $location.path();
