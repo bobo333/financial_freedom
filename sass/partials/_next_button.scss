@@ -1,0 +1,16 @@
+$next-button-height: 70px;
+
+.next-button {
+    height: $next-button-height;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: $header-gradient-top;
+    text-align: center;
+    color: $title-color;
+    opacity: 0.5;
+    
+    &.active {
+        opacity: 1;
+    }
+}
