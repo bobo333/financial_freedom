@@ -52,6 +52,7 @@ $title_color: #FFFFFF;
         border-right: 1px solid $tab_border_color;
         background: $header_gradient_top;
         color: $title_color;
+        padding: 10px;
         
         &:last-child {
             border-right: none;

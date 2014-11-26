@@ -120,17 +120,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-right: 1px solid black;
   background: #1E8E3B;
   color: #FFFFFF;
+  padding: 10px;
 }
-/* line 56, ../../sass/partials/_header.scss */
+/* line 57, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   border-right: none;
   width: 33.4%;
 }
-/* line 61, ../../sass/partials/_header.scss */
+/* line 62, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
 }
-/* line 65, ../../sass/partials/_header.scss */
+/* line 66, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
 }
