@@ -8,6 +8,7 @@
 
 angular.module('ng-currency', [])
     .directive('ngCurrency', ['$filter', '$locale', function ($filter, $locale) {
+    
         return {
             require: 'ngModel',
             scope: {
@@ -64,7 +65,11 @@ angular.module('ng-currency', [])
                 });
 
                 ngModel.$formatters.unshift(function (value) {
-                    return $filter('currency')(value);
+                    display_value = $filter('currency')(value);
+                    if (display_value != undefined) {
+                        display_value = display_value.substr(1);  // remove the leading dollar sign
+                    }
+                    return display_value;
                 });
 
                 scope.$watch(function () {

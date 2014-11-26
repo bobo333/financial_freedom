@@ -1,4 +1,4 @@
-<div>
+<div class="view-content">
     
     <div class="input-title">Income</div>
     
@@ -8,6 +8,6 @@
         $<input type="text" placeholder="3,500" ng-currency ng-model="income.value"> per month
     </div>
     
-    <div><a href="#assets">Next</a></div>
+    <next-button input-value="{{income.value}}" next-route="assets"></next-button>
     
 </div>

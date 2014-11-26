@@ -25,6 +25,7 @@
     
     <body>
 
+<<<<<<< HEAD
         <div class="header navbar navbar-default">
             <div class="header-text">
                 <a href="#income">
@@ -36,6 +37,29 @@
 
         <div ng-view class="input-view"></div>
 
+=======
+        <div class="header-wrap" ng-controller="HeaderController">
+            <div class="header navbar navbar-default">
+                <div class="headerText">
+                    <p class="productName">Beanstalk</p>
+                    <p class="tagLine">Countdown to retirement</p>
+                </div>
+            </div>
+            
+            <div class="header-tabs">
+                <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
+                    Income
+                </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
+                    Assets
+                </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
+                    Expenses
+                </div>
+            </div>
+        </div>
+        
+        <div ng-view></div>
+
+>>>>>>> 79d3f9af04dae6f113f5fa613161263a594aa72a
     </body>
 
 </html>

@@ -5,11 +5,15 @@
 
 @import "partials/base";
 @import "partials/header";
+<<<<<<< HEAD
 @import "partials/input";
 
 body {
 	font-family: $base_font_family;
 }
+=======
+@import "partials/next_button";
+>>>>>>> 79d3f9af04dae6f113f5fa613161263a594aa72a
 
 .retirement-years {
     color: green;
@@ -33,4 +37,8 @@ body {
     fill: none;
     stroke: #000000;
     shapeRendering: crispEdges;
+}
+
+.view-content {
+    padding-bottom: $next-button-height;
 }

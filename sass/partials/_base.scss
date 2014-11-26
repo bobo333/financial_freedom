@@ -34,6 +34,11 @@ $fixed_line_height: $base_line_height;
 $primary_green: #1D8E3B;
 $dark_green: #055D1C;
 
+// Custom Fonts
+@mixin basic-font {
+    font-family: 'Oxygen', sans-serif;
+}
+
 // Alignment
 @mixin vertical-align {
   position: relative;
