@@ -25,19 +25,6 @@
     
     <body>
 
-<<<<<<< HEAD
-        <div class="header navbar navbar-default">
-            <div class="header-text">
-                <a href="#income">
-                    <p class="productName">Beanstalk</p>
-                    <p class="tagLine">Countdown to retirement</p>
-                </a>
-            </div>
-        </div>
-
-        <div ng-view class="input-view"></div>
-
-=======
         <div class="header-wrap" ng-controller="HeaderController">
             <div class="header navbar navbar-default">
                 <div class="headerText">
@@ -58,8 +45,6 @@
         </div>
         
         <div ng-view></div>
-
->>>>>>> 79d3f9af04dae6f113f5fa613161263a594aa72a
     </body>
 
 </html>
