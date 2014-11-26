@@ -19,22 +19,23 @@ $title_color: #FFFFFF;
 }
 
 .header-text {
-font-family: $brand_font_family;
-color: $title_color;
-text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
-text-align: center;
+    font-family: $brand_font_family;
+    color: $title_color;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
+    text-align: center;
 @include vertical-align;
 	a, a:hover {
 		color: $title_color;
 		text-decoration: none;
 	}
+}
 
-.productName {
+.product-name {
 	font-size: $base_font_size*3;
 	font-weight: $brand_font_weight_bold;
 }
 
-.tagLine {
+.tag-line {
 	font-weight: $brand_font_weight_light;
 }
 

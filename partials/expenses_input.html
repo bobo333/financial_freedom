@@ -1,10 +1,10 @@
 <div>
-    <div class"input-title">Expenses</div>
+    <div class="input-title">Expenses</div>
     
-    <div>Bills, rent, mortgage interest, and spending every month</div>
+    <div class="step-subheader">Bills, rent, mortgage interest, and spending every month</div>
     
-    <div>
-        $<input type="text" placeholder="3,500" ng-currency ng-model="expenses.value"> per month
+    <div class="input-field">
+        $<input type="text" placeholder="3,500" ng-currency ng-model="expenses.value"><span class="after-input-text">per month</span>
     </div>
     
     <next-button input-value="{{expenses.value}}" next-route="time-to-retirement"></next-button>

@@ -4,7 +4,7 @@
 
     <head>
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
         
@@ -27,9 +27,9 @@
 
         <div class="header-wrap" ng-controller="HeaderController">
             <div class="header navbar navbar-default">
-                <div class="headerText">
-                    <p class="productName">Beanstalk</p>
-                    <p class="tagLine">Countdown to retirement</p>
+                <div class="header-text">
+                    <p class="product-name">Beanstalk</p>
+                    <p class="tag-line">Countdown to retirement</p>
                 </div>
             </div>
             

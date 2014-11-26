@@ -5,18 +5,15 @@
 
 @import "partials/base";
 @import "partials/header";
-<<<<<<< HEAD
 @import "partials/input";
+@import "partials/next_button";
+
 
 body {
 	font-family: $base_font_family;
 }
-=======
-@import "partials/next_button";
->>>>>>> 79d3f9af04dae6f113f5fa613161263a594aa72a
 
 .retirement-years {
-    color: green;
 }
 
 .expense-line, .withdraw-line {
