@@ -19,12 +19,11 @@ $title_color: #FFFFFF;
 }
 
 .headerText {
-font-family: 'Oxygen', sans-serif;
-color: $title_color;
-text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
-text-align: center;
-@include vertical-align;
-
+    @include basic-font;
+    color: $title_color;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
+    text-align: center;
+    @include vertical-align;
 }
 
 .productName {
@@ -46,6 +45,7 @@ text-align: center;
 .header-tabs {
     
     .tab {
+        @include basic-font;
         display: inline-block;
         width: 33.3%;
         text-align: center;
