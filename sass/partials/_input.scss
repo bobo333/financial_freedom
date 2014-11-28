@@ -4,18 +4,31 @@ $input_field_width: 500px;
 input[type="text"] {
   @include input-placeholder {
     font-family: $base_font_weight_light;
-	font-size: 62px;
+	font-size: $base_font_size * 4;
 	color: rgba(119,119,119,0.22);
     font-style: italic;
     vertical-align: middle;
-
-
+    @include min-screen($screen_sm_min) 
+	{
+		font-size: $base_font_size * 6;
+		line-height: $base_line_height;
+	}
   }
-  line-height: normal;
-  width: $input_field_width;
+
+  @include min-screen($screen_md_min) 
+	{
+		width: $input_field_width;
+		line-height: $base_line_height;
+	}
+  width: $input_field_width / 2;
   height: 100px;
   padding-left: $input_field_width * 0.04;
   margin-left: 20px;
+  border: none;
+  border-bottom-style: solid;
+  border-bottom-color: #404040;
+  border-bottom-width: 1px;
+
 }
 
 .input-title {
@@ -29,7 +42,13 @@ input[type="text"] {
 }
 
 .step-subheader {
-	font-size: $base_font_size * 2;
+
+	font-size: $base_font_size;
+
+	@include min-screen($screen_sm_min) 
+	{
+		font-size: $base_font_size * 2;
+	}
 	color: #404040;
 	line-height: 32px;
 	text-align: center;
@@ -37,16 +56,33 @@ input[type="text"] {
 }
 
 .input-field {
+
+	font-size: $base_font_size * 4;
 	text-align: center;
 	font-weight: $base_font_weight_light;
-	font-size: $base_font_size * 6;
+	line-height: normal;
+
+	@include min-screen($screen_sm_min) 
+	{
+		font-size: $base_font_size * 6;
+
+		.after-input-text {
+			vertical-align: middle;
+			font-size: $base_font_size * 3;
+		}
+	}
+	
 	margin-top: 50px;
 
 	.after-input-text {
-		font-size: $base_font_size * 3;
+		font-size: $base_font_size * 1.5;
 		margin-left: 20px;
-		vertical-align: middle;
 	}
+}
+
+input:focus {
+	outline: none;
+  	@include box-shadow(none !important);
 }
 
 .retirement-time-units {

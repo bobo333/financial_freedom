@@ -143,46 +143,84 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 4, ../../sass/partials/_input.scss */
 input[type="text"] {
-  line-height: normal;
-  width: 500px;
+  width: 250px;
   height: 100px;
   padding-left: 20px;
   margin-left: 20px;
+  border: none;
+  border-bottom-style: solid;
+  border-bottom-color: #404040;
+  border-bottom-width: 1px;
 }
 /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"]:-moz-placeholder {
   font-family: 300;
-  font-size: 62px;
+  font-size: 52px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   vertical-align: middle;
+}
+@media screen and (min-width: 768px) {
+  /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  input[type="text"]:-moz-placeholder {
+    font-size: 78px;
+    line-height: 1;
+  }
 }
 /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"]::-moz-placeholder {
   font-family: 300;
-  font-size: 62px;
+  font-size: 52px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   vertical-align: middle;
+}
+@media screen and (min-width: 768px) {
+  /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  input[type="text"]::-moz-placeholder {
+    font-size: 78px;
+    line-height: 1;
+  }
 }
 /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"]:-ms-input-placeholder {
   font-family: 300;
-  font-size: 62px;
+  font-size: 52px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   vertical-align: middle;
+}
+@media screen and (min-width: 768px) {
+  /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  input[type="text"]:-ms-input-placeholder {
+    font-size: 78px;
+    line-height: 1;
+  }
 }
 /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"]::-webkit-input-placeholder {
   font-family: 300;
-  font-size: 62px;
+  font-size: 52px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   vertical-align: middle;
 }
+@media screen and (min-width: 768px) {
+  /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  input[type="text"]::-webkit-input-placeholder {
+    font-size: 78px;
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 4, ../../sass/partials/_input.scss */
+  input[type="text"] {
+    width: 500px;
+    line-height: 1;
+  }
+}
 
-/* line 21, ../../sass/partials/_input.scss */
+/* line 34, ../../sass/partials/_input.scss */
 .input-title, .retirement-years {
   font-size: 65px;
   color: #404040;
@@ -193,36 +231,61 @@ input[type="text"]::-webkit-input-placeholder {
   margin-top: 50px;
 }
 
-/* line 31, ../../sass/partials/_input.scss */
+/* line 44, ../../sass/partials/_input.scss */
 .step-subheader {
-  font-size: 26px;
+  font-size: 13px;
   color: #404040;
   line-height: 32px;
   text-align: center;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  /* line 44, ../../sass/partials/_input.scss */
+  .step-subheader {
+    font-size: 26px;
+  }
+}
 
-/* line 39, ../../sass/partials/_input.scss */
+/* line 58, ../../sass/partials/_input.scss */
 .input-field {
+  font-size: 52px;
   text-align: center;
   font-weight: 300;
-  font-size: 78px;
+  line-height: normal;
   margin-top: 50px;
 }
-/* line 45, ../../sass/partials/_input.scss */
+@media screen and (min-width: 768px) {
+  /* line 58, ../../sass/partials/_input.scss */
+  .input-field {
+    font-size: 78px;
+  }
+  /* line 69, ../../sass/partials/_input.scss */
+  .input-field .after-input-text, .input-field .retirement-time-units {
+    vertical-align: middle;
+    font-size: 39px;
+  }
+}
+/* line 77, ../../sass/partials/_input.scss */
 .input-field .after-input-text, .input-field .retirement-time-units {
-  font-size: 39px;
+  font-size: 19.5px;
   margin-left: 20px;
-  vertical-align: middle;
 }
 
-/* line 52, ../../sass/partials/_input.scss */
+/* line 83, ../../sass/partials/_input.scss */
+input:focus {
+  outline: none;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* line 88, ../../sass/partials/_input.scss */
 .retirement-time-units {
   text-align: center;
   text-transform: uppercase;
 }
 
-/* line 59, ../../sass/partials/_input.scss */
+/* line 95, ../../sass/partials/_input.scss */
 .retirement-years {
   font-size: 130px;
 }
