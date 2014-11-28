@@ -2,15 +2,23 @@ $next-button-height: 70px;
 
 .next-button {
     @include basic-font;
-    height: $next-button-height;
     position: fixed;
-    width: 100%;
+    height: $next-button-height;
     bottom: 0;
     background: $header-gradient-top;
     text-align: center;
     color: $title-color;
     opacity: 0.7;
-    
+    width: 100%;
+
+    @include min-screen($screen_sm_min) {
+        width: 400px;
+        display: block;
+        margin: 70px auto auto auto;
+        @include border-radius(10px);
+        position: relative;
+    }
+
     &.active {
         opacity: 1;
         cursor: pointer;
@@ -18,5 +26,7 @@ $next-button-height: 70px;
     
     .text {
         @include vertical-align;
+        text-transform: uppercase;
+        font-size: $base-font-size*2;
     }
 }

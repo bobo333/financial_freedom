@@ -293,27 +293,41 @@ input:focus {
 /* line 3, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
-  height: 70px;
   position: fixed;
-  width: 100%;
+  height: 70px;
   bottom: 0;
   background: #1e8e3b;
   text-align: center;
   color: white;
   opacity: 0.7;
+  width: 100%;
 }
-/* line 14, ../../sass/partials/_next_button.scss */
+@media screen and (min-width: 768px) {
+  /* line 3, ../../sass/partials/_next_button.scss */
+  .next-button {
+    width: 400px;
+    display: block;
+    margin: 70px auto auto auto;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+}
+/* line 22, ../../sass/partials/_next_button.scss */
 .next-button.active {
   opacity: 1;
   cursor: pointer;
 }
-/* line 19, ../../sass/partials/_next_button.scss */
+/* line 27, ../../sass/partials/_next_button.scss */
 .next-button .text {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  text-transform: uppercase;
+  font-size: 26px;
 }
 
 /* line 12, ../../sass/screen.scss */
