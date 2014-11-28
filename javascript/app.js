@@ -46,6 +46,17 @@ FinancialFreedom.directive('nextButton', ['$location', function($location) {
     }
 }]);
 
+FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
+  return {
+    restrict: 'A',
+    link : function($scope, $element) {
+      $timeout(function() {
+        $element[0].focus();
+      });
+    }
+  }
+}]);
+
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
     $scope.isActive = function(route) {
         return route == $location.path();
