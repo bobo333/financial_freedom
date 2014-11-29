@@ -27,19 +27,19 @@
 
         <div class="header-wrap" ng-controller="HeaderController">
             <div class="header navbar navbar-default">
-                <div class="header-text">
+                <div class="header-text" ng-click="goToRoute('/income')">
                     <p class="product-name">Beanstalk</p>
-                    <p class="tag-line">Countdown to retirement</p>
+                    <p class="tag-line">Countdown to financial independence</p>
                 </div>
             </div>
             
             <div class="header-tabs">
                 <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
-                    Income
+                    1
                 </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
-                    Assets
+                    2
                 </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
-                    Expenses
+                    3
                 </div>
             </div>
         </div>
