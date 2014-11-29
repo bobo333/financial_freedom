@@ -366,36 +366,84 @@ input:focus {
   font-size: 26px;
 }
 
-/* line 11, ../../sass/screen.scss */
+/* line 1, ../../sass/partials/_method.scss */
+.method-section {
+  color: #404040;
+  padding: 50px;
+  margin: 10px 30px;
+  float: right;
+}
+@media screen and (min-width: 992px) {
+  /* line 1, ../../sass/partials/_method.scss */
+  .method-section {
+    background: #EEFFDA;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+  }
+}
+
+/* line 13, ../../sass/partials/_method.scss */
+.method-title {
+  font-weight: 600;
+  font-size: 65px;
+  text-align: center;
+}
+
+/* line 19, ../../sass/partials/_method.scss */
+.method-body {
+  font-weight: 300;
+  font-size: 15.6px;
+  margin-top: 50px;
+  line-height: 1.3;
+}
+@media screen and (min-width: 992px) {
+  /* line 19, ../../sass/partials/_method.scss */
+  .method-body {
+    font-size: 19.5px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 19, ../../sass/partials/_method.scss */
+  .method-body {
+    font-size: 26px;
+  }
+}
+/* line 34, ../../sass/partials/_method.scss */
+.method-body li {
+  list-style-type: circle;
+}
+
+/* line 12, ../../sass/screen.scss */
 body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* line 18, ../../sass/screen.scss */
+/* line 19, ../../sass/screen.scss */
 .expense-line, .withdraw-line {
   stroke-width: 1;
   fill: none;
   shapeRendering: crispEdges;
 }
 
-/* line 24, ../../sass/screen.scss */
+/* line 25, ../../sass/screen.scss */
 .expense-line {
   stroke: red;
 }
 
-/* line 28, ../../sass/screen.scss */
+/* line 29, ../../sass/screen.scss */
 .withdraw-line {
   stroke: green;
 }
 
-/* line 32, ../../sass/screen.scss */
+/* line 33, ../../sass/screen.scss */
 .axis line, .axis path {
   fill: none;
   stroke: #000000;
   shapeRendering: crispEdges;
 }
 
-/* line 38, ../../sass/screen.scss */
+/* line 39, ../../sass/screen.scss */
 .view-content {
   padding-bottom: 70px;
 }
