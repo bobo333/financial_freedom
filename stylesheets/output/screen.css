@@ -327,11 +327,11 @@ input:focus {
   font-size: 130px;
 }
 
-/* line 3, ../../sass/partials/_next_button.scss */
+/* line 4, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
   position: fixed;
-  height: 70px;
+  height: 140px;
   bottom: 0;
   background: #1e8e3b;
   text-align: center;
@@ -340,9 +340,10 @@ input:focus {
   width: 100%;
 }
 @media screen and (min-width: 768px) {
-  /* line 3, ../../sass/partials/_next_button.scss */
+  /* line 4, ../../sass/partials/_next_button.scss */
   .next-button {
     width: 400px;
+    height: 70px;
     display: block;
     margin: 70px auto auto auto;
     -moz-border-radius: 10px;
@@ -351,12 +352,12 @@ input:focus {
     position: relative;
   }
 }
-/* line 22, ../../sass/partials/_next_button.scss */
+/* line 24, ../../sass/partials/_next_button.scss */
 .next-button.active {
   opacity: 1;
   cursor: pointer;
 }
-/* line 27, ../../sass/partials/_next_button.scss */
+/* line 29, ../../sass/partials/_next_button.scss */
 .next-button .text {
   position: relative;
   top: 50%;
@@ -367,58 +368,120 @@ input:focus {
   font-size: 26px;
 }
 
-/* line 1, ../../sass/partials/_method.scss */
+/* line 3, ../../sass/partials/_method.scss */
 .method-section {
   color: #404040;
-  padding: 50px;
-  margin: 10px 30px;
   float: right;
+  position: relative;
+  padding-left: 0px;
+  font-weight: 300;
+  font-size: 15.6px;
 }
 @media screen and (min-width: 992px) {
-  /* line 1, ../../sass/partials/_method.scss */
+  /* line 3, ../../sass/partials/_method.scss */
   .method-section {
+    font-size: 19.5px;
     background: #EEFFDA;
+    margin: 10px 30px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
   }
+  /* line 17, ../../sass/partials/_method.scss */
+  .method-section .about-button {
+    -moz-border-radius-bottomleft: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 3, ../../sass/partials/_method.scss */
+  .method-section {
+    font-size: 26px;
+  }
 }
 
-/* line 13, ../../sass/partials/_method.scss */
+/* line 27, ../../sass/partials/_method.scss */
+.how-content {
+  padding: 50px;
+  margin-bottom: 50px;
+}
+
+/* line 33, ../../sass/partials/_method.scss */
 .method-title {
   font-weight: 600;
   font-size: 65px;
   text-align: center;
 }
 
-/* line 19, ../../sass/partials/_method.scss */
+/* line 39, ../../sass/partials/_method.scss */
 .method-body {
-  font-weight: 300;
-  font-size: 15.6px;
   margin-top: 50px;
   line-height: 1.3;
 }
-@media screen and (min-width: 992px) {
-  /* line 19, ../../sass/partials/_method.scss */
-  .method-body {
-    font-size: 19.5px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  /* line 19, ../../sass/partials/_method.scss */
-  .method-body {
-    font-size: 26px;
-  }
-}
-/* line 34, ../../sass/partials/_method.scss */
+/* line 44, ../../sass/partials/_method.scss */
 .method-body li {
   list-style-type: circle;
 }
 
-/* line 39, ../../sass/partials/_method.scss */
-.subsection-header {
+/* line 49, ../../sass/partials/_method.scss */
+.subsection-header, .modal-title {
   margin: 40px auto 40px auto;
   font-weight: 600;
+}
+
+/* line 54, ../../sass/partials/_method.scss */
+.btn-primary {
+  background: #1d8e3b;
+}
+
+/* line 58, ../../sass/partials/_method.scss */
+.about-button {
+  background: #055d1c;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  color: white;
+  border: transparent;
+}
+@media screen and (min-width: 992px) {
+  /* line 58, ../../sass/partials/_method.scss */
+  .about-button {
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px;
+    width: 100%;
+  }
+}
+/* line 71, ../../sass/partials/_method.scss */
+.about-button:hover, .about-button:visited {
+  background: #1d8e3b;
+}
+/* line 77, ../../sass/partials/_method.scss */
+.about-button:focus {
+  outline: none;
+}
+
+/* line 82, ../../sass/partials/_method.scss */
+.about-text {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 86, ../../sass/partials/_method.scss */
+.modal-title {
+  margin: auto auto;
 }
 
 /* line 12, ../../sass/screen.scss */
@@ -452,5 +515,5 @@ body {
 
 /* line 36, ../../sass/screen.scss */
 .view-content {
-  padding-bottom: 70px;
+  padding-bottom: 140px;
 }

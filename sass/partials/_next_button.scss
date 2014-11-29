@@ -1,4 +1,5 @@
-$next-button-height: 70px;
+$next-button-height-min-sm: 70px;
+$next-button-height: 140px;
 
 .next-button {
     @include basic-font;
@@ -13,6 +14,7 @@ $next-button-height: 70px;
 
     @include min-screen($screen_sm_min) {
         width: 400px;
+        height: $next-button-height-min-sm;
         display: block;
         margin: 70px auto auto auto;
         @include border-radius(10px);
@@ -27,6 +29,7 @@ $next-button-height: 70px;
     .text {
         @include vertical-align;
         text-transform: uppercase;
-        font-size: $base-font-size*2;
+        font-size: $base-font-size * 2;
     }
+    
 }

@@ -1,13 +1,33 @@
-.method-section {
-	color: #404040;
-	padding: 50px;
-	@include min-screen($screen_md_min) {
-		background: #EEFFDA;
-		@include border-radius(15px);
-	}
-	margin: 10px 30px;
-	float: right;
+$method-section-border-radius: 15px;
 
+.method-section {
+
+	color: #404040;
+	float: right;
+	position: relative;
+	padding-left: 0px;
+	font-weight: $base_font_weight_light;
+	font-size: $base_font_size * 1.2;
+
+	@include min-screen($screen_md_min) {
+		font-size: $base_font_size * 1.5;
+		background: #EEFFDA;
+		margin: 10px 30px;
+		@include border-radius($method-section-border-radius);
+		.about-button {
+			@include border-bottom-radius($method-section-border-radius);
+		}
+	}
+
+	@include min-screen($screen_lg_min) {
+		font-size: $base_font_size * 2;
+	}
+}
+
+.how-content {
+	padding: 50px;
+	margin-bottom: 50px;
+	
 }
 
 .method-title {
@@ -17,16 +37,6 @@
 }
 
 .method-body {
-	font-weight: $base_font_weight_light;
-	font-size: $base_font_size * 1.2;
-
-	@include min-screen($screen_md_min) {
-		font-size: $base_font_size * 1.5;
-	}
-
-	@include min-screen($screen_lg_min) {
-		font-size: $base_font_size * 2;
-	}
 
 	margin-top: 50px;
 	line-height: $base_line_height * 1.3;
@@ -39,4 +49,41 @@
 .subsection-header {
 	margin: 40px auto 40px auto;
 	font-weight: $base_font_weight_semi_bold;
+}
+
+.btn-primary {
+	background: $primary_green;
+}
+
+.about-button {
+	background: $dark_green;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	text-align: center;
+	color: white;
+	border: transparent;
+	@include min-screen($screen_md_min) {
+		@include border-top-radius(0px);
+		width: 100%;
+	}
+	&:hover, &:visited {
+		background: $primary_green;
+	}
+
+
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.about-text {
+	@include vertical-align;
+}
+
+.modal-title {
+	@extend .subsection-header;
+	margin: auto auto;
 }
