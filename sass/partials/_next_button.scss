@@ -1,5 +1,5 @@
-$next-button-height-min-sm: 70px;
-$next-button-height: 140px;
+$next-button-height-min-sm: 80px;
+$next-button-height: 120px;
 
 .next-button {
     @include basic-font;
@@ -9,14 +9,14 @@ $next-button-height: 140px;
     background: $header-gradient-top;
     text-align: center;
     color: $title-color;
-    opacity: 0.7;
+    opacity: 0.6;
     width: 100%;
 
     @include min-screen($screen_sm_min) {
         width: 400px;
         height: $next-button-height-min-sm;
         display: block;
-        margin: 70px auto auto auto;
+        margin: 30px auto auto auto;
         @include border-radius(10px);
         position: relative;
     }
@@ -29,7 +29,7 @@ $next-button-height: 140px;
     .text {
         @include vertical-align;
         text-transform: uppercase;
-        font-size: $base-font-size * 2;
+        font-size: $base-font-size * 3;
     }
     
 }

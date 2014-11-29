@@ -1,12 +1,15 @@
-<div class="view-content">
-
-    <div class="input-title">Assets</div>
-    
-    <div class="step-subheader">All cash, investments, and property ownership</div>
-    
-    <div class="input-field-wrapper">
-        $<input type="text" autofocus placeholder="50,000" ng-currency ng-model="assets.value" >
-    </div>
+<div class="view-content container-fluid">
+	<div class="row">
+	    <div class="view-body-content col-xs-12 col-md-10 col-md-offset-3">
+		    <div class="input-title">Assets</div>
+		    
+		    <div class="step-subheader">All cash, investments, and property ownership</div>
+		    
+		    <div class="input-field-wrapper">
+		        $<input type="text" autofocus placeholder="50,000" ng-currency ng-model="assets.value" >
+		    </div>
+		</div>
+	</div>
     
     <next-button input-value="{{assets.value}}" next-route="expenses"></next-button>
 

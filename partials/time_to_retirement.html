@@ -1,15 +1,19 @@
 <div>
-    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
-    <br>
-    <div class="retirement-time-units">years and <span class="" ng-bind="retirement.months_to_retirement"></span> months</div> 
-    <br><div class="step-subheader">until financial independence</div> 
-    
-    <br>
+	<div class="container-fluid">
+    	<div class="row">
+    		<div class="col-md-5 retirement-main-output">
+			    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
+			    <br>
+			    <div class="retirement-time-units">years and <span class="" ng-bind="retirement.months_to_retirement"></span> months</div> 
+			    <br><div class="step-subheader">until financial independence</div> 
+			</div>
+			<svg id="retirement-graph" class="col-md-7"></svg>
+	    </div>
+	</div>
+	<br>
     <div class="container-fluid">
     	<div class="row">
-	    	<svg id="retirement-graph" class="col-md-6"></svg>
-
-	    	<div class="method-section col-md-5">
+	    	<div class="method-section">
 	    		<div class="how-content">
 			    	<div class="method-title">How</div>
 			    	<div class="method-body">
