@@ -53,7 +53,6 @@ $border-style: 1px solid rgba(0,0,0,.15);
     @include min-screen($screen_sm_min) {
         width: 60%;
         margin: auto auto auto auto;
-
     }
 
     .tab {
@@ -87,7 +86,6 @@ $border-style: 1px solid rgba(0,0,0,.15);
         
         &.active {
             font-weight: bold;
-            // border-bottom: 5px solid $tab_border_color;
             background: #EEFFDA;
 
             &:hover {
