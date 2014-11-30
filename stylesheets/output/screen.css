@@ -154,21 +154,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 60px;
   font-size: 19.5px;
 }
-/* line 87, ../../sass/partials/_header.scss */
+/* line 77, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   width: 33.4%;
 }
-/* line 92, ../../sass/partials/_header.scss */
+/* line 82, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
   background: #535353;
 }
-/* line 96, ../../sass/partials/_header.scss */
+/* line 86, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
   background: #535353;
 }
-/* line 101, ../../sass/partials/_header.scss */
+/* line 91, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
   background: rgba(216, 216, 216, 0.25);
@@ -376,10 +376,10 @@ input:focus {
 @media screen and (min-width: 768px) {
   /* line 4, ../../sass/partials/_next_button.scss */
   .next-button {
-    width: 400px;
+    width: 250px;
     height: 80px;
     display: block;
-    margin: 30px auto auto auto;
+    margin: 60px auto auto auto;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;

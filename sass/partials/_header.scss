@@ -73,16 +73,6 @@ $border-style: 1px solid rgba(0,0,0,.15);
         color: white;
         height: 60px;
         font-size: $base_font_size * 1.5;
-
-        @include min-screen($screen_sm_min) {
-
-            // &:first-child {
-            //     @include border-bottom-left-radius(15px);
-            // }
-            // &:last-child {
-            //     @include border-bottom-right-radius(15px);
-            // }
-        }   
         
         &:last-child {
             border-right: $border-style;

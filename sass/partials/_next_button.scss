@@ -13,10 +13,10 @@ $next-button-height: 120px;
     width: 100%;
 
     @include min-screen($screen_sm_min) {
-        width: 400px;
+        width: 250px;
         height: $next-button-height-min-sm;
         display: block;
-        margin: 30px auto auto auto;
+        margin: 60px auto auto auto;
         @include border-radius(10px);
         position: relative;
     }
