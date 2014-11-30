@@ -215,13 +215,13 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         legend.append("rect")
             .attr("width", 18)
             .attr("height", 18)
-            .style("fill", function(d, i) { return 'red'; });
+            .attr("class", "expense-label");
             
         legend.append("rect")
             .attr("width", 18)
             .attr("height", 18)
             .attr("transform", "translate(0," + 20 + ") ")
-            .style("fill", function(d, i) { return 'green'; });
+            .attr("class", "withdraw-label");
 
         legend.append("text")
             .attr("x", 24)

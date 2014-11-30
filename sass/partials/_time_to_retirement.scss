@@ -1,6 +1,7 @@
 // Time to retirement
 
-
+$expense_color: red;
+$withdraw_color: green;
 
 
 .expense-line, .withdraw-line {
@@ -10,11 +11,19 @@
 }
 
 .expense-line {
-    stroke: red;
+    stroke: $expense_color;
+}
+
+.expense-label {
+    fill: $expense_color;
 }
 
 .withdraw-line {
-    stroke: green;
+    stroke: $withdraw_color;
+}
+
+.withdraw-label {
+    fill: $withdraw_color;
 }
 
 .axis line, .axis path {

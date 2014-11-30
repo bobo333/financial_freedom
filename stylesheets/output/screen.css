@@ -556,24 +556,34 @@ input:focus {
   transform: translateY(-50%);
 }
 
-/* line 6, ../../sass/partials/_time_to_retirement.scss */
+/* line 7, ../../sass/partials/_time_to_retirement.scss */
 .expense-line, .withdraw-line {
   stroke-width: 1;
   fill: none;
   shapeRendering: crispEdges;
 }
 
-/* line 12, ../../sass/partials/_time_to_retirement.scss */
+/* line 13, ../../sass/partials/_time_to_retirement.scss */
 .expense-line {
   stroke: red;
 }
 
-/* line 16, ../../sass/partials/_time_to_retirement.scss */
+/* line 17, ../../sass/partials/_time_to_retirement.scss */
+.expense-label {
+  fill: red;
+}
+
+/* line 21, ../../sass/partials/_time_to_retirement.scss */
 .withdraw-line {
   stroke: green;
 }
 
-/* line 20, ../../sass/partials/_time_to_retirement.scss */
+/* line 25, ../../sass/partials/_time_to_retirement.scss */
+.withdraw-label {
+  fill: green;
+}
+
+/* line 29, ../../sass/partials/_time_to_retirement.scss */
 .axis line, .axis path {
   fill: none;
   stroke: #000000;
