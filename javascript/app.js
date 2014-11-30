@@ -106,13 +106,34 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     
     createRetirementGraph(retirement_data['data_to_graph']);
     
-    function createRetirementGraph(data_to_graph) {
-        window_width = $(window).width();
-        scroll_bar_width = 20;
+    $(window).resize(function() {
+        createRetirementGraph(retirement_data['data_to_graph']);
+    });
     
-        var margin = {top: 20, right: 20, bottom: 30, left: 100},
-            width = window_width - margin.left - margin.right - scroll_bar_width,
-            height = 500 - margin.top - margin.bottom;
+    function createRetirementGraph(data_to_graph) {
+        container_width = $('#graph-wrapper').width();
+        minimum_graph_height = 500;
+        aspect_ratio = 16 / 9;
+        scroll_bar_width = 20;
+        pixels_per_axis_label = 55;
+    
+        var margin = {top: 20, right: 10, bottom: 30, left: 75},
+            width = container_width - margin.left - margin.right - scroll_bar_width,
+            height = width / aspect_ratio - margin.top - margin.bottom;
+            
+        if (height < minimum_graph_height) {
+            height = minimum_graph_height;
+        }
+        
+        number_of_x_ticks = Math.min(width / pixels_per_axis_label);
+        function yTickFormat(tick_value) {
+            return '$' + tick_value;
+        };
+        
+        var customTimeFormat = d3.time.format.multi([
+            ["%b", function(d) { return d.getMonth(); }],
+            ["%Y", function() { return true; }]
+        ]);
         
         var cur_date = new Date();
         var end_date = new Date();
@@ -120,10 +141,10 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         
         var max_value = d3.max(data_to_graph, function(d) { return d.withdraw_limit; });
         
-        var chart = d3.select('#retirement-graph');
+        d3.select("#retirement-graph svg").remove();
         
+        var chart = d3.select('#retirement-graph').append('svg');
         chart.selectAll("*").remove();
-        
         chart.attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.bottom + margin.top);
             
@@ -137,11 +158,14 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         var xAxis = d3.svg.axis()
             .scale(xScale)
-            .orient('bottom');
+            .orient('bottom')
+            .tickFormat(customTimeFormat)
+            .ticks(number_of_x_ticks);
             
         var yAxis = d3.svg.axis()
             .scale(yScale)
-            .orient("left");
+            .orient("left")
+            .tickFormat(yTickFormat);
             
         chart.append("g")
             .attr("class", "axis x-axis")
@@ -179,6 +203,35 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("class", "withdraw-line")
             .attr("d", withdraw_line(data_to_graph))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+            
+        var legend = chart.append("g")
+            .attr("class", "legend")
+            .attr("width", 200)
+            .attr("height", 100)
+            .attr("transform", "translate(" + (margin.left + width - 110) + ", " + (margin.top + height - 45) + ") ");
+
+        legend.append("rect")
+            .attr("width", 18)
+            .attr("height", 18)
+            .attr("class", "expense-label");
+            
+        legend.append("rect")
+            .attr("width", 18)
+            .attr("height", 18)
+            .attr("transform", "translate(0," + 20 + ") ")
+            .attr("class", "withdraw-label");
+
+        legend.append("text")
+            .attr("x", 24)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            .text(function(d) { return 'expenses'; });
+            
+        legend.append("text")
+            .attr("x", 24)
+            .attr("y", 29)
+            .attr("dy", ".35em")
+            .text(function(d) { return '4% withdrawal'; });
             
     };
 }]);

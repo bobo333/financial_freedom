@@ -1,0 +1,37 @@
+// Time to retirement
+
+$expense_color: red;
+$withdraw_color: green;
+
+
+#retirement-graph {
+    font-size: 12px;
+
+    .expense-line, .withdraw-line {
+        stroke-width: 1;
+        fill: none;
+        shapeRendering: crispEdges;
+    }
+
+    .expense-line {
+        stroke: $expense_color;
+    }
+
+    .expense-label {
+        fill: $expense_color;
+    }
+
+    .withdraw-line {
+        stroke: $withdraw_color;
+    }
+
+    .withdraw-label {
+        fill: $withdraw_color;
+    }
+
+    .axis line, .axis path {
+        fill: none;
+        stroke: #000000;
+        shapeRendering: crispEdges;
+    }
+}
