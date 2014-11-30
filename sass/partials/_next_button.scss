@@ -9,7 +9,7 @@ $next-button-height: 120px;
     background: $header-gradient-top;
     text-align: center;
     color: $title-color;
-    opacity: 0.6;
+    opacity: 0;
     width: 100%;
 
     @include min-screen($screen_sm_min) {
