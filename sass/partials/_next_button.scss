@@ -11,6 +11,7 @@ $next-button-height: 120px;
     color: $title-color;
     opacity: 0;
     width: 100%;
+    @include hover-animation(background);
 
     @include min-screen($screen_sm_min) {
         width: 250px;
@@ -24,6 +25,10 @@ $next-button-height: 120px;
     &.active {
         opacity: 1;
         cursor: pointer;
+    }
+
+    &:hover {
+        background: #1CAD43;
     }
     
     .text {

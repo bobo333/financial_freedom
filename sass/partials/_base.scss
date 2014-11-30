@@ -49,6 +49,12 @@ $body_text_color: #404040;
   transform: translateY(-50%);
 }
 
+@mixin hover-animation($property) {
+    @include transition-property($property);
+    @include transition-timing-function(ease);
+    @include transition-duration(0.3s);
+}
+
 // Breakpoints
 $screen_sm_min: 768px;
 $screen_md_min: 992px;
