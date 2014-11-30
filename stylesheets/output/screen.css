@@ -567,24 +567,35 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* line 25, ../../sass/screen.scss */
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
+*::-moz-selection {
+  color: white;
+  background-color: #7dd193;
+}
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
+*::selection {
+  color: white;
+  background-color: #7dd193;
+}
+
+/* line 29, ../../sass/screen.scss */
 .expense-line, .withdraw-line {
   stroke-width: 1;
   fill: none;
   shapeRendering: crispEdges;
 }
 
-/* line 31, ../../sass/screen.scss */
+/* line 35, ../../sass/screen.scss */
 .expense-line {
   stroke: red;
 }
 
-/* line 35, ../../sass/screen.scss */
+/* line 39, ../../sass/screen.scss */
 .withdraw-line {
   stroke: green;
 }
 
-/* line 39, ../../sass/screen.scss */
+/* line 43, ../../sass/screen.scss */
 .axis line, .axis path {
   fill: none;
   stroke: #000000;

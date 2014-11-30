@@ -22,6 +22,10 @@ body {
 	font-family: $base_font_family;
 }
 
+* {
+    @include selection(#7DD193, #fff);
+}
+
 .expense-line, .withdraw-line {
     stroke-width: 1;
     fill: none;
