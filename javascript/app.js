@@ -107,12 +107,21 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     createRetirementGraph(retirement_data['data_to_graph']);
     
     function createRetirementGraph(data_to_graph) {
-        window_width = $(window).width();
+        container_width = $('#graph-wrapper').width();
+        minimum_graph_height = 500;
+        aspect_ratio = 16 / 9;
         scroll_bar_width = 20;
+        pixels_per_axis_label = 50;
     
-        var margin = {top: 20, right: 20, bottom: 30, left: 100},
-            width = window_width - margin.left - margin.right - scroll_bar_width,
-            height = 500 - margin.top - margin.bottom;
+        var margin = {top: 20, right: 20, bottom: 30, left: 50},
+            width = container_width - margin.left - margin.right - scroll_bar_width,
+            height = width / aspect_ratio - margin.top - margin.bottom;
+            
+        if (height < minimum_graph_height) {
+            height = minimum_graph_height;
+        }
+        
+        number_of_x_ticks = Math.min(width / pixels_per_axis_label);
         
         var cur_date = new Date();
         var end_date = new Date();
@@ -137,7 +146,8 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         var xAxis = d3.svg.axis()
             .scale(xScale)
-            .orient('bottom');
+            .orient('bottom')
+            .ticks(number_of_x_ticks);
             
         var yAxis = d3.svg.axis()
             .scale(yScale)

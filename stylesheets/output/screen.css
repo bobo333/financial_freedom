@@ -553,7 +553,31 @@ input:focus {
   transform: translateY(-50%);
 }
 
-/* line 12, ../../sass/screen.scss */
+/* line 6, ../../sass/partials/_time_to_retirement.scss */
+.expense-line, .withdraw-line {
+  stroke-width: 1;
+  fill: none;
+  shapeRendering: crispEdges;
+}
+
+/* line 12, ../../sass/partials/_time_to_retirement.scss */
+.expense-line {
+  stroke: red;
+}
+
+/* line 16, ../../sass/partials/_time_to_retirement.scss */
+.withdraw-line {
+  stroke: green;
+}
+
+/* line 20, ../../sass/partials/_time_to_retirement.scss */
+.axis line, .axis path {
+  fill: none;
+  stroke: #000000;
+  shapeRendering: crispEdges;
+}
+
+/* line 13, ../../sass/screen.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -562,7 +586,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* line 21, ../../sass/screen.scss */
+/* line 22, ../../sass/screen.scss */
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -576,28 +600,4 @@ body {
 *::selection {
   color: #fff;
   background-color: #7DD193;
-}
-
-/* line 29, ../../sass/screen.scss */
-.expense-line, .withdraw-line {
-  stroke-width: 1;
-  fill: none;
-  shapeRendering: crispEdges;
-}
-
-/* line 35, ../../sass/screen.scss */
-.expense-line {
-  stroke: red;
-}
-
-/* line 39, ../../sass/screen.scss */
-.withdraw-line {
-  stroke: green;
-}
-
-/* line 43, ../../sass/screen.scss */
-.axis line, .axis path {
-  fill: none;
-  stroke: #000000;
-  shapeRendering: crispEdges;
 }

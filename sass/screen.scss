@@ -8,6 +8,7 @@
 @import "partials/input";
 @import "partials/next_button";
 @import "partials/method";
+@import "partials/time_to_retirement";
 
 html,body
 {
@@ -24,24 +25,4 @@ body {
 
 * {
     @include selection(#7DD193, #fff);
-}
-
-.expense-line, .withdraw-line {
-    stroke-width: 1;
-    fill: none;
-    shapeRendering: crispEdges;
-}
-
-.expense-line {
-    stroke: red;
-}
-
-.withdraw-line {
-    stroke: green;
-}
-
-.axis line, .axis path {
-    fill: none;
-    stroke: #000000;
-    shapeRendering: crispEdges;
 }
