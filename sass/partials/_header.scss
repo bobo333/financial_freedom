@@ -45,7 +45,14 @@ $border-style: 1px solid rgba(0,0,0,.15);
 	border: none;
 	border-radius: 0px;
     margin-bottom: 0px !important;
-    border-bottom: 1px solid $tab_border_color;
+}
+
+.tabs-wrapper {
+    background: black;
+}
+
+.tab-text {
+    @include vertical-align;
 }
 
 .header-tabs {
@@ -60,23 +67,21 @@ $border-style: 1px solid rgba(0,0,0,.15);
         display: inline-block;
         width: 33.3%;
         text-align: center;
-        border: $border-style;
         border-top: none;
         border-right: none;
         background: none;
-        color: $body_text_color;
-        height: 70px;
-        padding-top: 25px;
+        color: white;
+        height: 60px;
         font-size: $base_font_size * 1.5;
 
         @include min-screen($screen_sm_min) {
 
-            &:first-child {
-                @include border-bottom-left-radius(15px);
-            }
-            &:last-child {
-                @include border-bottom-right-radius(15px);
-            }
+            // &:first-child {
+            //     @include border-bottom-left-radius(15px);
+            // }
+            // &:last-child {
+            //     @include border-bottom-right-radius(15px);
+            // }
         }   
         
         &:last-child {
@@ -86,16 +91,16 @@ $border-style: 1px solid rgba(0,0,0,.15);
         
         &.active {
             font-weight: bold;
-            background: #EEFFDA;
+            background: #535353;
 
             &:hover {
-                background: #EEFFDA;
+                background: #535353;
             }
         }
         
         &:hover {
             cursor: pointer;
-            background: rgba(238,255,218,0.35);
+            background: rgba(216,216,216,0.25);
         }
 
     }

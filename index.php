@@ -9,8 +9,7 @@
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
@@ -33,18 +32,18 @@
                     <p class="tag-line">Countdown to financial independence</p>
                 </div>
             </div>
-            
-            <div class="header-tabs">
-                <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
-                    1
-                </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
-                    2
-                </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
-                    3
+            <div class="tabs-wrapper">
+                <div class="header-tabs">
+                    <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
+                        <div class="tab-text">1</div>
+                    </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
+                        <div class="tab-text">2</div>
+                    </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
+                        <div class="tab-text">3</div>
+                    </div>
                 </div>
             </div>
         </div>
-        
         <div ng-view></div>
     </body>
 
