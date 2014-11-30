@@ -123,6 +123,11 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         
         number_of_x_ticks = Math.min(width / pixels_per_axis_label);
         
+        var customTimeFormat = d3.time.format.multi([
+            ["%b", function(d) { return d.getMonth(); }],
+            ["%Y", function() { return true; }]
+        ]);
+        
         var cur_date = new Date();
         var end_date = new Date();
         end_date.setMonth(end_date.getMonth() + data_to_graph.length);
@@ -130,9 +135,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         var max_value = d3.max(data_to_graph, function(d) { return d.withdraw_limit; });
         
         var chart = d3.select('#retirement-graph');
-        
         chart.selectAll("*").remove();
-        
         chart.attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.bottom + margin.top);
             
@@ -147,6 +150,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         var xAxis = d3.svg.axis()
             .scale(xScale)
             .orient('bottom')
+            .tickFormat(customTimeFormat)
             .ticks(number_of_x_ticks);
             
         var yAxis = d3.svg.axis()
