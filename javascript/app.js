@@ -170,13 +170,11 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         chart.append("g")
             .attr("class", "axis x-axis")
             .attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
-            .attr("font-size", "12")
             .call(xAxis);
         
         chart.append("g")
             .attr("class", "axis y-axis")
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
-            .attr("font-size", "12")
             .call(yAxis);
         
         var expense_line = d3.svg.line()
@@ -227,14 +225,12 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
-            .attr("font-size", "12")
             .text(function(d) { return 'expenses'; });
             
         legend.append("text")
             .attr("x", 24)
             .attr("y", 29)
             .attr("dy", ".35em")
-            .attr("font-size", "12")
             .text(function(d) { return '4% withdrawal'; });
             
     };

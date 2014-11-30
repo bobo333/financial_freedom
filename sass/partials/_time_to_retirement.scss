@@ -4,30 +4,34 @@ $expense_color: red;
 $withdraw_color: green;
 
 
-.expense-line, .withdraw-line {
-    stroke-width: 1;
-    fill: none;
-    shapeRendering: crispEdges;
-}
+#retirement-graph {
+    font-size: 12px;
 
-.expense-line {
-    stroke: $expense_color;
-}
+    .expense-line, .withdraw-line {
+        stroke-width: 1;
+        fill: none;
+        shapeRendering: crispEdges;
+    }
 
-.expense-label {
-    fill: $expense_color;
-}
+    .expense-line {
+        stroke: $expense_color;
+    }
 
-.withdraw-line {
-    stroke: $withdraw_color;
-}
+    .expense-label {
+        fill: $expense_color;
+    }
 
-.withdraw-label {
-    fill: $withdraw_color;
-}
+    .withdraw-line {
+        stroke: $withdraw_color;
+    }
 
-.axis line, .axis path {
-    fill: none;
-    stroke: #000000;
-    shapeRendering: crispEdges;
+    .withdraw-label {
+        fill: $withdraw_color;
+    }
+
+    .axis line, .axis path {
+        fill: none;
+        stroke: #000000;
+        shapeRendering: crispEdges;
+    }
 }
