@@ -61,7 +61,6 @@ input[type="text"] {
 	margin-top: 5px;
 	color: $body_text_color;
 	font-weight: $base_font_weight_normal;
-    
 	@include min-screen($screen_sm_min) {
 		font-size: $base_font_size * 1.5;
 		line-height: 32px;
@@ -114,6 +113,6 @@ input:focus {
 }
 
 .months-line {
-	color: #CCCCCC;
+	color: #A0A0A0;
 	margin-top: 10px;
 }
