@@ -12,6 +12,7 @@ $next-button-height: 120px;
     opacity: 0;
     width: 100%;
     @include hover-animation(background);
+    @include hover-animation(opacity);
 
     @include min-screen($screen_sm_min) {
         width: 250px;

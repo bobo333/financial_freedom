@@ -408,6 +408,18 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 @media screen and (min-width: 768px) {
   /* line 4, ../../sass/partials/_next_button.scss */
@@ -422,16 +434,16 @@ input:focus {
     position: relative;
   }
 }
-/* line 25, ../../sass/partials/_next_button.scss */
+/* line 26, ../../sass/partials/_next_button.scss */
 .next-button.active {
   opacity: 1;
   cursor: pointer;
 }
-/* line 30, ../../sass/partials/_next_button.scss */
+/* line 31, ../../sass/partials/_next_button.scss */
 .next-button:hover {
   background: #1CAD43;
 }
-/* line 34, ../../sass/partials/_next_button.scss */
+/* line 35, ../../sass/partials/_next_button.scss */
 .next-button .text {
   position: relative;
   top: 50%;

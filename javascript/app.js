@@ -1,4 +1,4 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'RetirementCalculatorModule', 'ng-currency']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'RetirementCalculatorModule', 'ng-currency','ngAnimate']);
 
 FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

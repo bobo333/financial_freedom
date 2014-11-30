@@ -9,8 +9,9 @@
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+        <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
         
