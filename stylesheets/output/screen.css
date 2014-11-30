@@ -283,7 +283,7 @@ input[type="text"]::-webkit-input-placeholder {
   }
 }
 
-/* line 37, ../../sass/partials/_input.scss */
+/* line 38, ../../sass/partials/_input.scss */
 .input-title, .retirement-years {
   font-size: 52px;
   color: #404040;
@@ -293,24 +293,24 @@ input[type="text"]::-webkit-input-placeholder {
   margin-top: 50px;
 }
 @media screen and (min-width: 768px) {
-  /* line 37, ../../sass/partials/_input.scss */
+  /* line 38, ../../sass/partials/_input.scss */
   .input-title, .retirement-years {
     font-size: 65px;
   }
 }
 
-/* line 49, ../../sass/partials/_input.scss */
+/* line 51, ../../sass/partials/_input.scss */
 .input-title, .retirement-years, .step-subheader, .input-field-wrapper {
   text-align: center;
 }
 @media screen and (min-width: 992px) {
-  /* line 49, ../../sass/partials/_input.scss */
+  /* line 51, ../../sass/partials/_input.scss */
   .input-title, .retirement-years, .step-subheader, .input-field-wrapper {
     text-align: inherit;
   }
 }
 
-/* line 56, ../../sass/partials/_input.scss */
+/* line 59, ../../sass/partials/_input.scss */
 .step-subheader {
   font-size: 13px;
   margin-top: 5px;
@@ -318,14 +318,14 @@ input[type="text"]::-webkit-input-placeholder {
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {
-  /* line 56, ../../sass/partials/_input.scss */
+  /* line 59, ../../sass/partials/_input.scss */
   .step-subheader {
     font-size: 19.5px;
     line-height: 32px;
   }
 }
 
-/* line 68, ../../sass/partials/_input.scss */
+/* line 70, ../../sass/partials/_input.scss */
 .input-field-wrapper {
   font-size: 26px;
   font-weight: 300;
@@ -333,26 +333,26 @@ input[type="text"]::-webkit-input-placeholder {
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 68, ../../sass/partials/_input.scss */
+  /* line 70, ../../sass/partials/_input.scss */
   .input-field-wrapper {
     font-size: 52px;
     margin-top: 50px;
   }
 }
-/* line 80, ../../sass/partials/_input.scss */
+/* line 81, ../../sass/partials/_input.scss */
 .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
   font-size: 13px;
   margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 80, ../../sass/partials/_input.scss */
+  /* line 81, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
     font-size: 26px;
     vertical-align: middle;
   }
 }
 
-/* line 90, ../../sass/partials/_input.scss */
+/* line 92, ../../sass/partials/_input.scss */
 input:focus {
   outline: none;
   -moz-box-shadow: none !important;
@@ -360,13 +360,13 @@ input:focus {
   box-shadow: none !important;
 }
 
-/* line 95, ../../sass/partials/_input.scss */
+/* line 97, ../../sass/partials/_input.scss */
 .retirement-main-output {
   margin-top: 100px;
   text-align: center;
 }
 
-/* line 100, ../../sass/partials/_input.scss */
+/* line 102, ../../sass/partials/_input.scss */
 .retirement-time-units {
   text-align: center;
   text-transform: uppercase;
@@ -374,12 +374,12 @@ input:focus {
   font-size: 26px;
 }
 
-/* line 108, ../../sass/partials/_input.scss */
+/* line 110, ../../sass/partials/_input.scss */
 .retirement-years {
   font-size: 195px;
 }
 
-/* line 113, ../../sass/partials/_input.scss */
+/* line 115, ../../sass/partials/_input.scss */
 .months-line {
   color: #CCCCCC;
   margin-top: 10px;
