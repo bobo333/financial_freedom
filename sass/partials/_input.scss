@@ -75,7 +75,7 @@ input[type="text"] {
 
 	@include min-screen($screen_sm_min) {
 		font-size: $base_font_size * 4;
-		margin-top: 20px;
+		margin-top: 50px;
 	}
 
 	.after-input-text {

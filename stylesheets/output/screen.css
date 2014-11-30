@@ -312,7 +312,7 @@ input[type="text"]::-webkit-input-placeholder {
   /* line 69, ../../sass/partials/_input.scss */
   .input-field-wrapper {
     font-size: 52px;
-    margin-top: 20px;
+    margin-top: 50px;
   }
 }
 /* line 81, ../../sass/partials/_input.scss */
