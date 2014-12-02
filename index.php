@@ -3,6 +3,9 @@
 <html ng-app="FinancialFreedom">
 
     <head>
+
+        <meta name=viewport content="width=device-width, initial-scale=1">
+
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -20,7 +23,7 @@
         
         <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
         <script type="text/javascript" src="javascript/app.js"></script>
-    
+
         <title>Financial Freedom</title>
     </head>
     
