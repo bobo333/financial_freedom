@@ -58,3 +58,11 @@ $withdraw_color: green;
     color: #A0A0A0;
     margin-top: 10px;
 }
+
+.inactive {
+    display: none;
+}
+
+.cannot-retire {
+    @extend .supporting-section-body;
+}

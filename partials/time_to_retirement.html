@@ -1,6 +1,6 @@
 <div>
 	<div class="container-fluid">
-    	<div class="row can-retire">
+    	<div class="row can-retire" ng-class="{ 'inactive': retirement.years_to_retirement >= 100 }">
     		<div class="col-md-5 retirement-main-output">
 			    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
 			    <div class="retirement-time-units">years</div>
@@ -13,8 +13,8 @@
                 <div id="retirement-graph"></div>
             </div>
 	    </div>
-	    <div class="row cannot-retire">
-	    	<div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your passive income will never safely exceed your expenses. Try different values to determine how to reach financial independence.</div>
+	    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-class="{ 'inactive': retirement.years_to_retirement < 100 }">
+	    	<div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a></div>
 	    </div>
 	</div>
     <div class="container-fluid">
@@ -28,7 +28,7 @@
 			    		<a href="http://www.mrmoneymustache.com/2012/05/29/how-much-do-i-need-for-retirement/">Learn more</a>
 
 			    		<h2 class="subsection-header">
-			    		Our simplifying assumptions
+			    		Assumptions
 			    		</h2>
 			    		<ul>
 				    		<li>Inflation rate of 3.5%.</li>
