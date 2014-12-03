@@ -1,6 +1,6 @@
 <div>
 	<div class="container-fluid">
-    	<div class="row can-retire" ng-class="{ 'inactive': retirement.years_to_retirement >= 100 }">
+    	<div class="row can-retire" ng-show="retirement.can_be_reached">
     		<div class="col-md-5 retirement-main-output">
 			    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
 			    <div class="retirement-time-units">years</div>
@@ -13,7 +13,7 @@
                 <div id="retirement-graph"></div>
             </div>
 	    </div>
-	    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-class="{ 'inactive': retirement.years_to_retirement < 100 }">
+	    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="!(retirement.can_be_reached)">
 	    	<div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a></div>
 	    </div>
 	</div>

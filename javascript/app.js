@@ -103,13 +103,18 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     var months_to_retirement = retirement_data['months'];
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
+    $scope.retirement.can_be_reached = false;
     
-    createRetirementGraph(retirement_data['data_to_graph']);
+    if ($scope.retirement.years_to_retirement < 100) {
+        $scope.retirement.can_be_reached = true;
+        createRetirementGraph(retirement_data['data_to_graph']);
     
-    
+
     $(window).resize(function() {
         createRetirementGraph(retirement_data['data_to_graph']);
     });
+
+    };
     
     function createRetirementGraph(data_to_graph) {
         container_width = $('#graph-wrapper').width();
