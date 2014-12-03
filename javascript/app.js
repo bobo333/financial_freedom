@@ -225,13 +225,13 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
-            .text(function(d) { return 'expenses'; });
+            .text(function(d) { return 'Expenses'; });
             
         legend.append("text")
             .attr("x", 24)
             .attr("y", 29)
             .attr("dy", ".35em")
-            .text(function(d) { return '4% withdrawal'; });
+            .text(function(d) { return '4% of Assets'; });
             
     };
 }]);

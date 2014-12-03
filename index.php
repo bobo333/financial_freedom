@@ -4,7 +4,8 @@
 
     <head>
 
-        <meta name=viewport content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600' rel='stylesheet' type='text/css'>
@@ -19,7 +20,6 @@
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
-        
         
         <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
         <script type="text/javascript" src="javascript/app.js"></script>
