@@ -101,8 +101,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     
     var retirement_data = RetirementCalculatorService.calculateMonthsToRetirement();
     var months_to_retirement = retirement_data['months'];
-    var years_to_retirement = Math.floor(months_to_retirement / 12);
-    $scope.retirement.years_to_retirement = years_to_retirement;
+    $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
     
     createRetirementGraph(retirement_data['data_to_graph']);
