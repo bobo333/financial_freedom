@@ -5,8 +5,6 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     var INFLATION_RATE = .035;
     var INCOME_INCREASE_RATE = .05;
     var GROWTH_RATE = .075;
-    var YEAR_MAX = 100;
-    var MONTH_MAX = YEAR_MAX * 12;
     
     var total_assets;
     var monthly_income;
@@ -15,6 +13,9 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     this.calculateMonthsToRetirement = function() {
         var MONTHLY_INFLATION_RATE = this.calculatePeriodInterestRate(INFLATION_RATE, 12);
         var MONTHLY_GROWTH_RATE = this.calculatePeriodInterestRate(GROWTH_RATE, 12);
+        var YEAR_MAX = 100;
+        var MONTH_MAX = YEAR_MAX * 12;
+        
         var months = 0;
         var data_to_graph = [];
         var local_total_assets = total_assets;
@@ -30,7 +31,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             local_monthly_expenses = addInterest(local_monthly_expenses, MONTHLY_INFLATION_RATE);
             months++;
             
-            if (months % 12 === 0) {
+            if (newYear(months)) {
                 local_monthly_income = addInterest(local_monthly_income, INCOME_INCREASE_RATE);
             }
         }
@@ -51,7 +52,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             local_monthly_expenses = addInterest(local_monthly_expenses, MONTHLY_INFLATION_RATE);
             months++;
             
-            if (months % 12 === 0) {
+            if (newYear(months)) {
                 local_monthly_income = addInterest(local_monthly_income, INCOME_INCREASE_RATE);
             }
         }
@@ -95,6 +96,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     
     var monthlyWithdrawalLimit = function(total_assets) {
         return WITHDRAWAL_RATE * total_assets / 12;
+    };
+    
+    var newYear = function(months) {
+        return months % 12 === 0;
     };
     
     this.getMonthlyIncome = function() {
