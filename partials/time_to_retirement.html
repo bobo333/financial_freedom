@@ -1,6 +1,6 @@
 <div>
 	<div class="container-fluid">
-    	<div class="row">
+    	<div class="row can-retire">
     		<div class="col-md-5 retirement-main-output">
 			    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
 			    <div class="retirement-time-units">years</div>
@@ -12,6 +12,9 @@
             <div class="col-md-7" id="graph-wrapper">
                 <div id="retirement-graph"></div>
             </div>
+	    </div>
+	    <div class="row cannot-retire">
+	    	<div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your passive income will never safely exceed your expenses. Try different values to determine how to reach financial independence.</div>
 	    </div>
 	</div>
     <div class="container-fluid">
