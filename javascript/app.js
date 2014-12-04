@@ -57,31 +57,31 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.directive('keynext', function () {
-    return {
-        require: '^nextButton',
-        restrict: 'A',
-        transclude: true,
-        scope: {
-          goToNextRoute: '@',
-          isButtonActive: '@',
-        },
-        link: function(scope, element, attrs, topController) {
-            element.bind("keydown keypress", function (event) {
-                if (scope.isButtonActive()) {
-                    console.log("here");
-                    if(event.which === 13 || event.which === 9) {
-                        scope.$apply(function (){
-                            scope.$eval(attrs.keynext);
-                            $location.path(scope.nextRoute);
-                        });
-                        event.preventDefault();
-                    }
-                }   
-            });
-        } 
-    };
-});
+// FinancialFreedom.directive('keynext', function () {
+//     return {
+//         require: '^nextButton',
+//         restrict: 'A',
+//         transclude: true,
+//         scope: {
+//           goToNextRoute: '@',
+//           isButtonActive: '@',
+//         },
+//         link: function(scope, element, attrs, topController) {
+//             element.bind("keydown keypress", function (event) {
+//                 if (scope.isButtonActive()) {
+//                     console.log("here");
+//                     if(event.which === 13 || event.which === 9) {
+//                         scope.$apply(function (){
+//                             scope.$eval(attrs.keynext);
+//                             $location.path(scope.nextRoute);
+//                         });
+//                         event.preventDefault();
+//                     }
+//                 }   
+//             });
+//         } 
+//     };
+// });
 
 FinancialFreedom.controller('topController', ['$scope', '$location',  function($scope, $location) {
     $location.path("/")
