@@ -50,7 +50,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     
     var calculateRetirementTrajectory = function(retirement_data) {
         if (canRetire(retirement_data)) {
-            return canRetireImmediately(retirement_data);
+            return setImmediateRetirement(retirement_data);
         };
     
         while (retirement_data.months < MAX_MONTHS) {
@@ -85,7 +85,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return WITHDRAWAL_RATE * investment_amount >= annual_expenses;
     };
     
-    var canRetireImmediately = function(retirement_data) {
+    var setImmediateRetirement = function(retirement_data) {
         retirement_data.can_retire_immediately = true;
     };
     
