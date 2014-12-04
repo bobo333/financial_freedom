@@ -48,7 +48,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     var calculateRetirementTrajectory = function(retirement_data) {        
-        while (!checkIfCanRetire(retirement_data) && retirement_data.months < MONTH_MAX) {            
+        while (!canRetire(retirement_data) && retirement_data.months < MONTH_MAX) {            
             addNextGraphPoint(retirement_data);
         }
         
@@ -65,7 +65,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         }
     };
     
-    var checkIfCanRetire = function(retirement_data) {
+    var canRetire = function(retirement_data) {
         var investment_amount = retirement_data.total_assets;
         var annual_expenses = retirement_data.monthly_expenses * 12;
         
