@@ -72,7 +72,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyExpenses(0);
     
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
-        expect(val.months + 1).toBe(val.data_to_graph.length);
+        expect(val.months).toBe(val.data_to_graph.length);
     });
     
     it('should return the same number of data points to graph as number of months for more than 0 months', function() {
@@ -81,7 +81,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
         var val = RetirementCalculatorService.calculateMonthsToRetirement(52000, 5000, 2000);
-        expect(val.months + 1).toBe(val.data_to_graph.length);
+        expect(val.months).toBe(val.data_to_graph.length);
     });
     
 });
