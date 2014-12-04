@@ -5,8 +5,8 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     var INFLATION_RATE = .035;
     var INCOME_INCREASE_RATE = .05;
     var GROWTH_RATE = .075;
-    var YEAR_MAX = 100;
-    var MONTH_MAX = YEAR_MAX * 12;
+    var MAX_YEARS = 100;
+    var MAX_MONTHS = MAX_YEARS * 12;
     
     var total_assets;
     var monthly_income;
@@ -53,18 +53,15 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             return canRetireImmediately(retirement_data);
         };
     
-        while (retirement_data.months < MONTH_MAX) {
+        while (retirement_data.months < MAX_MONTHS) {
             addNextGraphPoint(retirement_data);
             incrementMonthCount(retirement_data);
             
             if (canRetire(retirement_data)) {
                 addNextGraphPoint(retirement_data);
+                retirement_data.can_retire = true;
                 break;
             };
-        }
-        
-        if (retirement_data.months < MONTH_MAX) {
-            retirement_data.can_retire = true;
         }
     };
     
