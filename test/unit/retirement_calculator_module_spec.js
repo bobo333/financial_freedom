@@ -29,7 +29,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(angular.isFunction(RetirementCalculatorService.calculateMonthsToRetirement)).toBe(true);
     });
     
-    it('should return 1200 for zero net worth and zero income from calculatMonthsToRetirement', function() {
+    it('should return 1200 months for zero net worth and zero income from calculatMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(0);
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(5000);
@@ -38,7 +38,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(val.months).toBe(1200);
     });
     
-    it('should return 0 for someone with no expenses and positive net worth from calculateMOnthsToRetirement', function() {
+    it('should return 0 months for someone with no expenses and positive net worth from calculateMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(50000);
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(0);
@@ -47,7 +47,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(val.months).toBe(0);
     });
     
-    it('should return 0 for someone with no expenses and positive take home pay from calculateMOnthsToRetirement', function() {
+    it('should return 0 months for someone with no expenses and positive take home pay from calculateMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(0);
         RetirementCalculatorService.setMonthlyIncome(1000);
         RetirementCalculatorService.setMonthlyExpenses(0);
@@ -56,7 +56,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(val.months).toBe(0);
     });
     
-    it('should return within a reasonable range for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
+    it('should return within a reasonable range of months for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(52000);
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
@@ -64,6 +64,42 @@ describe('Unit: RetirementCalculatorModule', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
         expect(val.months).toBeLessThan(300);
         expect(val.months).toBeGreaterThan(12);
+    });
+    
+    it('should return can_retire false for zero net worth and zero income from calculatMonthsToRetirement', function() {
+        RetirementCalculatorService.setTotalAssets(0);
+        RetirementCalculatorService.setMonthlyIncome(0);
+        RetirementCalculatorService.setMonthlyExpenses(5000);
+        
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        expect(val.can_retire).toBe(false);
+    });
+    
+    it('should return can_retire true for someone with no expenses and positive net worth from calculateMonthsToRetirement', function() {
+        RetirementCalculatorService.setTotalAssets(50000);
+        RetirementCalculatorService.setMonthlyIncome(0);
+        RetirementCalculatorService.setMonthlyExpenses(0);
+        
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        expect(val.can_retire).toBe(true);
+    });
+    
+    it('should return can_retire true for someone with no expenses and positive take home pay from calculateMonthsToRetirement', function() {
+        RetirementCalculatorService.setTotalAssets(0);
+        RetirementCalculatorService.setMonthlyIncome(1000);
+        RetirementCalculatorService.setMonthlyExpenses(0);
+        
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        expect(val.can_retire).toBe(true);
+    });
+    
+    it('should return can_retire true for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+    
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        expect(val.can_retire).toBe(true);
     });
     
     it('should return the same number of data points to graph as number of months for 0 months', function() {
