@@ -111,7 +111,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(val.points_for_intersection).not.toBe(undefined);
     });
     
-    it('have points_for_intersection that are right at the point where withdrawal limit just exceeds expenses for someone with reasonable financial values', function() {
+    it('should have points_for_intersection that are right at the point where withdrawal limit just exceeds expenses for someone with reasonable financial values', function() {
         RetirementCalculatorService.setTotalAssets(52000);
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
@@ -119,8 +119,36 @@ describe('Unit: RetirementCalculatorModule', function() {
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
         var first_point = val.points_for_intersection[0];
         var second_point = val.points_for_intersection[1];
+        
         expect(first_point.expenses).toBeGreaterThan(first_point.withdraw_limit);
         expect(second_point.expenses).toBeLessThan(second_point.withdraw_limit);
     });
+    
+    // This makes sense because the number of months starts at 0, so it is essentially 0 indexed
+    // just like the list of data points to graph. Therefore the number of months to retirement
+    // should be exactly the same as the index of the second point for intersection, which is 
+    // the first point where safe withdraw amount exceeds expenses.
+    it('should have index of second intersection point equal to number of months', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+    
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var second_point = val.points_for_intersection[1];
+        var second_point_index = objectIndexOf(val.data_to_graph, second_point);
+        
+        expect(second_point_index).toBe(val.months);
+    });
+    
+    function objectIndexOf(arr, obj) {
+        for (var i = 0; i < arr.length; i++) {
+            var cur_obj = arr[i];
+            if (cur_obj.expenses == obj.expenses && cur_obj.withdraw_limit == obj.withdraw_limit) {
+                return i;
+            }
+        }
+        
+        return -1;
+    }
     
 });
