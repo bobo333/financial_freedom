@@ -112,10 +112,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     var updateMonthlyExpenses = function(retirement_data) {
-        var monthly_expenses = retirement_data.monthly_expenses;
-        var monthly_inflation_rate = retirement_data.monthly_inflation_rate;
+        var expenses = retirement_data.monthly_expenses;
+        var inflation_rate = retirement_data.monthly_inflation_rate;
         
-        retirement_data.monthly_expenses = addInterest(monthly_expenses, monthly_inflation_rate);
+        retirement_data.monthly_expenses = addInterest(expenses, inflation_rate);
     };
     
     var updateMonthlyIncome = function(retirement_data) {
