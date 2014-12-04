@@ -41,20 +41,36 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         calculateRetirementTrajectory(retirement_data);
         
         if (retirement_data.can_retire) {
+            addPointsForIntersection(retirement_data);
             padGraphData(retirement_data);
         }
                 
         return retirement_data;
     };
     
-    var calculateRetirementTrajectory = function(retirement_data) {        
-        while (!canRetire(retirement_data) && retirement_data.months < MONTH_MAX) {            
+    var calculateRetirementTrajectory = function(retirement_data) {
+        if (canRetire(retirement_data)) {
+            return canRetireImmediately(retirement_data);
+        };
+    
+        while (retirement_data.months < MONTH_MAX) {
             addNextGraphPoint(retirement_data);
+            incrementMonthCount(retirement_data);
+            
+            if (canRetire(retirement_data)) {
+                addNextGraphPoint(retirement_data);
+                break;
+            };
         }
         
         if (retirement_data.months < MONTH_MAX) {
             retirement_data.can_retire = true;
         }
+    };
+    
+    var addPointsForIntersection = function(retirement_data) {
+        var points_for_intersection = retirement_data.data_to_graph.slice(-2);
+        retirement_data.points_for_intersection = points_for_intersection;
     };
     
     var padGraphData = function(retirement_data) {
@@ -72,6 +88,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return WITHDRAWAL_RATE * investment_amount >= annual_expenses;
     };
     
+    var canRetireImmediately = function(retirement_data) {
+        retirement_data.can_retire_immediately = true;
+    };
+    
     var addNextGraphPoint = function(retirement_data) {
         var monthly_withdrawal_limit = calculateMonthlyWithdrawalLimit(retirement_data.total_assets);
         var graph_data = formatGraphData(retirement_data.monthly_expenses, monthly_withdrawal_limit);
@@ -79,7 +99,6 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         
         updateTotalAssets(retirement_data);
         updateMonthlyExpenses(retirement_data);
-        retirement_data.months++;
         
         if (newYear(retirement_data.months)) {
             updateMonthlyIncome(retirement_data);
@@ -117,6 +136,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             expenses: expenses,
             withdraw_limit: withdraw_limit
         }
+    };
+    
+    var incrementMonthCount = function(retirement_data) {
+        retirement_data.months++;
     };
     
     var calculateMonthlyWithdrawalLimit = function(total_assets) {

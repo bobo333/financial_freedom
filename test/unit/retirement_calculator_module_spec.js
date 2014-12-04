@@ -75,22 +75,22 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(val.can_retire).toBe(false);
     });
     
-    it('should return can_retire true for someone with no expenses and positive net worth from calculateMonthsToRetirement', function() {
+    it('should return can_retire_immediately true for someone with no expenses and positive net worth from calculateMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(50000);
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
-        expect(val.can_retire).toBe(true);
+        expect(val.can_retire_immediately).toBe(true);
     });
     
-    it('should return can_retire true for someone with no expenses and positive take home pay from calculateMonthsToRetirement', function() {
+    it('should return can_retire_immediately true for someone with no expenses and positive take home pay from calculateMonthsToRetirement', function() {
         RetirementCalculatorService.setTotalAssets(0);
         RetirementCalculatorService.setMonthlyIncome(1000);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
-        expect(val.can_retire).toBe(true);
+        expect(val.can_retire_immediately).toBe(true);
     });
     
     it('should return can_retire true for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
@@ -102,22 +102,25 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(val.can_retire).toBe(true);
     });
     
-    it('should return the same number of data points to graph as number of months for 0 months', function() {
-        RetirementCalculatorService.setTotalAssets(520);
-        RetirementCalculatorService.setMonthlyIncome(0);
-        RetirementCalculatorService.setMonthlyExpenses(0);
-    
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
-        expect(val.months).toBe(val.data_to_graph.length);
-    });
-    
-    it('should return the same number of data points to graph as number of months for more than 0 months', function() {
+    it('should return points_for_intersection for someone with reasonable financial values', function() {
         RetirementCalculatorService.setTotalAssets(52000);
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement(52000, 5000, 2000);
-        expect(val.months).toBe(val.data_to_graph.length);
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        expect(val.points_for_intersection).not.toBe(undefined);
+    });
+    
+    it('have points_for_intersection that are right at the point where withdrawal limit just exceeds expenses for someone with reasonable financial values', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+    
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var first_point = val.points_for_intersection[0];
+        var second_point = val.points_for_intersection[1];
+        expect(first_point.expenses).toBeGreaterThan(first_point.withdraw_limit);
+        expect(second_point.expenses).toBeLessThan(second_point.withdraw_limit);
     });
     
 });
