@@ -154,6 +154,34 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(second_point_date.getYear()).toBe(retirement_date.getYear());
         expect(second_point_date.getMonth()).toBe(retirement_date.getMonth());
     });
+
+    it('should have the date of the first point to graph be the same month and year as now for someone who can not retire immediately', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var first_date = val.graph_points[0].date;
+        var now = new Date();
+        
+        expect(first_date.getMonth()).toBe(now.getMonth());
+        expect(first_date.getYear()).toBe(now.getYear());
+    });
+    
+    it('should have the date of the last point to graph be in the future by the x months where x is the number of points to graph minus 1', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var number_of_points = val.graph_points.length - 1;
+        var last_date = val.graph_points[number_of_points].date;
+        var future_date = new Date();
+        future_date.setMonth(future_date.getMonth() + number_of_points);
+        
+        expect(last_date.getMonth()).toBe(future_date.getMonth());
+        expect(last_date.getYear()).toBe(future_date.getYear());
+    });
     
     function objectIndexOf(arr, obj) {
         for (var i = 0; i < arr.length; i++) {
