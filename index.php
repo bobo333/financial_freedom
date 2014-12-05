@@ -27,7 +27,7 @@
         <title>Financial Freedom</title>
     </head>
     
-    <body>
+    <body ng-controller="bodyController">
 
         <div class="header-wrap" ng-controller="HeaderController">
             <div class="header navbar navbar-default">
