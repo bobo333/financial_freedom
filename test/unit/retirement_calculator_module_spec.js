@@ -24,9 +24,9 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(rounded).toBe(.00487);
     });
     
-    // calculateMonthsToRetirement
-    it('should have calculateMonthsToRetirement function', function() {
-        expect(angular.isFunction(RetirementCalculatorService.calculateMonthsToRetirement)).toBe(true);
+    // calculateRetirementInfo
+    it('should have calculateRetirementInfo function', function() {
+        expect(angular.isFunction(RetirementCalculatorService.calculateRetirementInfo)).toBe(true);
     });
     
     it('should return 1200 months for zero net worth and zero income from calculatMonthsToRetirement', function() {
@@ -34,34 +34,34 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(5000);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.months).toBe(1200);
     });
     
-    it('should return 0 months for someone with no expenses and positive net worth from calculateMonthsToRetirement', function() {
+    it('should return 0 months for someone with no expenses and positive net worth from calculateRetirementInfo', function() {
         RetirementCalculatorService.setTotalAssets(50000);
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.months).toBe(0);
     });
     
-    it('should return 0 months for someone with no expenses and positive take home pay from calculateMonthsToRetirement', function() {
+    it('should return 0 months for someone with no expenses and positive take home pay from calculateRetirementInfo', function() {
         RetirementCalculatorService.setTotalAssets(0);
         RetirementCalculatorService.setMonthlyIncome(1000);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.months).toBe(0);
     });
     
-    it('should return within a reasonable range of months for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
+    it('should return within a reasonable range of months for someone who has normal expenses, salary, and net worth from calculateRetirementInfo', function() {
         RetirementCalculatorService.setTotalAssets(52000);
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.months).toBeLessThan(300);
         expect(val.months).toBeGreaterThan(12);
     });
@@ -71,34 +71,34 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(5000);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.can_retire).toBe(false);
     });
     
-    it('should return can_retire_immediately true for someone with no expenses and positive net worth from calculateMonthsToRetirement', function() {
+    it('should return can_retire_immediately true for someone with no expenses and positive net worth from calculateRetirementInfo', function() {
         RetirementCalculatorService.setTotalAssets(50000);
         RetirementCalculatorService.setMonthlyIncome(0);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.can_retire_immediately).toBe(true);
     });
     
-    it('should return can_retire_immediately true for someone with no expenses and positive take home pay from calculateMonthsToRetirement', function() {
+    it('should return can_retire_immediately true for someone with no expenses and positive take home pay from calculateRetirementInfo', function() {
         RetirementCalculatorService.setTotalAssets(0);
         RetirementCalculatorService.setMonthlyIncome(1000);
         RetirementCalculatorService.setMonthlyExpenses(0);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.can_retire_immediately).toBe(true);
     });
     
-    it('should return can_retire true for someone who has normal expenses, salary, and net worth from calculateMonthsToRetirement', function() {
+    it('should return can_retire true for someone who has normal expenses, salary, and net worth from calculateRetirementInfo', function() {
         RetirementCalculatorService.setTotalAssets(52000);
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.can_retire).toBe(true);
     });
     
@@ -107,7 +107,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         expect(val.points_for_intersection).not.toBe(undefined);
     });
     
@@ -116,7 +116,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         var first_point = val.points_for_intersection[0];
         var second_point = val.points_for_intersection[1];
         
@@ -133,7 +133,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         var second_point = val.points_for_intersection[1];
         var second_point_index = objectIndexOf(val.graph_points, second_point);
         
@@ -145,7 +145,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         var retirement_date = new Date();
         var second_point = val.points_for_intersection[1];
         var second_point_date = second_point.date;
@@ -160,7 +160,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         var first_date = val.graph_points[0].date;
         var now = new Date();
         
@@ -173,7 +173,7 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
         
-        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var val = RetirementCalculatorService.calculateRetirementInfo();
         var number_of_points = val.graph_points.length - 1;
         var last_date = val.graph_points[number_of_points].date;
         var future_date = new Date();
