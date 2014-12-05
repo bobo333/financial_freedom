@@ -42,7 +42,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         
         if (retirement_data.can_retire) {
             addPointsForIntersection(retirement_data);
-            calculateIntersectionPoint(retirement_data);
+            addIntersectionPoint(retirement_data);
             padGraphData(retirement_data);
         }
                 
@@ -79,7 +79,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         }
     };
     
-    var calculateIntersectionPoint = function(retirement_data) {
+    var addIntersectionPoint = function(retirement_data) {
         var points_for_intersection = retirement_data.points_for_intersection;
         var first_withdraw_value = points_for_intersection[0].withdraw_limit;
         var second_withdraw_value = points_for_intersection[1].withdraw_limit;
@@ -88,20 +88,14 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         var before_date = points_for_intersection[0].date;
         var after_date = points_for_intersection[1].date;
         
+        // calculate intersection point
         var days_between = calculateDaysBetween(before_date, after_date);
-        
         var expense_slope = calculateSlope(first_expense_value, second_expense_value, days_between);
         var withdraw_slope = calculateSlope(first_withdraw_value, second_withdraw_value, days_between);
         var x_intersection = calculateXIntersection(days_between, days_between, second_expense_value, second_withdraw_value, expense_slope, withdraw_slope);
         var y_intersection = calculateYIntersection(days_between, days_between, second_expense_value, second_withdraw_value, expense_slope, withdraw_slope);
-        
-        var intersection_date = before_date;
-        intersection_date.setDate(intersection_date.getDate() + Math.round(x_intersection));
-        
-        var intersection_point = {
-            x: intersection_date,
-            y: y_intersection
-        };
+        var intersection_date = getIntersectionDate(before_date, x_intersection);
+        var intersection_point = formatIntersectionPoint(intersection_date, y_intersection);
         
         retirement_data.intersection_point = intersection_point;
     };
@@ -165,6 +159,13 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         }
     };
     
+    var formatIntersectionPoint = function(intersection_date, y_intersection) {
+        return {
+            x: intersection_date,
+            y: y_intersection
+        };
+    };
+    
     var incrementMonthCount = function(retirement_data) {
         retirement_data.months++;
     };
@@ -175,6 +176,15 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         date.setMonth(date.getMonth() + months_in_future);
         
         return date;
+    };
+    
+    var getIntersectionDate = function(start_date, x_intersection) {
+        var intersection_date = start_date;
+        var days_to_add = Math.round(x_intersection);
+        
+        addDaysToDate(intersection_date, days_to_add);
+        
+        return intersection_date;
     };
     
     var calculateMonthlyWithdrawalLimit = function(total_assets) {
@@ -193,6 +203,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return (m1 * m2 * (x2 - x1) + y1 * m2 - y2 * m1 ) / (m2 - m1);
     };
     
+    var calculateSlope = function(y1, y2, dx) {
+        return (y2 - y1) / dx;
+    };
+    
     var calculateDaysBetween = function(date1, date2) {
         var one_day=1000*60*60*24;
         var date1_ms = date1.getTime();
@@ -203,8 +217,8 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return Math.round(difference_ms/one_day); 
     };
     
-    var calculateSlope = function(y1, y2, dx) {
-        return (y2 - y1) / dx;
+    var addDaysToDate = function(date, days) {
+        date.setDate(date.getDate() + days);
     };
     
     this.initialRetirementData = function() {
