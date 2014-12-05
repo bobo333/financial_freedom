@@ -104,13 +104,13 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
     
-    createRetirementGraph(retirement_data['data_to_graph']);
+    createRetirementGraph(retirement_data['graph_points']);
     
     $(window).resize(function() {
-        createRetirementGraph(retirement_data['data_to_graph']);
+        createRetirementGraph(retirement_data['graph_points']);
     });
     
-    function createRetirementGraph(data_to_graph) {
+    function createRetirementGraph(graph_points) {
         container_width = $('#graph-wrapper').width();
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
@@ -143,9 +143,9 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         
         var cur_date = new Date();
         var end_date = new Date();
-        end_date.setMonth(end_date.getMonth() + data_to_graph.length);
+        end_date.setMonth(end_date.getMonth() + graph_points.length);
         
-        var max_value = d3.max(data_to_graph, function(d) { return d.withdraw_limit; });
+        var max_value = d3.max(graph_points, function(d) { return d.withdraw_limit; });
         
         d3.select("#retirement-graph svg").remove();
         
@@ -184,9 +184,8 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .call(yAxis);
         
         var expense_line = d3.svg.line()
-            .x(function(d, i) { 
-                var date = new Date();
-                return xScale(date.setMonth(cur_date.getMonth() + i));
+            .x(function(d, i) {
+                return xScale(d.date);
             })
             .y(function(d) {
                 return yScale(d.expenses);
@@ -194,8 +193,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         var withdraw_line = d3.svg.line()
             .x(function(d, i) {
-                var date = new Date();
-                return xScale(date.setMonth(cur_date.getMonth() + i));
+                return xScale(d.date);
             })
             .y(function(d) {
                 return yScale(d.withdraw_limit);
@@ -203,11 +201,11 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         chart.append("path")
             .attr("class", "expense-line")
-            .attr("d", expense_line(data_to_graph))
+            .attr("d", expense_line(graph_points))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
         chart.append("path")
             .attr("class", "withdraw-line")
-            .attr("d", withdraw_line(data_to_graph))
+            .attr("d", withdraw_line(graph_points))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
             
         var legend = chart.append("g")

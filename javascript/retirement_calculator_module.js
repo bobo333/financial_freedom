@@ -66,12 +66,12 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     var addPointsForIntersection = function(retirement_data) {
-        var points_for_intersection = retirement_data.data_to_graph.slice(-2);
+        var points_for_intersection = retirement_data.graph_points.slice(-2);
         retirement_data.points_for_intersection = points_for_intersection;
     };
     
     var padGraphData = function(retirement_data) {
-        var points_to_add = retirement_data.data_to_graph.length / 2;
+        var points_to_add = retirement_data.graph_points.length / 2;
     
         for (i=0; i < points_to_add; i++) {
             addNextGraphPoint(retirement_data);
@@ -90,9 +90,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     var addNextGraphPoint = function(retirement_data) {
+        var month_date = getNextMonthDate(retirement_data);
         var monthly_withdrawal_limit = calculateMonthlyWithdrawalLimit(retirement_data.total_assets);
-        var graph_data = formatGraphData(retirement_data.monthly_expenses, monthly_withdrawal_limit);
-        retirement_data.data_to_graph.push(graph_data);
+        var graph_point = formatGraphData(month_date, retirement_data.monthly_expenses, monthly_withdrawal_limit);
+        retirement_data.graph_points.push(graph_point);
         
         updateTotalAssets(retirement_data);
         updateMonthlyExpenses(retirement_data);
@@ -128,8 +129,9 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return original_total * (1 + interest_rate);
     };
     
-    var formatGraphData = function(expenses, withdraw_limit) {
+    var formatGraphData = function(date, expenses, withdraw_limit) {
         return {
+            date: date,
             expenses: expenses,
             withdraw_limit: withdraw_limit
         }
@@ -137,6 +139,14 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     
     var incrementMonthCount = function(retirement_data) {
         retirement_data.months++;
+    };
+    
+    var getNextMonthDate = function(retirement_data) {
+        date = new Date();
+        months_in_future = retirement_data.graph_points.length;
+        date.setMonth(date.getMonth() + months_in_future);
+        
+        return date;
     };
     
     var calculateMonthlyWithdrawalLimit = function(total_assets) {
@@ -153,7 +163,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         
         return {
             months: 0,
-            data_to_graph: [],
+            graph_points: [],
             total_assets: total_assets,
             monthly_income: monthly_income,
             monthly_expenses: monthly_expenses,

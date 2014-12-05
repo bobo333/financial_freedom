@@ -128,16 +128,31 @@ describe('Unit: RetirementCalculatorModule', function() {
     // just like the list of data points to graph. Therefore the number of months to retirement
     // should be exactly the same as the index of the second point for intersection, which is 
     // the first point where safe withdraw amount exceeds expenses.
-    it('should have index of second intersection point equal to number of months', function() {
+    it('should have index of second intersection point equal to number of months to retirement', function() {
         RetirementCalculatorService.setTotalAssets(52000);
         RetirementCalculatorService.setMonthlyIncome(5000);
         RetirementCalculatorService.setMonthlyExpenses(2000);
     
         var val = RetirementCalculatorService.calculateMonthsToRetirement();
         var second_point = val.points_for_intersection[1];
-        var second_point_index = objectIndexOf(val.data_to_graph, second_point);
+        var second_point_index = objectIndexOf(val.graph_points, second_point);
         
         expect(second_point_index).toBe(val.months);
+    });
+    
+    it('should have month and year of second intersection point equal to date with number of months to retirement in the future', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+    
+        var val = RetirementCalculatorService.calculateMonthsToRetirement();
+        var retirement_date = new Date();
+        var second_point = val.points_for_intersection[1];
+        var second_point_date = second_point.date;
+        retirement_date.setMonth(retirement_date.getMonth() + val.months);
+        
+        expect(second_point_date.getYear()).toBe(retirement_date.getYear());
+        expect(second_point_date.getMonth()).toBe(retirement_date.getMonth());
     });
     
     function objectIndexOf(arr, obj) {
