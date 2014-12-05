@@ -21,7 +21,8 @@ module.exports = function(config) {
 		'javascript/app.js',
 		'javascript/retirement_calculator_module.js',
 		
-		'test/unit/retirement_calculator_module_spec.js'
+		'test/unit/retirement_calculator_module_spec.js',
+        'test/unit/time_to_retirement_controller_spec.js'
     ],
 
 
