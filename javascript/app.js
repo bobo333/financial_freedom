@@ -102,19 +102,25 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCal
 
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
     $scope.retirement = {};
+    var tooltip_selector;
     
-    var retirement_data = RetirementCalculatorService.calculateMonthsToRetirement();
+    var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
     var months_to_retirement = retirement_data['months'];
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
     
-    createRetirementGraph(retirement_data['data_to_graph']);
+    createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     
     $(window).resize(function() {
-        createRetirementGraph(retirement_data['data_to_graph']);
+        if ($(".tooltip").length > 0) {
+            $(tooltip_selector).tooltip('destroy');
+        }
+        
+        createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     });
     
-    function createRetirementGraph(data_to_graph) {
+    function createRetirementGraph(graph_points, intersection_point) {
+        var show_tooltip = false;
         container_width = $('#graph-wrapper').width();
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
@@ -135,15 +141,21 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         };
         
         var customTimeFormat = d3.time.format.multi([
+            [".%L", function(d) { return d.getMilliseconds(); }],
+            [":%S", function(d) { return d.getSeconds(); }],
+            ["%I:%M", function(d) { return d.getMinutes(); }],
+            ["%I %p", function(d) { return d.getHours(); }],
+            ["%a %d", function(d) { return d.getDay() && d.getDate() != 1; }],
+            ["%b %d", function(d) { return d.getDate() != 1; }],
             ["%b", function(d) { return d.getMonth(); }],
             ["%Y", function() { return true; }]
         ]);
         
         var cur_date = new Date();
         var end_date = new Date();
-        end_date.setMonth(end_date.getMonth() + data_to_graph.length);
+        end_date.setMonth(end_date.getMonth() + graph_points.length);
         
-        var max_value = d3.max(data_to_graph, function(d) { return d.withdraw_limit; });
+        var max_value = d3.max(graph_points, function(d) { return d.withdraw_limit; });
         
         d3.select("#retirement-graph svg").remove();
         
@@ -182,9 +194,8 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .call(yAxis);
         
         var expense_line = d3.svg.line()
-            .x(function(d, i) { 
-                var date = new Date();
-                return xScale(date.setMonth(cur_date.getMonth() + i));
+            .x(function(d, i) {
+                return xScale(d.date);
             })
             .y(function(d) {
                 return yScale(d.expenses);
@@ -192,8 +203,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         var withdraw_line = d3.svg.line()
             .x(function(d, i) {
-                var date = new Date();
-                return xScale(date.setMonth(cur_date.getMonth() + i));
+                return xScale(d.date);
             })
             .y(function(d) {
                 return yScale(d.withdraw_limit);
@@ -201,12 +211,31 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         chart.append("path")
             .attr("class", "expense-line")
-            .attr("d", expense_line(data_to_graph))
+            .attr("d", expense_line(graph_points))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
         chart.append("path")
             .attr("class", "withdraw-line")
-            .attr("d", withdraw_line(data_to_graph))
+            .attr("d", withdraw_line(graph_points))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+        
+        if (intersection_point) {
+            chart.selectAll('circle')
+                .data([intersection_point])
+                .enter()
+                .append('circle')
+                .attr('cx', function(d) {
+                    return xScale(d.x);
+                })
+                .attr('cy', function(d) {
+                    return yScale(d.y);
+                })
+                .attr('r', 5)
+                .attr('class', 'intersection-point')
+                .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+                
+            show_tooltip = true;
+            tooltip_selector = ".intersection-point";
+        }
             
         var legend = chart.append("g")
             .attr("class", "legend")
@@ -237,5 +266,34 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("dy", ".35em")
             .text(function(d) { return '4% withdrawal'; });
             
+        if (show_tooltip) {
+            addToolTip('.intersection-point');
+        };
+            
     };
+    
+    function addToolTip(selector) {
+        var date = retirement_data.intersection_point.x;
+        var expenses = retirement_data.intersection_point.y;
+        var asset_need = 25 * expenses;
+        asset_need = Math.round(asset_need * 100) / 100;
+        
+        var tooltip_text = "In <span class='bold'>" + date.getFullYear() + "</span> your assets will reach 25 times your expenses -- <span class='bold'>$"  + numberWithCommas(asset_need) + "</span>. You can then safely live off passive investment gains instead of working income."
+        
+        $(selector).tooltip({
+            container: "#graph-wrapper",
+            title: tooltip_text,
+            html: true
+        });
+        
+        setTimeout(function() {
+            $(selector).tooltip('show');
+        }, 0);
+    };
+    
+    function numberWithCommas(x) {
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
 }]);
