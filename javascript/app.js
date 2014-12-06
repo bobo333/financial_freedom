@@ -104,13 +104,13 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
     
-    createRetirementGraph(retirement_data['graph_points']);
+    createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     
     $(window).resize(function() {
-        createRetirementGraph(retirement_data['graph_points']);
+        createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     });
     
-    function createRetirementGraph(graph_points) {
+    function createRetirementGraph(graph_points, intersection_point) {
         container_width = $('#graph-wrapper').width();
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
@@ -207,6 +207,22 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("class", "withdraw-line")
             .attr("d", withdraw_line(graph_points))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+        
+        if (intersection_point) {
+            chart.selectAll('circle')
+                .data([intersection_point])
+                .enter()
+                .append('circle')
+                .attr('cx', function(d) {
+                    return xScale(d.x);
+                })
+                .attr('cy', function(d) {
+                    return yScale(d.y);
+                })
+                .attr('r', 5)
+                .attr('class', 'intersection-point')
+                .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+        }
             
         var legend = chart.append("g")
             .attr("class", "legend")

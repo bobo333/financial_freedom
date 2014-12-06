@@ -2,6 +2,7 @@
 
 $expense_color: red;
 $withdraw_color: green;
+$intersection_color: green;
 
 
 #retirement-graph {
@@ -33,5 +34,10 @@ $withdraw_color: green;
         fill: none;
         stroke: #000000;
         shapeRendering: crispEdges;
+    }
+    
+    .intersection-point {
+        fill: $intersection_color;
+        stroke: $intersection_color;
     }
 }

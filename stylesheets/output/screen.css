@@ -556,37 +556,42 @@ input:focus {
   transform: translateY(-50%);
 }
 
-/* line 7, ../../sass/partials/_time_to_retirement.scss */
+/* line 8, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph {
   font-size: 12px;
 }
-/* line 10, ../../sass/partials/_time_to_retirement.scss */
+/* line 11, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph .expense-line, #retirement-graph .withdraw-line {
   stroke-width: 1;
   fill: none;
   shapeRendering: crispEdges;
 }
-/* line 16, ../../sass/partials/_time_to_retirement.scss */
+/* line 17, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph .expense-line {
   stroke: red;
 }
-/* line 20, ../../sass/partials/_time_to_retirement.scss */
+/* line 21, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph .expense-label {
   fill: red;
 }
-/* line 24, ../../sass/partials/_time_to_retirement.scss */
+/* line 25, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph .withdraw-line {
   stroke: green;
 }
-/* line 28, ../../sass/partials/_time_to_retirement.scss */
+/* line 29, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph .withdraw-label {
   fill: green;
 }
-/* line 32, ../../sass/partials/_time_to_retirement.scss */
+/* line 33, ../../sass/partials/_time_to_retirement.scss */
 #retirement-graph .axis line, #retirement-graph .axis path {
   fill: none;
   stroke: #000000;
   shapeRendering: crispEdges;
+}
+/* line 39, ../../sass/partials/_time_to_retirement.scss */
+#retirement-graph .intersection-point {
+  fill: green;
+  stroke: green;
 }
 
 /* line 13, ../../sass/screen.scss */
