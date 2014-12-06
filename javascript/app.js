@@ -115,6 +115,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     });
     
     function createRetirementGraph(graph_points, intersection_point) {
+        var show_tooltip = false;
         container_width = $('#graph-wrapper').width();
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
@@ -226,6 +227,8 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
                 .attr('r', 5)
                 .attr('class', 'intersection-point')
                 .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+                
+            show_tooltip = true;
         }
             
         var legend = chart.append("g")
@@ -257,5 +260,21 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("dy", ".35em")
             .text(function(d) { return '4% withdrawal'; });
             
+        if (show_tooltip) {
+            addToolTip('.intersection-point');
+        };
+            
+    };
+    
+    function addToolTip(selector) {
+        console.log('adding tooltip');
+        $(selector).tooltip({
+            container: "#graph-wrapper",
+            title: "tooltip time"
+        });
+        
+        setTimeout(function() {
+            $(selector).tooltip('show');
+        }, 0);
     };
 }]);
