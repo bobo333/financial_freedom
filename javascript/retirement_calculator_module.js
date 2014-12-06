@@ -92,8 +92,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         var days_between = calculateDaysBetween(before_date, after_date);
         var expense_slope = calculateSlope(first_expense_value, second_expense_value, days_between);
         var withdraw_slope = calculateSlope(first_withdraw_value, second_withdraw_value, days_between);
-        var x_intersection = calculateXIntersection(days_between, days_between, second_expense_value, second_withdraw_value, expense_slope, withdraw_slope);
-        var y_intersection = calculateYIntersection(days_between, days_between, second_expense_value, second_withdraw_value, expense_slope, withdraw_slope);
+        var expense_line_data = formatLineData(days_between, second_expense_value, expense_slope);
+        var withdraw_line_data = formatLineData(days_between, second_withdraw_value, withdraw_slope);
+        var x_intersection = calculateXIntersection(expense_line_data, withdraw_line_data);
+        var y_intersection = calculateYIntersection(expense_line_data, withdraw_line_data);
         var intersection_date = getIntersectionDate(before_date, x_intersection);
         var intersection_point = formatIntersectionPoint(intersection_date, y_intersection);
         
@@ -166,6 +168,14 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         };
     };
     
+    var formatLineData = function(x, y, m) {
+        return {
+            x: x,
+            y: y,
+            m: m
+        };
+    };
+    
     var incrementMonthCount = function(retirement_data) {
         retirement_data.months++;
     };
@@ -195,12 +205,12 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return months % 12 === 0;
     };
     
-    var calculateXIntersection = function(x1, x2, y1, y2, m1, m2) {
-        return (m1 * x1 - m2 * x2 + y2 - y1) / (m1 - m2);
+    var calculateXIntersection = function(line1, line2) {
+        return (line1.m * line1.x - line2.m * line2.x + line2.y - line1.y) / (line1.m - line2.m);
     };
     
-    var calculateYIntersection = function(x1, x2, y1, y2, m1, m2) {
-        return (m1 * m2 * (x2 - x1) + y1 * m2 - y2 * m1 ) / (m2 - m1);
+    var calculateYIntersection = function(line1, line2) {
+        return (line1.m * line2.m * (line2.x - line1.x) + line1.y * line2.m - line2.y * line1.m) / (line2.m - line1.m)
     };
     
     var calculateSlope = function(y1, y2, dx) {
