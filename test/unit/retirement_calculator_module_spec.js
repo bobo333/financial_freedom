@@ -183,6 +183,68 @@ describe('Unit: RetirementCalculatorModule', function() {
         expect(last_date.getYear()).toBe(future_date.getYear());
     });
     
+    it('should have an intersection point for reasonable data', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateRetirementInfo();
+        
+        expect(val.intersection_point).not.toBe(undefined);
+    });
+    
+    it('should have intersection date value less than current date + months to retirement', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateRetirementInfo();
+        var retirement_date = new Date();
+        retirement_date.setMonth(retirement_date.getMonth() + val.months);
+        
+        expect(val.intersection_point.x).toBeLessThan(retirement_date);
+    });
+    
+    it('should have intersection date value greater than current date + months to retirement - 1', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateRetirementInfo();
+        var retirement_date = new Date();
+        retirement_date.setMonth(retirement_date.getMonth() + val.months - 1);
+        
+        expect(val.intersection_point.x).toBeGreaterThan(retirement_date);
+    });
+    
+    it('should have intersection y value less than values of second intersection point', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateRetirementInfo();
+        var y_intersection = val.intersection_point.y;
+        var second_expense_value = val.points_for_intersection[1].expenses
+        var second_withdraw_limit_value = val.points_for_intersection[1].withdraw_limit;
+        
+        expect(y_intersection).toBeLessThan(second_expense_value);
+        expect(y_intersection).toBeLessThan(second_withdraw_limit_value);
+    });
+    
+    it('should have intersection y value greater than values of first intersection point', function() {
+        RetirementCalculatorService.setTotalAssets(52000);
+        RetirementCalculatorService.setMonthlyIncome(5000);
+        RetirementCalculatorService.setMonthlyExpenses(2000);
+        
+        var val = RetirementCalculatorService.calculateRetirementInfo();
+        var y_intersection = val.intersection_point.y;
+        var first_expense_value = val.points_for_intersection[0].expenses
+        var first_withdraw_limit_value = val.points_for_intersection[0].withdraw_limit;
+        
+        expect(y_intersection).toBeGreaterThan(first_expense_value);
+        expect(y_intersection).toBeGreaterThan(first_withdraw_limit_value);
+    });
+    
     function objectIndexOf(arr, obj) {
         for (var i = 0; i < arr.length; i++) {
             var cur_obj = arr[i];
