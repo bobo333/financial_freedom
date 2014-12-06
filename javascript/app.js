@@ -275,7 +275,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     function addToolTip(selector) {
         var date = retirement_data.intersection_point.x;
         var expenses = retirement_data.intersection_point.y;
-        var asset_need = 25 * expenses;
+        var asset_need = 25 * expenses * 12;
         asset_need = Math.round(asset_need * 100) / 100;
         
         var tooltip_text = "In <span class='bold'>" + date.getFullYear() + "</span> your assets will reach 25 times your expenses -- <span class='bold'>$"  + numberWithCommas(asset_need) + "</span>. You can then safely live off passive investment gains instead of working income."
@@ -283,12 +283,11 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         $(selector).tooltip({
             container: "#graph-wrapper",
             title: tooltip_text,
-            html: true
+            html: true,
+            trigger: ''
         });
         
-        setTimeout(function() {
-            $(selector).tooltip('show');
-        }, 0);
+        $(selector).tooltip('show');
     };
     
     function numberWithCommas(x) {

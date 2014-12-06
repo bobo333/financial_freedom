@@ -122,7 +122,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         updateTotalAssets(retirement_data);
         updateMonthlyExpenses(retirement_data);
         
-        if (newYear(retirement_data.months)) {
+        if (retirement_data.months > 0 && newYear(retirement_data.months)) {
             updateMonthlyIncome(retirement_data);
         }
     };
