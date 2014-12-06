@@ -81,25 +81,25 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     
     var addIntersectionPoint = function(retirement_data) {
         var points_for_intersection = retirement_data.points_for_intersection;
-        var first_withdraw_value = points_for_intersection[0].withdraw_limit;
-        var second_withdraw_value = points_for_intersection[1].withdraw_limit;
-        var first_expense_value = points_for_intersection[0].expenses;
-        var second_expense_value = points_for_intersection[1].expenses;
-        var before_date = points_for_intersection[0].date;
-        var after_date = points_for_intersection[1].date;
-        
-        // calculate intersection point
-        var days_between = calculateDaysBetween(before_date, after_date);
-        var expense_slope = calculateSlope(first_expense_value, second_expense_value, days_between);
-        var withdraw_slope = calculateSlope(first_withdraw_value, second_withdraw_value, days_between);
-        var expense_line_data = formatLineData(days_between, second_expense_value, expense_slope);
-        var withdraw_line_data = formatLineData(days_between, second_withdraw_value, withdraw_slope);
-        var x_intersection = calculateXIntersection(expense_line_data, withdraw_line_data);
-        var y_intersection = calculateYIntersection(expense_line_data, withdraw_line_data);
-        var intersection_date = getIntersectionDate(before_date, x_intersection);
-        var intersection_point = formatIntersectionPoint(intersection_date, y_intersection);
+        var intersection_point = calculateIntersectionPoint(points_for_intersection);
         
         retirement_data.intersection_point = intersection_point;
+    };
+    
+    var calculateIntersectionPoint = function(points_for_intersection) {
+        var before_values = points_for_intersection[0];
+        var after_values = points_for_intersection[1];
+        
+        var days_between = calculateDaysBetween(before_values.date, after_values.date);
+        var expense_slope = calculateSlope(before_values.expenses, after_values.expenses, days_between);
+        var withdraw_slope = calculateSlope(before_values.withdraw_limit, after_values.withdraw_limit, days_between);
+        var expense_line_data = formatLineData(days_between, after_values.expenses, expense_slope);
+        var withdraw_line_data = formatLineData(days_between, after_values.withdraw_limit, withdraw_slope);
+        var x_intersection = calculateXIntersection(expense_line_data, withdraw_line_data);
+        var y_intersection = calculateYIntersection(expense_line_data, withdraw_line_data);
+        var intersection_date = getIntersectionDate(before_values.date, x_intersection);
+        
+        return formatIntersectionPoint(intersection_date, y_intersection);
     };
     
     var canRetire = function(retirement_data) {
