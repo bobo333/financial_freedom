@@ -609,8 +609,8 @@ input:focus {
 }
 /* line 61, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .intersection-point {
-  fill: blue;
-  stroke: blue;
+  fill: black;
+  stroke: black;
 }
 
 /* line 13, ../../sass/screen.scss */
