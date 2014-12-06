@@ -189,7 +189,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     var getIntersectionDate = function(start_date, x_intersection) {
-        var intersection_date = start_date;
+        var intersection_date = new Date(start_date.getTime());
         var days_to_add = Math.round(x_intersection);
         
         addDaysToDate(intersection_date, days_to_add);
