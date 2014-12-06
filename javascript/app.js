@@ -102,6 +102,7 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCal
 
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
     $scope.retirement = {};
+    var tooltip_selector;
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
     var months_to_retirement = retirement_data['months'];
@@ -111,6 +112,10 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     
     $(window).resize(function() {
+        if ($(".tooltip").length > 0) {
+            $(tooltip_selector).tooltip('destroy');
+        }
+        
         createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     });
     
@@ -229,6 +234,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
                 .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
                 
             show_tooltip = true;
+            tooltip_selector = ".intersection-point";
         }
             
         var legend = chart.append("g")
@@ -267,14 +273,27 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     };
     
     function addToolTip(selector) {
-        console.log('adding tooltip');
+        var date = retirement_data.intersection_point.x;
+        var expenses = retirement_data.intersection_point.y;
+        var asset_need = 25 * expenses;
+        asset_need = Math.round(asset_need * 100) / 100;
+        
+        var tooltip_text = "In <span class='bold'>" + date.getFullYear() + "</span> your assets will reach 25 times your expenses -- <span class='bold'>$"  + numberWithCommas(asset_need) + "</span>. You can then safely live off passive investment gains instead of working income."
+        
         $(selector).tooltip({
             container: "#graph-wrapper",
-            title: "tooltip time"
+            title: tooltip_text,
+            html: true
         });
         
         setTimeout(function() {
             $(selector).tooltip('show');
         }, 0);
     };
+    
+    function numberWithCommas(x) {
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
 }]);
