@@ -60,13 +60,15 @@ angular.module('ng-currency', [])
 
                 element.on("blur", function () {
                     display_value = $filter('currency')(ngModel.$modelValue);
-                    display_value = display_value.substr(1);  // remove the leading dollar sign
+                    if (display_value !== undefined) {
+                        display_value = display_value.substr(1);  // remove the leading dollar sign
+                    }
                     element.val(display_value);
                 });
 
                 ngModel.$formatters.unshift(function (value) {
                     display_value = $filter('currency')(value);
-                    if (display_value != undefined) {
+                    if (display_value !== undefined) {
                         display_value = display_value.substr(1);  // remove the leading dollar sign
                     }
                     return display_value;
