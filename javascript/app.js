@@ -108,7 +108,13 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     var months_to_retirement = retirement_data['months'];
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
-    $scope.retirement.can_be_reached = false;
+    $scope.retirement.graph_shown = retirement_data.can_retire && !retirement_data.can_retire_immediately;
+    $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
+    $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
+
+    console.log("graph shown " + $scope.retirement.graph_shown);
+    console.log("never retire " + $scope.retirement.never_retire_shown);
+    console.log("already_retired_show " + $scope.retirement.already_retired_show);
     
     createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     
