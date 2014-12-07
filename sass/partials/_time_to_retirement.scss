@@ -64,3 +64,30 @@ $intersection_color: black;
         }
     }
 }
+
+.retirement-main-output {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.retirement-time-units {
+    @extend .after-input-text;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 60px;
+    font-size: $base_font_size * 2;
+}
+
+.retirement-years {
+    @extend .input-title;
+    font-size: $base_font_size * 15;
+}
+
+.months-line {
+    color: #A0A0A0;
+    margin-top: 10px;
+}
+
+.cannot-retire {
+    @extend .supporting-section-body;
+}

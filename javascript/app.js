@@ -108,6 +108,9 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     var months_to_retirement = retirement_data['months'];
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
+    $scope.retirement.graph_shown = retirement_data.can_retire && !retirement_data.can_retire_immediately;
+    $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
+    $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
     
     createRetirementGraph(retirement_data['graph_points'], retirement_data['intersection_point']);
     
@@ -241,7 +244,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("class", "legend")
             .attr("width", 200)
             .attr("height", 100)
-            .attr("transform", "translate(" + (margin.left + width - 110) + ", " + (margin.top + height - 45) + ") ");
+            .attr("transform", "translate(" + (margin.left + width - 160) + ", " + (margin.top + height - 45) + ") ");
 
         legend.append("rect")
             .attr("width", 18)
@@ -258,13 +261,13 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
-            .text(function(d) { return 'expenses'; });
+            .text(function(d) { return 'Monthly expenses'; });
             
         legend.append("text")
             .attr("x", 24)
             .attr("y", 29)
             .attr("dy", ".35em")
-            .text(function(d) { return '4% withdrawal'; });
+            .text(function(d) { return 'Monthly passive income'; });
             
         if (show_tooltip) {
             addToolTip('.intersection-point');
@@ -278,7 +281,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         var asset_need = 25 * expenses * 12;
         asset_need = Math.round(asset_need * 100) / 100;
         
-        var tooltip_text = "In <span class='bold'>" + date.getFullYear() + "</span> your assets will reach 25 times your expenses -- <span class='bold'>$"  + numberWithCommas(asset_need) + "</span>. You can then safely live off passive investment gains instead of working income."
+        var tooltip_text = "At your current trajectory, you will be able to safely live off passive income instead of working income in <span class='bold'>" + date.getFullYear() + "</span>.";
         
         $(selector).tooltip({
             container: "#graph-wrapper",
