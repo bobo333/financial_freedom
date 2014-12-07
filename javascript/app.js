@@ -279,9 +279,9 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         var date = retirement_data.intersection_point.x;
         var expenses = retirement_data.intersection_point.y;
         var asset_need = 25 * expenses * 12;
-        asset_need = Math.round(asset_need * 100) / 100;
+        asset_need = Math.round(asset_need);
         
-        var tooltip_text = "At your current trajectory, you will be able to safely live off passive income instead of working income in <span class='bold'>" + date.getFullYear() + "</span>.";
+        var tooltip_text = "At your current trajectory, you will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
         
         $(selector).tooltip({
             container: "#graph-wrapper",
