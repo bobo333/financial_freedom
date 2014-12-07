@@ -185,14 +185,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 /* line 85, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
-  font-weight: bold;
+  font-weight: 600;
+  color: #382513;
   background: #d8caa8;
 }
-/* line 89, ../../sass/partials/_header.scss */
+/* line 90, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
   background: #d8caa8;
 }
-/* line 94, ../../sass/partials/_header.scss */
+/* line 95, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
   background: rgba(216, 202, 168, 0.25);

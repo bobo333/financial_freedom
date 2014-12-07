@@ -83,7 +83,8 @@ $border-style: 1px solid rgba(0,0,0,.15);
         }
         
         &.active {
-            font-weight: bold;
+            font-weight: $base_font_weight_semi_bold;
+            color: $tab_wrapper_bg;
             background: $active_tab_color;
 
             &:hover {
