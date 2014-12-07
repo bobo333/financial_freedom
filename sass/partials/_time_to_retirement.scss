@@ -2,37 +2,66 @@
 
 $expense_color: red;
 $withdraw_color: green;
+$intersection_color: black;
 
+#graph-wrapper {
 
-#retirement-graph {
-    font-size: 12px;
-
-    .expense-line, .withdraw-line {
-        stroke-width: 1;
-        fill: none;
-        shapeRendering: crispEdges;
+    .tooltip {
+        &.in {
+            opacity: 1;
+        }
+        
+        .bold {
+            font-weight: $base_font_weight_semi_bold;
+        }
+        
+        .tooltip-arrow {
+            border-top-color: $primary_green;
+        };
+        
+        .tooltip-inner {
+            text-align: left;
+            background: $primary_green;
+            font-size: 14px;
+            padding: 10px;
+        }
     }
 
-    .expense-line {
-        stroke: $expense_color;
-    }
+    #retirement-graph {
+        font-size: 12px;
 
-    .expense-label {
-        fill: $expense_color;
-    }
+        .expense-line, .withdraw-line {
+            stroke-width: 1;
+            fill: none;
+            shapeRendering: crispEdges;
+        }
 
-    .withdraw-line {
-        stroke: $withdraw_color;
-    }
+        .expense-line {
+            stroke: $expense_color;
+        }
 
-    .withdraw-label {
-        fill: $withdraw_color;
-    }
+        .expense-label {
+            fill: $expense_color;
+        }
 
-    .axis line, .axis path {
-        fill: none;
-        stroke: #000000;
-        shapeRendering: crispEdges;
+        .withdraw-line {
+            stroke: $withdraw_color;
+        }
+
+        .withdraw-label {
+            fill: $withdraw_color;
+        }
+
+        .axis line, .axis path {
+            fill: none;
+            stroke: #000000;
+            shapeRendering: crispEdges;
+        }
+        
+        .intersection-point {
+            fill: $intersection_color;
+            stroke: $intersection_color;
+        }
     }
 }
 

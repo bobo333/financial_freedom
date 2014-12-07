@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
@@ -26,7 +27,7 @@
         <title>Financial Freedom</title>
     </head>
     
-    <body>
+    <body ng-controller="bodyController">
 
         <div class="header-wrap" ng-controller="HeaderController">
             <div class="header navbar navbar-default">
