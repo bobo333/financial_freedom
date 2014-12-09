@@ -31,7 +31,7 @@ FinancialFreedom.directive('nextButton', ['$location', function($location) {
             inputValue: '@',
             nextRoute: '@'
         },
-        template: '<div ng-click="goToNextRoute()" ng-class="{active: isButtonActive()}" class="next-button"><div class="text">Next</div></div>',
+        template: '<input type="submit" value="next" ng-click="goToNextRoute()" ng-class="{active: isButtonActive()}" class="next-button" />',
         link: function(scope, element, attributes) {
             scope.goToNextRoute = function() {
                 if (scope.isButtonActive()) {

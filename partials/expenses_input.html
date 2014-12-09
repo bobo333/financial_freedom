@@ -4,12 +4,14 @@
 		    <div class="input-title">Expenses</div>
 		    
 		    <div class="step-subheader">Bills, rent, mortgage interest, and spending every month</div>
-		    
-		    <div class="input-field-wrapper">
-		        $<input type="text" placeholder="3,500" ng-currency ng-model="expenses.value" autofocus><span class="after-input-text">per month</span>
-		    </div>
+		    <form>
+			    <div class="input-field-wrapper">
+			        $<input type="text" placeholder="3,500" ng-currency ng-model="expenses.value" autofocus><span class="after-input-text">per month</span>
+			    </div>
+			    <next-button input-value="{{expenses.value}}" next-route="time-to-retirement"></next-button>
+			</form>
 		</div>
     </div>
-    <next-button input-value="{{expenses.value}}" next-route="time-to-retirement"></next-button>
+    
 
 </div>
