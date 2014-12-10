@@ -6,6 +6,8 @@ $next-button-height: 120px;
     position: fixed;
     height: $next-button-height;
     bottom: 0;
+    left: 0;
+    right: 0;
     background: $header-gradient-top;
     text-align: center;
     color: $title-color;
@@ -13,6 +15,7 @@ $next-button-height: 120px;
     width: 100%;
     @include hover-animation(background);
     @include hover-animation(opacity);
+    border: none;
 
     @include min-screen($screen_sm_min) {
         width: 250px;
@@ -33,9 +36,9 @@ $next-button-height: 120px;
         background: #1CAD43;
     }
     
-    .text {
-        @include vertical-align;
+    &[type=submit] {
         text-transform: uppercase;
         font-size: $base-font-size * 3;
+        padding: 0;
     }
 }

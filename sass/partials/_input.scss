@@ -1,7 +1,16 @@
 $input_field_width: 300px;
 
 .view-content {
-	padding-left: 0px;
+	padding: 0px;
+}
+
+.view-body-content {
+	padding: 0;
+}
+
+.next-button-wrapper {
+	padding: 0;
+	width: 100%;
 }
 
 input[type="text"] {
