@@ -562,7 +562,7 @@ input:focus {
 }
 /* line 30, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph {
-  font-size: 12px;
+  font-size: 16px;
 }
 /* line 33, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-line, #graph-wrapper #retirement-graph .withdraw-line {
