@@ -215,11 +215,8 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         chart.append("path")
             .attr("class", "expense-line")
-            .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ")
-            .transition()
-                .ease("linear")
-                .duration(2000)
-                .attr("d", expense_line(graph_points));
+            .attr("d", expense_line(graph_points))
+            .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
 
         chart.append("path")
             .attr("class", "withdraw-line")
@@ -249,7 +246,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             .attr("class", "legend")
             .attr("width", 200)
             .attr("height", 100)
-            .attr("transform", "translate(" + (margin.left + width - 220) + ", " + (margin.top + height - 45) + ") ");
+            .attr("transform", "translate(" + (margin.left + 40) + ", " + (margin.top + 20) + ") ");
 
         legend.append("rect")
             .attr("width", 18)
