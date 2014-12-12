@@ -72,7 +72,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     var padGraphData = function(retirement_data) {
-        var points_to_add = retirement_data.graph_points.length / 2;
+        var points_to_add = retirement_data.graph_points.length / 6;
     
         for (i=0; i < points_to_add; i++) {
             addNextGraphPoint(retirement_data);
