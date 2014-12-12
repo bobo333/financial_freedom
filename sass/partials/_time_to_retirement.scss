@@ -3,6 +3,7 @@
 $expense_color: red;
 $withdraw_color: green;
 $intersection_color: black;
+$tooltip_bg: rgba(28,142,58,0.80);
 
 #graph-wrapper {
 
@@ -16,14 +17,15 @@ $intersection_color: black;
         }
         
         .tooltip-arrow {
-            border-top-color: $primary_green;
+            border-top-color: $tooltip_bg;
         };
         
         .tooltip-inner {
             text-align: left;
-            background: $primary_green;
+            background: $tooltip_bg;
             font-size: 14px;
             padding: 10px;
+            line-height: 1.3em;
         }
     }
 

@@ -128,7 +128,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
         scroll_bar_width = 20;
-        pixels_per_axis_label = 55;
+        pixels_per_axis_label = 65;
     
         var margin = {top: 20, right: 10, bottom: 30, left: 75},
             width = container_width - margin.left - margin.right - scroll_bar_width,
@@ -140,6 +140,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         
         number_of_x_ticks = Math.min(width / pixels_per_axis_label);
         function yTickFormat(tick_value) {
+            tick_value = numberWithCommas(tick_value);
             return '$' + tick_value;
         };
         
@@ -214,8 +215,12 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
             
         chart.append("path")
             .attr("class", "expense-line")
-            .attr("d", expense_line(graph_points))
-            .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+            .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ")
+            .transition()
+                .ease("linear")
+                .duration(2000)
+                .attr("d", expense_line(graph_points));
+
         chart.append("path")
             .attr("class", "withdraw-line")
             .attr("d", withdraw_line(graph_points))
