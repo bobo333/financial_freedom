@@ -68,7 +68,7 @@ $tooltip_bg: rgba(28,142,58,0.80);
 }
 
 .retirement-main-output {
-    margin-top: 100px;
+    margin-top: 0px;
     text-align: center;
 }
 
@@ -83,6 +83,7 @@ $tooltip_bg: rgba(28,142,58,0.80);
 .retirement-years {
     @extend .input-title;
     font-size: $base_font_size * 15;
+    margin-top: 50px;
 }
 
 .months-line {

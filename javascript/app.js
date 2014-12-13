@@ -128,7 +128,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
         scroll_bar_width = 20;
-        pixels_per_axis_label = 65;
+        pixels_per_axis_label = 75;
     
         var margin = {top: 20, right: 10, bottom: 30, left: 75},
             width = container_width - margin.left - margin.right - scroll_bar_width,
@@ -139,7 +139,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         }
         
         number_of_x_ticks = Math.min(width / pixels_per_axis_label);
-        function yTickFormat(tick_value) {
+            function yTickFormat(tick_value) {
             tick_value = numberWithCommas(tick_value);
             return '$' + tick_value;
         };

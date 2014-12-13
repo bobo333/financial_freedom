@@ -601,7 +601,7 @@ input:focus {
 
 /* line 70, ../../sass/partials/_time_to_retirement.scss */
 .retirement-main-output {
-  margin-top: 100px;
+  margin-top: 0px;
   text-align: center;
 }
 
@@ -616,22 +616,23 @@ input:focus {
 /* line 83, ../../sass/partials/_time_to_retirement.scss */
 .retirement-years {
   font-size: 195px;
+  margin-top: 50px;
 }
 
-/* line 88, ../../sass/partials/_time_to_retirement.scss */
+/* line 89, ../../sass/partials/_time_to_retirement.scss */
 .months-line {
   color: #A0A0A0;
   margin-top: 5px;
   border-top: 0px solid black;
 }
 
-/* line 98, ../../sass/partials/_time_to_retirement.scss */
+/* line 99, ../../sass/partials/_time_to_retirement.scss */
 .can-retire {
   padding-top: 30px;
   padding-bottom: 50px;
 }
 
-/* line 103, ../../sass/partials/_time_to_retirement.scss */
+/* line 104, ../../sass/partials/_time_to_retirement.scss */
 .until-fi {
   margin-top: 35px;
 }
