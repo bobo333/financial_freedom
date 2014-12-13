@@ -375,7 +375,8 @@ input:focus {
 .next-button {
   font-family: 'Oxygen', sans-serif;
   position: fixed;
-  height: 120px;
+  height: 80px;
+  width: 80px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -383,7 +384,6 @@ input:focus {
   text-align: center;
   color: #FFFFFF;
   opacity: 0;
-  width: 100%;
   -moz-transition-property: background;
   -o-transition-property: background;
   -webkit-transition-property: background;
@@ -413,13 +413,12 @@ input:focus {
 @media screen and (min-width: 768px) {
   /* line 4, ../../sass/partials/_next_button.scss */
   .next-button {
-    width: 250px;
     height: 80px;
     display: block;
     margin: 60px auto auto auto;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
     position: relative;
   }
 }
@@ -448,6 +447,7 @@ input:focus {
   float: right;
   position: relative;
   padding-left: 0px;
+  padding-bottom: 50px;
   font-weight: 300;
   font-size: 26px;
   background: #F5F5F5;
@@ -465,17 +465,17 @@ input:focus {
   }
 }
 
-/* line 22, ../../sass/partials/_method.scss */
+/* line 23, ../../sass/partials/_method.scss */
 .method-section {
   margin: 0px auto 0px auto;
 }
 
-/* line 26, ../../sass/partials/_method.scss */
+/* line 27, ../../sass/partials/_method.scss */
 .supporting-content-wrapper {
   padding: 50px auto;
 }
 
-/* line 30, ../../sass/partials/_method.scss */
+/* line 31, ../../sass/partials/_method.scss */
 .supporting-section-title {
   font-weight: 600;
   font-size: 39px;
@@ -483,7 +483,7 @@ input:focus {
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 30, ../../sass/partials/_method.scss */
+  /* line 31, ../../sass/partials/_method.scss */
   .supporting-section-title {
     font-size: 65px;
     margin-top: 50px;
@@ -491,19 +491,19 @@ input:focus {
   }
 }
 
-/* line 43, ../../sass/partials/_method.scss */
+/* line 44, ../../sass/partials/_method.scss */
 .supporting-section-body, .cannot-retire {
   margin-top: 20px;
   line-height: 1.3;
   font-size: 13px;
   padding: 0px 30px 30px 30px;
 }
-/* line 50, ../../sass/partials/_method.scss */
+/* line 51, ../../sass/partials/_method.scss */
 .supporting-section-body li, .cannot-retire li {
   list-style-type: circle;
 }
 @media screen and (min-width: 768px) {
-  /* line 43, ../../sass/partials/_method.scss */
+  /* line 44, ../../sass/partials/_method.scss */
   .supporting-section-body, .cannot-retire {
     font-size: 19.5px;
     padding-bottom: 50px;
@@ -511,18 +511,18 @@ input:focus {
   }
 }
 
-/* line 60, ../../sass/partials/_method.scss */
+/* line 61, ../../sass/partials/_method.scss */
 .subsection-header {
   margin: 40px auto 40px auto;
   font-weight: 600;
 }
 
-/* line 65, ../../sass/partials/_method.scss */
+/* line 66, ../../sass/partials/_method.scss */
 .btn-primary {
   background: #1D8E3B;
 }
 
-/* line 69, ../../sass/partials/_method.scss */
+/* line 70, ../../sass/partials/_method.scss */
 .about-section {
   background: #055D1C;
   width: 100%;
@@ -533,7 +533,7 @@ input:focus {
   border-radius: 0px;
 }
 
-/* line 78, ../../sass/partials/_method.scss */
+/* line 79, ../../sass/partials/_method.scss */
 .about-text {
   position: relative;
   top: 50%;
