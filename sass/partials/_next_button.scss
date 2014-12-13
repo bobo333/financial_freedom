@@ -9,13 +9,14 @@ $next-button-height: 80px;
     bottom: 0;
     left: 0;
     right: 0;
-    background: $header-gradient-top;
+    background: #fff;
     text-align: center;
-    color: $title-color;
+    color: $header-gradient-top;
     opacity: 0;
     @include hover-animation(background);
     @include hover-animation(opacity);
-    border: none;
+    @include hover-animation(box-shadow);
+    border: $header-gradient-top solid 2px;
 
     @include min-screen($screen_sm_min) {
         height: $next-button-height-min-sm;
@@ -32,7 +33,7 @@ $next-button-height: 80px;
     }
 
     &:hover {
-        background: #1CAD43;
+        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
     }
     
     &[type=submit] {
