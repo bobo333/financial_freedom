@@ -4,6 +4,7 @@ $expense_color: red;
 $withdraw_color: green;
 $intersection_color: black;
 $tooltip_bg: rgba(28,142,58,0.80);
+$main_bubble_color: #fff;
 
 #graph-wrapper {
 
@@ -78,16 +79,18 @@ $tooltip_bg: rgba(28,142,58,0.80);
     text-transform: uppercase;
     margin-top: 65px;
     font-size: $base_font_size * 2;
+    color: $main_bubble_color;
 }
 
 .retirement-years {
     @extend .input-title;
     font-size: $base_font_size * 15;
     margin-top: 50px;
+    color: $main_bubble_color;
 }
 
 .months-line {
-    color: #A0A0A0;
+    color: rgba(255,255,255,0.25);
     margin-top: 5px;
     border-top: 0px solid black;
 }
@@ -107,7 +110,7 @@ $tooltip_bg: rgba(28,142,58,0.80);
 }
 
 .big-number-bg {
-    background: #f5f5f5;
+    background: #404040;
     width: 400px;
     height: 400px;
     @include border-radius(50%);

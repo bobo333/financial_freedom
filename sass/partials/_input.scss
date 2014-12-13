@@ -13,7 +13,7 @@ $input_field_width: 300px;
 	width: 100%;
 }
 
-input[type="text"] {
+input[type="text"].steps {
   
   @include input-placeholder {
     font-family: $base_font_weight_light;
