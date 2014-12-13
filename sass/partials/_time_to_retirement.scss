@@ -5,6 +5,7 @@ $withdraw_color: green;
 $intersection_color: black;
 $tooltip_bg: rgba(28,142,58,0.80);
 $main_bubble_color: #fff;
+$main_bubble_diameter: 350px;
 
 #graph-wrapper {
 
@@ -84,7 +85,7 @@ $main_bubble_color: #fff;
 
 .retirement-years {
     @extend .input-title;
-    font-size: $base_font_size * 15;
+    font-size: $base_font_size * 10;
     margin-top: 50px;
     color: $main_bubble_color;
 }
@@ -111,8 +112,8 @@ $main_bubble_color: #fff;
 
 .big-number-bg {
     background: #404040;
-    width: 400px;
-    height: 400px;
+    width: $main_bubble_diameter;
+    height: $main_bubble_diameter;
     @include border-radius(50%);
     margin-right: auto;
     margin-left: auto;
@@ -121,4 +122,8 @@ $main_bubble_color: #fff;
 
 .big-number-wrapper {
     @include vertical-align;
+}
+
+.expenses-control {
+    margin-top: 20px;
 }
