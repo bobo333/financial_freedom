@@ -683,6 +683,11 @@ input:focus {
   margin-top: 20px;
 }
 
+/* line 131, ../../sass/partials/_time_to_retirement.scss */
+.assumptions-btn {
+  margin-top: 50px;
+}
+
 /* line 13, ../../sass/screen.scss */
 html, body {
   width: 100%;
