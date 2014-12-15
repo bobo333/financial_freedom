@@ -5,7 +5,7 @@ $withdraw_color: green;
 $intersection_color: black;
 $tooltip_bg: rgba(28,142,58,0.80);
 $main_bubble_color: #fff;
-$main_bubble_diameter: 350px;
+$main_bubble_diameter: 250px;
 
 #graph-wrapper {
 
@@ -78,7 +78,7 @@ $main_bubble_diameter: 350px;
     @extend .after-input-text;
     text-align: center;
     text-transform: uppercase;
-    margin-top: 65px;
+    margin-top: 25px;
     font-size: $base_font_size * 2;
     color: $main_bubble_color;
 }

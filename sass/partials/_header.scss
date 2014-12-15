@@ -7,20 +7,19 @@ $header_gradient_bottom: #276036;
 $header_gradient_top: #1E8E3B;
 $tab_wrapper_bg: #382513;
 $active_tab_color: #D8CAA8;
-$title_color: #FFFFFF;
+$title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
 
 .header {
-	@include background-image(linear-gradient($header_gradient_top,$header_gradient_bottom));
-	height: 150px;
+	height: 80px;
 	position: relative;
 }
 
 .header-text {
     font-family: $brand_font_family;
     color: $title_color;
-    text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
-    text-align: center;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
+    margin-left: 100px;
     @include vertical-align;
     @include hover-animation(color);
 	a, a:hover {
@@ -29,9 +28,14 @@ $border-style: 1px solid rgba(0,0,0,.15);
         
 	}
     &:hover {
-        color: #EEFFDA;
+        color: #6D6D6D;
         cursor: pointer;
     }
+}
+
+#header-accent {
+    height: 10px;
+    background: $header_gradient_top;
 }
 
 .product-name {
@@ -41,6 +45,7 @@ $border-style: 1px solid rgba(0,0,0,.15);
 
 .tag-line {
 	font-weight: $brand_font_weight_light;
+    margin-left: 30px;
 }
 
 .navbar {
