@@ -5,8 +5,8 @@
 // Colors
 $header_gradient_bottom: #276036;
 $header_gradient_top: #1E8E3B;
-$tab_wrapper_bg: #382513;
-$active_tab_color: #D8CAA8;
+$tab_wrapper_bg: #404040;
+$active_tab_color: #6D6D6D;
 $title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
 
@@ -65,7 +65,7 @@ $border-style: 1px solid rgba(0,0,0,.15);
 .header-tabs {
 
     @include min-screen($screen_sm_min) {
-        width: 60%;
+        width: 100%;
         margin: auto auto auto auto;
     }
 
@@ -78,7 +78,7 @@ $border-style: 1px solid rgba(0,0,0,.15);
         border-right: none;
         background: none;
         color: white;
-        height: 60px;
+        height: 30px;
         font-size: $base_font_size * 1.5;
         @include hover-animation(background);
         

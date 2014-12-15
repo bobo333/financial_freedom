@@ -135,7 +135,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 57, ../../sass/partials/_header.scss */
 .tabs-wrapper {
-  background: #382513;
+  background: #404040;
 }
 
 /* line 61, ../../sass/partials/_header.scss */
@@ -150,7 +150,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 @media screen and (min-width: 768px) {
   /* line 65, ../../sass/partials/_header.scss */
   .header-tabs {
-    width: 60%;
+    width: 100%;
     margin: auto auto auto auto;
   }
 }
@@ -164,7 +164,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-right: none;
   background: none;
   color: white;
-  height: 60px;
+  height: 30px;
   font-size: 19.5px;
   -moz-transition-property: background;
   -o-transition-property: background;
@@ -187,16 +187,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 90, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
-  background: #D8CAA8;
+  background: #6D6D6D;
 }
 /* line 94, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
-  background: #D8CAA8;
+  background: #6D6D6D;
 }
 /* line 99, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
-  background: rgba(216, 202, 168, 0.25);
+  background: rgba(109, 109, 109, 0.25);
 }
 
 /* line 3, ../../sass/partials/_input.scss */
@@ -686,6 +686,8 @@ input:focus {
 /* line 131, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-btn {
   margin-top: 50px;
+  border-color: #404040;
+  background: #404040;
 }
 
 /* line 13, ../../sass/screen.scss */
