@@ -31,7 +31,7 @@
 		            </div>
 			    	<div class="supporting-section-body col-md-6">
 
-			    		<div class="expenses-control col-md-12">
+			    		<div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
 			    			<div class="input-group">
 						      <span class="input-group-btn">
 						        <button class="btn btn-default glyphicon-minus" type="button"></button>
@@ -44,7 +44,7 @@
 						    <div class="control-label">Expenses</div>
 			    		</div>
 			    		<div class="controls-row col-md-12">
-				    		<div class="expenses-control col-md-6">
+				    		<div class="input-control col-md-6">
 				    			<div class="input-group">
 							      <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-minus" type="button"></button>
@@ -56,7 +56,7 @@
 							    </div>
 							    <div class="control-label">Income</div>
 							</div>
-						    <div class="expenses-control col-md-6">
+						    <div class="input-control col-md-6">
 				    			<div class="input-group">
 							      <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-minus" type="button"></button>
@@ -70,18 +70,63 @@
 				    		</div>
 				    	</div>
 			    		<div class="assumptions-section col-md-12">
-			    			<button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
-				    		<ul ng-show="assumptionsShownToggle">
-					    		<li>Inflation rate of 3.5%.</li>
-					    		<li>Income increases at 5%.</li>
-					    		<li>Expenses grow with inflation.</li>
-					    		<li>Assets track historical stock market average gains of 7.5%</li>
-					    	</ul>
-					    </div>
+			    			<div class="col-md-12">
+			    				<button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
+			    			</div>
+			    			<div class="col-md-12 assumptions-controls-wrapper" ng-show="assumptionsShownToggle">
+				    			<div class="input-control col-md-6">
+					    			<div class="input-group">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-minus" type="button"></button>
+								      </span>
+								      <input type="text" class="form-control expenses-field" value="$300">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-plus" type="button"></button>
+								      </span>
+								    </div>
+							    	<div class="control-label">Inflation rate</div>
+					    		</div>
+					    		<div class="input-control col-md-6">
+					    			<div class="input-group">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-minus" type="button"></button>
+								      </span>
+								      <input type="text" class="form-control expenses-field" value="$300">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-plus" type="button"></button>
+								      </span>
+								    </div>
+							    	<div class="control-label">Income growth rate</div>
+					    		</div>
+					    		<div class="input-control col-md-6">
+					    			<div class="input-group">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-minus" type="button"></button>
+								      </span>
+								      <input type="text" class="form-control expenses-field" value="$300">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-plus" type="button"></button>
+								      </span>
+								    </div>
+							    	<div class="control-label">Expenses growth rate</div>
+					    		</div>
+					    		<div class="input-control col-md-6">
+					    			<div class="input-group">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-minus" type="button"></button>
+								      </span>
+								      <input type="text" class="form-control expenses-field" value="$300">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-plus" type="button"></button>
+								      </span>
+								    </div>
+							    	<div class="control-label">Asset growth rate</div>
+					    		</div>
+						    </div>
+		    			</div>
 		    		</div>
-		    	</div>
+	    		</div>
 	    	</div>
-
     	</div>
     	<div class="row">
 	    	<div class="about-section supporting-content">
