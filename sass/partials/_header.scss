@@ -9,10 +9,12 @@ $tab_wrapper_bg: #404040;
 $active_tab_color: #6D6D6D;
 $title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
+$nav-height: 30px;
 
 .header {
 	height: 80px;
 	position: relative;
+    margin-top: 20px 0px 20px 0px;
 }
 
 .header-text {
@@ -52,6 +54,7 @@ $border-style: 1px solid rgba(0,0,0,.15);
 	border: none;
 	border-radius: 0px;
     margin-bottom: 0px !important;
+    height: 80px;
 }
 
 .tabs-wrapper {
@@ -67,6 +70,7 @@ $border-style: 1px solid rgba(0,0,0,.15);
     @include min-screen($screen_sm_min) {
         width: 100%;
         margin: auto auto auto auto;
+        height: $nav-height;
     }
 
     .tab {
@@ -78,7 +82,7 @@ $border-style: 1px solid rgba(0,0,0,.15);
         border-right: none;
         background: none;
         color: white;
-        height: 30px;
+        height: $nav-height;
         font-size: $base_font_size * 1.5;
         @include hover-animation(background);
         

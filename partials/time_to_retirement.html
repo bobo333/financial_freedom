@@ -29,10 +29,9 @@
 			    	<div class="col-md-6" id="graph-wrapper">
 		                <div id="retirement-graph"></div>
 		            </div>
-			    	<div class="supporting-section-body col-md-5">
+			    	<div class="supporting-section-body col-md-6">
 
-			    		<div class="expenses-control col-md-6">
-			    			Expenses
+			    		<div class="expenses-control col-md-12">
 			    			<div class="input-group">
 						      <span class="input-group-btn">
 						        <button class="btn btn-default glyphicon-minus" type="button"></button>
@@ -41,8 +40,35 @@
 						      <span class="input-group-btn">
 						        <button class="btn btn-default glyphicon-plus" type="button"></button>
 						      </span>
-						    </div><!-- /input-group -->
+						    </div>
+						    <div class="control-label">Expenses</div>
 			    		</div>
+			    		<div class="controls-row col-md-12">
+				    		<div class="expenses-control col-md-6">
+				    			<div class="input-group">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default glyphicon-minus" type="button"></button>
+							      </span>
+							      <input type="text" class="form-control expenses-field" value="$300">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default glyphicon-plus" type="button"></button>
+							      </span>
+							    </div>
+							    <div class="control-label">Income</div>
+							</div>
+						    <div class="expenses-control col-md-6">
+				    			<div class="input-group">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default glyphicon-minus" type="button"></button>
+							      </span>
+							      <input type="text" class="form-control expenses-field" value="$300">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default glyphicon-plus" type="button"></button>
+							      </span>
+							    </div>
+						    	<div class="control-label">Assets</div>
+				    		</div>
+				    	</div>
 			    		<div class="assumptions-section col-md-12">
 			    			<button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
 				    		<ul ng-show="assumptionsShownToggle">
