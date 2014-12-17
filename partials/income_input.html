@@ -1,5 +1,5 @@
 <div class="view-content container-fluid">
-	<form name="incomeForm" ng-submit="submitForm()" novalidate>
+	<form name="incomeForm" ng-submit="submitForm(incomeForm.$valid)" novalidate class="income-form">
 		<div class="row">
 		    <div class="view-body-content col-xs-12 col-md-8 col-md-offset-4">
 			    <div class="input-title">Income</div>
@@ -9,7 +9,7 @@
 			    <div class="input-field-wrapper">
 			        $<input type="text" 
 			        	autofocus 
-			        	required 
+			        	required
 			        	ng-currency
 			        	placeholder="4,500" 
 			        	class="steps" 
@@ -20,7 +20,8 @@
 		</div>
 		<div class="row">
 			<div class="next-button-wrapper col-xs-12">  
-				<next-button input-value="{{income.value}}"></next-button>
+				<!-- <next-button input-value="{{income.value}}"></next-button> -->
+				<input type="submit" value="&#xf105;" ng-show="incomeForm.$valid" class="next-button" />
 			</div>
 		</div>
     </form>

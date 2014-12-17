@@ -12,7 +12,7 @@ $next-button-height: 80px;
     background: #fff;
     text-align: center;
     color: $header-gradient-top;
-    opacity: 0;
+    // opacity: 0;
     @include hover-animation(background);
     @include hover-animation(box-shadow);
     @include hover-animation(opacity);
@@ -26,7 +26,7 @@ $next-button-height: 80px;
         position: relative;
     }
 
-    &.active {
+    &.ng-valid {
         opacity: 1;
         cursor: pointer;
         @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
@@ -42,4 +42,10 @@ $next-button-height: 80px;
         padding: 0;
         font-family: FontAwesome;
     }
+}
+
+.next-button.ng-valid {
+    opacity: 1;
+    cursor: pointer;
+    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
 }

@@ -31,13 +31,8 @@ FinancialFreedom.directive('nextButton', ['$location', function($location) {
             inputValue: '@',
             nextRoute: '@'
         },
-        template: '<input ng-minlength="3" type="submit" value="&#xf105;" ng-class="{active: isButtonActive()}" class="next-button" />',
+        template: '',
         link: function(scope, element, attributes) {
-            // scope.goToNextRoute = function() {
-            //     if (scope.isButtonActive()) {
-            //         $location.path(scope.nextRoute);
-            //     }
-            // };
             
             scope.isButtonActive = function() {
                 return (scope.inputValue != undefined) && (scope.inputValue != '') && (!isNaN(scope.inputValue));

@@ -375,6 +375,15 @@ input:focus {
   box-shadow: none !important;
 }
 
+/* line 106, ../../sass/partials/_input.scss */
+.incomeForm input.ng-valid {
+  opacity: 1;
+  cursor: pointer;
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+}
+
 /* line 4, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
@@ -387,7 +396,6 @@ input:focus {
   background: #fff;
   text-align: center;
   color: #1E8E3B;
-  opacity: 0;
   -moz-transition-property: background;
   -o-transition-property: background;
   -webkit-transition-property: background;
@@ -439,7 +447,7 @@ input:focus {
   }
 }
 /* line 29, ../../sass/partials/_next_button.scss */
-.next-button.active {
+.next-button.ng-valid {
   opacity: 1;
   cursor: pointer;
   -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
@@ -458,6 +466,15 @@ input:focus {
   font-size: 39px;
   padding: 0;
   font-family: FontAwesome;
+}
+
+/* line 47, ../../sass/partials/_next_button.scss */
+.next-button.ng-valid {
+  opacity: 1;
+  cursor: pointer;
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
 }
 
 /* line 3, ../../sass/partials/_method.scss */
