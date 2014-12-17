@@ -31,13 +31,13 @@ FinancialFreedom.directive('nextButton', ['$location', function($location) {
             inputValue: '@',
             nextRoute: '@'
         },
-        template: '<input type="submit" value="&#xf105;" ng-click="goToNextRoute()" ng-class="{active: isButtonActive()}" class="next-button" />',
+        template: '<input ng-minlength="3" type="submit" value="&#xf105;" ng-class="{active: isButtonActive()}" class="next-button" />',
         link: function(scope, element, attributes) {
-            scope.goToNextRoute = function() {
-                if (scope.isButtonActive()) {
-                    $location.path(scope.nextRoute);
-                }
-            };
+            // scope.goToNextRoute = function() {
+            //     if (scope.isButtonActive()) {
+            //         $location.path(scope.nextRoute);
+            //     }
+            // };
             
             scope.isButtonActive = function() {
                 return (scope.inputValue != undefined) && (scope.inputValue != '') && (!isNaN(scope.inputValue));
@@ -72,13 +72,20 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
 
 }]);
 
-FinancialFreedom.controller('IncomeInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.income = {};
     $scope.income.value = RetirementCalculatorService.getMonthlyIncome();
     
     $scope.$watch('income.value', function(new_value) {
         RetirementCalculatorService.setMonthlyIncome(new_value);
     });
+
+    $scope.submitForm = function() {
+        if ($scope.incomeForm.$valid) {
+            console.log("here");
+            $location.path('/assets');
+        }  
+    };
 
 }]);
 
@@ -89,6 +96,7 @@ FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalcu
     $scope.$watch('assets.value', function(new_value) {
         RetirementCalculatorService.setTotalAssets(new_value);
     });
+
 }]);
 
 FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
