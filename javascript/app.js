@@ -59,14 +59,13 @@ FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'Re
 
     $scope.submitForm = function() {
         if ($scope.incomeForm.$valid) {
-            console.log("here");
             $location.path('/assets');
         }  
     };
 
 }]);
 
-FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+FinancialFreedom.controller('AssetsInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.assets = {};
     $scope.assets.value = RetirementCalculatorService.getTotalAssets();
     
@@ -74,15 +73,28 @@ FinancialFreedom.controller('AssetsInputController', ['$scope', 'RetirementCalcu
         RetirementCalculatorService.setTotalAssets(new_value);
     });
 
+    $scope.submitForm = function() {
+        if ($scope.assetsForm.$valid) {
+            $location.path('/expenses');
+        }  
+    };
+
 }]);
 
-FinancialFreedom.controller('ExpensesInputController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.expenses = {};
     $scope.expenses.value = RetirementCalculatorService.getMonthlyExpenses();
     
     $scope.$watch('expenses.value', function(new_value) {
         RetirementCalculatorService.setMonthlyExpenses(new_value);
     });
+
+    $scope.submitForm = function() {
+        if ($scope.expensesForm.$valid) {
+            console.log("here");
+            $location.path('/time-to-retirement');
+        }  
+    };
 }]);
 
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {

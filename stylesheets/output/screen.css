@@ -375,15 +375,6 @@ input:focus {
   box-shadow: none !important;
 }
 
-/* line 106, ../../sass/partials/_input.scss */
-.incomeForm input.ng-valid {
-  opacity: 1;
-  cursor: pointer;
-  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-}
-
 /* line 4, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;

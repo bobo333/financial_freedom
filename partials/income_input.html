@@ -1,5 +1,5 @@
 <div class="view-content container-fluid">
-	<form name="incomeForm" ng-submit="submitForm(incomeForm.$valid)" novalidate class="income-form">
+	<form name="incomeForm" ng-submit="submitForm()" novalidate>
 		<div class="row">
 		    <div class="view-body-content col-xs-12 col-md-8 col-md-offset-4">
 			    <div class="input-title">Income</div>
@@ -10,7 +10,6 @@
 			        $<input type="text" 
 			        	autofocus 
 			        	required
-			        	ng-pattern
 			        	ng-currency
 			        	placeholder="4,500" 
 			        	class="steps" 

@@ -102,9 +102,3 @@ input:focus {
 	outline: none;
   	@include box-shadow(none !important);
 }
-
-.incomeForm input.ng-valid {
-        opacity: 1;
-        cursor: pointer;
-        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
-    }
