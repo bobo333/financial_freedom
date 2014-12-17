@@ -23,24 +23,6 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     });
 }]);
 
-FinancialFreedom.directive('nextButton', ['$location', function($location) {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {
-            inputValue: '@',
-            nextRoute: '@'
-        },
-        template: '',
-        link: function(scope, element, attributes) {
-            
-            scope.isButtonActive = function() {
-                return (scope.inputValue != undefined) && (scope.inputValue != '') && (!isNaN(scope.inputValue));
-            };
-        }
-    }
-}]);
-
 FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   return {
     restrict: 'A',

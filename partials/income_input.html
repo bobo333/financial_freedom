@@ -10,6 +10,7 @@
 			        $<input type="text" 
 			        	autofocus 
 			        	required
+			        	ng-pattern
 			        	ng-currency
 			        	placeholder="4,500" 
 			        	class="steps" 
@@ -19,8 +20,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="next-button-wrapper col-xs-12">  
-				<!-- <next-button input-value="{{income.value}}"></next-button> -->
+			<div class="next-button-wrapper col-xs-12">
 				<input type="submit" value="&#xf105;" ng-show="incomeForm.$valid" class="next-button" />
 			</div>
 		</div>
