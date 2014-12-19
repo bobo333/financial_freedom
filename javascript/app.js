@@ -298,3 +298,10 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         return parts.join(".");
     }
 }]);
+
+FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+
+    $scope.income = RetirementCalculatorService.getMonthlyIncome();
+    $scope.assets = RetirementCalculatorService.getTotalAssets();
+    $scope.expenses = RetirementCalculatorService.getMonthlyExpenses();
+}]);
