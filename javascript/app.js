@@ -91,7 +91,6 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
 
     $scope.submitForm = function() {
         if ($scope.expensesForm.$valid) {
-            console.log("here");
             $location.path('/time-to-retirement');
         }  
     };
@@ -304,4 +303,12 @@ FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCa
     $scope.income = RetirementCalculatorService.getMonthlyIncome();
     $scope.assets = RetirementCalculatorService.getTotalAssets();
     $scope.expenses = RetirementCalculatorService.getMonthlyExpenses();
+    $scope.inflation = RetirementCalculatorService.getInflationRate();
+
+}]);
+
+FinancialFreedom.filter('percentage', ['$filter', function ($filter) {
+  return function (input, decimals) {
+    return $filter('number')(input * 100, decimals) + '%';
+  };
 }]);

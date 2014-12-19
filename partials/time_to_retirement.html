@@ -1,145 +1,145 @@
 <div>
-	<div class="container-fluid">
-    	<div class="row can-retire" ng-show="retirement.graph_shown">
-    		<div class="col-xs-12 col-sm-8 col-sm-offset-2 retirement-main-output">
-    			<div class="big-number-bg">
-    				<div class="big-number-wrapper">
-					    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
-					    <div class="retirement-time-units">years</div>
-					    <div class="months-line" ng-show="retirement.years_to_retirement < 5">and
-				    		<span class="" ng-bind="retirement.months_to_retirement"></span> months
-				    	</div>
-				    </div>
-				</div>
-		    	
-			    <div class="until-fi">until financial independence</div>
-			</div>
-	    </div>
-	    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.never_retire_shown">
-	    	<div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a></div>
-	    </div>
-	   	<div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
-	    	<div class="col-xs-12 no-retire-message">You're already financially independent.</div>
-	    </div>
-	</div>
     <div class="container-fluid">
-    	<div class="row">
-	    	<div class="method-section supporting-content">
-	    		<div class="supporting-content-wrapper">
-			    	<div class="col-md-6" id="graph-wrapper">
-		                <div id="retirement-graph"></div>
-		            </div>
-			    	<div class="supporting-section-body col-md-6">
-			    		<div ng-controller="OutputSettingsController" class="input-controls-wrapper">
-				    		<div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
-				    			<div class="input-group">
-							      <span class="input-group-btn">
+        <div class="row can-retire" ng-show="retirement.graph_shown">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 retirement-main-output">
+                <div class="big-number-bg">
+                    <div class="big-number-wrapper">
+                        <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
+                        <div class="retirement-time-units">years</div>
+                        <div class="months-line" ng-show="retirement.years_to_retirement < 5">and
+                            <span class="" ng-bind="retirement.months_to_retirement"></span> months
+                        </div>
+                    </div>
+                </div>
+
+                <div class="until-fi">until financial independence</div>
+            </div>
+        </div>
+        <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.never_retire_shown">
+            <div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a>
+            </div>
+        </div>
+        <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
+            <div class="col-xs-12 no-retire-message">You're already financially independent.</div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="method-section supporting-content">
+                <div class="supporting-content-wrapper">
+                    <div class="col-md-6" id="graph-wrapper">
+                        <div id="retirement-graph"></div>
+                    </div>
+                    <div ng-controller="OutputSettingsController" class="supporting-section-body col-md-6">
+                        <div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-minus" type="button"></button>
 							      </span>
-							      <input type="text" class="form-control expenses-field" value="" />
-							      <span class="input-group-btn">
+                                <input type="text" class="form-control expenses-field" value="{{ expenses }}" />
+                                <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-plus" type="button"></button>
 							      </span>
-							    </div>
-							    <div class="control-label">Expenses</div>
-				    		</div>
-				    		<div class="controls-row col-md-12">
-					    		<div class="input-control col-md-6">
-					    			<div class="input-group">
-								      <span class="input-group-btn">
+                            </div>
+                            <div class="control-label">Expenses</div>
+                        </div>
+                        <div class="controls-row col-md-12">
+                            <div class="input-control col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-minus" type="button"></button>
 								      </span>
-								      <input type="text" class="form-control expenses-field" value="{{ income }}">
-								      <span class="input-group-btn">
+                                    <input type="text" class="form-control expenses-field" value="{{ income }}">
+                                    <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-plus" type="button"></button>
 								      </span>
-								    </div>
-								    <div class="control-label">Income</div>
-								</div>
-							    <div class="input-control col-md-6">
-					    			<div class="input-group">
-								      <span class="input-group-btn">
+                                </div>
+                                <div class="control-label">Income</div>
+                            </div>
+                            <div class="input-control col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-minus" type="button"></button>
 								      </span>
-								      <input type="text" class="form-control expenses-field" value="$300">
-								      <span class="input-group-btn">
+                                    <input type="text" class="form-control expenses-field" value="{{ assets }}">
+                                    <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-plus" type="button"></button>
 								      </span>
-								    </div>
-							    	<div class="control-label">Assets</div>
-					    		</div>
-					    	</div>
-					    </div>
-			    		<div class="assumptions-section col-md-12">
-			    			<div class="col-md-12">
-			    				<button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
-			    			</div>
-			    			<div class="col-md-12 assumptions-controls-wrapper" ng-show="assumptionsShownToggle">
-				    			<div class="input-control col-md-6">
-					    			<div class="input-group">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button"></button>
-								      </span>
-								      <input type="text" class="form-control expenses-field" value="$300">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button"></button>
-								      </span>
-								    </div>
-							    	<div class="control-label">Inflation rate</div>
-					    		</div>
-					    		<div class="input-control col-md-6">
-					    			<div class="input-group">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button"></button>
-								      </span>
-								      <input type="text" class="form-control expenses-field" value="$300">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button"></button>
-								      </span>
-								    </div>
-							    	<div class="control-label">Income growth rate</div>
-					    		</div>
-					    		<div class="input-control col-md-6">
-					    			<div class="input-group">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button"></button>
-								      </span>
-								      <input type="text" class="form-control expenses-field" value="$300">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button"></button>
-								      </span>
-								    </div>
-							    	<div class="control-label">Expenses growth rate</div>
-					    		</div>
-					    		<div class="input-control col-md-6">
-					    			<div class="input-group">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button"></button>
-								      </span>
-								      <input type="text" class="form-control expenses-field" value="thing">
-								      <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button"></button>
-								      </span>
-								    </div>
-							    	<div class="control-label">Asset growth rate</div>
-					    		</div>
-						    </div>
-		    			</div>
-		    		</div>
-	    		</div>
-	    	</div>
-    	</div>
-    	<div class="row">
-	    	<div class="about-section supporting-content">
-	    		<div class="supporting-content-wrapper">
-			    	<div class="supporting-section-title">About us</div>
-			    	<div class="supporting-section-body col-xs-12 col-sm-8 col-sm-offset-2">
-			    		We are <a href="https://github.com/bobo333" target="_blank">Steve Cipriano</a> and <a href="http://www.nathanrkane.com" target="_blank">Nathan Kane</a>, the makers of Stashup. We believe that people lead more fulfilling lives in financial security, and when they don't need to work at jobs they dislike. We hope Stashup sheds light on how attainable financial freedom is for many working people, and inspire the lifestyle adjustments that bring financial independence more quickly, like smart spending and investing.
-			    	</div>
-			    </div>
-			</div>
-		</div>
+                                </div>
+                                <div class="control-label">Assets</div>
+                            </div>
+                        </div>
+                    
+	                    <div class="assumptions-section col-md-12">
+	                        <div class="col-md-12">
+	                            <button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
+	                        </div>
+	                        <div class="col-md-12 assumptions-controls-wrapper" ng-show="assumptionsShownToggle">
+	                            <div class="input-control col-md-6">
+	                                <div class="input-group">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button"></button>
+									      </span>
+	                                    <input type="text" class="form-control expenses-field" value="{{ inflation | percentage:1 }}">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button"></button>
+									      </span>
+	                                </div>
+	                                <div class="control-label">Inflation rate</div>
+	                            </div>
+	                            <div class="input-control col-md-6">
+	                                <div class="input-group">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button"></button>
+									      </span>
+	                                    <input type="text" class="form-control expenses-field" value="$300">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button"></button>
+									      </span>
+	                                </div>
+	                                <div class="control-label">Income growth rate</div>
+	                            </div>
+	                            <div class="input-control col-md-6">
+	                                <div class="input-group">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button"></button>
+									      </span>
+	                                    <input type="text" class="form-control expenses-field" value="$300">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button"></button>
+									      </span>
+	                                </div>
+	                                <div class="control-label">Expenses growth rate</div>
+	                            </div>
+	                            <div class="input-control col-md-6">
+	                                <div class="input-group">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button"></button>
+									      </span>
+	                                    <input type="text" class="form-control expenses-field" value="thing">
+	                                    <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button"></button>
+									      </span>
+	                                </div>
+	                                <div class="control-label">Asset growth rate</div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="about-section supporting-content">
+                <div class="supporting-content-wrapper">
+                    <div class="supporting-section-title">About us</div>
+                    <div class="supporting-section-body col-xs-12 col-sm-8 col-sm-offset-2">
+                        We are <a href="https://github.com/bobo333" target="_blank">Steve Cipriano</a> and <a href="http://www.nathanrkane.com" target="_blank">Nathan Kane</a>, the makers of Stashup. We believe that people lead more fulfilling lives in financial security, and when they don't need to work at jobs they dislike. We hope Stashup sheds light on how attainable financial freedom is for many working people, and inspire the lifestyle adjustments that bring financial independence more quickly, like smart spending and investing.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    
+
+
 </div>

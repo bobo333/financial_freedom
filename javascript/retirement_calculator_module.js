@@ -36,6 +36,10 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         monthly_expenses = new_monthly_expenses;
     };
 
+    this.getInflationRate = function() {
+        return INFLATION_RATE;
+    };
+
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();
         calculateRetirementTrajectory(retirement_data);
