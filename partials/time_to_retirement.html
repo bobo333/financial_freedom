@@ -34,11 +34,11 @@
                         <div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
                             <div class="input-group">
                                 <span class="input-group-btn">
-							        <button class="btn btn-default glyphicon-minus" type="button"></button>
+							        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expenses = expenses - 100"></button>
 							      </span>
                                 <input type="text" class="form-control expenses-field" value="{{ expenses }}" />
                                 <span class="input-group-btn">
-							        <button class="btn btn-default glyphicon-plus" type="button"></button>
+							        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expenses = expenses + 100"></button>
 							      </span>
                             </div>
                             <div class="control-label">Expenses</div>
