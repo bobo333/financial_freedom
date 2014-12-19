@@ -304,7 +304,8 @@ FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCa
     $scope.assets = RetirementCalculatorService.getTotalAssets();
     $scope.expenses = RetirementCalculatorService.getMonthlyExpenses();
     $scope.inflation = RetirementCalculatorService.getInflationRate();
-
+    $scope.incomeincrease = RetirementCalculatorService.getIncomeIncreaseRate();
+    $scope.growth = RetirementCalculatorService.getGrowthRate();
 }]);
 
 FinancialFreedom.filter('percentage', ['$filter', function ($filter) {

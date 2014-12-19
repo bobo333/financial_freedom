@@ -92,7 +92,7 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="$300">
+	                                    <input type="text" class="form-control expenses-field" value="{{ incomeincrease | percentage:1 }}">
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button"></button>
 									      </span>
@@ -104,7 +104,7 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="$300">
+	                                    <input type="text" class="form-control expenses-field" value="{{ inflation | percentage:1 }}">
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button"></button>
 									      </span>
@@ -116,9 +116,9 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="thing">
+	                                    <input type="text" class="form-control expenses-field" value="{{ growth | percentage:1 }}">
 	                                    <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-plus" type="button"></button>
+									        <button class="btn btn-default glyphicon-plus" type="button" ></button>
 									      </span>
 	                                </div>
 	                                <div class="control-label">Asset growth rate</div>

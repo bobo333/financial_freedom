@@ -40,6 +40,14 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return INFLATION_RATE;
     };
 
+    this.getIncomeIncreaseRate = function() {
+        return INCOME_INCREASE_RATE;
+    };
+
+    this.getGrowthRate = function() {
+        return GROWTH_RATE;
+    };
+
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();
         calculateRetirementTrajectory(retirement_data);
