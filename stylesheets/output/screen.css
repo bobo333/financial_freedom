@@ -75,16 +75,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 20, ../../sass/partials/_header.scss */
-.header-text {
+.navbar-custom {
   font-family: "Oxygen", sans-serif;
   color: #404040;
-  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
-  margin-left: 100px;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  padding: 15px 40px;
   -moz-transition-property: color;
   -o-transition-property: color;
   -webkit-transition-property: color;
@@ -98,36 +92,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 27, ../../sass/partials/_header.scss */
-.header-text a, .header-text a:hover {
+/* line 25, ../../sass/partials/_header.scss */
+.navbar-custom a, .navbar-custom a:hover {
   color: #404040;
   text-decoration: none;
 }
-/* line 32, ../../sass/partials/_header.scss */
-.header-text:hover {
+/* line 30, ../../sass/partials/_header.scss */
+.navbar-custom:hover {
   color: #6D6D6D;
   cursor: pointer;
 }
 
-/* line 38, ../../sass/partials/_header.scss */
+/* line 36, ../../sass/partials/_header.scss */
 #header-accent {
   height: 4px;
   background: #1E8E3B;
 }
 
-/* line 43, ../../sass/partials/_header.scss */
-.product-name {
+/* line 41, ../../sass/partials/_header.scss */
+#product-name {
   font-size: 39px;
   font-weight: 700;
+  color: #404040;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* line 48, ../../sass/partials/_header.scss */
-.tag-line {
-  font-weight: 300;
-  margin-left: 30px;
-}
-
-/* line 53, ../../sass/partials/_header.scss */
 .navbar {
   border: none;
   border-radius: 0px;
@@ -135,12 +125,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 80px;
 }
 
-/* line 60, ../../sass/partials/_header.scss */
+/* line 55, ../../sass/partials/_header.scss */
 .tabs-wrapper {
   background: #404040;
 }
 
-/* line 64, ../../sass/partials/_header.scss */
+/* line 59, ../../sass/partials/_header.scss */
 .tab-text {
   position: relative;
   top: 50%;
@@ -150,14 +140,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media screen and (min-width: 768px) {
-  /* line 68, ../../sass/partials/_header.scss */
+  /* line 63, ../../sass/partials/_header.scss */
   .header-tabs {
     width: 100%;
     margin: auto auto auto auto;
     height: 30px;
   }
 }
-/* line 76, ../../sass/partials/_header.scss */
+/* line 71, ../../sass/partials/_header.scss */
 .header-tabs .tab {
   font-family: 'Oxygen', sans-serif;
   display: inline-block;
@@ -182,24 +172,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 89, ../../sass/partials/_header.scss */
+/* line 84, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   width: 33.4%;
 }
-/* line 94, ../../sass/partials/_header.scss */
+/* line 89, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
   background: #6D6D6D;
 }
-/* line 98, ../../sass/partials/_header.scss */
+/* line 93, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
   background: #6D6D6D;
 }
-/* line 103, ../../sass/partials/_header.scss */
+/* line 98, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
   background: rgba(109, 109, 109, 0.25);
+}
+
+/* line 106, ../../sass/partials/_header.scss */
+.navbar-right {
+  margin-right: 15px;
+}
+
+/* line 112, ../../sass/partials/_header.scss */
+.nav li a {
+  padding-right: 30px;
 }
 
 /* line 3, ../../sass/partials/_input.scss */

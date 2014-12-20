@@ -31,15 +31,21 @@
     </head>
     
     <body ng-controller="bodyController">
-
-        <div class="header-wrap" ng-controller="HeaderController">
-            <div id="header-accent"></div>
-            <div class="header navbar navbar-default">
-                <div class="header-text" ng-click="goToRoute('/income')">
-                    <span class="product-name">Stashup</span>
-                    <span class="tag-line"></span>
+        <div id="header-accent"></div>
+        <nav class="navbar navbar-default navbar-custom" ng-controller="HeaderController">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="header-text navbar-brand" id="product-name"href="#">Stashup</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right nav-item-custom">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Sign in</a></li>
+                    </ul>
                 </div>
             </div>
+        </nav>
+
             <div class="tabs-wrapper">
                 <div class="header-tabs">
                     <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
@@ -51,7 +57,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
         <div ng-view></div>
     </body>
 

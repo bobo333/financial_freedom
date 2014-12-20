@@ -17,12 +17,10 @@ $nav-height: 30px;
     margin-top: 20px 0px 20px 0px;
 }
 
-.header-text {
+.navbar-custom {
     font-family: $brand_font_family;
     color: $title_color;
-    text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
-    margin-left: 100px;
-    @include vertical-align;
+    padding: 15px 40px;
     @include hover-animation(color);
 	a, a:hover {
 		color: $title_color;
@@ -40,14 +38,11 @@ $nav-height: 30px;
     background: $header_gradient_top;
 }
 
-.product-name {
+#product-name {
 	font-size: $base_font_size*3;
 	font-weight: $brand_font_weight_bold;
-}
-
-.tag-line {
-	font-weight: $brand_font_weight_light;
-    margin-left: 30px;
+    color: $title_color;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
 }
 
 .navbar {
@@ -107,3 +102,16 @@ $nav-height: 30px;
 
     }
 }
+
+.navbar-right {
+    margin-right: 15px;
+}
+
+.nav {
+    li {
+        a {
+            padding-right: 30px;
+        }
+    }
+}
+
