@@ -710,6 +710,11 @@ input:focus {
   margin-top: 40px;
 }
 
+/* line 146, ../../sass/partials/_time_to_retirement.scss */
+.output-top-section {
+  border-bottom: 1px solid rgba(49, 78, 95, 0.12);
+}
+
 /* line 13, ../../sass/screen.scss */
 html, body {
   width: 100%;
