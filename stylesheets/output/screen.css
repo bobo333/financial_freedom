@@ -111,7 +111,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 38, ../../sass/partials/_header.scss */
 #header-accent {
-  height: 10px;
+  height: 4px;
   background: #1E8E3B;
 }
 
@@ -593,7 +593,7 @@ input:focus {
 }
 /* line 37, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-line, #graph-wrapper #retirement-graph .withdraw-line {
-  stroke-width: 1;
+  stroke-width: 2;
   fill: none;
   shapeRendering: crispEdges;
 }
