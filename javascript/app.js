@@ -120,7 +120,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     
 }]);
 
-FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCalculatorService', function($scope, RetirementCalculatorService) {
+FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
 
     $scope.income = RetirementCalculatorService.getMonthlyIncome();
     $scope.assets = RetirementCalculatorService.getTotalAssets();
@@ -131,6 +131,11 @@ FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCa
 
     $scope.$watch('expenses', function(new_value) {
         RetirementCalculatorService.setMonthlyExpenses(new_value);
+        var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+        if ($(".tooltip").length > 0) {
+            $(tooltip_selector).tooltip('destroy');
+        }
+        CreateRetirementGraphService.createRetirementGraph(retirement_data);
     });
 
 }]);
