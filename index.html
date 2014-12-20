@@ -32,10 +32,10 @@
     
     <body ng-controller="bodyController">
         <div id="header-accent"></div>
-        <nav class="navbar navbar-default navbar-custom" ng-controller="HeaderController">
+        <nav class="navbar navbar-default navbar-custom">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="header-text navbar-brand" id="product-name"href="#">Stashup</a>
+                    <a class="header-text navbar-brand" id="product-name" ng-click="goToRoute('/income')">Stashup</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right nav-item-custom">
@@ -46,7 +46,7 @@
             </div>
         </nav>
 
-            <div class="tabs-wrapper">
+            <div class="tabs-wrapper" ng-controller="HeaderController">
                 <div class="header-tabs">
                     <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
                         <div class="tab-text"></div>

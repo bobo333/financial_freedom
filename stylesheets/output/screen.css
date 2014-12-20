@@ -76,7 +76,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 20, ../../sass/partials/_header.scss */
 .navbar-custom {
-  font-family: "Oxygen", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #404040;
   padding: 15px 40px;
   -moz-transition-property: color;
@@ -97,27 +97,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #404040;
   text-decoration: none;
 }
-/* line 30, ../../sass/partials/_header.scss */
+/* line 29, ../../sass/partials/_header.scss */
 .navbar-custom:hover {
   color: #6D6D6D;
   cursor: pointer;
 }
 
-/* line 36, ../../sass/partials/_header.scss */
+/* line 35, ../../sass/partials/_header.scss */
 #header-accent {
   height: 4px;
   background: #1E8E3B;
 }
 
-/* line 41, ../../sass/partials/_header.scss */
+/* line 40, ../../sass/partials/_header.scss */
 #product-name {
+  font-family: "Oxygen", sans-serif;
   font-size: 39px;
   font-weight: 700;
   color: #404040;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 47, ../../sass/partials/_header.scss */
+#product-name a, #product-name a:hover {
+  color: #404040;
+  text-decoration: none;
+}
+/* line 51, ../../sass/partials/_header.scss */
+#product-name:hover {
+  color: #6D6D6D;
+  cursor: pointer;
 }
 
-/* line 48, ../../sass/partials/_header.scss */
+/* line 57, ../../sass/partials/_header.scss */
 .navbar {
   border: none;
   border-radius: 0px;
@@ -125,12 +148,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 80px;
 }
 
-/* line 55, ../../sass/partials/_header.scss */
+/* line 64, ../../sass/partials/_header.scss */
 .tabs-wrapper {
   background: #404040;
 }
 
-/* line 59, ../../sass/partials/_header.scss */
+/* line 68, ../../sass/partials/_header.scss */
 .tab-text {
   position: relative;
   top: 50%;
@@ -140,14 +163,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media screen and (min-width: 768px) {
-  /* line 63, ../../sass/partials/_header.scss */
+  /* line 72, ../../sass/partials/_header.scss */
   .header-tabs {
     width: 100%;
     margin: auto auto auto auto;
     height: 30px;
   }
 }
-/* line 71, ../../sass/partials/_header.scss */
+/* line 80, ../../sass/partials/_header.scss */
 .header-tabs .tab {
   font-family: 'Oxygen', sans-serif;
   display: inline-block;
@@ -172,32 +195,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 84, ../../sass/partials/_header.scss */
+/* line 93, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   width: 33.4%;
 }
-/* line 89, ../../sass/partials/_header.scss */
+/* line 98, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
   background: #6D6D6D;
 }
-/* line 93, ../../sass/partials/_header.scss */
+/* line 102, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
   background: #6D6D6D;
 }
-/* line 98, ../../sass/partials/_header.scss */
+/* line 107, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
   background: rgba(109, 109, 109, 0.25);
 }
 
-/* line 106, ../../sass/partials/_header.scss */
+/* line 115, ../../sass/partials/_header.scss */
 .navbar-right {
   margin-right: 15px;
 }
 
-/* line 112, ../../sass/partials/_header.scss */
+/* line 121, ../../sass/partials/_header.scss */
 .nav li a {
   padding-right: 30px;
 }

@@ -18,14 +18,13 @@ $nav-height: 30px;
 }
 
 .navbar-custom {
-    font-family: $brand_font_family;
+    font-family: $base_font_family;
     color: $title_color;
     padding: 15px 40px;
     @include hover-animation(color);
 	a, a:hover {
 		color: $title_color;
 		text-decoration: none;
-        
 	}
     &:hover {
         color: #6D6D6D;
@@ -39,10 +38,20 @@ $nav-height: 30px;
 }
 
 #product-name {
+    font-family: $brand_font_family;
 	font-size: $base_font_size*3;
 	font-weight: $brand_font_weight_bold;
     color: $title_color;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
+    @include hover-animation(color);
+    a, a:hover {
+        color: $title_color;
+        text-decoration: none;
+    }
+    &:hover {
+        color: #6D6D6D;
+        cursor: pointer;
+    }
 }
 
 .navbar {
