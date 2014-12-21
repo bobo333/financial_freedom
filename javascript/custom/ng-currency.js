@@ -62,6 +62,7 @@ angular.module('ng-currency', [])
                     display_value = $filter('currency')(ngModel.$modelValue);
                     if (display_value !== undefined) {
                         display_value = display_value.substr(1);  // remove the leading dollar sign
+                        display_value = display_value.substr(0, display_value.length - 3);  // remove the trailing decimal places
                     }
                     element.val(display_value);
                 });
@@ -70,6 +71,7 @@ angular.module('ng-currency', [])
                     display_value = $filter('currency')(value);
                     if (display_value !== undefined) {
                         display_value = display_value.substr(1);  // remove the leading dollar sign
+                        display_value = display_value.substr(0, display_value.length - 3);  // remove the trailing decimal places
                     }
                     return display_value;
                 });
