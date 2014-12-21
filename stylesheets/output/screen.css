@@ -151,9 +151,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-image: -moz-linear-gradient(#ffffff, #d6d6d6);
   background-image: -webkit-linear-gradient(#ffffff, #d6d6d6);
   background-image: linear-gradient(#ffffff, #d6d6d6);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* line 65, ../../sass/partials/_header.scss */
+/* line 66, ../../sass/partials/_header.scss */
 .tabs-wrapper {
   background: #404040;
   width: 50%;
@@ -164,9 +165,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -moz-border-radius-bottomright: 25px;
   -webkit-border-bottom-right-radius: 25px;
   border-bottom-right-radius: 25px;
+  height: 50px;
 }
 
-/* line 73, ../../sass/partials/_header.scss */
+/* line 75, ../../sass/partials/_header.scss */
 .tab-text {
   position: relative;
   top: 50%;
@@ -176,22 +178,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media screen and (min-width: 768px) {
-  /* line 77, ../../sass/partials/_header.scss */
+  /* line 79, ../../sass/partials/_header.scss */
   .header-tabs {
     width: 100%;
-    margin: auto auto auto auto;
+    margin: auto auto;
     height: 50px;
   }
 }
-/* line 86, ../../sass/partials/_header.scss */
+/* line 88, ../../sass/partials/_header.scss */
 .header-tabs .tab {
   font-family: 'Oxygen', sans-serif;
   display: inline-block;
+  height: 50px;
   width: 33.3%;
   text-align: center;
   background: none;
   color: white;
-  height: 50px;
   font-size: 19.5px;
   -moz-transition-property: background;
   -o-transition-property: background;
@@ -206,41 +208,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   margin-right: -4px;
+  border-right: 1px solid #000;
 }
-/* line 98, ../../sass/partials/_header.scss */
+/* line 101, ../../sass/partials/_header.scss */
 .header-tabs .tab:first-child {
   -moz-border-radius-bottomleft: 25px;
   -webkit-border-bottom-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
-/* line 102, ../../sass/partials/_header.scss */
+/* line 105, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   width: 33.4%;
   -moz-border-radius-bottomright: 25px;
   -webkit-border-bottom-right-radius: 25px;
   border-bottom-right-radius: 25px;
+  border-right: 0px solid #000;
 }
-/* line 108, ../../sass/partials/_header.scss */
+/* line 112, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
   background: #6D6D6D;
 }
-/* line 112, ../../sass/partials/_header.scss */
+/* line 116, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
   background: #6D6D6D;
 }
-/* line 117, ../../sass/partials/_header.scss */
+/* line 121, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
   background: rgba(109, 109, 109, 0.25);
 }
 
-/* line 125, ../../sass/partials/_header.scss */
+/* line 129, ../../sass/partials/_header.scss */
 .navbar-right {
   margin-right: 15px;
 }
 
-/* line 131, ../../sass/partials/_header.scss */
+/* line 135, ../../sass/partials/_header.scss */
 .nav li a {
   padding-right: 30px;
 }
@@ -253,15 +257,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 7, ../../sass/partials/_input.scss */
 .view-body-content {
   padding: 0;
+  margin-top: 35px;
 }
 
-/* line 11, ../../sass/partials/_input.scss */
+/* line 12, ../../sass/partials/_input.scss */
 .next-button-wrapper {
   padding: 0;
   width: 100%;
 }
 
-/* line 16, ../../sass/partials/_input.scss */
+/* line 17, ../../sass/partials/_input.scss */
 input[type="text"].steps {
   width: 150px;
   height: 60px;
@@ -272,13 +277,25 @@ input[type="text"].steps {
   border-bottom-color: #404040;
   border-bottom-width: 1px;
 }
+@media screen and (min-width: 768px) {
+  /* line 17, ../../sass/partials/_input.scss */
+  input[type="text"].steps {
+    width: 300px;
+    line-height: 1;
+    height: 80px;
+  }
+}
 /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"].steps:-moz-placeholder {
   font-family: 300;
   font-size: 26px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
-  vertical-align: middle;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
   /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
@@ -293,7 +310,11 @@ input[type="text"].steps::-moz-placeholder {
   font-size: 26px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
-  vertical-align: middle;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
   /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
@@ -308,7 +329,11 @@ input[type="text"].steps:-ms-input-placeholder {
   font-size: 26px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
-  vertical-align: middle;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
   /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
@@ -323,7 +348,11 @@ input[type="text"].steps::-webkit-input-placeholder {
   font-size: 26px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
-  vertical-align: middle;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
   /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
@@ -332,16 +361,8 @@ input[type="text"].steps::-webkit-input-placeholder {
     line-height: 1;
   }
 }
-@media screen and (min-width: 768px) {
-  /* line 16, ../../sass/partials/_input.scss */
-  input[type="text"].steps {
-    width: 300px;
-    line-height: 1;
-    height: 80px;
-  }
-}
 
-/* line 47, ../../sass/partials/_input.scss */
+/* line 48, ../../sass/partials/_input.scss */
 .input-title, .retirement-years {
   font-size: 52px;
   color: #404040;
@@ -351,24 +372,24 @@ input[type="text"].steps::-webkit-input-placeholder {
   margin-top: 50px;
 }
 @media screen and (min-width: 768px) {
-  /* line 47, ../../sass/partials/_input.scss */
+  /* line 48, ../../sass/partials/_input.scss */
   .input-title, .retirement-years {
     font-size: 65px;
   }
 }
 
-/* line 60, ../../sass/partials/_input.scss */
+/* line 61, ../../sass/partials/_input.scss */
 .input-title, .retirement-years, .step-subheader, .until-fi, .input-field-wrapper {
   text-align: center;
 }
 @media screen and (min-width: 992px) {
-  /* line 60, ../../sass/partials/_input.scss */
+  /* line 61, ../../sass/partials/_input.scss */
   .input-title, .retirement-years, .step-subheader, .until-fi, .input-field-wrapper {
     text-align: inherit;
   }
 }
 
-/* line 68, ../../sass/partials/_input.scss */
+/* line 69, ../../sass/partials/_input.scss */
 .step-subheader, .until-fi {
   font-size: 13px;
   margin-top: 5px;
@@ -376,14 +397,14 @@ input[type="text"].steps::-webkit-input-placeholder {
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {
-  /* line 68, ../../sass/partials/_input.scss */
+  /* line 69, ../../sass/partials/_input.scss */
   .step-subheader, .until-fi {
     font-size: 19.5px;
     line-height: 32px;
   }
 }
 
-/* line 79, ../../sass/partials/_input.scss */
+/* line 80, ../../sass/partials/_input.scss */
 .input-field-wrapper {
   font-size: 26px;
   font-weight: 300;
@@ -391,26 +412,26 @@ input[type="text"].steps::-webkit-input-placeholder {
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 79, ../../sass/partials/_input.scss */
+  /* line 80, ../../sass/partials/_input.scss */
   .input-field-wrapper {
     font-size: 52px;
     margin-top: 50px;
   }
 }
-/* line 90, ../../sass/partials/_input.scss */
+/* line 91, ../../sass/partials/_input.scss */
 .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
   font-size: 13px;
   margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 90, ../../sass/partials/_input.scss */
+  /* line 91, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
     font-size: 26px;
     vertical-align: middle;
   }
 }
 
-/* line 101, ../../sass/partials/_input.scss */
+/* line 102, ../../sass/partials/_input.scss */
 input:focus {
   outline: none;
   -moz-box-shadow: none !important;
@@ -538,56 +559,57 @@ input:focus {
 /* line 23, ../../sass/partials/_method.scss */
 .method-section {
   margin: 0px auto 0px auto;
+  background: #fff;
 }
 
-/* line 27, ../../sass/partials/_method.scss */
+/* line 28, ../../sass/partials/_method.scss */
 .supporting-content-wrapper {
   padding: 50px auto;
 }
 
-/* line 31, ../../sass/partials/_method.scss */
+/* line 32, ../../sass/partials/_method.scss */
 .supporting-section-title {
   font-weight: 600;
   font-size: 39px;
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 31, ../../sass/partials/_method.scss */
+  /* line 32, ../../sass/partials/_method.scss */
   .supporting-section-title {
     font-size: 65px;
   }
 }
 
-/* line 41, ../../sass/partials/_method.scss */
+/* line 42, ../../sass/partials/_method.scss */
 .supporting-section-body, .cannot-retire {
   margin-top: 20px;
   line-height: 1.3;
   font-size: 13px;
   padding: 0px auto 0px auto;
 }
-/* line 48, ../../sass/partials/_method.scss */
+/* line 49, ../../sass/partials/_method.scss */
 .supporting-section-body li, .cannot-retire li {
   list-style-type: circle;
 }
 @media screen and (min-width: 768px) {
-  /* line 41, ../../sass/partials/_method.scss */
+  /* line 42, ../../sass/partials/_method.scss */
   .supporting-section-body, .cannot-retire {
     font-size: 19.5px;
   }
 }
 
-/* line 56, ../../sass/partials/_method.scss */
+/* line 57, ../../sass/partials/_method.scss */
 .subsection-header {
   margin: 40px auto 40px auto;
   font-weight: 600;
 }
 
-/* line 61, ../../sass/partials/_method.scss */
+/* line 62, ../../sass/partials/_method.scss */
 .btn-primary {
   background: #1D8E3B;
 }
 
-/* line 65, ../../sass/partials/_method.scss */
+/* line 66, ../../sass/partials/_method.scss */
 .about-section {
   background: #055D1C;
   width: 100%;
@@ -598,7 +620,7 @@ input:focus {
   border-radius: 0px;
 }
 
-/* line 74, ../../sass/partials/_method.scss */
+/* line 75, ../../sass/partials/_method.scss */
 .about-text {
   position: relative;
   top: 50%;
