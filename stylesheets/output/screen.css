@@ -100,7 +100,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 30, ../../sass/partials/_header.scss */
 .navbar-custom:hover {
   color: #6D6D6D;
-  cursor: pointer;
 }
 
 /* line 36, ../../sass/partials/_header.scss */
@@ -156,7 +155,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 66, ../../sass/partials/_header.scss */
 .tabs-wrapper {
-  background: #404040;
+  background: rgba(0, 0, 0, 0.1);
   width: 50%;
   margin: auto auto;
   -moz-border-radius-bottomleft: 25px;
@@ -193,7 +192,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 33.3%;
   text-align: center;
   background: none;
-  color: white;
+  color: #777;
   font-size: 19.5px;
   -moz-transition-property: background;
   -o-transition-property: background;
@@ -208,7 +207,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   margin-right: -4px;
-  border-right: 1px solid #000;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 /* line 101, ../../sass/partials/_header.scss */
 .header-tabs .tab:first-child {
@@ -227,26 +226,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 112, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
-  background: #6D6D6D;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
 }
-/* line 116, ../../sass/partials/_header.scss */
+/* line 117, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
-  background: #6D6D6D;
+  background: rgba(0, 0, 0, 0.3);
 }
-/* line 121, ../../sass/partials/_header.scss */
+/* line 122, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
-  background: rgba(109, 109, 109, 0.25);
+  background: rgba(0, 0, 0, 0.05);
 }
 
-/* line 129, ../../sass/partials/_header.scss */
+/* line 131, ../../sass/partials/_header.scss */
 .navbar-right {
   margin-right: 15px;
 }
 
-/* line 135, ../../sass/partials/_header.scss */
+/* line 137, ../../sass/partials/_header.scss */
 .nav li a {
   padding-right: 30px;
+  cursor: pointer;
 }
 
 /* line 3, ../../sass/partials/_input.scss */
