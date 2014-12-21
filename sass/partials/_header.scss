@@ -9,7 +9,8 @@ $tab_wrapper_bg: #404040;
 $active_tab_color: #6D6D6D;
 $title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
-$nav-height: 30px;
+$nav-height: 50px;
+$nav-border-radius: 25px;
 
 .header {
 	height: 80px;
@@ -56,13 +57,17 @@ $nav-height: 30px;
 
 .navbar {
 	border: none;
-	border-radius: 0px;
     margin-bottom: 0px !important;
     height: 80px;
+    @include background-image(linear-gradient(white, #D6D6D6));
 }
 
 .tabs-wrapper {
     background: $tab_wrapper_bg;
+    width: 50%;
+    margin: auto auto;
+    @include border-bottom-radius($nav-border-radius);
+
 }
 
 .tab-text {
@@ -75,6 +80,7 @@ $nav-height: 30px;
         width: 100%;
         margin: auto auto auto auto;
         height: $nav-height;
+
     }
 
     .tab {
@@ -82,17 +88,21 @@ $nav-height: 30px;
         display: inline-block;
         width: 33.3%;
         text-align: center;
-        border-top: none;
-        border-right: none;
         background: none;
         color: white;
         height: $nav-height;
         font-size: $base_font_size * 1.5;
         @include hover-animation(background);
+        margin-right: -4px; // correcting some random margin
+
+        &:first-child {
+            @include border-bottom-left-radius($nav-border-radius);
+        }
         
         &:last-child {
-            border-right: $border-style;
+            //border-right: $border-style;
             width: 33.4%; // to fix the .1% offset it was showing
+            @include border-bottom-right-radius($nav-border-radius);
         }
         
         &.active {
