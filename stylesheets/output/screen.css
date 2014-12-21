@@ -778,6 +778,12 @@ input:focus {
   border-bottom: 1px solid rgba(49, 78, 95, 0.12);
 }
 
+/* line 150, ../../sass/partials/_time_to_retirement.scss */
+.graph-section {
+  margin: 0px auto 0px auto;
+  background: #f5f5f5;
+}
+
 /* line 13, ../../sass/screen.scss */
 html, body {
   width: 100%;

@@ -25,7 +25,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="method-section supporting-content">
+            <div class="graph-section supporting-content">
                 <div class="supporting-content-wrapper">
                     <div class="col-md-6" id="graph-wrapper">
                         <div id="retirement-graph"></div>
@@ -36,7 +36,7 @@
                                 <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expenses = expenses - 100"></button>
 							      </span>
-                                <input type="text" class="form-control expenses-field" value="{{ expenses }}" />
+                                <input ng-currency type="text" class="form-control expenses-field" ng-model="expenses" />
                                 <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expenses = expenses + 100"></button>
 							      </span>
