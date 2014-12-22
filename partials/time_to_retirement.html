@@ -1,61 +1,133 @@
 <div>
-	<div class="container-fluid">
-    	<div class="row can-retire" ng-show="retirement.graph_shown">
-    		<div class="col-md-5 retirement-main-output">
-			    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
-			    <div class="retirement-time-units">years</div>
-		    	<div class="months-line">and
-		    		<span class="" ng-bind="retirement.months_to_retirement"></span> months
-		    	</div>
-			    <div class="step-subheader">until financial independence</div>
-			</div>
-            <div class="col-md-7" id="graph-wrapper">
-                <div id="retirement-graph"></div>
+    <div class="container-fluid output-top-section">
+        <div class="row can-retire" ng-show="retirement.graph_shown">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 retirement-main-output">
+                <div class="big-number-bg">
+                    <div class="big-number-wrapper">
+                        <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
+                        <div class="retirement-time-units">years</div>
+                        <div class="months-line" ng-show="retirement.years_to_retirement < 5">and
+                            <span class="" ng-bind="retirement.months_to_retirement"></span> months
+                        </div>
+                    </div>
+                </div>
+                <div class="until-fi">until financial independence</div>
             </div>
-	    </div>
-	    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.never_retire_shown">
-	    	<div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a></div>
-	    </div>
-	   	<div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
-	    	<div class="col-xs-12 no-retire-message">You're already financially independent.</div>
-	    </div>
-	</div>
-    <div class="container-fluid">
-    	<div class="row">
-	    	<div class="method-section supporting-content">
-	    		<div class="supporting-content-wrapper">
-			    	<div class="supporting-section-title">How</div>
-			    	<div class="supporting-section-body col-xs-12 col-sm-8 col-sm-offset-2">
-
-			    		Financial independence is the point at which passive income safely exceeds expenses. "Safely" is determined by <a href="http://en.wikipedia.org/wiki/Trinity_study" target="_blank">the 4% safe withdrawal rate</a>, which is the maximum rate at which you can spend your savings such that you don’t run out in your lifetime. With your assets invested in diversified stock market funds which historically gain on average 7-12% annually, one can safely live off passive income forever.
-			    		<a href="http://www.mrmoneymustache.com/2012/05/29/how-much-do-i-need-for-retirement/" target="_blank">Learn more</a>
-
-			    		<h2 class="subsection-header">
-			    		Assumptions
-			    		</h2>
-			    		<ul>
-				    		<li>Inflation rate of 3.5%.</li>
-				    		<li>Income increases at 5%.</li>
-				    		<li>Expenses grow with inflation.</li>
-				    		<li>Assets track historical stock market average gains of 7.5%</li>
-				    	</ul>
-
-		    		</div>
-		    	</div>
-	    	</div>
-
-    	</div>
-    	<div class="row">
-	    	<div class="about-section supporting-content">
-	    		<div class="supporting-content-wrapper">
-			    	<div class="supporting-section-title">About us</div>
-			    	<div class="supporting-section-body col-xs-12 col-sm-8 col-sm-offset-2">
-			    		We are <a href="https://github.com/bobo333" target="_blank">Steve Cipriano</a> and <a href="http://www.nathanrkane.com" target="_blank">Nathan Kane</a>, the makers of Beanstalk. We believe that people lead more fulfilling lives in financial security, and when they don't need to work at jobs they dislike. We hope Beanstalk sheds light on how attainable financial freedom is for many working people, and inspire the lifestyle adjustments that bring financial independence more quickly, like smart spending and investing.
-			    	</div>
-			    </div>
-			</div>
-		</div>
+        </div>
+        <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.never_retire_shown">
+            <div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a>
+            </div>
+        </div>
+        <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
+            <div class="col-xs-12 no-retire-message">You're already financially independent.</div>
+        </div>
     </div>
-    
-    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="graph-section supporting-content">
+                <div class="supporting-content-wrapper">
+                    <div class="col-md-6" id="graph-wrapper">
+                        <div id="retirement-graph"></div>
+                    </div>
+                    <div class="supporting-section-body col-md-6">
+                        <div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+							        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expenses = expenses - 100"></button>
+							    </span>
+                                <input ng-currency type="text" class="form-control expenses-field" ng-model="expenses" />
+                                <span class="input-group-btn">
+							        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expenses = expenses + 100"></button>
+							    </span>
+                            </div>
+                            <div class="control-label">Expenses</div>
+                        </div>
+                        <div class="controls-row col-md-12">
+                            <div class="input-control col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="income = income - 100"></button>
+								    </span>
+                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="income">
+                                    <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="income = income + 100"></button>
+								    </span>
+                                </div>
+                                <div class="control-label">Income</div>
+                            </div>
+                            <div class="input-control col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="assets = assets - 1000"></button>
+								    </span>
+                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="assets">
+                                    <span class="input-group-btn">
+								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="assets = assets + 1000"></button>
+								    </span>
+                                </div>
+                                <div class="control-label">Assets</div>
+                            </div>
+                        </div>
+                        <div class="assumptions-section col-md-12">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
+                            </div>
+                            <div class="col-md-12 assumptions-controls-wrapper" ng-show="assumptionsShownToggle">
+                                <div class="input-control col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="inflation = inflation - .001"></button>
+									    </span>
+                                        <input type="text" class="form-control expenses-field" ng-model="inflation">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="inflation = inflation + .001"></button>
+									    </span>
+                                    </div>
+                                    <div class="control-label">Inflation rate</div>
+                                </div>
+                                <div class="input-control col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="incomeincrease = incomeincrease - .001"></button>
+									    </span>
+                                        <input type="text" class="form-control expenses-field" ng-model="incomeincrease">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="incomeincrease = incomeincrease + .001"></button>
+									    </span>
+                                    </div>
+                                    <div class="control-label">Income growth rate</div>
+                                </div>
+                                <div class="input-control col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expensesincrease = expensesincrease - .001"></button>
+									    </span>
+                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expensesincrease = expensesincrease + .001"></button>
+									    </span>
+                                    </div>
+                                    <div class="control-label">Expenses growth rate</div>
+                                </div>
+                                <div class="input-control col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="growth = growth - .001"></button>
+									    </span>
+                                        <input type="text" class="form-control expenses-field" ng-model="growth">
+                                        <span class="input-group-btn">
+									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="growth = growth + .001"></button>
+									    </span>
+                                    </div>
+                                    <div class="control-label">Asset growth rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
