@@ -7,11 +7,17 @@ CreateRetirementGraphModule.service('CreateRetirementGraphService', function() {
         var graph_points = retirement_data['graph_points'];
         var intersection_point = retirement_data['intersection_point'];
         var show_tooltip = false;
+        var tooltip_selector;
         container_width = $('#graph-wrapper').width();
         minimum_graph_height = 500;
         aspect_ratio = 16 / 9;
         scroll_bar_width = 20;
         pixels_per_axis_label = 75;
+        console.log("runninggraph");
+
+        if ($(".tooltip").length > 0) {
+            $( ".tooltip" ).remove();
+        }
 
         var margin = {top: 20, right: 10, bottom: 30, left: 75},
             width = container_width - margin.left - margin.right - scroll_bar_width,
@@ -156,7 +162,7 @@ CreateRetirementGraphModule.service('CreateRetirementGraphService', function() {
             .text(function(d) { return 'Monthly passive income'; });
         
         if (show_tooltip) {
-            addToolTip('.intersection-point', retirement_data);
+            addToolTip(tooltip_selector, retirement_data);
         }
     }  
     
@@ -167,7 +173,7 @@ CreateRetirementGraphModule.service('CreateRetirementGraphService', function() {
         asset_need = Math.round(asset_need);
         
         var tooltip_text = "You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
-        
+
         $(selector).tooltip({
             container: "#graph-wrapper",
             title: tooltip_text,

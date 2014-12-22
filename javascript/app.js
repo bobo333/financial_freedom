@@ -92,31 +92,26 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
 }]);
 
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
-    $scope.retirement = {};
-    var tooltip_selector;
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
-    console.log(retirement_data);
-    var months_to_retirement = retirement_data['months'];
-    $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
-    $scope.retirement.months_to_retirement = months_to_retirement % 12;
-    $scope.retirement.graph_shown = retirement_data.can_retire && !retirement_data.can_retire_immediately;
-    $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
-    $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
     
-    CreateRetirementGraphService.createRetirementGraph(retirement_data);
-    
-    $(window).resize(function() {
-        if ($(".tooltip").length > 0) {
-            $(tooltip_selector).tooltip('destroy');
-        }
+    $scope.refreshOutput = function(retirement_data) {
+
+        $scope.retirement = {};
+        var months_to_retirement = retirement_data['months'];
+
+        $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
+        $scope.retirement.months_to_retirement = months_to_retirement % 12;
+        $scope.retirement.graph_shown = retirement_data.can_retire && !retirement_data.can_retire_immediately;
+        $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
+        $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
         
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
-    });
+    }
     
-}]);
-
-FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
+    $(window).resize(function() {
+        $scope.refreshOutput(retirement_data)
+    });
 
     $scope.income = RetirementCalculatorService.getMonthlyIncome();
     $scope.assets = RetirementCalculatorService.getTotalAssets();
@@ -127,6 +122,7 @@ FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCa
     $scope.growth = RetirementCalculatorService.getGrowthRate();
 
     $scope.$watchGroup(['expenses','income','assets','inflation','incomeincrease','expensesincrease','growth'], function(new_values) {
+
         RetirementCalculatorService.setMonthlyExpenses(new_values[0]);
         RetirementCalculatorService.setMonthlyIncome(new_values[1]);
         RetirementCalculatorService.setTotalAssets(new_values[2]);
@@ -134,13 +130,11 @@ FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCa
         RetirementCalculatorService.setIncomeIncreaseRate(new_values[4]);
         RetirementCalculatorService.setExpensesIncreaseRate(new_values[5]);
         RetirementCalculatorService.setGrowthRate(new_values[6]);
-        var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
-        if ($(".tooltip").length > 0) {
-            $(tooltip_selector).tooltip('destroy');
-        }
-        CreateRetirementGraphService.createRetirementGraph(retirement_data);
-    });
 
+        var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+        $scope.refreshOutput(retirement_data);
+    });
+    
 }]);
 
 FinancialFreedom.filter('percentage', ['$filter', function ($filter) {
