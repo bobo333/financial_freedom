@@ -272,8 +272,8 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     this.initialRetirementData = function() {
-        var MONTHLY_INFLATION_RATE = this.calculatePeriodInterestRate(inflation_rate, 12);
-        var MONTHLY_GROWTH_RATE = this.calculatePeriodInterestRate(growth_rate, 12);
+        var monthly_inflation_rate = this.calculatePeriodInterestRate(inflation_rate, 12);
+        var monthly_growth_rate = this.calculatePeriodInterestRate(growth_rate, 12);
         var monthly_expenses_increase_rate = this.calculatePeriodInterestRate(expenses_increase_rate, 12);
         
         return {
@@ -283,8 +283,8 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             monthly_income: monthly_income,
             monthly_expenses: monthly_expenses,
             can_retire: false,
-            monthly_inflation_rate: MONTHLY_INFLATION_RATE,
-            monthly_growth_rate: MONTHLY_GROWTH_RATE,
+            monthly_inflation_rate: monthly_inflation_rate,
+            monthly_growth_rate: monthly_growth_rate,
             monthly_expenses_increase_rate: monthly_expenses_increase_rate
         };
     };

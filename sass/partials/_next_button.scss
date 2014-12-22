@@ -12,7 +12,6 @@ $next-button-height: 80px;
     background: #fff;
     text-align: center;
     color: $header-gradient-top;
-    // opacity: 0;
     @include hover-animation(background);
     @include hover-animation(box-shadow);
     @include hover-animation(opacity);

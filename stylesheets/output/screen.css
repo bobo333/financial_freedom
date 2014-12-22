@@ -102,13 +102,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #6D6D6D;
 }
 
-/* line 36, ../../sass/partials/_header.scss */
+/* line 35, ../../sass/partials/_header.scss */
 #header-accent {
   height: 4px;
   background: #1E8E3B;
 }
 
-/* line 41, ../../sass/partials/_header.scss */
+/* line 40, ../../sass/partials/_header.scss */
 #product-name {
   font-family: "Oxygen", sans-serif;
   font-size: 39px;
@@ -128,18 +128,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 48, ../../sass/partials/_header.scss */
+/* line 47, ../../sass/partials/_header.scss */
 #product-name a, #product-name a:hover {
   color: #404040;
   text-decoration: none;
 }
-/* line 52, ../../sass/partials/_header.scss */
+/* line 51, ../../sass/partials/_header.scss */
 #product-name:hover {
   color: #6D6D6D;
   cursor: pointer;
 }
 
-/* line 58, ../../sass/partials/_header.scss */
+/* line 57, ../../sass/partials/_header.scss */
 .navbar {
   border: none;
   margin-bottom: 0px !important;
@@ -153,7 +153,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* line 66, ../../sass/partials/_header.scss */
+/* line 65, ../../sass/partials/_header.scss */
 .tabs-wrapper {
   background: rgba(0, 0, 0, 0.1);
   width: 50%;
@@ -167,7 +167,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 50px;
 }
 
-/* line 75, ../../sass/partials/_header.scss */
+/* line 74, ../../sass/partials/_header.scss */
 .tab-text {
   position: relative;
   top: 50%;
@@ -177,14 +177,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media screen and (min-width: 768px) {
-  /* line 79, ../../sass/partials/_header.scss */
+  /* line 78, ../../sass/partials/_header.scss */
   .header-tabs {
     width: 100%;
     margin: auto auto;
     height: 50px;
   }
 }
-/* line 88, ../../sass/partials/_header.scss */
+/* line 87, ../../sass/partials/_header.scss */
 .header-tabs .tab {
   font-family: 'Oxygen', sans-serif;
   display: inline-block;
@@ -209,13 +209,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   margin-right: -4px;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
-/* line 101, ../../sass/partials/_header.scss */
+/* line 100, ../../sass/partials/_header.scss */
 .header-tabs .tab:first-child {
   -moz-border-radius-bottomleft: 25px;
   -webkit-border-bottom-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
-/* line 105, ../../sass/partials/_header.scss */
+/* line 104, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
   width: 33.4%;
   -moz-border-radius-bottomright: 25px;
@@ -223,28 +223,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-bottom-right-radius: 25px;
   border-right: 0px solid #000;
 }
-/* line 112, ../../sass/partials/_header.scss */
+/* line 111, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
   background: rgba(0, 0, 0, 0.3);
   color: white;
 }
-/* line 117, ../../sass/partials/_header.scss */
+/* line 116, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 122, ../../sass/partials/_header.scss */
+/* line 121, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.05);
 }
 
-/* line 131, ../../sass/partials/_header.scss */
+/* line 130, ../../sass/partials/_header.scss */
 .navbar-right {
   margin-right: 15px;
 }
 
-/* line 137, ../../sass/partials/_header.scss */
+/* line 136, ../../sass/partials/_header.scss */
 .nav li a {
   padding-right: 30px;
   cursor: pointer;
@@ -502,7 +502,7 @@ input:focus {
     position: relative;
   }
 }
-/* line 29, ../../sass/partials/_next_button.scss */
+/* line 28, ../../sass/partials/_next_button.scss */
 .next-button.ng-valid {
   opacity: 1;
   cursor: pointer;
@@ -510,13 +510,13 @@ input:focus {
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
 }
-/* line 35, ../../sass/partials/_next_button.scss */
+/* line 34, ../../sass/partials/_next_button.scss */
 .next-button:hover {
   -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
 }
-/* line 39, ../../sass/partials/_next_button.scss */
+/* line 38, ../../sass/partials/_next_button.scss */
 .next-button[type=submit] {
   text-transform: uppercase;
   font-size: 39px;
@@ -524,7 +524,7 @@ input:focus {
   font-family: FontAwesome;
 }
 
-/* line 47, ../../sass/partials/_next_button.scss */
+/* line 46, ../../sass/partials/_next_button.scss */
 .next-button.ng-valid {
   opacity: 1;
   cursor: pointer;
