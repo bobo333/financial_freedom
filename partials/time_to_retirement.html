@@ -47,11 +47,11 @@
                             <div class="input-control col-md-6">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button"></button>
+								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="income = income - 100"></button>
 								      </span>
-                                    <input type="text" class="form-control expenses-field" value="{{ income }}">
+                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="income">
                                     <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button"></button>
+								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="income = income + 100"></button>
 								      </span>
                                 </div>
                                 <div class="control-label">Income</div>
@@ -59,11 +59,11 @@
                             <div class="input-control col-md-6">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button"></button>
+								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="assets = assets - 1000"></button>
 								      </span>
-                                    <input type="text" class="form-control expenses-field" value="{{ assets }}">
+                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="assets">
                                     <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button"></button>
+								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="assets = assets + 1000"></button>
 								      </span>
                                 </div>
                                 <div class="control-label">Assets</div>
@@ -80,7 +80,7 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="{{ inflation | percentage:1 }}">
+	                                    <input type="text" class="form-control expenses-field" ng-model="inflation"">
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button"></button>
 									      </span>
@@ -92,7 +92,7 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="{{ incomeincrease | percentage:1 }}">
+	                                    <input type="text" class="form-control expenses-field" ng-model="incomeincrease">
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button"></button>
 									      </span>
@@ -104,7 +104,7 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="{{ inflation | percentage:1 }}">
+	                                    <input type="text" class="form-control expenses-field" ng-model="expensesincrease">
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button"></button>
 									      </span>
@@ -116,7 +116,7 @@
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button"></button>
 									      </span>
-	                                    <input type="text" class="form-control expenses-field" value="{{ growth | percentage:1 }}">
+	                                    <input type="text" class="form-control expenses-field" ng-model="growth">
 	                                    <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button" ></button>
 									      </span>

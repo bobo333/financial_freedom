@@ -123,10 +123,17 @@ FinancialFreedom.controller('OutputSettingsController', ['$scope', 'RetirementCa
     $scope.expenses = RetirementCalculatorService.getMonthlyExpenses();
     $scope.inflation = RetirementCalculatorService.getInflationRate();
     $scope.incomeincrease = RetirementCalculatorService.getIncomeIncreaseRate();
+    $scope.expensesincrease = RetirementCalculatorService.getExpensesIncreaseRate();
     $scope.growth = RetirementCalculatorService.getGrowthRate();
 
-    $scope.$watch('expenses', function(new_value) {
-        RetirementCalculatorService.setMonthlyExpenses(new_value);
+    $scope.$watchGroup(['expenses','income','assets','inflation','incomeincrease','expensesincrease','growth'], function(new_values) {
+        RetirementCalculatorService.setMonthlyExpenses(new_values[0]);
+        RetirementCalculatorService.setMonthlyIncome(new_values[1]);
+        RetirementCalculatorService.setTotalAssets(new_values[2]);
+        RetirementCalculatorService.setInflationRate(new_values[3]);
+        RetirementCalculatorService.setIncomeIncreaseRate(new_values[4]);
+        RetirementCalculatorService.setExpensesIncreaseRate(new_values[5]);
+        RetirementCalculatorService.setGrowthRate(new_values[6]);
         var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
         if ($(".tooltip").length > 0) {
             $(tooltip_selector).tooltip('destroy');

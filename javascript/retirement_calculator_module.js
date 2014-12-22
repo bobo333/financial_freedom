@@ -4,6 +4,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     var withdrawal_rate = .04;
     var inflation_rate = .035;
     var income_increase_rate = .05;
+    var expenses_increase_rate = inflation_rate;
     var growth_rate = .075;
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
@@ -15,7 +16,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     this.getMonthlyIncome = function() {
         return monthly_income;
     };
-    
+
     this.setMonthlyIncome = function(new_monthly_income) {
         monthly_income = new_monthly_income;
     };
@@ -40,16 +41,40 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return inflation_rate;
     };
 
+    this.setInflationRate = function(new_inflation_rate) {
+        inflation_rate = new_inflation_rate;
+    };
+
     this.getIncomeIncreaseRate = function() {
         return income_increase_rate;
+    };
+
+    this.setIncomeIncreaseRate = function(new_income_increase_rate) {
+        income_increase_rate = new_income_increase_rate;
+    };
+
+    this.getExpensesIncreaseRate = function() {
+        return expenses_increase_rate;
+    };
+
+    this.setExpensesIncreaseRate = function(new_expenses_increase_rate) {
+        expenses_increase_rate = new_expenses_increase_rate;
     };
 
     this.getGrowthRate = function() {
         return growth_rate;
     };
 
+    this.setGrowthRate = function(new_growth_rate) {
+        growth_rate = new_growth_rate;
+    };
+
     this.getInflationRate = function() {
         return inflation_rate;
+    };
+
+    this.setInflationRate = function(new_inflation_rate) {
+        inflation_rate = new_inflation_rate;
     };
 
     this.calculateRetirementInfo = function() {
@@ -154,9 +179,8 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     
     var updateMonthlyExpenses = function(retirement_data) {
         var expenses = retirement_data.monthly_expenses;
-        var inflation_rate = retirement_data.monthly_inflation_rate;
-        
-        retirement_data.monthly_expenses = addInterest(expenses, inflation_rate);
+
+        retirement_data.monthly_expenses = addInterest(expenses, retirement_data.monthly_expenses_increase_rate);
     };
     
     var updateMonthlyIncome = function(retirement_data) {
@@ -248,8 +272,9 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
     };
     
     this.initialRetirementData = function() {
-        var MONTHLY_inflation_rate = this.calculatePeriodInterestRate(inflation_rate, 12);
-        var MONTHLY_growth_rate = this.calculatePeriodInterestRate(growth_rate, 12);
+        var MONTHLY_INFLATION_RATE = this.calculatePeriodInterestRate(inflation_rate, 12);
+        var MONTHLY_GROWTH_RATE = this.calculatePeriodInterestRate(growth_rate, 12);
+        var monthly_expenses_increase_rate = this.calculatePeriodInterestRate(expenses_increase_rate, 12);
         
         return {
             months: 0,
@@ -258,8 +283,9 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             monthly_income: monthly_income,
             monthly_expenses: monthly_expenses,
             can_retire: false,
-            monthly_inflation_rate: MONTHLY_inflation_rate,
-            monthly_growth_rate: MONTHLY_growth_rate
+            monthly_inflation_rate: MONTHLY_INFLATION_RATE,
+            monthly_growth_rate: MONTHLY_GROWTH_RATE,
+            monthly_expenses_increase_rate: monthly_expenses_increase_rate
         };
     };
     
