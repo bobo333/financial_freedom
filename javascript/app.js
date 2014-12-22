@@ -57,12 +57,9 @@ FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'Re
     $scope.income = {};
     $scope.income.value = RetirementCalculatorService.getMonthlyIncome();
     
-    $scope.$watch('income.value', function(new_value) {
-        RetirementCalculatorService.setMonthlyIncome(new_value);
-    });
-
     $scope.submitForm = function() {
         if ($scope.incomeForm.$valid) {
+            RetirementCalculatorService.setMonthlyIncome($scope.income.value);
             $location.path('/assets');
         }  
     };
@@ -72,13 +69,10 @@ FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'Re
 FinancialFreedom.controller('AssetsInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.assets = {};
     $scope.assets.value = RetirementCalculatorService.getTotalAssets();
-    
-    $scope.$watch('assets.value', function(new_value) {
-        RetirementCalculatorService.setTotalAssets(new_value);
-    });
 
     $scope.submitForm = function() {
         if ($scope.assetsForm.$valid) {
+            RetirementCalculatorService.setTotalAssets($scope.assets.value);
             $location.path('/expenses');
         }  
     };
@@ -88,13 +82,10 @@ FinancialFreedom.controller('AssetsInputController', ['$scope', '$location', 'Re
 FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.expenses = {};
     $scope.expenses.value = RetirementCalculatorService.getMonthlyExpenses();
-    
-    $scope.$watch('expenses.value', function(new_value) {
-        RetirementCalculatorService.setMonthlyExpenses(new_value);
-    });
 
     $scope.submitForm = function() {
         if ($scope.expensesForm.$valid) {
+            RetirementCalculatorService.setMonthlyExpenses($scope.expenses.value);
             $location.path('/time-to-retirement');
         }  
     };
@@ -105,6 +96,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     var tooltip_selector;
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+    console.log(retirement_data);
     var months_to_retirement = retirement_data['months'];
     $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
     $scope.retirement.months_to_retirement = months_to_retirement % 12;
