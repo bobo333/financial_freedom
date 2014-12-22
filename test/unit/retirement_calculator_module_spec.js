@@ -42,39 +42,39 @@ describe('Unit: RetirementCalculatorModule', function() {
         RetirementCalculatorService.setTotalAssets(250000);
         RetirementCalculatorService.setMonthlyIncome(6000);
         RetirementCalculatorService.setMonthlyExpenses(1500);
-        var incomeIncrease = RetirementCalculatorService.getIncomeIncreaseRate();
-        var valOld = RetirementCalculatorService.calculateRetirementInfo();
+        var income_increase = RetirementCalculatorService.getIncomeIncreaseRate();
+        var old_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        RetirementCalculatorService.setIncomeIncreaseRate(incomeIncrease*1.2);
-        var valNew = RetirementCalculatorService.calculateRetirementInfo();
+        RetirementCalculatorService.setIncomeIncreaseRate(income_increase*1.2);
+        var new_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        expect(valNew.months).toBeLessThan(valOld.months);
+        expect(new_val.months).toBeLessThan(old_val.months);
     });
 
     it('should increase months to retirement when expenses increase rate increases', function() {
         RetirementCalculatorService.setTotalAssets(250000);
         RetirementCalculatorService.setMonthlyIncome(6000);
         RetirementCalculatorService.setMonthlyExpenses(1500);
-        var expensesIncrease = RetirementCalculatorService.getExpensesIncreaseRate();
-        var valOld = RetirementCalculatorService.calculateRetirementInfo();
+        var expenses_increase = RetirementCalculatorService.getExpensesIncreaseRate();
+        var old_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        RetirementCalculatorService.setExpensesIncreaseRate(expensesIncrease*1.5);
-        var valNew = RetirementCalculatorService.calculateRetirementInfo();
+        RetirementCalculatorService.setExpensesIncreaseRate(expenses_increase*1.5);
+        var new_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        expect(valNew.months).toBeGreaterThan(valOld.months);
+        expect(new_val.months).toBeGreaterThan(old_val.months);
     });
 
     it('should decrease months to retirement when growth rate increases', function() {
         RetirementCalculatorService.setTotalAssets(250000);
         RetirementCalculatorService.setMonthlyIncome(6000);
         RetirementCalculatorService.setMonthlyExpenses(1500);
-        var growthRate = RetirementCalculatorService.getGrowthRate();
-        var valOld = RetirementCalculatorService.calculateRetirementInfo();
+        var growth_rate = RetirementCalculatorService.getGrowthRate();
+        var old_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        RetirementCalculatorService.setGrowthRate(growthRate*1.5);
-        var valNew = RetirementCalculatorService.calculateRetirementInfo();
+        RetirementCalculatorService.setGrowthRate(growth_rate*1.5);
+        var new_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        expect(valNew.months).toBeLessThan(valOld.months);
+        expect(new_val.months).toBeLessThan(old_val.months);
     });
     
     it('should return 0 months for someone with no expenses and positive net worth from calculateRetirementInfo', function() {
