@@ -20,6 +20,7 @@ module.exports = function(config) {
 		
 		'javascript/app.js',
 		'javascript/retirement_calculator_module.js',
+        'javascript/create_retirement_graph_module.js',
 		
 		'test/unit/retirement_calculator_module_spec.js'
     ],
