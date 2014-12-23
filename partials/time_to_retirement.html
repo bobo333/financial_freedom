@@ -40,7 +40,7 @@
 							        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expenses = expenses + 100"></button>
 							    </span>
                             </div>
-                            <div class="control-label">Expenses</div>
+                            <div class="control-label">Expenses <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly expenses" data-placement="right"></i></div>
                         </div>
                         <div class="controls-row col-md-12">
                             <div class="input-control col-md-6">
@@ -53,7 +53,7 @@
 								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="income = income + 100"></button>
 								    </span>
                                 </div>
-                                <div class="control-label">Income</div>
+                                <div class="control-label">Income <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly after-tax income" data-placement="bottom"></i></div>
                             </div>
                             <div class="input-control col-md-6">
                                 <div class="input-group">
@@ -65,7 +65,7 @@
 								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="assets = assets + 1000"></button>
 								    </span>
                                 </div>
-                                <div class="control-label">Assets</div>
+                                <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current total assets" data-placement="bottom"></i></div>
                             </div>
                         </div>
                         <div class="assumptions-section col-md-12">
@@ -73,18 +73,6 @@
                                 <button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
                             </div>
                             <div class="col-md-12 assumptions-controls-wrapper" ng-show="assumptionsShownToggle">
-                                <!-- <div class="input-control col-md-6">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="inflation = inflation - .001"></button>
-									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="inflation">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="inflation = inflation + .001"></button>
-									    </span>
-                                    </div>
-                                    <div class="control-label">Inflation rate</div>
-                                </div> -->
                                 <div class="input-control col-md-4">
                                     <div class="input-group">
                                         <span class="input-group-btn">
@@ -95,7 +83,7 @@
 									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="incomeincrease = incomeincrease + .001"></button>
 									    </span>
                                     </div>
-                                    <div class="control-label">Income growth rate</div>
+                                    <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="bottom"></i></div>
                                 </div>
                                 <div class="input-control col-md-4">
                                     <div class="input-group">
@@ -107,7 +95,7 @@
 									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expensesincrease = expensesincrease + .001"></button>
 									    </span>
                                     </div>
-                                    <div class="control-label">Expenses growth rate</div>
+                                    <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="bottom"></i></div>
                                 </div>
                                 <div class="input-control col-md-4">
                                     <div class="input-group">
@@ -119,7 +107,7 @@
 									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="growth = growth + .001"></button>
 									    </span>
                                     </div>
-                                    <div class="control-label">Asset growth rate</div>
+                                    <div class="control-label">Asset growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="bottom"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -128,6 +116,9 @@
             </div>
         </div>
     </div>
-
-
+<script>
+$(function () {
+	$('[data-toggle="popover"]').popover()
+})
+</script>
 </div>

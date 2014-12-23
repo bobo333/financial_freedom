@@ -105,7 +105,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 35, ../../sass/partials/_header.scss */
 #header-accent {
   height: 4px;
-  background: #1E8E3B;
+  background: #1e8e3b;
 }
 
 /* line 40, ../../sass/partials/_header.scss */
@@ -451,7 +451,7 @@ input:focus {
   right: 0;
   background: #fff;
   text-align: center;
-  color: #1E8E3B;
+  color: #1e8e3b;
   -moz-transition-property: background;
   -o-transition-property: background;
   -webkit-transition-property: background;
@@ -488,7 +488,7 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border: #1E8E3B solid 2px;
+  border: #1e8e3b solid 2px;
 }
 @media screen and (min-width: 768px) {
   /* line 4, ../../sass/partials/_next_button.scss */
@@ -607,12 +607,12 @@ input:focus {
 
 /* line 62, ../../sass/partials/_method.scss */
 .btn-primary {
-  background: #1D8E3B;
+  background: #1d8e3b;
 }
 
 /* line 66, ../../sass/partials/_method.scss */
 .about-section {
-  background: #055D1C;
+  background: #055d1c;
   width: 100%;
   border: transparent;
   color: white;
@@ -700,14 +700,14 @@ input:focus {
   text-transform: uppercase;
   margin-top: 25px;
   font-size: 26px;
-  color: #fff;
+  color: white;
 }
 
 /* line 86, ../../sass/partials/_time_to_retirement.scss */
 .retirement-years {
   font-size: 130px;
   margin-top: 50px;
-  color: #fff;
+  color: white;
 }
 
 /* line 93, ../../sass/partials/_time_to_retirement.scss */
@@ -784,6 +784,12 @@ input:focus {
   background: #f5f5f5;
 }
 
+/* line 155, ../../sass/partials/_time_to_retirement.scss */
+.output-info-icon {
+  color: rgba(0, 0, 0, 0.3);
+  margin-left: 5px;
+}
+
 /* line 13, ../../sass/screen.scss */
 html, body {
   width: 100%;
@@ -800,11 +806,11 @@ body {
 
 /* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
 *::-moz-selection {
-  color: #fff;
-  background-color: #7DD193;
+  color: white;
+  background-color: #7dd193;
 }
 /* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
 *::selection {
-  color: #fff;
-  background-color: #7DD193;
+  color: white;
+  background-color: #7dd193;
 }
