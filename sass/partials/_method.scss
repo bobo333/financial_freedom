@@ -10,6 +10,7 @@ $method-section-border-radius: 15px;
 	font-weight: $base_font_weight_light;
 	font-size: $base_font_size * 2;
 	background: #F5F5F5;
+	
 
 	@include min-screen($screen_md_min) {
 		font-size: $base_font_size * 1.5;
@@ -22,7 +23,8 @@ $method-section-border-radius: 15px;
 
 .method-section {
 	margin: 0px auto 0px auto;
-	background: #fff;
+	background: $dark_green;
+	color: white;
 }
 
 .supporting-content-wrapper {
@@ -35,7 +37,7 @@ $method-section-border-radius: 15px;
 	margin-top: 20px;
 
 	@include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 5;
+		font-size: $base_font_size * 3;
 	}
 }
 
@@ -64,10 +66,10 @@ $method-section-border-radius: 15px;
 }
 
 .about-section {
-	background: $dark_green;
+	background: #fff; 
 	width: 100%;
 	border: transparent;
-	color: white;
+	
 	@include border-radius(0px);
 
 }
