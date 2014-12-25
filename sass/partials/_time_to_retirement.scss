@@ -5,7 +5,7 @@ $withdraw_color: green;
 $intersection_color: black;
 $tooltip_bg: rgba(28,142,58,0.80);
 $main_bubble_color: #fff;
-$main_bubble_diameter: 250px;
+$main_bubble_diameter: 150px;
 
 #graph-wrapper {
 
@@ -85,7 +85,7 @@ $main_bubble_diameter: 250px;
 
 .retirement-years {
     @extend .input-title;
-    font-size: $base_font_size * 10;
+    font-size: $base_font_size * 5;
     margin-top: 50px;
     color: $main_bubble_color;
 }
@@ -101,7 +101,6 @@ $main_bubble_diameter: 250px;
 }
 
 .can-retire {
-    padding-top: 30px;
     padding-bottom: 50px;
 }
 

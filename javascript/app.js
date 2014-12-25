@@ -38,8 +38,15 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$location',  function($location) {
+FinancialFreedom.controller('bodyController', ['$scope','$location',  function($scope, $location) {
     $location.path("/")
+    $scope.showElement = true;
+    $scope.isStep = function() {
+        if ($location.path() == '/about' || $location.path() == '/time-to-retirement')
+          return false;
+        else 
+          return true;
+        };
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -94,6 +101,7 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+    $scope.showSteps = false;
     
     $scope.refreshOutput = function(retirement_data) {
 
@@ -142,3 +150,4 @@ FinancialFreedom.filter('percentage', ['$filter', function ($filter) {
     return $filter('number')(input * 100, decimals) + '%';
   };
 }]);
+
