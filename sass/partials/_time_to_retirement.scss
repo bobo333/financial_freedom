@@ -6,6 +6,7 @@ $intersection_color: black;
 $tooltip_bg: rgba(28,142,58,0.80);
 $main_bubble_color: #fff;
 $main_bubble_diameter: 150px;
+$control-button-height: 50px;
 
 #graph-wrapper {
 
@@ -125,13 +126,11 @@ $main_bubble_diameter: 150px;
 }
 
 .input-control {
-    margin-top: 20px;
+    text-align: center;
 }
 
 .assumptions-btn {
-    margin-top: 50px;
-    border-color: #404040;
-    background: #404040;
+    margin-top: 30px;
 }
 
 .control-label {
@@ -139,8 +138,22 @@ $main_bubble_diameter: 150px;
     margin-top: 10px;
 }
 
+.assumptions-controls-wrapper {
+
+    margin-top: 20px;
+
+    .control-label {
+        font-size: 0.7em;
+    }
+
+    input[type="text"].form-control {
+        width: 100px;
+        font-size: $base_font_size * 1.5;
+    }
+}
+
 .controls-row {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .output-top-section {
@@ -154,11 +167,86 @@ $main_bubble_diameter: 150px;
 
 .output-info-icon {
     color: rgba(0,0,0,0.3);
-    margin-left: 5px;
+    display: block;
+    margin: 5px auto auto auto;
+    font-size: $base_font_size * 1.5;
 }
 
 #explain-text {
     font-size: $base_font_size;
     margin-left: 75px;
+    margin-top: 20px;
+}
+
+input[type="text"].form-control {
+    text-align: center;
+    @include box-shadow(white 0px 0px 0px);
+    height: 50px;
+    width: 150px;
+    font-size: $base_font_size * 2;
+}
+
+.input-group {
+    margin: auto auto;
+    .form-control {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-radius(20px);
+    }
+}
+
+#expenses-field {
+    height: 60px;
+    width: 100%;
+    font-size: $base_font_size * 3;
+}
+
+.control-change-button {
+        display: block;
+        margin: auto auto;
+        height: $control-button-height;
+        width: $control-button-height * 2;
+        font-size: 1.5em;
+}
+
+.control-increase-button {
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-top-radius($control-button-height);
+    border-bottom: 0px;
+}
+
+.control-decrease-button {
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-bottom-radius($control-button-height);
+    border-top: 0px;
+}
+
+.controls-row, .assumptions-controls-wrapper {
+    .control-change-button {
+        display: block;
+        margin: auto auto;
+        height: $control-button-height / 2;
+        width: $control-button-height;
+        font-size: 0.8em;
+    }
+    .control-increase-button {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-top-radius($control-button-height / 2);
+        border-bottom: 0px;
+    }
+
+    .control-decrease-button {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-bottom-radius($control-button-height / 2);
+        border-top: 0px;
+    }
+}
+
+#assumptions-pencil {
+    display: inline-block;
+    margin-left: 10px;
+    color: $dark-green;
+}
+
+.assumptions-section {
     margin-top: 20px;
 }

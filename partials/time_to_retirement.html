@@ -32,81 +32,84 @@
                     </div>
                     <div class="supporting-section-body col-md-4">
                         <div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
-                            <div class="input-group">
-                                <span class="input-group-btn">
-							        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expenses = expenses - 100"></button>
-							    </span>
-                                <input ng-currency type="text" class="form-control expenses-field" ng-model="expenses" ng-model-options="{ debounce: 500 }"/>
-                                <span class="input-group-btn">
-							        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expenses = expenses + 100"></button>
-							    </span>
+                            <div class="">
+                            	<div class="">
+						        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="expenses = expenses + 100"></button>
+						        </div>
+						        <div>
+                                <input ng-currency type="text" id="expenses-field" class="form-control" ng-model="expenses" ng-model-options="{ debounce: 700 }"/>
+                                </div>
+                                <div class="">
+                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="expenses = expenses - 100"></button>
+                                </div>
                             </div>
-                            <div class="control-label">Expenses <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly expenses" data-placement="right"></i></div>
+                            <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly expenses" data-placement="bottom"></i></div>
                         </div>
                         <div class="controls-row col-md-12">
                             <div class="input-control col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="income = income - 100"></button>
-								    </span>
-                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="income" ng-model-options="{ debounce: 500 }">
-                                    <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="income = income + 100"></button>
-								    </span>
+                                    <div class="">
+						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="income = income + 100"></button>
+						        	</div>
+                                    <input ng-currency type="text" class="form-control income-field" ng-model="income" ng-model-options="{ debounce: 700 }">
+                                    <div class="">
+                                		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="income = income - 100"></button>
+                                	</div>
                                 </div>
-                                <div class="control-label">Income <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly after-tax income" data-placement="bottom"></i></div>
+                                <div class="control-label">Income<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly after-tax income" data-placement="bottom"></i></div>
                             </div>
                             <div class="input-control col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="assets = assets - 1000"></button>
-								    </span>
-                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="assets" ng-model-options="{ debounce: 500 }">
-                                    <span class="input-group-btn">
-								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="assets = assets + 1000"></button>
-								    </span>
+                                    <div class="">
+						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="assets = assets + 100"></button>
+						        	</div>
+                                    <input ng-currency type="text" class="form-control assets-field" ng-model="assets" ng-model-options="{ debounce: 700 }">
+                                    <div class="">
+                                		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="assets = assets - 100"></button>
+                                	</div>
                                 </div>
                                 <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current total assets" data-placement="bottom"></i></div>
                             </div>
                         </div>
                         <div class="assumptions-section col-md-12">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary assumptions-btn" ng-click="assumptionsShownToggle = !assumptionsShownToggle">Assumptions</button>
+                                <span class="assumptions-btn">Assumptions</span>
+                                <i id="assumptions-pencil" class="fa fa-pencil output-info-icon"></i>
                             </div>
-                            <div class="col-md-12 assumptions-controls-wrapper" ng-show="assumptionsShownToggle">
+                            <div class="col-md-12 assumptions-controls-wrapper">
                                 <div class="input-control col-md-4">
                                     <div class="input-group">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="incomeincrease = incomeincrease - .001"></button>
-									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 500 }">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="incomeincrease = incomeincrease + .001"></button>
-									    </span>
+							        	<div class="">
+						        			<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incomeincrease = incomeincrease + 0.001"></button>
+						        		</div>
+                                        <div><input type="text" class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }"></div>
+                                        <div class="">
+									        <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incomeincrease = incomeincrease - 0.001"></button>
+									    </div>
                                     </div>
                                     <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="bottom"></i></div>
                                 </div>
                                 <div class="input-control col-md-4">
                                     <div class="input-group">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expensesincrease = expensesincrease - .001"></button>
-									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 500 }">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expensesincrease = expensesincrease + .001"></button>
-									    </span>
+                                        <div class="">
+								        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="expensesincrease = expensesincrease + 0.001"></button>
+								        </div>
+                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }">
+                                        <div class="">
+		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="expensesincrease = expensesincrease - 0.001"></button>
+		                                </div>
                                     </div>
                                     <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="bottom"></i></div>
                                 </div>
                                 <div class="input-control col-md-4">
                                     <div class="input-group">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="growth = growth - .001"></button>
-									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 500 }">
-                                        <span class="input-group-btn">
-									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="growth = growth + .001"></button>
-									    </span>
+                                        <div class="">
+								        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="growth = growth + 0.001"></button>
+								        </div>
+                                        <input type="text" class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }">
+                                        <div class="">
+		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="growth = growth - 0.001"></button>
+		                                </div>
                                     </div>
                                     <div class="control-label">Asset growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="bottom"></i></div>
                                 </div>
