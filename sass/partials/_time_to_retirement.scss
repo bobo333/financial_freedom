@@ -78,13 +78,12 @@ $main_bubble_diameter: 150px;
     @extend .after-input-text;
     text-align: center;
     text-transform: uppercase;
-    margin-top: 25px;
-    font-size: $base_font_size * 2;
+    font-size: $base_font_size * 1.5;
     color: $main_bubble_color;
 }
 
 .retirement-years {
-    @extend .input-title;
+    font-weight: $base_font_weight_semi_bold;
     font-size: $base_font_size * 5;
     margin-top: 50px;
     color: $main_bubble_color;
@@ -94,6 +93,7 @@ $main_bubble_diameter: 150px;
     color: rgba(255,255,255,0.25);
     margin-top: 5px;
     border-top: 0px solid black;
+    font-size: $base_font_size;
 }
 
 .cannot-retire {
@@ -101,12 +101,12 @@ $main_bubble_diameter: 150px;
 }
 
 .can-retire {
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }
 
 .until-fi {
     @extend .step-subheader;
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 .big-number-bg {
@@ -116,6 +116,7 @@ $main_bubble_diameter: 150px;
     @include border-radius(50%);
     margin-right: auto;
     margin-left: auto;
+    margin-top: 100px;
     position: relative;
 }
 
@@ -154,4 +155,10 @@ $main_bubble_diameter: 150px;
 .output-info-icon {
     color: rgba(0,0,0,0.3);
     margin-left: 5px;
+}
+
+#explain-text {
+    font-size: $base_font_size;
+    margin-left: 75px;
+    margin-top: 20px;
 }

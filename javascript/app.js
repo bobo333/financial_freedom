@@ -38,15 +38,8 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$scope','$location',  function($scope, $location) {
+FinancialFreedom.controller('bodyController', ['$location',  function($location) {
     $location.path("/")
-    $scope.showElement = true;
-    $scope.isStep = function() {
-        if ($location.path() == '/about' || $location.path() == '/time-to-retirement')
-          return false;
-        else 
-          return true;
-        };
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -56,6 +49,15 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     
     $scope.goToRoute = function(route) {
         $location.path(route);
+    };
+
+    $scope.isStep = function() {
+        if ($location.path() == '/about' || $location.path() == '/time-to-retirement') {
+            return false;
+        }
+        else {
+            return true;
+        }
     };
 
 }]);

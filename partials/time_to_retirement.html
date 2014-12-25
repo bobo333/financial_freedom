@@ -6,7 +6,7 @@
                     <div class="big-number-wrapper">
                         <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
                         <div class="retirement-time-units">years</div>
-                        <div class="months-line" ng-show="retirement.years_to_retirement < 5">and
+                        <div class="months-line" ng-show="retirement.years_to_retirement < 5">
                             <span class="" ng-bind="retirement.months_to_retirement"></span> months
                         </div>
                     </div>
@@ -28,6 +28,7 @@
                 <div class="supporting-content-wrapper">
                     <div class="col-md-8" id="graph-wrapper">
                         <div id="retirement-graph"></div>
+                        <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a></div>
                     </div>
                     <div class="supporting-section-body col-md-4">
                         <div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
@@ -35,7 +36,7 @@
                                 <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expenses = expenses - 100"></button>
 							    </span>
-                                <input ng-currency type="text" class="form-control expenses-field" ng-model="expenses" />
+                                <input ng-currency type="text" class="form-control expenses-field" ng-model="expenses" ng-model-options="{ debounce: 500 }"/>
                                 <span class="input-group-btn">
 							        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expenses = expenses + 100"></button>
 							    </span>
@@ -48,7 +49,7 @@
                                     <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="income = income - 100"></button>
 								    </span>
-                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="income">
+                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="income" ng-model-options="{ debounce: 500 }">
                                     <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="income = income + 100"></button>
 								    </span>
@@ -60,7 +61,7 @@
                                     <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-minus" type="button" ng-click="assets = assets - 1000"></button>
 								    </span>
-                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="assets">
+                                    <input ng-currency type="text" class="form-control expenses-field" ng-model="assets" ng-model-options="{ debounce: 500 }">
                                     <span class="input-group-btn">
 								        <button class="btn btn-default glyphicon-plus" type="button" ng-click="assets = assets + 1000"></button>
 								    </span>
@@ -78,7 +79,7 @@
                                         <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="incomeincrease = incomeincrease - .001"></button>
 									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="incomeincrease">
+                                        <input type="text" class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 500 }">
                                         <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="incomeincrease = incomeincrease + .001"></button>
 									    </span>
@@ -90,7 +91,7 @@
                                         <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="expensesincrease = expensesincrease - .001"></button>
 									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease">
+                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 500 }">
                                         <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="expensesincrease = expensesincrease + .001"></button>
 									    </span>
@@ -102,7 +103,7 @@
                                         <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-minus" type="button" ng-click="growth = growth - .001"></button>
 									    </span>
-                                        <input type="text" class="form-control expenses-field" ng-model="growth">
+                                        <input type="text" class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 500 }">
                                         <span class="input-group-btn">
 									        <button class="btn btn-default glyphicon-plus" type="button" ng-click="growth = growth + .001"></button>
 									    </span>

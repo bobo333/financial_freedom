@@ -31,7 +31,6 @@
     
     <body ng-controller="bodyController">
         <div class="header-wrapper" ng-controller="HeaderController">
-            <div id="header-accent"></div>
             <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -47,7 +46,7 @@
                 </div>
             </nav>
 
-            <div class="tabs-wrapper" ng-show="isStep()"> <!--  -->
+            <div class="tabs-wrapper" ng-show="isStep()">
                 <div class="header-tabs">
                     <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
                         <div class="tab-text">1</div>

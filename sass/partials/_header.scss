@@ -65,7 +65,7 @@ $nav-border-radius: 25px;
 .tabs-wrapper {
     background: $tab_wrapper_bg;
     width: 50%;
-    margin: auto auto;
+    margin: 80px auto auto auto;
     @include border-bottom-radius($nav-border-radius);
     height: $nav-height;
 
