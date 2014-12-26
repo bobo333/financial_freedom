@@ -72,46 +72,47 @@
                             </div>
                         </div>
                         <div class="assumptions-section col-md-12">
-                            <div class="col-md-12">
-                                <span class="assumptions-btn">Assumptions</span>
-                                <i id="assumptions-pencil" class="fa fa-pencil output-info-icon"></i>
+                        	<div id="assumptions-border-top"></div>
+                            <div class="col-md-12 assumptions-title-wrapper">
+                                <span class="assumptions-title">Assumptions</span>
+                                <i id="assumptions-pencil" class="fa fa-pencil output-info-icon" ng-click="penClicked = !penClicked"></i>
                             </div>
-                            <div class="col-md-12 assumptions-controls-wrapper">
+                            <div class="col-md-12 assumptions-controls-wrapper" ng-class="{ assumptionseditable: penClicked, assumptionsnoteditable: !penClicked }">
                                 <div class="input-control col-md-4">
                                     <div class="">
 							        	<div class="">
 						        			<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incomeincrease = incomeincrease + 0.001"></button>
 						        		</div>
-                                        <div><input type="text" class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }"></div>
+                                        <div><input type="text" class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked"></div>
                                         <div class="">
 									        <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incomeincrease = incomeincrease - 0.001"></button>
 									    </div>
                                     </div>
-                                    <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="bottom"></i></div>
+                                    <div class="control-label">Income <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="top"></i></div>
                                 </div>
                                 <div class="input-control col-md-4">
                                     <div class="">
                                         <div class="">
 								        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="expensesincrease = expensesincrease + 0.001"></button>
 								        </div>
-                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }">
+                                        <input type="text" class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
                                         <div class="">
 		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="expensesincrease = expensesincrease - 0.001"></button>
 		                                </div>
                                     </div>
-                                    <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="bottom"></i></div>
+                                    <div class="control-label">Expenses <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="top"></i></div>
                                 </div>
                                 <div class="input-control col-md-4">
                                     <div class="">
                                         <div class="">
 								        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="growth = growth + 0.001"></button>
 								        </div>
-                                        <input type="text" class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }">
+                                        <input type="text" class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
                                         <div class="">
 		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="growth = growth - 0.001"></button>
 		                                </div>
                                     </div>
-                                    <div class="control-label">Asset growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="bottom"></i></div>
+                                    <div class="control-label">Assets <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="top"></i></div>
                                 </div>
                             </div>
                         </div>

@@ -565,7 +565,7 @@ input:focus {
 
 /* line 24, ../../sass/partials/_method.scss */
 .method-section {
-  margin: 80px auto 0px auto;
+  margin: 0px auto 0px auto;
   background: #055d1c;
   color: white;
 }
@@ -763,47 +763,37 @@ input:focus {
 }
 
 /* line 132, ../../sass/partials/_time_to_retirement.scss */
-.assumptions-btn {
-  margin-top: 30px;
-}
-
-/* line 136, ../../sass/partials/_time_to_retirement.scss */
 .control-label {
   text-align: center;
   margin-top: 10px;
 }
 
-/* line 141, ../../sass/partials/_time_to_retirement.scss */
+/* line 137, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper {
   margin-top: 20px;
 }
-/* line 145, ../../sass/partials/_time_to_retirement.scss */
+/* line 141, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper .control-label {
   font-size: 0.7em;
 }
-/* line 149, ../../sass/partials/_time_to_retirement.scss */
-.assumptions-controls-wrapper input[type="text"].form-control {
-  width: 100px;
-  font-size: 19.5px;
-}
 
-/* line 155, ../../sass/partials/_time_to_retirement.scss */
-.controls-row {
+/* line 146, ../../sass/partials/_time_to_retirement.scss */
+.controls-row, .assumptionseditable {
   margin-top: 10px;
 }
 
-/* line 159, ../../sass/partials/_time_to_retirement.scss */
+/* line 150, ../../sass/partials/_time_to_retirement.scss */
 .output-top-section {
   border-bottom: 1px solid rgba(49, 78, 95, 0.12);
 }
 
-/* line 163, ../../sass/partials/_time_to_retirement.scss */
+/* line 154, ../../sass/partials/_time_to_retirement.scss */
 .graph-section {
   margin: 0px auto 0px auto;
   background: #f5f5f5;
 }
 
-/* line 168, ../../sass/partials/_time_to_retirement.scss */
+/* line 159, ../../sass/partials/_time_to_retirement.scss */
 .output-info-icon {
   color: rgba(0, 0, 0, 0.3);
   display: block;
@@ -811,14 +801,14 @@ input:focus {
   font-size: 19.5px;
 }
 
-/* line 175, ../../sass/partials/_time_to_retirement.scss */
+/* line 166, ../../sass/partials/_time_to_retirement.scss */
 #explain-text {
   font-size: 13px;
   margin-left: 75px;
   margin-top: 20px;
 }
 
-/* line 181, ../../sass/partials/_time_to_retirement.scss */
+/* line 172, ../../sass/partials/_time_to_retirement.scss */
 input[type="text"].form-control {
   text-align: center;
   -moz-box-shadow: white 0px 0px 0px;
@@ -829,22 +819,19 @@ input[type="text"].form-control {
   font-size: 26px;
   margin: auto auto;
   display: inline-block;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 
-/* line 193, ../../sass/partials/_time_to_retirement.scss */
+/* line 183, ../../sass/partials/_time_to_retirement.scss */
 #expenses-field {
   height: 60px;
   width: 100%;
   font-size: 39px;
 }
 
-/* line 199, ../../sass/partials/_time_to_retirement.scss */
+/* line 189, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button {
   display: block;
   margin: auto auto;
@@ -854,7 +841,7 @@ input[type="text"].form-control {
   padding: 0 0;
 }
 
-/* line 208, ../../sass/partials/_time_to_retirement.scss */
+/* line 198, ../../sass/partials/_time_to_retirement.scss */
 .control-increase-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -868,7 +855,7 @@ input[type="text"].form-control {
   border-bottom: 0px;
 }
 
-/* line 214, ../../sass/partials/_time_to_retirement.scss */
+/* line 204, ../../sass/partials/_time_to_retirement.scss */
 .control-decrease-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -882,16 +869,16 @@ input[type="text"].form-control {
   border-top: 0px;
 }
 
-/* line 221, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-change-button, .assumptions-controls-wrapper .control-change-button {
+/* line 211, ../../sass/partials/_time_to_retirement.scss */
+.controls-row .control-change-button, .assumptionseditable .control-change-button {
   display: block;
   margin: auto auto;
   height: 25px;
   width: 50px;
   font-size: 0.8em;
 }
-/* line 228, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-increase-button, .assumptions-controls-wrapper .control-increase-button {
+/* line 218, ../../sass/partials/_time_to_retirement.scss */
+.controls-row .control-increase-button, .assumptionseditable .control-increase-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -903,8 +890,8 @@ input[type="text"].form-control {
   border-top-right-radius: 25px;
   border-bottom: 0px;
 }
-/* line 234, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-decrease-button, .assumptions-controls-wrapper .control-decrease-button {
+/* line 224, ../../sass/partials/_time_to_retirement.scss */
+.controls-row .control-decrease-button, .assumptionseditable .control-decrease-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -917,16 +904,54 @@ input[type="text"].form-control {
   border-top: 0px;
 }
 
-/* line 241, ../../sass/partials/_time_to_retirement.scss */
+/* line 231, ../../sass/partials/_time_to_retirement.scss */
+#assumptions-border-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 15%;
+  right: 15%;
+}
+
+/* line 238, ../../sass/partials/_time_to_retirement.scss */
 #assumptions-pencil {
   display: inline-block;
   margin-left: 10px;
   color: #055d1c;
 }
+/* line 243, ../../sass/partials/_time_to_retirement.scss */
+#assumptions-pencil:hover {
+  cursor: pointer;
+}
 
-/* line 247, ../../sass/partials/_time_to_retirement.scss */
+/* line 248, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-section {
   margin-top: 20px;
+  position: relative;
+}
+
+/* line 253, ../../sass/partials/_time_to_retirement.scss */
+.assumptions-title-wrapper {
+  margin-top: 20px;
+}
+
+/* line 258, ../../sass/partials/_time_to_retirement.scss */
+.assumptionseditable input[type="text"].form-control {
+  width: 100px;
+  font-size: 19.5px;
+}
+
+/* line 266, ../../sass/partials/_time_to_retirement.scss */
+.assumptionsnoteditable .control-change-button {
+  display: none;
+}
+/* line 269, ../../sass/partials/_time_to_retirement.scss */
+.assumptionsnoteditable input[type="text"].form-control {
+  border: 0;
+  background: inherit;
+}
+/* line 272, ../../sass/partials/_time_to_retirement.scss */
+.assumptionsnoteditable input[type="text"].form-control:hover {
+  cursor: text;
 }
 
 /* line 13, ../../sass/screen.scss */

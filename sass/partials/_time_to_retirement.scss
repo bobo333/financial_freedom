@@ -129,10 +129,6 @@ $control-button-height: 50px;
     text-align: center;
 }
 
-.assumptions-btn {
-    margin-top: 30px;
-}
-
 .control-label {
     text-align: center;
     margin-top: 10px;
@@ -144,11 +140,6 @@ $control-button-height: 50px;
 
     .control-label {
         font-size: 0.7em;
-    }
-
-    input[type="text"].form-control {
-        width: 100px;
-        font-size: $base_font_size * 1.5;
     }
 }
 
@@ -186,7 +177,6 @@ input[type="text"].form-control {
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
-    @include border-radius(0px); // override Bootstrap .btn
     @include border-radius(5px);
 }
 
@@ -217,7 +207,7 @@ input[type="text"].form-control {
     border-top: 0px;
 }
 
-.controls-row, .assumptions-controls-wrapper {
+.controls-row {
     .control-change-button {
         display: block;
         margin: auto auto;
@@ -238,12 +228,53 @@ input[type="text"].form-control {
     }
 }
 
+#assumptions-border-top {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    position: absolute;
+    left: 15%;
+    right: 15%;
+}
+
 #assumptions-pencil {
     display: inline-block;
     margin-left: 10px;
     color: $dark-green;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .assumptions-section {
     margin-top: 20px;
+    position: relative;
 }
+
+.assumptions-title-wrapper {
+    margin-top: 20px;
+}
+
+.assumptionseditable {
+    input[type="text"].form-control {
+        width: 100px;
+        font-size: $base_font_size * 1.5;
+    }
+    @extend .controls-row;
+}
+
+.assumptionsnoteditable {
+    .control-change-button {
+        display: none;
+    }
+    input[type="text"].form-control {
+        border: 0;
+        background: inherit;
+        &:hover {
+            cursor: text;
+        }
+
+    }
+}
+
+
+
