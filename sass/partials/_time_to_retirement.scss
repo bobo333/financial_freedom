@@ -182,16 +182,12 @@ input[type="text"].form-control {
     text-align: center;
     @include box-shadow(white 0px 0px 0px);
     height: 50px;
-    width: 150px;
+    width: 100px;
     font-size: $base_font_size * 2;
-}
-
-.input-group {
     margin: auto auto;
-    .form-control {
-        @include border-radius(0px); // override Bootstrap .btn
-        @include border-radius(20px);
-    }
+    display: inline-block;
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-radius(5px);
 }
 
 #expenses-field {
@@ -206,6 +202,7 @@ input[type="text"].form-control {
         height: $control-button-height;
         width: $control-button-height * 2;
         font-size: 1.5em;
+        padding: 0 0;
 }
 
 .control-increase-button {
