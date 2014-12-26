@@ -51,7 +51,7 @@
                                     <div class="">
 						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="income = income + 100"></button>
 						        	</div>
-                                    <input ng-currency type="text" class="form-control income-field" ng-model="income" ng-model-options="{ debounce: 700 }">
+                                    <input ng-currency type="text" class="form-control secondary-output-field income-field" ng-model="income" ng-model-options="{ debounce: 700 }">
                                     <div class="">
                                 		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="income = income - 100"></button>
                                 	</div>
@@ -61,11 +61,11 @@
                             <div class="input-control col-md-6">
                                 <div class="">
                                     <div class="">
-						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="assets = assets + 100"></button>
+						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="assets = assets + 1000"></button>
 						        	</div>
-                                    <input ng-currency type="text" class="form-control assets-field" ng-model="assets" ng-model-options="{ debounce: 700 }">
+                                    <input ng-currency type="text" class="form-control assets-field secondary-output-field" ng-model="assets" ng-model-options="{ debounce: 700 }">
                                     <div class="">
-                                		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="assets = assets - 100"></button>
+                                		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="assets = assets - 1000"></button>
                                 	</div>
                                 </div>
                                 <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current total assets" data-placement="bottom"></i></div>

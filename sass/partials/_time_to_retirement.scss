@@ -117,7 +117,6 @@ $control-button-height: 50px;
     @include border-radius(50%);
     margin-right: auto;
     margin-left: auto;
-    margin-top: 100px;
     position: relative;
 }
 
@@ -148,6 +147,7 @@ $control-button-height: 50px;
 }
 
 .output-top-section {
+    margin-top: 80px;
     border-bottom: 1px solid rgba(49,78,95,0.12);
 }
 
@@ -178,6 +178,15 @@ input[type="text"].form-control {
     margin: auto auto;
     display: inline-block;
     @include border-radius(5px);
+
+    &.assets-field {
+        width: 150px;
+    }
+
+    &.income-field {
+        width: 120px;
+    }
+
 }
 
 #expenses-field {
@@ -193,6 +202,12 @@ input[type="text"].form-control {
         width: $control-button-height * 2;
         font-size: 1.5em;
         padding: 0 0;
+        outline: none !important;
+        @include box-shadow(none !important);
+
+        &:focus {
+            background: none;
+        }
 }
 
 .control-increase-button {
@@ -211,19 +226,19 @@ input[type="text"].form-control {
     .control-change-button {
         display: block;
         margin: auto auto;
-        height: $control-button-height / 2;
-        width: $control-button-height;
+        height: $control-button-height * (2/3);
+        width: $control-button-height * (4/3);
         font-size: 0.8em;
     }
     .control-increase-button {
         @include border-radius(0px); // override Bootstrap .btn
-        @include border-top-radius($control-button-height / 2);
+        @include border-top-radius($control-button-height * (3/2));
         border-bottom: 0px;
     }
 
     .control-decrease-button {
         @include border-radius(0px); // override Bootstrap .btn
-        @include border-bottom-radius($control-button-height / 2);
+        @include border-bottom-radius($control-button-height * (3/2));
         border-top: 0px;
     }
 }
@@ -266,15 +281,21 @@ input[type="text"].form-control {
     .control-change-button {
         display: none;
     }
+
+    .control-label {
+        margin-top: 0px;
+    }
+
     input[type="text"].form-control {
         border: 0;
         background: inherit;
         &:hover {
             cursor: text;
         }
-
     }
 }
 
-
-
+.no-retire-message {
+    margin-bottom: 20px;
+    text-align: center;
+}

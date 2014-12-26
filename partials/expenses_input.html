@@ -6,7 +6,15 @@
                 <div class="step-subheader">Bills, rent, mortgage interest, and spending every month</div>
                 <div class="input-field-wrapper">
                     $
-                    <input type="text" autofocus required ng-currency placeholder="3,500" class="steps" ng-model="expenses.value" />
+                    <input type="text" 
+                        autofocus
+                        required
+                        ng-currency
+                        placeholder="3,500"
+                        class="steps"
+                        min="0"
+                        max="99999"
+                        ng-model="expenses.value" />
                     <span class="after-input-text">per month</span>
                 </div>
             </div>
