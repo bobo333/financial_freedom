@@ -149,9 +149,25 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     
 }]);
 
-FinancialFreedom.filter('percentage', ['$filter', function ($filter) {
-  return function (input, decimals) {
-    return $filter('number')(input * 100, decimals) + '%';
-  };
-}]);
+FinancialFreedom.directive("percent", function($filter){
+    var p = function(viewValue){ // format model value
+        var m = viewValue.match(/^(\d+)\/(\d+)/);
+        if (m != null)
+          return $filter('number')(parseInt(m[1])/parseInt(m[2]), 1);
+        return $filter('number')(parseFloat(viewValue)/100, 1);
+    };
+
+    var f = function(modelValue){ // format display value
+        return $filter('number')(parseFloat(modelValue)*100, 2) + '%';
+    };
+    
+    return {
+        require: 'ngModel',
+        link: function(scope, ele, attr, ctrl){
+            ctrl.$parsers.unshift(p);
+            ctrl.$formatters.unshift(f);
+        }
+    };
+});
+
 
