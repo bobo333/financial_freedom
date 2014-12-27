@@ -7,16 +7,17 @@
 			    <div class="step-subheader">Monthly take-home (after-tax) pay from work</div>
 			    
 			    <div class="input-field-wrapper">
-			        $<input type="text" 
-			        	autofocus 
-			        	required
-			        	ng-currency
-			        	placeholder="4,500" 
-			        	class="steps"
-			        	min="0"
-			        	max="99999"
-			        	ng-model="income.value" />
-			        	<span class="after-input-text">per month</span>
+		        	<span class="leading-dollar">$</span>
+		        	<input type="text" 
+		        	autofocus 
+		        	required
+		        	ng-currency
+		        	placeholder="4,500" 
+		        	class="steps"
+		        	min="0"
+		        	max="99999"
+		        	ng-model="income.value" />
+		        	<span class="after-input-text">per month</span>
 			    </div>
 			</div>
 		</div>

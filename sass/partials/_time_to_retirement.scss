@@ -7,6 +7,8 @@ $tooltip_bg: rgba(28,142,58,0.80);
 $main_bubble_color: #fff;
 $main_bubble_diameter: 150px;
 $control-button-height: 50px;
+$expenses-field-height: 60px;
+$form-control-height: 50px;
 
 #graph-wrapper {
 
@@ -101,13 +103,10 @@ $control-button-height: 50px;
     @extend .supporting-section-body;
 }
 
-.can-retire {
-    padding-bottom: 20px;
-}
-
 .until-fi {
     @extend .step-subheader;
     margin-top: 15px;
+    text-align: center;
 }
 
 .big-number-bg {
@@ -147,7 +146,8 @@ $control-button-height: 50px;
 }
 
 .output-top-section {
-    margin-top: 80px;
+    margin-top: 90px;
+    padding-bottom: 20px;
     border-bottom: 1px solid rgba(49,78,95,0.12);
 }
 
@@ -189,25 +189,58 @@ input[type="text"].form-control {
 
 }
 
+.icon-answer {
+    text-align: center;
+    display: block;
+    font-size: 5em;
+    color: white;
+}
+
+.dollar-label {
+    position: absolute;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.dollar-ouput-label-exp {
+    @extend .dollar-label;
+    left: -$expenses-field-height / 4;
+    top: $expenses-field-height;
+    font-size: 1.5em;
+}
+
+.dollar-ouput-label {
+    @extend .dollar-label;
+    left: $control-button-height / 2;
+    top: 43px;
+}
+
+.dollar-ouput-label-assets {
+    @extend .dollar-label;
+    @extend .dollar-ouput-label;
+    left: 10px;
+}
+
 #expenses-field {
-    height: 60px;
+    height: $expenses-field-height;
     width: 100%;
     font-size: $base_font_size * 3;
+    display: inline-block;
 }
 
 .control-change-button {
-        display: block;
-        margin: auto auto;
-        height: $control-button-height;
-        width: $control-button-height * 2;
-        font-size: 1.5em;
-        padding: 0 0;
-        outline: none !important;
-        @include box-shadow(none !important);
+    display: block;
+    margin: auto auto;
+    height: $control-button-height;
+    width: $control-button-height * 2;
+    font-size: 1.5em;
+    padding: 0 0;
+    outline: none !important;
+    @include box-shadow(none !important);
 
-        &:focus {
-            background: none;
-        }
+    &:focus {
+        background: none;
+    }
 }
 
 .control-increase-button {
@@ -296,6 +329,11 @@ input[type="text"].form-control {
 }
 
 .no-retire-message {
-    margin-bottom: 20px;
+    margin-top: 20px;
     text-align: center;
 }
+
+.leading-dollar-control {
+    z-index: 99;
+}
+
