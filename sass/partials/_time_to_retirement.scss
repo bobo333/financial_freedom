@@ -171,7 +171,7 @@ $form-control-height: 50px;
 
 input[type="text"].form-control {
     text-align: center;
-    @include box-shadow(white 0px 0px 0px);
+    @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
     width: 100px;
     font-size: $base_font_size * 2;
@@ -193,7 +193,7 @@ input[type="text"].form-control {
     text-align: center;
     display: block;
     font-size: 5em;
-    color: white;
+    color: #fff;
 }
 
 .dollar-label {
