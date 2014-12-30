@@ -1,10 +1,11 @@
 // Time to retirement
 
-$expense_color: red;
-$withdraw_color: green;
-$intersection_color: black;
-$tooltip_bg: rgba(28,142,58,0.80);
+$expense_color: $secondary_brown;
+$withdraw_color: $dark-green;
+$intersection_color: $dark-green;
+$tooltip_bg: rgba($dark-green,0.80);
 $main_bubble_color: #fff;
+$main_bubble_bg: #308E7F;
 $main_bubble_diameter: 150px;
 $control-button-height: 50px;
 $expenses-field-height: 60px;
@@ -111,7 +112,7 @@ $form-control-height: 50px;
 }
 
 .big-number-bg {
-    background: #404040;
+    background: $main_bubble_bg;
     width: $main_bubble_diameter;
     height: $main_bubble_diameter;
     @include border-radius(50%);
@@ -239,7 +240,7 @@ input[type="text"].form-control {
     outline: none !important;
     @include box-shadow(none !important);
     @include hover-animation(all);
-    
+
     &:focus {
         background: none;
     }
