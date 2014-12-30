@@ -11,11 +11,9 @@ $next-button-height: 80px;
     right: 0;
     background: #fff;
     text-align: center;
-    color: $header-gradient-top;
-    @include hover-animation(background);
-    @include hover-animation(box-shadow);
-    @include hover-animation(opacity);
-    border: $header-gradient-top solid 2px;
+    color: $primary_green;
+    @include hover-animation(all);
+    border: $primary_green solid 2px;
 
     @include min-screen($screen_sm_min) {
         height: $next-button-height-min-sm;

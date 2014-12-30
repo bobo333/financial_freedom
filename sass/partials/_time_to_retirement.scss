@@ -13,6 +13,7 @@ $form-control-height: 50px;
 #graph-wrapper {
 
     .tooltip {
+        z-index: 1;
         &.in {
             opacity: 1;
         }
@@ -237,7 +238,8 @@ input[type="text"].form-control {
     padding: 0 0;
     outline: none !important;
     @include box-shadow(none !important);
-
+    @include hover-animation(all);
+    
     &:focus {
         background: none;
     }
@@ -337,3 +339,28 @@ input[type="text"].form-control {
     z-index: 99;
 }
 
+.expenses-actions-tile {
+    height: 50px;
+    background: #E3E3E3
+}
+
+.income-actions-tile {
+    height: 50px;
+    background: #D8D8D8;
+}
+
+.assets-actions-tile {
+    height: 50px;
+    background: #474747;
+}
+
+.debts-actions-tile {
+    height: 50px;
+    background: #818181;
+}
+
+.actions-section-title {
+    height: 50px;
+    background: #000;
+    color: #fff;
+}

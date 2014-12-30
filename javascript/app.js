@@ -148,12 +148,12 @@ FinancialFreedom.directive("percent", function($filter){
     var p = function(viewValue){ // format model value
         var m = viewValue.match(/^(\d+)\/(\d+)/);
         if (m != null)
-          return $filter('number')(parseInt(m[1])/parseInt(m[2]), 1);
-        return $filter('number')(parseFloat(viewValue)/100, 1);
+          return $filter('number')(parseInt(m[1])/parseInt(m[2]), 2);
+        return $filter('number')(parseFloat(viewValue)/100, 2);
     };
 
     var f = function(modelValue){ // format display value
-        return $filter('number')(parseFloat(modelValue)*100, 2) + '%';
+        return $filter('number')(parseFloat(modelValue)*100, 1) + '%';
     };
     
     return {
