@@ -113,7 +113,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: "Oxygen", sans-serif;
   font-size: 39px;
   font-weight: 700;
-  color: #25a793;
+  color: #308e7f;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   -moz-transition-property: color;
   -o-transition-property: color;
@@ -661,12 +661,12 @@ input:focus {
 }
 /* line 26, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper .tooltip .tooltip-arrow {
-  border-top-color: rgba(4, 65, 55, 0.8);
+  border-top-color: rgba(48, 142, 127, 0.8);
 }
 /* line 30, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper .tooltip .tooltip-inner {
   text-align: left;
-  background: rgba(4, 65, 55, 0.8);
+  background: rgba(48, 142, 127, 0.8);
   font-size: 14px;
   padding: 10px;
   line-height: 1.3em;
@@ -691,11 +691,11 @@ input:focus {
 }
 /* line 56, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-line {
-  stroke: #044137;
+  stroke: #308e7f;
 }
 /* line 60, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-label {
-  fill: #044137;
+  fill: #308e7f;
 }
 /* line 64, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
