@@ -481,7 +481,7 @@ input:focus {
   box-shadow: none !important;
 }
 
-/* line 4, ../../sass/partials/_next_button.scss */
+/* line 6, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
   position: fixed;
@@ -492,7 +492,7 @@ input:focus {
   right: 0;
   background: #fff;
   text-align: center;
-  color: #308e7f;
+  color: #8e4b30;
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -505,10 +505,10 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border: #308e7f solid 2px;
+  border: #411909 solid 2px;
 }
 @media screen and (min-width: 768px) {
-  /* line 4, ../../sass/partials/_next_button.scss */
+  /* line 6, ../../sass/partials/_next_button.scss */
   .next-button {
     height: 80px;
     display: block;
@@ -519,7 +519,7 @@ input:focus {
     position: relative;
   }
 }
-/* line 26, ../../sass/partials/_next_button.scss */
+/* line 28, ../../sass/partials/_next_button.scss */
 .next-button.ng-valid {
   opacity: 1;
   cursor: pointer;
@@ -527,13 +527,19 @@ input:focus {
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
 }
-/* line 32, ../../sass/partials/_next_button.scss */
+/* line 34, ../../sass/partials/_next_button.scss */
 .next-button:hover {
   -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
 }
-/* line 36, ../../sass/partials/_next_button.scss */
+/* line 38, ../../sass/partials/_next_button.scss */
+.next-button:click {
+  -moz-box-shadow: white, 0px;
+  -webkit-box-shadow: white, 0px;
+  box-shadow: white, 0px;
+}
+/* line 42, ../../sass/partials/_next_button.scss */
 .next-button[type=submit] {
   text-transform: uppercase;
   font-size: 39px;
@@ -541,7 +547,7 @@ input:focus {
   font-family: FontAwesome;
 }
 
-/* line 44, ../../sass/partials/_next_button.scss */
+/* line 50, ../../sass/partials/_next_button.scss */
 .next-button.ng-valid {
   opacity: 1;
   cursor: pointer;
@@ -587,14 +593,14 @@ input:focus {
 }
 
 /* line 33, ../../sass/partials/_method.scss */
-.supporting-section-title {
+.supporting-section-title, .actions-section-title {
   font-weight: 600;
   font-size: 39px;
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
   /* line 33, ../../sass/partials/_method.scss */
-  .supporting-section-title {
+  .supporting-section-title, .actions-section-title {
     font-size: 39px;
   }
 }
@@ -1043,35 +1049,50 @@ input[type="text"].form-control.income-field {
   z-index: 99;
 }
 
-/* line 343, ../../sass/partials/_time_to_retirement.scss */
-.expenses-actions-tile {
-  height: 50px;
-  background: #e3e3e3;
+/* line 348, ../../sass/partials/_time_to_retirement.scss */
+.expenses-actions-container {
+  background: #E3E3E3;
 }
 
-/* line 348, ../../sass/partials/_time_to_retirement.scss */
-.income-actions-tile {
-  height: 50px;
+/* line 352, ../../sass/partials/_time_to_retirement.scss */
+.income-actions-container {
   background: #D8D8D8;
 }
 
-/* line 353, ../../sass/partials/_time_to_retirement.scss */
-.assets-actions-tile {
-  height: 50px;
+/* line 356, ../../sass/partials/_time_to_retirement.scss */
+.assets-actions-container {
   background: #474747;
 }
 
-/* line 358, ../../sass/partials/_time_to_retirement.scss */
-.debts-actions-tile {
-  height: 50px;
+/* line 360, ../../sass/partials/_time_to_retirement.scss */
+.debts-actions-container {
   background: #818181;
 }
 
-/* line 363, ../../sass/partials/_time_to_retirement.scss */
+/* line 364, ../../sass/partials/_time_to_retirement.scss */
 .actions-section-title {
   height: 50px;
+  background: #fff;
+  color: #404040;
+}
+
+/* line 371, ../../sass/partials/_time_to_retirement.scss */
+.action-card-container {
+  display: inline-block;
+  padding: 0px 20px 20px 20px;
+}
+
+/* line 376, ../../sass/partials/_time_to_retirement.scss */
+.action-card {
+  width: 100%;
+  height: 150px;
   background: #000;
   color: #fff;
+}
+
+/* line 383, ../../sass/partials/_time_to_retirement.scss */
+.action-title {
+  padding: 20px 20px 20px 0px;
 }
 
 /* line 13, ../../sass/screen.scss */

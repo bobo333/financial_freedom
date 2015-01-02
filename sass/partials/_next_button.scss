@@ -1,5 +1,7 @@
 $next-button-height-min-sm: 80px;
 $next-button-height: 80px;
+$next-button-icon-color: $secondary_brown;
+$next-button-border-color: $secondary_brown_dark;
 
 .next-button {
     @include basic-font;
@@ -11,9 +13,9 @@ $next-button-height: 80px;
     right: 0;
     background: #fff;
     text-align: center;
-    color: $primary_green;
+    color: $next-button-icon-color;
     @include hover-animation(all);
-    border: $primary_green solid 2px;
+    border: $next-button-border-color solid 2px;
 
     @include min-screen($screen_sm_min) {
         height: $next-button-height-min-sm;
@@ -31,6 +33,10 @@ $next-button-height: 80px;
 
     &:hover {
         @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
+    }
+
+    &:click {
+        @include box-shadow(#fff, 0px);
     }
     
     &[type=submit] {
