@@ -150,7 +150,7 @@ $form-control-height: 50px;
 .output-top-section {
     margin-top: 90px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(49,78,95,0.12);
+    border-bottom: $section-bottom-border;
 }
 
 .graph-section {
@@ -342,7 +342,8 @@ input[type="text"].form-control {
 
 // Actions Section
 
-.actions-container {
+.actions-section {
+    margin-bottom: 50px;
 }
 
 .expenses-actions-container {
@@ -365,6 +366,8 @@ input[type="text"].form-control {
     height: 50px;
     background: #fff;
     color: #404040;
+    text-align: center;
+    margin: 35px auto 35px auto;
     @extend .supporting-section-title;
 }
 
@@ -378,8 +381,48 @@ input[type="text"].form-control {
     height: 150px;
     background: #000;
     color: #fff;
+    position: relative;
+    @include border-radius(5px);
+    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px);
+    @include hover-animation(all);
+
+    &:hover {
+            @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
+            @include transform(scale(1.05));
+        }
+}
+
+.action-card {
+    .action-label-wrapper {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        background: rgba(#000, 0.5);
+        color: #fff;
+        height: 40px;
+        margin: auto auto;
+        @include border-radius(0px);
+        @include border-bottom-radius(5px);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        @include border-radius(5px);
+    }
 }
 
 .action-title {
     padding: 20px 20px 20px 0px;
+    font-size: 1.2em;
+}
+
+.action-label {
+    margin-top: 10px;
+}
+
+.output-controls-section {
+    border-bottom: $section-bottom-border;
 }

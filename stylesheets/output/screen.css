@@ -1049,50 +1049,127 @@ input[type="text"].form-control.income-field {
   z-index: 99;
 }
 
-/* line 348, ../../sass/partials/_time_to_retirement.scss */
+/* line 345, ../../sass/partials/_time_to_retirement.scss */
+.actions-section {
+  margin-bottom: 50px;
+}
+
+/* line 349, ../../sass/partials/_time_to_retirement.scss */
 .expenses-actions-container {
   background: #E3E3E3;
 }
 
-/* line 352, ../../sass/partials/_time_to_retirement.scss */
+/* line 353, ../../sass/partials/_time_to_retirement.scss */
 .income-actions-container {
   background: #D8D8D8;
 }
 
-/* line 356, ../../sass/partials/_time_to_retirement.scss */
+/* line 357, ../../sass/partials/_time_to_retirement.scss */
 .assets-actions-container {
   background: #474747;
 }
 
-/* line 360, ../../sass/partials/_time_to_retirement.scss */
+/* line 361, ../../sass/partials/_time_to_retirement.scss */
 .debts-actions-container {
   background: #818181;
 }
 
-/* line 364, ../../sass/partials/_time_to_retirement.scss */
+/* line 365, ../../sass/partials/_time_to_retirement.scss */
 .actions-section-title {
   height: 50px;
   background: #fff;
   color: #404040;
+  text-align: center;
+  margin: 35px auto 35px auto;
 }
 
-/* line 371, ../../sass/partials/_time_to_retirement.scss */
+/* line 374, ../../sass/partials/_time_to_retirement.scss */
 .action-card-container {
   display: inline-block;
   padding: 0px 20px 20px 20px;
 }
 
-/* line 376, ../../sass/partials/_time_to_retirement.scss */
+/* line 379, ../../sass/partials/_time_to_retirement.scss */
 .action-card {
   width: 100%;
   height: 150px;
   background: #000;
   color: #fff;
+  position: relative;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 389, ../../sass/partials/_time_to_retirement.scss */
+.action-card:hover {
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-/* line 383, ../../sass/partials/_time_to_retirement.scss */
+/* line 396, ../../sass/partials/_time_to_retirement.scss */
+.action-card .action-label-wrapper {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  height: 40px;
+  margin: auto auto;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+/* line 409, ../../sass/partials/_time_to_retirement.scss */
+.action-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 417, ../../sass/partials/_time_to_retirement.scss */
 .action-title {
   padding: 20px 20px 20px 0px;
+  font-size: 1.2em;
+}
+
+/* line 422, ../../sass/partials/_time_to_retirement.scss */
+.action-label {
+  margin-top: 10px;
+}
+
+/* line 426, ../../sass/partials/_time_to_retirement.scss */
+.output-controls-section {
+  border-bottom: 1px solid rgba(49, 78, 95, 0.12);
 }
 
 /* line 13, ../../sass/screen.scss */

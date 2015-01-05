@@ -3,6 +3,7 @@
 @import "compass/reset";
 @import "compass/utilities";
 @import "compass/css3/selection";
+@import "compass/css3/transform";
 
 // Sass media queries
 @import "../bower_components/sass-mediaqueries/media-queries";
@@ -60,6 +61,10 @@ $body_text_color: #404040;
     @include transition-timing-function(ease);
     @include transition-duration(0.3s);
 }
+
+// Borders
+
+$section-bottom-border: 1px solid rgba(49,78,95,0.12);
 
 // Breakpoints
 $screen_sm_min: 768px;
