@@ -280,7 +280,7 @@ input[type="text"].form-control {
 }
 
 #assumptions-border-top {
-    border-top: 1px solid rgba(0,0,0,0.2);
+    border-top: 1px solid rgba($primary_green,0.3);
     position: absolute;
     left: 15%;
     right: 15%;
@@ -349,22 +349,32 @@ input[type="text"].form-control {
 .actions-container {
     padding-left: 0px;
     padding-right: 0px;
+    border: 1px solid $secondary_brown;
+    background: #FCF5EC;
+    position: relative;
 }
 
 .expenses-actions-container {
-    background: #E3E3E3;
+    @include border-top-radius(5px);
+    border-bottom: 1px solid $secondary_brown;
 }
 
 .income-actions-container {
-    background: #D8D8D8;
+    border-top: none;
+    border-right: 1px solid $secondary_brown;
+    border-left: 1px solid $secondary_brown;
 }
 
 .assets-actions-container {
-    background: #474747;
+    @include border-bottom-left-radius(5px);
+    border-top: none;
+    border-right: none;
 }
 
 .debts-actions-container {
-    background: #818181;
+    @include border-bottom-right-radius(5px);
+    border-top: none;
+    border-left: none;
 }
 
 .actions-section-title {
@@ -420,9 +430,10 @@ input[type="text"].form-control {
 }
 
 .action-title {
-    padding: 20px 20px 20px 0px;
+    padding: 20px 20px 20px 5px;
     font-size: 1.4em;
-    color: #fff;
+    color: $secondary_brown;
+    font-weight: $base_font_weight_light;
 }
 
 .action-label {
@@ -432,3 +443,11 @@ input[type="text"].form-control {
 .output-controls-section {
     border-bottom: $section-bottom-border;
 }
+
+.actions-container-border {
+    border-top: 1px solid rgba($secondary_brown,0.3);
+    position: absolute;
+    left: 15%;
+    right: 15%;
+}
+
