@@ -159,10 +159,20 @@ $form-control-height: 50px;
 }
 
 .output-info-icon {
-    color: rgba(0,0,0,0.3);
+    color: rgba($dark_green,0.4);
     display: block;
     margin: 5px auto auto auto;
     font-size: $base_font_size * 1.5;
+    @include hover-animation(all);
+    width: 20px;
+
+    &:hover {
+        color: rgba($dark_green,0.8);
+    }
+}
+
+.popover {
+    @include box-shadow(rgba(#000,0.1) 0px 2px 2px)
 }
 
 #explain-text {
@@ -180,6 +190,7 @@ input[type="text"].form-control {
     margin: auto auto;
     display: inline-block;
     @include border-radius(5px);
+    border: 1px solid rgba($dark_green,0.2);
 
     &.assets-field {
         width: 150px;
@@ -246,22 +257,36 @@ input[type="text"].form-control {
     &:focus {
         background: none;
     }
+
+    &:hover {
+        background: #9FD7CD;
+    }
 }
 
 .control-increase-button {
     @include border-radius(0px); // override Bootstrap .btn
     @include border-top-radius($control-button-height);
     border-bottom: 0px;
-    border: 1px solid $dark_green;
+    border: 1px solid rgba($dark_green,0.2);
     border-bottom: none;
+
+    &:hover {
+        border: 1px solid rgba($dark_green,0.2);
+        border-bottom: none;
+    }
 }
 
 .control-decrease-button {
     @include border-radius(0px); // override Bootstrap .btn
     @include border-bottom-radius($control-button-height);
     border-top: 0px;
-    border: 1px solid $dark_green;
+    border: 1px solid rgba($dark_green,0.2);
     border-top: none;
+
+    &:hover {
+        border: 1px solid rgba($dark_green,0.2);
+        border-top: none;
+    }
 }
 
 .controls-row {
@@ -297,7 +322,6 @@ input[type="text"].form-control {
     float: right;
     color: $dark_green;
     font-weight: $base_font_weight_semi_bold;
-    text-decoration: underline;
     font-size: 0.8em;
 
     &:hover {
