@@ -94,18 +94,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 /* line 27, ../../sass/partials/_header.scss */
 .navbar-custom a, .navbar-custom a:hover {
-  color: #25a793;
+  color: #25A793;
   text-decoration: none;
 }
 /* line 32, ../../sass/partials/_header.scss */
 .navbar-custom:hover {
-  color: #25a793;
+  color: #25A793;
 }
 
 /* line 37, ../../sass/partials/_header.scss */
 #header-accent {
   height: 4px;
-  background: #1e8e3b;
+  background: #1E8E3B;
 }
 
 /* line 42, ../../sass/partials/_header.scss */
@@ -113,7 +113,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: "Oxygen", sans-serif;
   font-size: 39px;
   font-weight: 700;
-  color: #308e7f;
+  color: rgba(48, 142, 127, 0.7);
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   -moz-transition-property: color;
   -o-transition-property: color;
@@ -130,12 +130,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 /* line 49, ../../sass/partials/_header.scss */
 #product-name a, #product-name a:hover {
-  color: #60dac7;
+  color: #308E7F;
   text-decoration: none;
 }
 /* line 53, ../../sass/partials/_header.scss */
 #product-name:hover {
-  color: #60dac7;
+  color: #308E7F;
   cursor: pointer;
 }
 
@@ -147,7 +147,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   border-bottom-style: solid;
-  border-bottom-color: #308e7f;
+  border-bottom-color: #308E7F;
   border-bottom-width: 3px;
 }
 
@@ -274,7 +274,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 155, ../../sass/partials/_header.scss */
 .navbar-default {
-  color: #308e7f;
+  color: #308E7F;
 }
 
 /* line 159, ../../sass/partials/_header.scss */
@@ -490,9 +490,9 @@ input:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #8e4b30;
+  background: #8E4B30;
   text-align: center;
-  color: white;
+  color: #fff;
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -535,9 +535,9 @@ input:focus {
 }
 /* line 38, ../../sass/partials/_next_button.scss */
 .next-button:click {
-  -moz-box-shadow: white, 0px;
-  -webkit-box-shadow: white, 0px;
-  box-shadow: white, 0px;
+  -moz-box-shadow: #fff, 0px;
+  -webkit-box-shadow: #fff, 0px;
+  box-shadow: #fff, 0px;
 }
 /* line 42, ../../sass/partials/_next_button.scss */
 .next-button[type=submit] {
@@ -631,7 +631,7 @@ input:focus {
 
 /* line 63, ../../sass/partials/_method.scss */
 .btn-primary {
-  background: #308e7f;
+  background: #308E7F;
 }
 
 /* line 67, ../../sass/partials/_method.scss */
@@ -689,19 +689,19 @@ input:focus {
 }
 /* line 48, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-line {
-  stroke: #8e4b30;
+  stroke: #8E4B30;
 }
 /* line 52, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-label {
-  fill: #8e4b30;
+  fill: #8E4B30;
 }
 /* line 56, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-line {
-  stroke: #308e7f;
+  stroke: #308E7F;
 }
 /* line 60, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-label {
-  fill: #308e7f;
+  fill: #308E7F;
 }
 /* line 64, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
@@ -726,7 +726,7 @@ input:focus {
   text-align: center;
   text-transform: uppercase;
   font-size: 19.5px;
-  color: white;
+  color: #fff;
 }
 
 /* line 90, ../../sass/partials/_time_to_retirement.scss */
@@ -734,7 +734,7 @@ input:focus {
   font-weight: 600;
   font-size: 65px;
   margin-top: 50px;
-  color: white;
+  color: #fff;
 }
 
 /* line 97, ../../sass/partials/_time_to_retirement.scss */
@@ -753,7 +753,7 @@ input:focus {
 
 /* line 114, ../../sass/partials/_time_to_retirement.scss */
 .big-number-bg {
-  background: #308e7f;
+  background: #308E7F;
   width: 150px;
   height: 150px;
   -moz-border-radius: 50%;
@@ -853,9 +853,9 @@ input:focus {
 /* line 184, ../../sass/partials/_time_to_retirement.scss */
 input[type="text"].form-control {
   text-align: center;
-  -moz-box-shadow: white 0px 0px 0px;
-  -webkit-box-shadow: white 0px 0px 0px;
-  box-shadow: white 0px 0px 0px;
+  -moz-box-shadow: #fff 0px 0px 0px;
+  -webkit-box-shadow: #fff 0px 0px 0px;
+  box-shadow: #fff 0px 0px 0px;
   height: 50px;
   width: 100px;
   font-size: 26px;
@@ -1105,7 +1105,7 @@ input[type="text"].form-control.income-field {
 .actions-container {
   padding-left: 0px;
   padding-right: 0px;
-  border: 1px solid #8e4b30;
+  border: 1px solid #8E4B30;
   background: #FCF5EC;
   position: relative;
 }
@@ -1118,14 +1118,14 @@ input[type="text"].form-control.income-field {
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom: 1px solid #8e4b30;
+  border-bottom: 1px solid #8E4B30;
 }
 
 /* line 395, ../../sass/partials/_time_to_retirement.scss */
 .income-actions-container {
   border-top: none;
-  border-right: 1px solid #8e4b30;
-  border-left: 1px solid #8e4b30;
+  border-right: 1px solid #8E4B30;
+  border-left: 1px solid #8E4B30;
 }
 
 /* line 401, ../../sass/partials/_time_to_retirement.scss */
@@ -1232,7 +1232,7 @@ input[type="text"].form-control.income-field {
 .action-title {
   padding: 20px 20px 20px 5px;
   font-size: 1.4em;
-  color: #8e4b30;
+  color: #8E4B30;
   font-weight: 300;
 }
 
@@ -1270,11 +1270,11 @@ body {
 
 /* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
 *::-moz-selection {
-  color: white;
-  background-color: #7dd193;
+  color: #fff;
+  background-color: #7DD193;
 }
 /* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
 *::selection {
-  color: white;
-  background-color: #7dd193;
+  color: #fff;
+  background-color: #7DD193;
 }

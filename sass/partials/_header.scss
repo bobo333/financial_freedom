@@ -43,15 +43,15 @@ $nav-border-radius: 25px;
     font-family: $brand_font_family;
 	font-size: $base_font_size * 3;
 	font-weight: $brand_font_weight_bold;
-    color: $primary_green;
+    color: rgba($primary_green, 0.7);
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
     @include hover-animation(color);
     a, a:hover {
-        color: $light_green;
+        color: $primary_green;
         text-decoration: none;
     }
     &:hover {
-        color: $light_green;
+        color: $primary_green;
         cursor: pointer;
     }
 }
