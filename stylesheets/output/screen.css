@@ -224,12 +224,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 113, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
   font-weight: bold;
-  background: #044137;
+  background: rgba(4, 65, 55, 0.6);
   color: white;
 }
 /* line 118, ../../sass/partials/_header.scss */
 .header-tabs .tab.active:hover {
-  background: #044137;
+  background: rgba(4, 65, 55, 0.6);
 }
 /* line 123, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
@@ -490,9 +490,9 @@ input:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: #8e4b30;
   text-align: center;
-  color: #8e4b30;
+  color: white;
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -949,7 +949,7 @@ input[type="text"].form-control.income-field {
 }
 /* line 261, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button:hover {
-  background: #9FD7CD;
+  background: rgba(4, 65, 55, 0.3);
 }
 
 /* line 266, ../../sass/partials/_time_to_retirement.scss */
