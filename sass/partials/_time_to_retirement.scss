@@ -1,9 +1,9 @@
 // Time to retirement
 
 $expense_color: $secondary_brown;
-$withdraw_color: $primary-green;
-$intersection_color: $dark-green;
-$tooltip_bg: rgba($primary-green,0.80);
+$withdraw_color: $primary_green;
+$intersection_color: $dark_green;
+$tooltip_bg: rgba($primary_green,0.80);
 $main_bubble_color: #fff;
 $main_bubble_bg: #308E7F;
 $main_bubble_diameter: 150px;
@@ -238,6 +238,8 @@ input[type="text"].form-control {
     font-size: 1.5em;
     padding: 0 0;
     outline: none !important;
+    background: #D6E8E5;
+    color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
 
@@ -250,12 +252,16 @@ input[type="text"].form-control {
     @include border-radius(0px); // override Bootstrap .btn
     @include border-top-radius($control-button-height);
     border-bottom: 0px;
+    border: 1px solid $dark_green;
+    border-bottom: none;
 }
 
 .control-decrease-button {
     @include border-radius(0px); // override Bootstrap .btn
     @include border-bottom-radius($control-button-height);
     border-top: 0px;
+    border: 1px solid $dark_green;
+    border-top: none;
 }
 
 .controls-row {
@@ -286,10 +292,13 @@ input[type="text"].form-control {
     right: 15%;
 }
 
-#assumptions-pencil {
+.edit-link {
     display: inline-block;
-    margin-left: 10px;
-    color: $dark-green;
+    float: right;
+    color: $dark_green;
+    font-weight: $base_font_weight_semi_bold;
+    text-decoration: underline;
+    font-size: 0.8em;
 
     &:hover {
         cursor: pointer;
