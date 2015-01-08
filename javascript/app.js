@@ -102,6 +102,7 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+    console.log(retirement_data);
     $scope.showSteps = false;
     $scope.penClicked = false;
     $scope.refreshOutput = function(retirement_data) {

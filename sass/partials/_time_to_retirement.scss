@@ -185,21 +185,12 @@ input[type="text"].form-control {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
-    width: 100px;
+    width: 100%;
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
     @include border-radius(5px);
     border: 1px solid rgba($dark_green,0.2);
-
-    &.assets-field {
-        width: 150px;
-    }
-
-    &.income-field {
-        width: 120px;
-    }
-
 }
 
 .icon-answer {
