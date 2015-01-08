@@ -127,6 +127,11 @@ $form-control-height: 50px;
 
 .input-control {
     text-align: center;
+    margin-bottom: 30px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
 }
 
 .control-label {
@@ -215,14 +220,8 @@ input[type="text"].form-control {
 
 .dollar-ouput-label {
     @extend .dollar-label;
-    left: $control-button-height / 2;
-    top: 43px;
-}
-
-.dollar-ouput-label-assets {
-    @extend .dollar-label;
-    @extend .dollar-ouput-label;
-    left: 10px;
+    left: -$control-button-height / 6;
+    top: $control-button-height - 5px;
 }
 
 #expenses-field {
