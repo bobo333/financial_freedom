@@ -992,7 +992,7 @@ input[type="text"].form-control {
   margin: auto auto;
   height: 33.33333px;
   width: 66.66667px;
-  font-size: 0.8em;
+  font-size: 1.2em;
 }
 /* line 290, ../../sass/partials/_time_to_retirement.scss */
 .controls-row .control-increase-button, .assumptionseditable .control-increase-button {
