@@ -245,7 +245,8 @@ input[type="text"].form-control {
     @include hover-animation(all);
 
     &:focus {
-        background: none;
+        background: #D6E8E5;
+        outline: none !important;
     }
 
     &:hover {
@@ -373,7 +374,7 @@ input[type="text"].form-control {
     padding-left: 0px;
     padding-right: 0px;
     border: 1px solid $secondary_brown;
-    background: #FCF5EC;
+    background: $light_brown_bg;
     position: relative;
 }
 
