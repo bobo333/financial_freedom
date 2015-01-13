@@ -51,7 +51,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
         $location.path(route);
     };
 
-    $scope.isStep = function() {
+    $scope.tabsAreVisible = function() {
         if ($location.path() == '/about' || $location.path() == '/time-to-retirement') {
             return false;
         }
