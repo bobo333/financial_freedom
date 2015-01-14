@@ -39,7 +39,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
 }]);
 
 FinancialFreedom.controller('bodyController', ['$location',  function($location) {
-    $location.path("/")
+    $location.path("/");
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -102,8 +102,14 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+
     $scope.showSteps = false;
     $scope.penClicked = false;
+
     $scope.refreshOutput = function(retirement_data) {
 
         $scope.retirement = {};

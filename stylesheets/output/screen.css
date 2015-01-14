@@ -779,7 +779,7 @@ input:focus {
 }
 
 /* line 144, ../../sass/partials/_time_to_retirement.scss */
-.controls-row, .assumptionseditable {
+.controls-row, .assumptions-editable {
   margin-top: 10px;
 }
 
@@ -923,7 +923,7 @@ input[type="text"].form-control.income-field {
 }
 
 /* line 259, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-change-button, .assumptionseditable .control-change-button {
+.controls-row .control-change-button, .assumptions-editable .control-change-button {
   display: block;
   margin: auto auto;
   height: 33.33333px;
@@ -931,7 +931,7 @@ input[type="text"].form-control.income-field {
   font-size: 0.8em;
 }
 /* line 266, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-increase-button, .assumptionseditable .control-increase-button {
+.controls-row .control-increase-button, .assumptions-editable .control-increase-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -944,7 +944,7 @@ input[type="text"].form-control.income-field {
   border-bottom: 0px;
 }
 /* line 272, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-decrease-button, .assumptionseditable .control-decrease-button {
+.controls-row .control-decrease-button, .assumptions-editable .control-decrease-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -988,7 +988,7 @@ input[type="text"].form-control.income-field {
 }
 
 /* line 306, ../../sass/partials/_time_to_retirement.scss */
-.assumptionseditable input[type="text"].form-control {
+.assumptions-editable input[type="text"].form-control {
   width: 100px;
   font-size: 19.5px;
 }
