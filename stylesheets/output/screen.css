@@ -105,7 +105,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 33, ../../sass/partials/_header.scss */
 #header-accent {
   height: 4px;
-  background: #1E8E3B;
+  background: #1e8e3b;
 }
 
 /* line 38, ../../sass/partials/_header.scss */
@@ -462,7 +462,7 @@ input:focus {
   right: 0;
   background: #fff;
   text-align: center;
-  color: #1E8E3B;
+  color: #1e8e3b;
   -moz-transition-property: background;
   -o-transition-property: background;
   -webkit-transition-property: background;
@@ -499,7 +499,7 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border: #1E8E3B solid 2px;
+  border: #1e8e3b solid 2px;
 }
 @media screen and (min-width: 768px) {
   /* line 4, ../../sass/partials/_next_button.scss */
@@ -571,7 +571,7 @@ input:focus {
 /* line 24, ../../sass/partials/_method.scss */
 .method-section {
   margin: 0px auto 0px auto;
-  background: #055D1C;
+  background: #055d1c;
   color: #fff;
   margin-top: 80px;
 }
@@ -620,7 +620,7 @@ input:focus {
 
 /* line 65, ../../sass/partials/_method.scss */
 .btn-primary {
-  background: #1D8E3B;
+  background: #1d8e3b;
 }
 
 /* line 69, ../../sass/partials/_method.scss */
@@ -711,7 +711,7 @@ input:focus {
   text-align: center;
   text-transform: uppercase;
   font-size: 19.5px;
-  color: #fff;
+  color: white;
 }
 
 /* line 88, ../../sass/partials/_time_to_retirement.scss */
@@ -719,7 +719,7 @@ input:focus {
   font-weight: 600;
   font-size: 65px;
   margin-top: 50px;
-  color: #fff;
+  color: white;
 }
 
 /* line 95, ../../sass/partials/_time_to_retirement.scss */
@@ -779,7 +779,7 @@ input:focus {
 }
 
 /* line 144, ../../sass/partials/_time_to_retirement.scss */
-.controls-row, .assumptions-editable {
+.controls-row, .assumptionseditable {
   margin-top: 10px;
 }
 
@@ -814,9 +814,9 @@ input:focus {
 /* line 172, ../../sass/partials/_time_to_retirement.scss */
 input[type="text"].form-control {
   text-align: center;
-  -moz-box-shadow: #fff 0px 0px 0px;
-  -webkit-box-shadow: #fff 0px 0px 0px;
-  box-shadow: #fff 0px 0px 0px;
+  -moz-box-shadow: white 0px 0px 0px;
+  -webkit-box-shadow: white 0px 0px 0px;
+  box-shadow: white 0px 0px 0px;
   height: 50px;
   width: 100px;
   font-size: 26px;
@@ -923,7 +923,7 @@ input[type="text"].form-control.income-field {
 }
 
 /* line 259, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-change-button, .assumptions-editable .control-change-button {
+.controls-row .control-change-button, .assumptionseditable .control-change-button {
   display: block;
   margin: auto auto;
   height: 33.33333px;
@@ -931,7 +931,7 @@ input[type="text"].form-control.income-field {
   font-size: 0.8em;
 }
 /* line 266, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-increase-button, .assumptions-editable .control-increase-button {
+.controls-row .control-increase-button, .assumptionseditable .control-increase-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -944,7 +944,7 @@ input[type="text"].form-control.income-field {
   border-bottom: 0px;
 }
 /* line 272, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-decrease-button, .assumptions-editable .control-decrease-button {
+.controls-row .control-decrease-button, .assumptionseditable .control-decrease-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -969,7 +969,7 @@ input[type="text"].form-control.income-field {
 #assumptions-pencil {
   display: inline-block;
   margin-left: 10px;
-  color: #055D1C;
+  color: #055d1c;
 }
 /* line 291, ../../sass/partials/_time_to_retirement.scss */
 #assumptions-pencil:hover {
@@ -988,7 +988,7 @@ input[type="text"].form-control.income-field {
 }
 
 /* line 306, ../../sass/partials/_time_to_retirement.scss */
-.assumptions-editable input[type="text"].form-control {
+.assumptionseditable input[type="text"].form-control {
   width: 100px;
   font-size: 19.5px;
 }
@@ -1038,11 +1038,11 @@ body {
 
 /* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
 *::-moz-selection {
-  color: #fff;
-  background-color: #7DD193;
+  color: white;
+  background-color: #7dd193;
 }
 /* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
 *::selection {
-  color: #fff;
-  background-color: #7DD193;
+  color: white;
+  background-color: #7dd193;
 }

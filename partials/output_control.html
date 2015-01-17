@@ -1,0 +1,15 @@
+<div>
+    <div>
+    	<div>
+        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="expenses = expenses + 100"></button>
+        </div>
+        <div>
+        	<span class="dollar-ouput-label-exp">$</span>
+        	<input ng-currency type="text" id="expenses-field" class="form-control" ng-model="expenses" ng-model-options="{ debounce: 700 }"/>
+        </div>
+        <div class="">
+        	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="expenses = expenses - 100"></button>
+        </div>
+    </div>
+    <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly expenses" data-placement="bottom"></i></div>
+</div>
