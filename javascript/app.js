@@ -99,6 +99,14 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
     };
 }]);
 
+FinancialFreedom.directive("btnOutputControl", function($filter){
+    return {
+        scope: {},
+        restrict: 'E',
+        templateUrl: 'partials/output_control.html'
+    }
+});
+
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
@@ -109,6 +117,27 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
 
     $scope.showSteps = false;
     $scope.penClicked = false;
+
+    $scope.incrementOutputValue = function(output_value, increment) {
+        if (output_value == 'expenses') {
+            $scope.expenses = $scope.expenses + increment;
+        }
+        if (output_value == 'income') {
+            $scope.income = $scope.income + increment;
+        }
+        if (output_value == 'assets') {
+            $scope.assets = $scope.assets + increment;
+        }
+        if (output_value == 'incomeincrease') {
+            $scope.incomeincrease = $scope.incomeincrease + increment;
+        }
+        if (output_value == 'expensesincrease') {
+            $scope.expensesincrease = $scope.expensesincrease + increment;
+        }
+        if (output_value == 'growth') {
+            $scope.growth = $scope.growth + increment;
+        }
+    }
 
     $scope.refreshOutput = function(retirement_data) {
 
