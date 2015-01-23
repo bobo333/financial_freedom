@@ -39,7 +39,7 @@ $nav-border-radius: 25px;
     background: $header_gradient_top;
 }
 
-#product-name {
+.product-name {
     font-family: $brand_font_family;
 	font-size: $base_font_size * 3;
 	font-weight: $brand_font_weight_bold;
@@ -50,6 +50,7 @@ $nav-border-radius: 25px;
         color: $primary_green;
         text-decoration: none;
     }
+
     &:hover {
         color: $primary_green;
         cursor: pointer;
@@ -159,7 +160,8 @@ $nav-border-radius: 25px;
     }
 }
 
-.brand-logo {
+#brand-logo {
+    margin-right: 20px;
     width: 85px;
     display: inline ;
 }
@@ -174,3 +176,4 @@ $nav-border-radius: 25px;
         color: rgba($primary_green, 1);
     }
 }
+

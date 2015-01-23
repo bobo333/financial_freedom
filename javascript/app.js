@@ -39,7 +39,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
 }]);
 
 FinancialFreedom.controller('bodyController', ['$location',  function($location) {
-    $location.path("/")
+    $location.path("/");
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -51,7 +51,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
         $location.path(route);
     };
 
-    $scope.isStep = function() {
+    $scope.tabsAreVisible = function() {
         if ($location.path() == '/about' || $location.path() == '/time-to-retirement') {
             return false;
         }
@@ -99,12 +99,46 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
     };
 }]);
 
+FinancialFreedom.directive("btnOutputControl", function($filter){
+    return {
+        scope: {},
+        restrict: 'E',
+        templateUrl: 'partials/output_control.html'
+    }
+});
+
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
-    console.log(retirement_data);
+
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+
     $scope.showSteps = false;
     $scope.penClicked = false;
+
+    $scope.incrementOutputValue = function(output_value, increment) {
+        if (output_value == 'expenses') {
+            $scope.expenses = $scope.expenses + increment;
+        }
+        if (output_value == 'income') {
+            $scope.income = $scope.income + increment;
+        }
+        if (output_value == 'assets') {
+            $scope.assets = $scope.assets + increment;
+        }
+        if (output_value == 'incomeincrease') {
+            $scope.incomeincrease = $scope.incomeincrease + increment;
+        }
+        if (output_value == 'expensesincrease') {
+            $scope.expensesincrease = $scope.expensesincrease + increment;
+        }
+        if (output_value == 'growth') {
+            $scope.growth = $scope.growth + increment;
+        }
+    }
+
     $scope.refreshOutput = function(retirement_data) {
 
         $scope.retirement = {};
