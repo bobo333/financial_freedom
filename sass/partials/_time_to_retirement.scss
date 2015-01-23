@@ -390,11 +390,12 @@ input[type="text"].form-control {
 }
 
 .assets-actions-container {
-    @include border-bottom-left-radius(5px);
+    @include border-bottom-left-radius(0px);
     border-top: none;
     
     @include min-screen($screen_sm_min) {
         border-right: none;
+        @include border-bottom-left-radius(5px);
     }
 }
 
