@@ -23,6 +23,7 @@ $nav-border-radius: 25px;
     color: rgba($primary_green, 0.7);
     padding: 15px 40px;
     @include hover-animation(color);
+    display: block;
 
 	a, a:hover {
 		color: $nav-hover-color;
@@ -163,7 +164,7 @@ $nav-border-radius: 25px;
 #brand-logo {
     margin-right: 20px;
     width: 85px;
-    display: inline ;
+    display: inline;
 }
 
 .navbar-default {
@@ -176,4 +177,3 @@ $nav-border-radius: 25px;
         color: rgba($primary_green, 1);
     }
 }
-

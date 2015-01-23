@@ -5,25 +5,18 @@ $next-button-icon-color: $next-button-border-color;
 
 .next-button {
     @include basic-font;
-    position: fixed;
-    height: $next-button-height;
     width: $next-button-height;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    height: $next-button-height;
     background: $light_brown_bg;
     text-align: center;
     color: $next-button-icon-color;
     @include hover-animation(all);
     border: $next-button-border-color solid 2px;
-
-    @include min-screen($screen_sm_min) {
-        height: $next-button-height-min-sm;
-        display: block;
-        margin: 60px auto auto auto;
-        @include border-radius(50%);
-        position: relative;
-    }
+    
+    display: block;
+    margin: 60px auto auto auto;
+    @include border-radius(50%);
+    position: relative;
 
     &.ng-valid {
         opacity: 1;
