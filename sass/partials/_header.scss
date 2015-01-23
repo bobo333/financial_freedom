@@ -69,10 +69,13 @@ $nav-border-radius: 25px;
 
 .tabs-wrapper {
     background: rgba($dark_green, 0.2);
-    width: 50%;
-    margin: 80px auto auto auto;
-    @include border-bottom-radius($nav-border-radius);
     height: $nav-height;
+    margin: 80px auto auto auto;
+
+    @include min-screen($screen_sm_min) {
+        width: 50%;
+        @include border-bottom-radius($nav-border-radius);
+    }
 }
 
 .tab-text {
@@ -84,7 +87,7 @@ $nav-border-radius: 25px;
     @include min-screen($screen_sm_min) {
         width: 100%;
         margin: auto auto;
-        height: $nav-height;
+        height: 98px;
     }
 
     .tab {
@@ -101,12 +104,21 @@ $nav-border-radius: 25px;
         @include hover-animation(all);
 
         &:first-child {
-            @include border-bottom-left-radius($nav-border-radius);
+
+            @include min-screen($screen_sm_min) {
+                @include border-bottom-left-radius($nav-border-radius);
+            }
+            
         }
         
         &:last-child {
             width: 33.4%; // to fix the .1% offset it was showing
-            @include border-bottom-right-radius($nav-border-radius);
+            
+
+            @include min-screen($screen_sm_min) {
+                @include border-bottom-right-radius($nav-border-radius);
+            }
+
             border-right: 0px solid #000;
         }
         
