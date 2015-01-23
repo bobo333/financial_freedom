@@ -27,7 +27,11 @@ $method-section-border-radius: 15px;
 }
 
 .supporting-content-wrapper {
-	padding: 50px auto;
+	padding: 50px 20px;
+
+	@include min-screen($screen_sm_min) {
+		padding: 50px auto;
+	}
 }
 
 .supporting-section-title {

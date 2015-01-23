@@ -137,14 +137,19 @@ $form-control-height: 50px;
 .control-label {
     text-align: center;
     margin-top: 10px;
+    font-size: 1em;
+
+    @include min-screen($screen_sm_min) {
+        font-size: 0.7em;
+    }
 }
 
 .assumptions-controls-wrapper {
 
-    margin-top: 20px;
+    margin-top: 70px;
 
-    .control-label {
-        font-size: 0.7em;
+    @include min-screen($screen_sm_min) {
+        margin-top: 20px;
     }
 }
 
@@ -154,7 +159,7 @@ $form-control-height: 50px;
 
 .output-top-section {
     margin-top: 90px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     border-bottom: $section-bottom-border;
 }
 
@@ -227,7 +232,7 @@ input[type="text"].form-control {
 #expenses-field {
     height: $expenses-field-height;
     width: 100%;
-    font-size: $base_font_size * 3;
+    font-size: $base_font_size * 2;
     display: inline-block;
 }
 
@@ -313,7 +318,6 @@ input[type="text"].form-control {
     float: right;
     color: $dark_green;
     font-weight: $base_font_weight_semi_bold;
-    font-size: 0.8em;
 
     &:hover {
         cursor: pointer;
@@ -327,6 +331,11 @@ input[type="text"].form-control {
 
 .assumptions-title-wrapper {
     margin-top: 20px;
+    font-size: 1.2em;
+
+    @include min-screen($screen_sm_min) {
+        font-size: 0.8em;
+    }
 }
 
 .assumptionseditable {
@@ -335,6 +344,12 @@ input[type="text"].form-control {
         font-size: $base_font_size * 1.5;
     }
     @extend .controls-row;
+
+    margin-top: 50px;
+
+    @include min-screen($screen_sm_min) {
+        margin-top: 10px;
+    }
 }
 
 .assumptionsnoteditable {
@@ -407,7 +422,6 @@ input[type="text"].form-control {
     @include min-screen($screen_sm_min) {
         border-left: none;
         @include border-bottom-left-radius(0px);
-
     }
 }
 
