@@ -560,6 +560,11 @@ input:focus {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
 }
 
+/* line 52, ../../sass/partials/_next_button.scss */
+.navbar-collapse-1 {
+  background: white;
+}
+
 /* line 3, ../../sass/partials/_method.scss */
 .supporting-content {
   color: #404040;
