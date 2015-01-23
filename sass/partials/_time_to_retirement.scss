@@ -392,13 +392,22 @@ input[type="text"].form-control {
 .assets-actions-container {
     @include border-bottom-left-radius(5px);
     border-top: none;
-    border-right: none;
+    
+    @include min-screen($screen_sm_min) {
+        border-right: none;
+    }
 }
 
 .debts-actions-container {
     @include border-bottom-right-radius(5px);
+    @include border-bottom-left-radius(5px);
     border-top: none;
-    border-left: none;
+    
+    @include min-screen($screen_sm_min) {
+        border-left: none;
+        @include border-bottom-left-radius(0px);
+
+    }
 }
 
 .actions-section-title {
@@ -474,4 +483,3 @@ input[type="text"].form-control {
     left: 15%;
     right: 15%;
 }
-
