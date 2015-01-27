@@ -134,6 +134,13 @@ $form-control-height: 50px;
     }
 }
 
+.primary-control {
+    .control-label {
+        font-size: 1em;
+    }
+}
+    
+
 .control-label {
     text-align: center;
     margin-top: 10px;

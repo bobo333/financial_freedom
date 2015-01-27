@@ -42,13 +42,12 @@ $nav-border-radius: 25px;
 
 .product-name {
     font-family: $brand_font_family;
-	font-size: $base_font_size * 3;
+	font-size: $base_font_size * 2.5;
 	font-weight: $brand_font_weight_bold;
-    color: rgba($primary_green, 0.7);
+    color: $primary_green;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
     @include hover-animation(color);
     a, a:hover {
-        color: $primary_green;
         text-decoration: none;
     }
 
@@ -165,6 +164,7 @@ $nav-border-radius: 25px;
     margin-right: 20px;
     width: 85px;
     display: inline;
+    cursor: pointer;
 }
 
 .navbar-default {
