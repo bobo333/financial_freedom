@@ -1325,7 +1325,7 @@ input[type="text"].form-control {
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
-.view-animate.ng-enter, .view-animate.ng-leave-active {
+.view-animate.ng-enter {
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -1342,15 +1342,7 @@ input[type="text"].form-control {
 }
 
 /* line 9, ../../sass/partials/_animations.scss */
-.view-animate.ng-enter, .view-animate.ng-enter-active {
-  -moz-transition-delay: 0.4s;
-  -o-transition-delay: 0.4s;
-  -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
-}
-
-/* line 13, ../../sass/partials/_animations.scss */
-.view-animate.ng-enter-active, .view-animate.ng-leave {
+.view-animate.ng-enter-active {
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -1366,7 +1358,7 @@ input[type="text"].form-control {
   opacity: 1;
 }
 
-/* line 20, ../../sass/partials/_animations.scss */
+/* line 16, ../../sass/partials/_animations.scss */
 .hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -1383,13 +1375,13 @@ input[type="text"].form-control {
   display: block !important;
 }
 
-/* line 27, ../../sass/partials/_animations.scss */
+/* line 23, ../../sass/partials/_animations.scss */
 .hide-fade.ng-hide-add.ng-hide-add-active,
 .hide-fade.ng-hide-remove {
   opacity: 0;
 }
 
-/* line 31, ../../sass/partials/_animations.scss */
+/* line 27, ../../sass/partials/_animations.scss */
 .hide-fade.ng-hide-add,
 .hide-fade.ng-hide-remove.ng-hide-remove-active {
   opacity: 1;

@@ -1,16 +1,12 @@
 
-.view-animate.ng-enter, .view-animate.ng-leave-active { 
+.view-animate.ng-enter { 
 	@include transition-property(all);
   	@include transition-duration(0.4s);
   	@include transition-timing-function(linear);
 	opacity: 0;
 }
 
-.view-animate.ng-enter, .view-animate.ng-enter-active {
-	@include transition-delay(0.4s);
-}
-
-.view-animate.ng-enter-active, .view-animate.ng-leave {
+.view-animate.ng-enter-active {
 	@include transition-property(all);
   	@include transition-duration(0.4s);
   	@include transition-timing-function(linear);
