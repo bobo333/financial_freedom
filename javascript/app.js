@@ -64,7 +64,6 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
 FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.income = {};
     $scope.income.value = RetirementCalculatorService.getMonthlyIncome();
-    $scope.pageClass = 'income-page';
     
     $scope.submitForm = function() {
         if ($scope.incomeForm.$valid) {
@@ -78,7 +77,6 @@ FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'Re
 FinancialFreedom.controller('AssetsInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.assets = {};
     $scope.assets.value = RetirementCalculatorService.getTotalAssets();
-    $scope.pageClass = 'assets-page';
 
     $scope.submitForm = function() {
         if ($scope.assetsForm.$valid) {
