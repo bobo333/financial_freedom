@@ -173,6 +173,7 @@ $form-control-height: 50px;
 .graph-section {
     margin: 0px auto 0px auto;
     background: #F4FBFA;
+    padding-bottom: 0px;
 }
 
 .output-control-container {
@@ -369,7 +370,7 @@ input[type="text"].form-control {
     margin-top: 50px;
 
     @include min-screen($screen_sm_min) {
-        margin-top: 10px;
+        margin-top: 20px;
     }
 }
 
