@@ -1,0 +1,45 @@
+.intro-content {
+	margin-top: 200px;
+}
+
+.primary-tagline {
+	font-size: 3em;
+	color: white;
+	font-weight: $base_font_weight_semi_bold;
+	text-align: center;
+}
+
+.secondary-tagline {
+	color: white;
+	opacity: 0.7;
+	margin-top: 20px;
+	font-size: 1.3em;
+	font-weight: $base_font_weight_light;
+	text-align: center;
+	line-height: 1.3em;
+}
+
+.lp-button-wrapper {
+	padding: 0;
+    width: 100%;
+}
+
+.lp-button {
+	border: white solid 2px;
+	color: white;
+	background: black;
+	margin: 110px auto auto auto;
+	text-align: center;
+	display: block;
+	background: $dark_green;
+	padding: 20px 30px;
+	@include border-radius(10px);
+	font-size: 1.5em;
+	@include hover-animation(all);
+	cursor: pointer;
+
+	&:hover {
+        background: rgba(white,0.25);
+    }
+}
+
