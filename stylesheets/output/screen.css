@@ -830,6 +830,7 @@ input:focus {
 /* line 154, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper {
   margin-top: 70px;
+  margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
   /* line 154, ../../sass/partials/_time_to_retirement.scss */
@@ -838,26 +839,26 @@ input:focus {
   }
 }
 
-/* line 163, ../../sass/partials/_time_to_retirement.scss */
+/* line 164, ../../sass/partials/_time_to_retirement.scss */
 .controls-row, .assumptionseditable {
   margin-top: 10px;
 }
 
-/* line 167, ../../sass/partials/_time_to_retirement.scss */
+/* line 168, ../../sass/partials/_time_to_retirement.scss */
 .output-top-section {
   margin-top: 90px;
   padding-bottom: 50px;
   border-bottom: 1px solid rgba(48, 142, 127, 0.12);
 }
 
-/* line 173, ../../sass/partials/_time_to_retirement.scss */
+/* line 174, ../../sass/partials/_time_to_retirement.scss */
 .graph-section {
   margin: 0px auto 0px auto;
   background: #F4FBFA;
   padding-bottom: 0px;
 }
 
-/* line 179, ../../sass/partials/_time_to_retirement.scss */
+/* line 180, ../../sass/partials/_time_to_retirement.scss */
 .output-control-container {
   line-height: 1.3;
   font-size: 15px;
@@ -865,13 +866,13 @@ input:focus {
   margin-top: 30px;
 }
 @media screen and (min-width: 768px) {
-  /* line 179, ../../sass/partials/_time_to_retirement.scss */
+  /* line 180, ../../sass/partials/_time_to_retirement.scss */
   .output-control-container {
     font-size: 22.5px;
   }
 }
 
-/* line 193, ../../sass/partials/_time_to_retirement.scss */
+/* line 194, ../../sass/partials/_time_to_retirement.scss */
 .output-info-icon {
   color: rgba(4, 65, 55, 0.4);
   display: block;
@@ -891,26 +892,26 @@ input:focus {
   transition-duration: 0.3s;
   width: 20px;
 }
-/* line 201, ../../sass/partials/_time_to_retirement.scss */
+/* line 202, ../../sass/partials/_time_to_retirement.scss */
 .output-info-icon:hover {
   color: rgba(4, 65, 55, 0.8);
 }
 
-/* line 206, ../../sass/partials/_time_to_retirement.scss */
+/* line 207, ../../sass/partials/_time_to_retirement.scss */
 .popover {
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
 }
 
-/* line 210, ../../sass/partials/_time_to_retirement.scss */
+/* line 211, ../../sass/partials/_time_to_retirement.scss */
 #explain-text {
   font-size: 15px;
   margin-left: 75px;
   margin-top: 20px;
 }
 
-/* line 216, ../../sass/partials/_time_to_retirement.scss */
+/* line 217, ../../sass/partials/_time_to_retirement.scss */
 input[type="text"].form-control {
   text-align: center;
   -moz-box-shadow: #fff 0px 0px 0px;
@@ -927,7 +928,7 @@ input[type="text"].form-control {
   border: 1px solid rgba(4, 65, 55, 0.2);
 }
 
-/* line 228, ../../sass/partials/_time_to_retirement.scss */
+/* line 229, ../../sass/partials/_time_to_retirement.scss */
 .icon-answer {
   text-align: center;
   display: block;
@@ -935,27 +936,27 @@ input[type="text"].form-control {
   color: #fff;
 }
 
-/* line 235, ../../sass/partials/_time_to_retirement.scss */
+/* line 236, ../../sass/partials/_time_to_retirement.scss */
 .dollar-label, .dollar-ouput-label-exp, .dollar-ouput-label {
   position: absolute;
   font-size: 1.2em;
   display: inline-block;
 }
 
-/* line 241, ../../sass/partials/_time_to_retirement.scss */
+/* line 242, ../../sass/partials/_time_to_retirement.scss */
 .dollar-ouput-label-exp {
   left: -15px;
   top: 60px;
   font-size: 1.5em;
 }
 
-/* line 248, ../../sass/partials/_time_to_retirement.scss */
+/* line 249, ../../sass/partials/_time_to_retirement.scss */
 .dollar-ouput-label {
   left: -8.33333px;
   top: 45px;
 }
 
-/* line 254, ../../sass/partials/_time_to_retirement.scss */
+/* line 255, ../../sass/partials/_time_to_retirement.scss */
 #expenses-field {
   height: 60px;
   width: 100%;
@@ -963,7 +964,7 @@ input[type="text"].form-control {
   display: inline-block;
 }
 
-/* line 261, ../../sass/partials/_time_to_retirement.scss */
+/* line 262, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button {
   display: block;
   margin: auto auto;
@@ -972,7 +973,7 @@ input[type="text"].form-control {
   font-size: 1.5em;
   padding: 0 0;
   outline: none !important;
-  background: #D6E8E5;
+  background: #F4FBFA;
   color: #044137;
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
@@ -990,17 +991,17 @@ input[type="text"].form-control {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 274, ../../sass/partials/_time_to_retirement.scss */
+/* line 275, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button:focus {
-  background: #D6E8E5;
+  background: #F4FBFA;
   outline: none !important;
 }
-/* line 279, ../../sass/partials/_time_to_retirement.scss */
+/* line 280, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button:hover {
-  background: rgba(4, 65, 55, 0.3);
+  background: #D6E8E5;
 }
 
-/* line 284, ../../sass/partials/_time_to_retirement.scss */
+/* line 285, ../../sass/partials/_time_to_retirement.scss */
 .control-increase-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -1015,13 +1016,13 @@ input[type="text"].form-control {
   border: 1px solid rgba(4, 65, 55, 0.2);
   border-bottom: none;
 }
-/* line 291, ../../sass/partials/_time_to_retirement.scss */
+/* line 292, ../../sass/partials/_time_to_retirement.scss */
 .control-increase-button:hover {
   border: 1px solid rgba(4, 65, 55, 0.2);
   border-bottom: none;
 }
 
-/* line 297, ../../sass/partials/_time_to_retirement.scss */
+/* line 298, ../../sass/partials/_time_to_retirement.scss */
 .control-decrease-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -1036,13 +1037,13 @@ input[type="text"].form-control {
   border: 1px solid rgba(4, 65, 55, 0.2);
   border-top: none;
 }
-/* line 304, ../../sass/partials/_time_to_retirement.scss */
+/* line 305, ../../sass/partials/_time_to_retirement.scss */
 .control-decrease-button:hover {
   border: 1px solid rgba(4, 65, 55, 0.2);
   border-top: none;
 }
 
-/* line 311, ../../sass/partials/_time_to_retirement.scss */
+/* line 312, ../../sass/partials/_time_to_retirement.scss */
 .controls-row .control-change-button, .assumptionseditable .control-change-button {
   display: block;
   margin: auto auto;
@@ -1050,7 +1051,7 @@ input[type="text"].form-control {
   width: 66.66667px;
   font-size: 1.2em;
 }
-/* line 318, ../../sass/partials/_time_to_retirement.scss */
+/* line 319, ../../sass/partials/_time_to_retirement.scss */
 .controls-row .control-increase-button, .assumptionseditable .control-increase-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -1063,7 +1064,7 @@ input[type="text"].form-control {
   border-top-right-radius: 75px;
   border-bottom: 0px;
 }
-/* line 324, ../../sass/partials/_time_to_retirement.scss */
+/* line 325, ../../sass/partials/_time_to_retirement.scss */
 .controls-row .control-decrease-button, .assumptionseditable .control-decrease-button {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -1077,7 +1078,7 @@ input[type="text"].form-control {
   border-top: 0px;
 }
 
-/* line 331, ../../sass/partials/_time_to_retirement.scss */
+/* line 332, ../../sass/partials/_time_to_retirement.scss */
 #assumptions-border-top {
   border-top: 1px solid rgba(48, 142, 127, 0.3);
   position: absolute;
@@ -1085,87 +1086,87 @@ input[type="text"].form-control {
   right: 15%;
 }
 
-/* line 338, ../../sass/partials/_time_to_retirement.scss */
+/* line 339, ../../sass/partials/_time_to_retirement.scss */
 .edit-link {
   display: inline-block;
   float: right;
   color: #044137;
   font-weight: 600;
 }
-/* line 344, ../../sass/partials/_time_to_retirement.scss */
+/* line 345, ../../sass/partials/_time_to_retirement.scss */
 .edit-link:hover {
   cursor: pointer;
 }
 
-/* line 349, ../../sass/partials/_time_to_retirement.scss */
+/* line 350, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-section {
   margin-top: 20px;
   position: relative;
 }
 
-/* line 354, ../../sass/partials/_time_to_retirement.scss */
+/* line 355, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-title-wrapper {
   margin-top: 20px;
   font-size: 1.2em;
 }
 @media screen and (min-width: 768px) {
-  /* line 354, ../../sass/partials/_time_to_retirement.scss */
+  /* line 355, ../../sass/partials/_time_to_retirement.scss */
   .assumptions-title-wrapper {
     font-size: 0.8em;
   }
 }
 
-/* line 363, ../../sass/partials/_time_to_retirement.scss */
+/* line 364, ../../sass/partials/_time_to_retirement.scss */
 .assumptionseditable {
   margin-top: 50px;
 }
-/* line 364, ../../sass/partials/_time_to_retirement.scss */
+/* line 365, ../../sass/partials/_time_to_retirement.scss */
 .assumptionseditable input[type="text"].form-control {
   width: 100px;
   font-size: 22.5px;
 }
 @media screen and (min-width: 768px) {
-  /* line 363, ../../sass/partials/_time_to_retirement.scss */
+  /* line 364, ../../sass/partials/_time_to_retirement.scss */
   .assumptionseditable {
     margin-top: 20px;
   }
 }
 
-/* line 378, ../../sass/partials/_time_to_retirement.scss */
+/* line 379, ../../sass/partials/_time_to_retirement.scss */
 .assumptionsnoteditable .control-change-button {
   display: none;
 }
-/* line 382, ../../sass/partials/_time_to_retirement.scss */
+/* line 383, ../../sass/partials/_time_to_retirement.scss */
 .assumptionsnoteditable .control-label {
   margin-top: 0px;
 }
-/* line 386, ../../sass/partials/_time_to_retirement.scss */
+/* line 387, ../../sass/partials/_time_to_retirement.scss */
 .assumptionsnoteditable input[type="text"].form-control {
   border: 0;
   background: inherit;
 }
-/* line 389, ../../sass/partials/_time_to_retirement.scss */
+/* line 390, ../../sass/partials/_time_to_retirement.scss */
 .assumptionsnoteditable input[type="text"].form-control:hover {
   cursor: text;
 }
 
-/* line 395, ../../sass/partials/_time_to_retirement.scss */
+/* line 396, ../../sass/partials/_time_to_retirement.scss */
 .no-retire-message {
   margin-top: 20px;
   text-align: center;
 }
 
-/* line 400, ../../sass/partials/_time_to_retirement.scss */
+/* line 401, ../../sass/partials/_time_to_retirement.scss */
 .leading-dollar-control {
   z-index: 99;
 }
 
-/* line 406, ../../sass/partials/_time_to_retirement.scss */
+/* line 407, ../../sass/partials/_time_to_retirement.scss */
 .actions-section {
   margin-bottom: 50px;
 }
 
-/* line 410, ../../sass/partials/_time_to_retirement.scss */
+/* line 411, ../../sass/partials/_time_to_retirement.scss */
 .actions-container {
   padding-left: 0px;
   padding-right: 0px;
@@ -1174,7 +1175,7 @@ input[type="text"].form-control {
   position: relative;
 }
 
-/* line 418, ../../sass/partials/_time_to_retirement.scss */
+/* line 419, ../../sass/partials/_time_to_retirement.scss */
 .expenses-actions-container {
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -1185,14 +1186,14 @@ input[type="text"].form-control {
   border-bottom: 1px solid #8E4B30;
 }
 
-/* line 423, ../../sass/partials/_time_to_retirement.scss */
+/* line 424, ../../sass/partials/_time_to_retirement.scss */
 .income-actions-container {
   border-top: none;
   border-right: 1px solid #8E4B30;
   border-left: 1px solid #8E4B30;
 }
 
-/* line 429, ../../sass/partials/_time_to_retirement.scss */
+/* line 430, ../../sass/partials/_time_to_retirement.scss */
 .assets-actions-container {
   -moz-border-radius-bottomleft: 0px;
   -webkit-border-bottom-left-radius: 0px;
@@ -1200,7 +1201,7 @@ input[type="text"].form-control {
   border-top: none;
 }
 @media screen and (min-width: 768px) {
-  /* line 429, ../../sass/partials/_time_to_retirement.scss */
+  /* line 430, ../../sass/partials/_time_to_retirement.scss */
   .assets-actions-container {
     border-right: none;
     -moz-border-radius-bottomleft: 5px;
@@ -1209,7 +1210,7 @@ input[type="text"].form-control {
   }
 }
 
-/* line 439, ../../sass/partials/_time_to_retirement.scss */
+/* line 440, ../../sass/partials/_time_to_retirement.scss */
 .debts-actions-container {
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
@@ -1220,7 +1221,7 @@ input[type="text"].form-control {
   border-top: none;
 }
 @media screen and (min-width: 768px) {
-  /* line 439, ../../sass/partials/_time_to_retirement.scss */
+  /* line 440, ../../sass/partials/_time_to_retirement.scss */
   .debts-actions-container {
     border-left: none;
     -moz-border-radius-bottomleft: 0px;
@@ -1229,7 +1230,7 @@ input[type="text"].form-control {
   }
 }
 
-/* line 450, ../../sass/partials/_time_to_retirement.scss */
+/* line 451, ../../sass/partials/_time_to_retirement.scss */
 .actions-section-title {
   height: 50px;
   background: #fff;
@@ -1238,13 +1239,13 @@ input[type="text"].form-control {
   margin: 35px auto 35px auto;
 }
 
-/* line 459, ../../sass/partials/_time_to_retirement.scss */
+/* line 460, ../../sass/partials/_time_to_retirement.scss */
 .action-card-container {
   display: inline-block;
   padding: 0px 20px 20px 20px;
 }
 
-/* line 464, ../../sass/partials/_time_to_retirement.scss */
+/* line 465, ../../sass/partials/_time_to_retirement.scss */
 .action-card {
   width: 100%;
   height: 150px;
@@ -1270,7 +1271,7 @@ input[type="text"].form-control {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 474, ../../sass/partials/_time_to_retirement.scss */
+/* line 475, ../../sass/partials/_time_to_retirement.scss */
 .action-card:hover {
   -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
@@ -1281,7 +1282,7 @@ input[type="text"].form-control {
   transform: scale(1.05);
 }
 
-/* line 481, ../../sass/partials/_time_to_retirement.scss */
+/* line 482, ../../sass/partials/_time_to_retirement.scss */
 .action-card .action-label-wrapper {
   position: absolute;
   bottom: 0;
@@ -1301,7 +1302,7 @@ input[type="text"].form-control {
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-/* line 494, ../../sass/partials/_time_to_retirement.scss */
+/* line 495, ../../sass/partials/_time_to_retirement.scss */
 .action-card img {
   display: block;
   width: 100%;
@@ -1311,7 +1312,7 @@ input[type="text"].form-control {
   border-radius: 5px;
 }
 
-/* line 502, ../../sass/partials/_time_to_retirement.scss */
+/* line 503, ../../sass/partials/_time_to_retirement.scss */
 .action-title {
   padding: 20px 20px 20px 5px;
   font-size: 1.4em;
@@ -1319,17 +1320,17 @@ input[type="text"].form-control {
   font-weight: 300;
 }
 
-/* line 509, ../../sass/partials/_time_to_retirement.scss */
+/* line 510, ../../sass/partials/_time_to_retirement.scss */
 .action-label {
   margin-top: 10px;
 }
 
-/* line 513, ../../sass/partials/_time_to_retirement.scss */
+/* line 514, ../../sass/partials/_time_to_retirement.scss */
 .output-controls-section {
   border-bottom: 1px solid rgba(48, 142, 127, 0.12);
 }
 
-/* line 517, ../../sass/partials/_time_to_retirement.scss */
+/* line 518, ../../sass/partials/_time_to_retirement.scss */
 .actions-container-border {
   border-top: 1px solid rgba(142, 75, 48, 0.3);
   position: absolute;
