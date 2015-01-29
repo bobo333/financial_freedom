@@ -1413,7 +1413,7 @@ input[type="text"].form-control {
   }
 }
 
-/* line 9, ../../sass/partials/_intro.scss */
+/* line 10, ../../sass/partials/_intro.scss */
 .primary-tagline {
   font-size: 2em;
   color: white;
@@ -1422,13 +1422,13 @@ input[type="text"].form-control {
   text-shadow: 0px 0px 3px black;
 }
 @media screen and (min-width: 768px) {
-  /* line 9, ../../sass/partials/_intro.scss */
+  /* line 10, ../../sass/partials/_intro.scss */
   .primary-tagline {
     font-size: 3em;
   }
 }
 
-/* line 20, ../../sass/partials/_intro.scss */
+/* line 22, ../../sass/partials/_intro.scss */
 .secondary-tagline {
   color: white;
   opacity: 0.7;
@@ -1439,39 +1439,27 @@ input[type="text"].form-control {
   line-height: 1.2em;
 }
 @media screen and (min-width: 768px) {
-  /* line 20, ../../sass/partials/_intro.scss */
+  /* line 22, ../../sass/partials/_intro.scss */
   .secondary-tagline {
     font-size: 1.3em;
     line-height: 1.3em;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 20, ../../sass/partials/_intro.scss */
+  /* line 22, ../../sass/partials/_intro.scss */
   .secondary-tagline {
     padding: 0px 100px;
   }
 }
 
-/* line 37, ../../sass/partials/_intro.scss */
+/* line 40, ../../sass/partials/_intro.scss */
 .lp-button-wrapper {
   padding: 0;
   width: 100%;
 }
 
-/* line 42, ../../sass/partials/_intro.scss */
+/* line 45, ../../sass/partials/_intro.scss */
 .lp-button {
-  border: white solid 2px;
-  color: white;
-  background: black;
-  margin: 110px auto auto auto;
-  text-align: center;
-  display: block;
-  background: #044137;
-  padding: 20px 30px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  font-size: 1.5em;
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -1484,9 +1472,21 @@ input[type="text"].form-control {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: white solid 2px;
+  color: white;
+  background: black;
+  margin: 110px auto auto auto;
+  text-align: center;
+  display: block;
+  background: #044137;
+  padding: 20px 30px;
+  font-size: 1.5em;
   cursor: pointer;
 }
-/* line 56, ../../sass/partials/_intro.scss */
+/* line 59, ../../sass/partials/_intro.scss */
 .lp-button:hover {
   background: rgba(255, 255, 255, 0.25);
 }

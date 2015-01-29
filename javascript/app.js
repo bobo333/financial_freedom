@@ -65,12 +65,15 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     };
 
     $scope.tabsAreVisible = function() {
-        if ($location.path() == '/about' || $location.path() == '/time-to-retirement' || $location.path() == '/') {
-            return false;
-        }
-        else {
-            return true;
-        }
+
+        non_visible_pages = [
+        '/about',
+        '/time-to-retirement',
+        '/'
+        ];
+
+        return non_visible_pages.indexOf($location.path() ) == -1;
+
     };
 }]);
 
