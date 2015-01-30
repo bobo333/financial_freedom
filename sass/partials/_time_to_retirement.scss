@@ -1,9 +1,9 @@
 // Time to retirement
 
 $expense_color: $secondary_brown;
-$withdraw_color: $primary-green;
-$intersection_color: $dark-green;
-$tooltip_bg: rgba($primary-green,0.80);
+$withdraw_color: $primary_green;
+$intersection_color: $dark_green;
+$tooltip_bg: rgba($primary_green,0.80);
 $main_bubble_color: #fff;
 $main_bubble_bg: #308E7F;
 $main_bubble_diameter: 150px;
@@ -127,19 +127,36 @@ $form-control-height: 50px;
 
 .input-control {
     text-align: center;
+    margin-bottom: 30px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
 }
+
+.primary-control {
+    .control-label {
+        font-size: 1em;
+    }
+}
+    
 
 .control-label {
     text-align: center;
     margin-top: 10px;
+    font-size: 1em;
+
+    @include min-screen($screen_sm_min) {
+        font-size: 0.7em;
+    }
 }
 
 .assumptions-controls-wrapper {
 
-    margin-top: 20px;
+    margin-top: 70px;
 
-    .control-label {
-        font-size: 0.7em;
+    @include min-screen($screen_sm_min) {
+        margin-top: 20px;
     }
 }
 
@@ -149,20 +166,45 @@ $form-control-height: 50px;
 
 .output-top-section {
     margin-top: 90px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     border-bottom: $section-bottom-border;
 }
 
 .graph-section {
     margin: 0px auto 0px auto;
     background: #F4FBFA;
+    padding-bottom: 0px;
+}
+
+.output-control-container {
+
+    line-height: $base_line_height * 1.3;
+    font-size: $base_font_size;
+    padding: 0px auto 0px auto;
+    margin-top: 30px;
+
+    @include min-screen($screen_sm_min) {
+        font-size: $base_font_size * 1.5;
+    }
+
+
 }
 
 .output-info-icon {
-    color: rgba(0,0,0,0.3);
+    color: rgba($dark_green,0.4);
     display: block;
     margin: 5px auto auto auto;
     font-size: $base_font_size * 1.5;
+    @include hover-animation(all);
+    width: 20px;
+
+    &:hover {
+        color: rgba($dark_green,0.8);
+    }
+}
+
+.popover {
+    @include box-shadow(rgba(#000,0.1) 0px 2px 2px)
 }
 
 #explain-text {
@@ -175,20 +217,12 @@ input[type="text"].form-control {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
-    width: 100px;
+    width: 100%;
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
     @include border-radius(5px);
-
-    &.assets-field {
-        width: 150px;
-    }
-
-    &.income-field {
-        width: 120px;
-    }
-
+    border: 1px solid rgba($dark_green,0.2);
 }
 
 .icon-answer {
@@ -213,20 +247,14 @@ input[type="text"].form-control {
 
 .dollar-ouput-label {
     @extend .dollar-label;
-    left: $control-button-height / 2;
-    top: 43px;
-}
-
-.dollar-ouput-label-assets {
-    @extend .dollar-label;
-    @extend .dollar-ouput-label;
-    left: 10px;
+    left: -$control-button-height / 6;
+    top: $control-button-height - 5px;
 }
 
 #expenses-field {
     height: $expenses-field-height;
     width: 100%;
-    font-size: $base_font_size * 3;
+    font-size: $base_font_size * 2;
     display: inline-block;
 }
 
@@ -238,11 +266,18 @@ input[type="text"].form-control {
     font-size: 1.5em;
     padding: 0 0;
     outline: none !important;
+    background: #D6E8E5;
+    color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
 
     &:focus {
-        background: none;
+        background: #D6E8E5;
+        outline: none !important;
+    }
+
+    &:hover {
+        background: rgba($dark_green,0.3);
     }
 }
 
@@ -250,12 +285,26 @@ input[type="text"].form-control {
     @include border-radius(0px); // override Bootstrap .btn
     @include border-top-radius($control-button-height);
     border-bottom: 0px;
+    border: 1px solid rgba($dark_green,0.2);
+    border-bottom: none;
+
+    &:hover {
+        border: 1px solid rgba($dark_green,0.2);
+        border-bottom: none;
+    }
 }
 
 .control-decrease-button {
     @include border-radius(0px); // override Bootstrap .btn
     @include border-bottom-radius($control-button-height);
     border-top: 0px;
+    border: 1px solid rgba($dark_green,0.2);
+    border-top: none;
+
+    &:hover {
+        border: 1px solid rgba($dark_green,0.2);
+        border-top: none;
+    }
 }
 
 .controls-row {
@@ -264,7 +313,7 @@ input[type="text"].form-control {
         margin: auto auto;
         height: $control-button-height * (2/3);
         width: $control-button-height * (4/3);
-        font-size: 0.8em;
+        font-size: 1.2em;
     }
     .control-increase-button {
         @include border-radius(0px); // override Bootstrap .btn
@@ -286,10 +335,11 @@ input[type="text"].form-control {
     right: 15%;
 }
 
-#assumptions-pencil {
+.edit-link {
     display: inline-block;
-    margin-left: 10px;
-    color: $dark-green;
+    float: right;
+    color: $dark_green;
+    font-weight: $base_font_weight_semi_bold;
 
     &:hover {
         cursor: pointer;
@@ -303,6 +353,11 @@ input[type="text"].form-control {
 
 .assumptions-title-wrapper {
     margin-top: 20px;
+    font-size: 1.2em;
+
+    @include min-screen($screen_sm_min) {
+        font-size: 0.8em;
+    }
 }
 
 .assumptionseditable {
@@ -311,6 +366,12 @@ input[type="text"].form-control {
         font-size: $base_font_size * 1.5;
     }
     @extend .controls-row;
+
+    margin-top: 50px;
+
+    @include min-screen($screen_sm_min) {
+        margin-top: 20px;
+    }
 }
 
 .assumptionsnoteditable {
@@ -350,7 +411,7 @@ input[type="text"].form-control {
     padding-left: 0px;
     padding-right: 0px;
     border: 1px solid $secondary_brown;
-    background: #FCF5EC;
+    background: $light_brown_bg;
     position: relative;
 }
 
@@ -366,15 +427,24 @@ input[type="text"].form-control {
 }
 
 .assets-actions-container {
-    @include border-bottom-left-radius(5px);
+    @include border-bottom-left-radius(0px);
     border-top: none;
-    border-right: none;
+    
+    @include min-screen($screen_sm_min) {
+        border-right: none;
+        @include border-bottom-left-radius(5px);
+    }
 }
 
 .debts-actions-container {
     @include border-bottom-right-radius(5px);
+    @include border-bottom-left-radius(5px);
     border-top: none;
-    border-left: none;
+    
+    @include min-screen($screen_sm_min) {
+        border-left: none;
+        @include border-bottom-left-radius(0px);
+    }
 }
 
 .actions-section-title {
@@ -450,4 +520,3 @@ input[type="text"].form-control {
     left: 15%;
     right: 15%;
 }
-

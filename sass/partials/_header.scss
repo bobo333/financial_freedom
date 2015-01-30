@@ -6,7 +6,7 @@ $nav-hover-color: #25A793;
 $header_gradient_bottom: #276036;
 $header_gradient_top: #1E8E3B;
 $tab_wrapper_bg: rgba(0,0,0,.1);
-$active_tab_color: #044137;
+$active_tab_color: rgba($dark_green,0.6);
 $title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
 $nav-height: 50px;
@@ -23,6 +23,7 @@ $nav-border-radius: 25px;
     color: rgba($primary_green, 0.7);
     padding: 15px 40px;
     @include hover-animation(color);
+    display: block;
 
 	a, a:hover {
 		color: $nav-hover-color;
@@ -39,19 +40,19 @@ $nav-border-radius: 25px;
     background: $header_gradient_top;
 }
 
-#product-name {
+.product-name {
     font-family: $brand_font_family;
-	font-size: $base_font_size * 3;
+	font-size: $base_font_size * 2.5;
 	font-weight: $brand_font_weight_bold;
     color: $primary_green;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
     @include hover-animation(color);
     a, a:hover {
-        color: $light_green;
         text-decoration: none;
     }
+
     &:hover {
-        color: $light_green;
+        color: $primary_green;
         cursor: pointer;
     }
 }
@@ -69,10 +70,13 @@ $nav-border-radius: 25px;
 
 .tabs-wrapper {
     background: rgba($dark_green, 0.2);
-    width: 50%;
-    margin: 80px auto auto auto;
-    @include border-bottom-radius($nav-border-radius);
     height: $nav-height;
+    margin: 80px auto auto auto;
+
+    @include min-screen($screen_sm_min) {
+        width: 50%;
+        @include border-bottom-radius($nav-border-radius);
+    }
 }
 
 .tab-text {
@@ -84,7 +88,7 @@ $nav-border-radius: 25px;
     @include min-screen($screen_sm_min) {
         width: 100%;
         margin: auto auto;
-        height: $nav-height;
+        height: 98px;
     }
 
     .tab {
@@ -101,12 +105,21 @@ $nav-border-radius: 25px;
         @include hover-animation(all);
 
         &:first-child {
-            @include border-bottom-left-radius($nav-border-radius);
+
+            @include min-screen($screen_sm_min) {
+                @include border-bottom-left-radius($nav-border-radius);
+            }
+            
         }
         
         &:last-child {
             width: 33.4%; // to fix the .1% offset it was showing
-            @include border-bottom-right-radius($nav-border-radius);
+            
+
+            @include min-screen($screen_sm_min) {
+                @include border-bottom-right-radius($nav-border-radius);
+            }
+
             border-right: 0px solid #000;
         }
         
@@ -147,9 +160,11 @@ $nav-border-radius: 25px;
     }
 }
 
-.brand-logo {
+#brand-logo {
+    margin-right: 20px;
     width: 85px;
-    display: inline ;
+    display: inline;
+    cursor: pointer;
 }
 
 .navbar-default {
@@ -161,4 +176,8 @@ $nav-border-radius: 25px;
     &:hover {
         color: rgba($primary_green, 1);
     }
+}
+
+.collapse {
+    background: white;
 }

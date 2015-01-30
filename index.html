@@ -32,22 +32,30 @@
     
     <body ng-controller="bodyController">
         <div class="header-wrapper" ng-controller="HeaderController">
-            <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="header-text navbar-brand" id="product-name" ng-click="goToRoute('/income')"><img src="/img/bowl.png" class="brand-logo"></a>
-                        <a class="header-text navbar-brand" id="product-name" ng-click="goToRoute('/income')"><span>Plenti</span></a>
+            <div class="navbar-wrapper">
+                <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            <a class="header-text navbar-brand" ng-click="goToRoute('/income')">
+                                <img src="/img/bowl.png" id="brand-logo"><span class="product-name">Plenti</span>
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="navbar-"
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
 
-            <div class="tabs-wrapper" ng-show="isStep()">
+            <div class="tabs-wrapper" ng-show="tabsAreVisible()">
                 <div class="header-tabs">
                     <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
                         <div class="tab-text">1</div>
@@ -62,7 +70,7 @@
             </div>
         </div>
         
-        <div ng-view></div>
+        <div ng-view class="view-animate"></div>
     </body>
 
 </html>
