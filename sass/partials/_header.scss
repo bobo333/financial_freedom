@@ -1,7 +1,5 @@
 // Header
 
-
-
 // Colors
 $header_gradient_bottom: #276036;
 $header_gradient_top: #1E8E3B;
@@ -37,17 +35,14 @@ $nav-border-radius: 25px;
     background: $header_gradient_top;
 }
 
-#product-name {
+.product-name {
     font-family: $brand_font_family;
 	font-size: $base_font_size*3;
 	font-weight: $brand_font_weight_bold;
     color: $title_color;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
     @include hover-animation(color);
-    a, a:hover {
-        color: $title_color;
-        text-decoration: none;
-    }
+
     &:hover {
         color: #6D6D6D;
         cursor: pointer;
@@ -65,7 +60,7 @@ $nav-border-radius: 25px;
 .tabs-wrapper {
     background: $tab_wrapper_bg;
     width: 50%;
-    margin: auto auto;
+    margin: 80px auto auto auto;
     @include border-bottom-radius($nav-border-radius);
     height: $nav-height;
 
@@ -123,7 +118,6 @@ $nav-border-radius: 25px;
             background: rgba($active_tab_color, 0.05);
 
         }
-
     }
 }
 
@@ -140,3 +134,11 @@ $nav-border-radius: 25px;
     }
 }
 
+#brand-logo {
+    margin-right: 20px;
+    width: 85px;
+    display: inline;
+    &:hover {
+        cursor: pointer;
+    }
+}

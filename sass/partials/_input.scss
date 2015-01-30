@@ -14,6 +14,10 @@ $input_field_width: 300px;
 	width: 100%;
 }
 
+.leading-dollar {
+	margin-left: 25px;
+}
+
 input[type="text"].steps {
   
   width: $input_field_width / 2;

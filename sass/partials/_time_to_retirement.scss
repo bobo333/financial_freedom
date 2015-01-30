@@ -5,7 +5,10 @@ $withdraw_color: green;
 $intersection_color: black;
 $tooltip_bg: rgba(28,142,58,0.80);
 $main_bubble_color: #fff;
-$main_bubble_diameter: 250px;
+$main_bubble_diameter: 150px;
+$control-button-height: 50px;
+$expenses-field-height: 60px;
+$form-control-height: 50px;
 
 #graph-wrapper {
 
@@ -78,14 +81,13 @@ $main_bubble_diameter: 250px;
     @extend .after-input-text;
     text-align: center;
     text-transform: uppercase;
-    margin-top: 25px;
-    font-size: $base_font_size * 2;
+    font-size: $base_font_size * 1.5;
     color: $main_bubble_color;
 }
 
 .retirement-years {
-    @extend .input-title;
-    font-size: $base_font_size * 10;
+    font-weight: $base_font_weight_semi_bold;
+    font-size: $base_font_size * 5;
     margin-top: 50px;
     color: $main_bubble_color;
 }
@@ -94,20 +96,17 @@ $main_bubble_diameter: 250px;
     color: rgba(255,255,255,0.25);
     margin-top: 5px;
     border-top: 0px solid black;
+    font-size: $base_font_size;
 }
 
 .cannot-retire {
     @extend .supporting-section-body;
 }
 
-.can-retire {
-    padding-top: 30px;
-    padding-bottom: 50px;
-}
-
 .until-fi {
     @extend .step-subheader;
-    margin-top: 35px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .big-number-bg {
@@ -125,13 +124,7 @@ $main_bubble_diameter: 250px;
 }
 
 .input-control {
-    margin-top: 20px;
-}
-
-.assumptions-btn {
-    margin-top: 50px;
-    border-color: #404040;
-    background: #404040;
+    text-align: center;
 }
 
 .control-label {
@@ -139,15 +132,208 @@ $main_bubble_diameter: 250px;
     margin-top: 10px;
 }
 
+.assumptions-controls-wrapper {
+
+    margin-top: 20px;
+
+    .control-label {
+        font-size: 0.7em;
+    }
+}
+
 .controls-row {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .output-top-section {
-    border-bottom: 1px solid rgba(49,78,95,0.12)
+    margin-top: 90px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(49,78,95,0.12);
 }
 
 .graph-section {
     margin: 0px auto 0px auto;
     background: #f5f5f5;
 }
+
+.output-info-icon {
+    color: rgba(0,0,0,0.3);
+    display: block;
+    margin: 5px auto auto auto;
+    font-size: $base_font_size * 1.5;
+}
+
+#explain-text {
+    font-size: $base_font_size;
+    margin-left: 75px;
+    margin-top: 20px;
+}
+
+input[type="text"].form-control {
+    text-align: center;
+    @include box-shadow(#fff 0px 0px 0px);
+    height: 50px;
+    width: 100px;
+    font-size: $base_font_size * 2;
+    margin: auto auto;
+    display: inline-block;
+    @include border-radius(5px);
+
+    &.assets-field {
+        width: 150px;
+    }
+
+    &.income-field {
+        width: 120px;
+    }
+
+}
+
+.icon-answer {
+    text-align: center;
+    display: block;
+    font-size: 5em;
+    color: #fff;
+}
+
+.dollar-label {
+    position: absolute;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.dollar-ouput-label-exp {
+    @extend .dollar-label;
+    left: -$expenses-field-height / 4;
+    top: $expenses-field-height;
+    font-size: 1.5em;
+}
+
+.dollar-ouput-label {
+    @extend .dollar-label;
+    left: $control-button-height / 2;
+    top: 43px;
+}
+
+.dollar-ouput-label-assets {
+    @extend .dollar-label;
+    @extend .dollar-ouput-label;
+    left: 10px;
+}
+
+#expenses-field {
+    height: $expenses-field-height;
+    width: 100%;
+    font-size: $base_font_size * 3;
+    display: inline-block;
+}
+
+.control-change-button {
+    display: block;
+    margin: auto auto;
+    height: $control-button-height;
+    width: $control-button-height * 2;
+    font-size: 1.5em;
+    padding: 0 0;
+    outline: none !important;
+    @include box-shadow(none !important);
+
+    &:focus {
+        background: none;
+    }
+}
+
+.control-increase-button {
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-top-radius($control-button-height);
+    border-bottom: 0px;
+}
+
+.control-decrease-button {
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-bottom-radius($control-button-height);
+    border-top: 0px;
+}
+
+.controls-row {
+    .control-change-button {
+        display: block;
+        margin: auto auto;
+        height: $control-button-height * (2/3);
+        width: $control-button-height * (4/3);
+        font-size: 0.8em;
+    }
+    .control-increase-button {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-top-radius($control-button-height * (3/2));
+        border-bottom: 0px;
+    }
+
+    .control-decrease-button {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-bottom-radius($control-button-height * (3/2));
+        border-top: 0px;
+    }
+}
+
+#assumptions-border-top {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    position: absolute;
+    left: 15%;
+    right: 15%;
+}
+
+#assumptions-pencil {
+    display: inline-block;
+    margin-left: 10px;
+    color: $dark-green;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.assumptions-section {
+    margin-top: 20px;
+    position: relative;
+}
+
+.assumptions-title-wrapper {
+    margin-top: 20px;
+}
+
+.assumptionseditable {
+    input[type="text"].form-control {
+        width: 100px;
+        font-size: $base_font_size * 1.5;
+    }
+    @extend .controls-row;
+}
+
+.assumptionsnoteditable {
+    .control-change-button {
+        display: none;
+    }
+
+    .control-label {
+        margin-top: 0px;
+    }
+
+    input[type="text"].form-control {
+        border: 0;
+        background: inherit;
+        &:hover {
+            cursor: text;
+        }
+    }
+}
+
+.no-retire-message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.leading-dollar-control {
+    z-index: 99;
+}
+

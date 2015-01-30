@@ -39,7 +39,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
 }]);
 
 FinancialFreedom.controller('bodyController', ['$location',  function($location) {
-    $location.path("/")
+    $location.path("/");
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -51,6 +51,14 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
         $location.path(route);
     };
 
+    $scope.tabsAreVisible = function() {
+        if ($location.path() == '/about' || $location.path() == '/time-to-retirement') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
 }]);
 
 FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
@@ -91,21 +99,55 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
     };
 }]);
 
+FinancialFreedom.directive("btnOutputControl", function($filter){
+    return {
+        scope: {},
+        restrict: 'E',
+        templateUrl: 'partials/output_control.html'
+    }
+});
+
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
-    
+
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+
+    $scope.showSteps = false;
+    $scope.penClicked = false;
+
+    $scope.incrementOutputValue = function(output_value, increment) {
+        if (output_value == 'expenses') {
+            $scope.expenses = $scope.expenses + increment;
+        }
+        if (output_value == 'income') {
+            $scope.income = $scope.income + increment;
+        }
+        if (output_value == 'assets') {
+            $scope.assets = $scope.assets + increment;
+        }
+        if (output_value == 'incomeincrease') {
+            $scope.incomeincrease = $scope.incomeincrease + increment;
+        }
+        if (output_value == 'expensesincrease') {
+            $scope.expensesincrease = $scope.expensesincrease + increment;
+        }
+        if (output_value == 'growth') {
+            $scope.growth = $scope.growth + increment;
+        }
+    }
+
     $scope.refreshOutput = function(retirement_data) {
 
         $scope.retirement = {};
         var months_to_retirement = retirement_data['months'];
-
         $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
         $scope.retirement.months_to_retirement = months_to_retirement % 12;
         $scope.retirement.graph_shown = retirement_data.can_retire && !retirement_data.can_retire_immediately;
         $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
         $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
-        
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
     }
     
@@ -137,8 +179,23 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     
 }]);
 
-FinancialFreedom.filter('percentage', ['$filter', function ($filter) {
-  return function (input, decimals) {
-    return $filter('number')(input * 100, decimals) + '%';
-  };
-}]);
+FinancialFreedom.directive("percent", function($filter){
+    var p = function(viewValue){ // format model value
+        var m = viewValue.match(/^(\d+)\/(\d+)/);
+        if (m != null)
+          return $filter('number')(parseInt(m[1])/parseInt(m[2]), 1);
+        return $filter('number')(parseFloat(viewValue)/100, 1);
+    };
+
+    var f = function(modelValue){ // format display value
+        return $filter('number')(parseFloat(modelValue)*100, 2) + '%';
+    };
+    
+    return {
+        require: 'ngModel',
+        link: function(scope, ele, attr, ctrl){
+            ctrl.$parsers.unshift(p);
+            ctrl.$formatters.unshift(f);
+        }
+    };
+});

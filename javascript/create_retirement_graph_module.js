@@ -13,7 +13,6 @@ CreateRetirementGraphModule.service('CreateRetirementGraphService', function() {
         aspect_ratio = 16 / 9;
         scroll_bar_width = 20;
         pixels_per_axis_label = 75;
-        console.log("runninggraph");
 
         if ($(".tooltip").length > 0) {
             $( ".tooltip" ).remove();
