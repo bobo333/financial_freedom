@@ -1,7 +1,7 @@
 describe('Unit: RetirementCalculatorModule', function() {
     var RetirementCalculatorService;
 
-    beforeEach(module('RetirementCalculatorModule'));
+    beforeEach(module('FinancialFreedom'));
     
     beforeEach(inject(function(_RetirementCalculatorService_) {
         RetirementCalculatorService = _RetirementCalculatorService_;

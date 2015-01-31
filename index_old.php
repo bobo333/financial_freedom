@@ -22,8 +22,8 @@
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
         
-        <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
         <script type="text/javascript" src="javascript/app.js"></script>
+        <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
 
         <title>Financial Freedom</title>
     </head>

@@ -17,6 +17,10 @@ module.exports = function(config) {
     files: [
 		'bower_components/angular/angular.min.js',
 		'node_modules/angular-mocks/angular-mocks.js',
+        'bower_components/angular-animate/angular-animate.min.js',
+        'bower_components/angular-route/angular-route.min.js',
+        'bower_components/angular-i18n/angular-locale_en-us.js',
+        'javascript/custom/ng-currency.js',
 		
 		'javascript/app.js',
 		'javascript/retirement_calculator_module.js',

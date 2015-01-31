@@ -1,6 +1,6 @@
-var RetirementCalculatorModule = angular.module('RetirementCalculatorModule', []);
+// var RetirementCalculatorModule = angular.module('RetirementCalculatorModule', []);
 
-RetirementCalculatorModule.service('RetirementCalculatorService', function() {
+FinancialFreedom.service('RetirementCalculatorService', function() {
     var withdrawal_rate = .04;
     var inflation_rate = .035;
     var income_increase_rate = .05;
@@ -48,42 +48,52 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
         return inflation_rate;
     };
 
+    // retirement
     this.setInflationRate = function(new_inflation_rate) {
         inflation_rate = new_inflation_rate;
     };
 
+    // retirement
     this.getIncomeIncreaseRate = function() {
         return income_increase_rate;
     };
 
+    // retirement
     this.setIncomeIncreaseRate = function(new_income_increase_rate) {
         income_increase_rate = new_income_increase_rate;
     };
 
+    // retirement
     this.getExpensesIncreaseRate = function() {
         return expenses_increase_rate;
     };
 
+    // retirement
     this.setExpensesIncreaseRate = function(new_expenses_increase_rate) {
         expenses_increase_rate = new_expenses_increase_rate;
     };
 
+    // retirement
     this.getGrowthRate = function() {
         return growth_rate;
     };
 
+    // retirement
     this.setGrowthRate = function(new_growth_rate) {
         growth_rate = new_growth_rate;
     };
-
+    
+    // retirement
     this.getInflationRate = function() {
         return inflation_rate;
     };
 
+    // retirement
     this.setInflationRate = function(new_inflation_rate) {
         inflation_rate = new_inflation_rate;
     };
 
+    // retirement
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();
         calculateRetirementTrajectory(retirement_data);
@@ -93,7 +103,7 @@ RetirementCalculatorModule.service('RetirementCalculatorService', function() {
             addIntersectionPoint(retirement_data);
             padGraphData(retirement_data);
         }
-                
+
         return retirement_data;
     };
     
