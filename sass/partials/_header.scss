@@ -1,56 +1,69 @@
 // Header
 
-
-
 // Colors
 $header_gradient_bottom: #276036;
 $header_gradient_top: #1E8E3B;
-$tab_wrapper_bg: #382513;
-$active_tab_color: #D8CAA8;
-$title_color: #FFFFFF;
+$tab_wrapper_bg: rgba(0,0,0,.1);
+$active_tab_color: rgba(0,0,0,.3);
+$title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
+$nav-height: 50px;
+$nav-border-radius: 25px;
 
 .header {
-	@include background-image(linear-gradient($header_gradient_top,$header_gradient_bottom));
-	height: 150px;
+	height: 80px;
 	position: relative;
+    margin-top: 20px 0px 20px 0px;
 }
 
-.header-text {
-    font-family: $brand_font_family;
+.navbar-custom {
+    font-family: $base_font_family;
     color: $title_color;
-    text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
-    text-align: center;
-    @include vertical-align;
+    padding: 15px 40px;
     @include hover-animation(color);
 	a, a:hover {
 		color: $title_color;
 		text-decoration: none;
-        
 	}
     &:hover {
-        color: #EEFFDA;
+        color: #6D6D6D;
+    }
+}
+
+#header-accent {
+    height: 4px;
+    background: $header_gradient_top;
+}
+
+.product-name {
+    font-family: $brand_font_family;
+	font-size: $base_font_size*3;
+	font-weight: $brand_font_weight_bold;
+    color: $title_color;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
+    @include hover-animation(color);
+
+    &:hover {
+        color: #6D6D6D;
         cursor: pointer;
     }
 }
 
-.product-name {
-	font-size: $base_font_size*3;
-	font-weight: $brand_font_weight_bold;
-}
-
-.tag-line {
-	font-weight: $brand_font_weight_light;
-}
-
 .navbar {
 	border: none;
-	border-radius: 0px;
     margin-bottom: 0px !important;
+    height: 80px;
+    @include background-image(linear-gradient(white, #D6D6D6));
+    box-shadow: 0px 2px 4px rgba(0,0,0,.15)
 }
 
 .tabs-wrapper {
     background: $tab_wrapper_bg;
+    width: 50%;
+    margin: 80px auto auto auto;
+    @include border-bottom-radius($nav-border-radius);
+    height: $nav-height;
+
 }
 
 .tab-text {
@@ -60,31 +73,40 @@ $border-style: 1px solid rgba(0,0,0,.15);
 .header-tabs {
 
     @include min-screen($screen_sm_min) {
-        width: 60%;
-        margin: auto auto auto auto;
+        width: 100%;
+        margin: auto auto;
+        height: $nav-height;
+
     }
 
     .tab {
         @include basic-font;
         display: inline-block;
+        height: $nav-height;
         width: 33.3%;
         text-align: center;
-        border-top: none;
-        border-right: none;
         background: none;
-        color: white;
-        height: 60px;
+        color: #777;
         font-size: $base_font_size * 1.5;
         @include hover-animation(background);
+        margin-right: -4px; // correcting some random margin
+        border-right: 1px solid rgba(0,0,0,.2);
+
+        &:first-child {
+            @include border-bottom-left-radius($nav-border-radius);
+        }
         
         &:last-child {
-            border-right: $border-style;
+            //border-right: $border-style;
             width: 33.4%; // to fix the .1% offset it was showing
+            @include border-bottom-right-radius($nav-border-radius);
+            border-right: 0px solid #000;
         }
         
         &.active {
             font-weight: bold;
             background: $active_tab_color;
+            color: white;
 
             &:hover {
                 background: $active_tab_color;
@@ -93,8 +115,30 @@ $border-style: 1px solid rgba(0,0,0,.15);
         
         &:hover {
             cursor: pointer;
-            background: rgba($active_tab_color, 0.25);
-        }
+            background: rgba($active_tab_color, 0.05);
 
+        }
+    }
+}
+
+.navbar-right {
+    margin-right: 15px;
+}
+
+.nav {
+    li {
+        a {
+            padding-right: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+#brand-logo {
+    margin-right: 20px;
+    width: 85px;
+    display: inline;
+    &:hover {
+        cursor: pointer;
     }
 }

@@ -1,16 +1,27 @@
 <div class="view-content container-fluid">
-	<div class="row">
-	    <div class="view-body-content col-xs-12 col-md-8 col-md-offset-4">
-		    <div class="input-title">Assets</div>
-		    
-		    <div class="step-subheader">All cash, investments, and property ownership</div>
-		    
-		    <div class="input-field-wrapper">
-		        $<input type="text" autofocus placeholder="50,000" ng-currency ng-model="assets.value" >
-		    </div>
+	<form name="assetsForm" ng-submit="submitForm()" novalidate>
+		<div class="row">
+		    <div class="view-body-content col-xs-12 col-md-8 col-md-offset-4">
+			    <div class="input-title">Assets</div>
+			    <div class="step-subheader">All cash, investments, and property ownership</div>
+				    <div class="input-field-wrapper">
+				        <span class="leading-dollar">$</span>
+				        <input type="text" 
+			        	autofocus 
+			        	required
+			        	ng-currency
+			        	min="-999999999"
+			        	max="999999999"
+			        	placeholder="50,000" 
+			        	class="steps" 
+			        	ng-model="assets.value" />
+				    </div>
+			</div>
 		</div>
-	</div>
-    
-    <next-button input-value="{{assets.value}}" next-route="expenses"></next-button>
-
+		<div class="row">
+			<div class="next-button-wrapper col-xs-12">  
+				<input type="submit" value="&#xf105;" ng-show="assetsForm.$valid" class="next-button" />
+			</div>
+		</div>
+    </form>
 </div>

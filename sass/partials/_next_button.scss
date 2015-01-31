@@ -1,41 +1,53 @@
 $next-button-height-min-sm: 80px;
-$next-button-height: 120px;
+$next-button-height: 80px;
 
 .next-button {
     @include basic-font;
     position: fixed;
     height: $next-button-height;
+    width: $next-button-height;
     bottom: 0;
-    background: $header-gradient-top;
+    left: 0;
+    right: 0;
+    background: #fff;
     text-align: center;
-    color: $title-color;
-    opacity: 0;
-    width: 100%;
+    color: $header-gradient-top;
     @include hover-animation(background);
+    @include hover-animation(box-shadow);
     @include hover-animation(opacity);
+    border: $header-gradient-top solid 2px;
 
     @include min-screen($screen_sm_min) {
-        width: 250px;
         height: $next-button-height-min-sm;
         display: block;
         margin: 60px auto auto auto;
-        @include border-radius(10px);
+        @include border-radius(50%);
         position: relative;
     }
 
-    &.active {
+    &.ng-valid {
         opacity: 1;
         cursor: pointer;
         @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
     }
 
     &:hover {
-        background: #1CAD43;
+        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
     }
     
-    .text {
-        @include vertical-align;
+    &[type=submit] {
         text-transform: uppercase;
         font-size: $base-font-size * 3;
+        padding: 0;
+        font-family: FontAwesome;
     }
+}
+
+.next-button.ng-valid {
+    opacity: 1;
+    cursor: pointer;
+    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
+}
+
+.next-button.ng-hide {
 }
