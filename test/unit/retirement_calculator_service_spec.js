@@ -1,4 +1,4 @@
-describe('Unit: RetirementCalculatorModule', function() {
+describe('Unit: RetirementCalculatorService', function() {
     var RetirementCalculatorService;
 
     beforeEach(module('FinancialFreedom'));
@@ -6,23 +6,6 @@ describe('Unit: RetirementCalculatorModule', function() {
     beforeEach(inject(function(_RetirementCalculatorService_) {
         RetirementCalculatorService = _RetirementCalculatorService_;
     }));
-    
-    // calculatePeriodInterestRate
-    it('should have calculatePeriodInterestRate function', function() {
-        expect(angular.isFunction(RetirementCalculatorService.calculatePeriodInterestRate)).toBe(true);
-    });
-    
-    it('should convert 10% annual to .797% monthly from calculatePeriodInterestRate', function() {
-        var val = RetirementCalculatorService.calculatePeriodInterestRate(.10, 12);
-        rounded = Math.round(val * 100000) / 100000;
-        expect(rounded).toBe(.00797);
-    });
-    
-    it('should convert 6% annual to .487% monthly from calculatePeriodInterestRate', function() {
-        var val = RetirementCalculatorService.calculatePeriodInterestRate(.06, 12);
-        rounded = Math.round(val * 100000) / 100000;
-        expect(rounded).toBe(.00487);
-    });
     
     // calculateRetirementInfo
     it('should have calculateRetirementInfo function', function() {

@@ -1,6 +1,4 @@
-// var RetirementCalculatorModule = angular.module('RetirementCalculatorModule', []);
-
-FinancialFreedom.service('RetirementCalculatorService', function() {
+FinancialFreedom.service('RetirementCalculatorService', ['InterestService', function(InterestService) {
     var withdrawal_rate = .04;
     var inflation_rate = .035;
     var income_increase_rate = .05;
@@ -200,26 +198,21 @@ FinancialFreedom.service('RetirementCalculatorService', function() {
         var expenses = retirement_data.monthly_expenses;
         var interest_rate = retirement_data.monthly_growth_rate;
         
-        retirement_data.total_assets = addInterest(total_assets, interest_rate) + pay - expenses;
+        retirement_data.total_assets = InterestService.addInterest(total_assets, interest_rate) + pay - expenses;
     };
     
     // retirement
     var updateMonthlyExpenses = function(retirement_data) {
         var expenses = retirement_data.monthly_expenses;
 
-        retirement_data.monthly_expenses = addInterest(expenses, retirement_data.monthly_expenses_increase_rate);
+        retirement_data.monthly_expenses = InterestService.addInterest(expenses, retirement_data.monthly_expenses_increase_rate);
     };
     
     // retirement
     var updateMonthlyIncome = function(retirement_data) {
         var monthly_income = retirement_data.monthly_income;
     
-        retirement_data.monthly_income = addInterest(monthly_income, income_increase_rate);
-    };
-    
-    // interest
-    var addInterest = function(original_total, interest_rate) {
-        return original_total * (1 + interest_rate);
+        retirement_data.monthly_income = InterestService.addInterest(monthly_income, income_increase_rate);
     };
     
     // retirement
@@ -315,9 +308,9 @@ FinancialFreedom.service('RetirementCalculatorService', function() {
     
     // retirement
     this.initialRetirementData = function() {
-        var monthly_inflation_rate = this.calculatePeriodInterestRate(inflation_rate, 12);
-        var monthly_growth_rate = this.calculatePeriodInterestRate(growth_rate, 12);
-        var monthly_expenses_increase_rate = this.calculatePeriodInterestRate(expenses_increase_rate, 12);
+        var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
+        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(growth_rate, 12);
+        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(expenses_increase_rate, 12);
         
         return {
             months: 0,
@@ -332,11 +325,4 @@ FinancialFreedom.service('RetirementCalculatorService', function() {
         };
     };
     
-    // interest rates
-    this.calculatePeriodInterestRate = function(overall_rate, number_of_periods) {
-        base = overall_rate + 1;
-        exponent = 1 / number_of_periods;
-        return Math.pow((base), (exponent)) - 1;
-    };
-    
-});    
+}]);
