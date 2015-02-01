@@ -23,7 +23,9 @@ module.exports = function(config) {
         'javascript/custom/ng-currency.js',
         
         'javascript/app.js',
+        'javascript/date_service.js',
         'javascript/interest_service.js',
+        'javascript/geometry_service.js',
         'javascript/retirement_calculator_service.js',
         'javascript/create_retirement_graph_service.js',
         
