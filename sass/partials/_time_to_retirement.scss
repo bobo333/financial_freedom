@@ -154,6 +154,7 @@ $form-control-height: 50px;
 .assumptions-controls-wrapper {
 
     margin-top: 70px;
+    margin-bottom: 40px;
 
     @include min-screen($screen_sm_min) {
         margin-top: 20px;
@@ -266,18 +267,18 @@ input[type="text"].form-control {
     font-size: 1.5em;
     padding: 0 0;
     outline: none !important;
-    background: #D6E8E5;
+    background: #F4FBFA;
     color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
 
     &:focus {
-        background: #D6E8E5;
+        background: #F4FBFA;
         outline: none !important;
     }
 
     &:hover {
-        background: rgba($dark_green,0.3);
+        background: #D6E8E5;
     }
 }
 
