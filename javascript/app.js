@@ -22,8 +22,12 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/about.html',
         controller: ''
     })
+    .when('/', {
+        templateUrl: 'partials/intro.html',
+        controller: 'IntroController'
+    })
     .otherwise({
-        redirectTo: '/income'
+        redirectTo: '/'
     });
 }]);
 
@@ -38,8 +42,17 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$location',  function($location) {
+FinancialFreedom.controller('bodyController', ['$scope', '$location',  function($scope, $location) {
     $location.path("/");
+    $scope.isActive = function(route) {
+        return route == $location.path();
+    };
+}]);
+
+FinancialFreedom.controller('IntroController', ['$scope', '$location',  function($scope, $location) {
+    $scope.submitForm = function() {
+        $location.path('/income');
+    };
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -52,12 +65,15 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     };
 
     $scope.tabsAreVisible = function() {
-        if ($location.path() == '/about' || $location.path() == '/time-to-retirement') {
-            return false;
-        }
-        else {
-            return true;
-        }
+
+        non_visible_pages = [
+        '/about',
+        '/time-to-retirement',
+        '/'
+        ];
+
+        return non_visible_pages.indexOf($location.path() ) == -1;
+
     };
 }]);
 

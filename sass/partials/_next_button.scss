@@ -12,7 +12,6 @@ $next-button-icon-color: $next-button-border-color;
     color: $next-button-icon-color;
     @include hover-animation(all);
     border: $next-button-border-color solid 2px;
-    
     display: block;
     margin: 60px auto auto auto;
     @include border-radius(50%);
@@ -33,7 +32,6 @@ $next-button-icon-color: $next-button-border-color;
     }
     
     &[type=submit] {
-        text-transform: uppercase;
         font-size: $base-font-size * 3;
         padding: 0;
         font-family: FontAwesome;
@@ -44,4 +42,9 @@ $next-button-icon-color: $next-button-border-color;
     opacity: 1;
     cursor: pointer;
     @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
+}
+
+.next-button-wrapper {
+    padding: 0;
+    width: 100%;
 }
