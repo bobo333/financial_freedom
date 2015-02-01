@@ -28,9 +28,9 @@
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
                     <div id="footer-border-top"></div>
                     <div class="footer-nav-wrapper">
-                        <div class="footer-nav-item" ng-click="revealLegalDoc('privacy-policy')">Privacy Policy</div><div class="footer-nav-item" ng-click="revealLegalDoc('toc')">Terms of Service</div>
+                        <div class="footer-nav-item" ng-class="{ 'footer-nav-item-active': privacy_is_active }" ng-click="revealLegalDoc('privacy-policy')">Privacy Policy</div><div class="footer-nav-item" ng-class="{ 'footer-nav-item-active': toc_is_active }"  ng-click="revealLegalDoc('toc')">Terms of Service</div>
                     </div>
-                    <div class="legal-doc" ng-include="template.url">
+                    <div class="legal-doc text-fade-in" ng-include="template.url">
                     </div>
 
                 </div>

@@ -699,18 +699,38 @@ input:focus {
   display: inline-block;
   font-size: 0.6em;
   color: #308e7f;
+  opacity: 0.7;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
-/* line 102, ../../sass/partials/_method.scss */
+/* line 104, ../../sass/partials/_method.scss */
 .footer-nav-item:hover {
   cursor: pointer;
+  opacity: 1;
 }
 
-/* line 107, ../../sass/partials/_method.scss */
+/* line 110, ../../sass/partials/_method.scss */
+.footer-nav-item-active {
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* line 115, ../../sass/partials/_method.scss */
 .legal-category {
   font-weight: 600;
 }
 
-/* line 111, ../../sass/partials/_method.scss */
+/* line 119, ../../sass/partials/_method.scss */
 .legal-section {
   width: 100%;
 }
@@ -1434,6 +1454,40 @@ input[type="text"].form-control {
 /* line 27, ../../sass/partials/_animations.scss */
 .hide-fade.ng-hide-add,
 .hide-fade.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+
+/* line 32, ../../sass/partials/_animations.scss */
+.text-fade-in.ng-enter {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  opacity: 0;
+}
+
+/* line 39, ../../sass/partials/_animations.scss */
+.text-fade-in.ng-enter-active {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
   opacity: 1;
 }
 

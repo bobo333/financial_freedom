@@ -129,13 +129,31 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
       { name: 'Terms of Service', url: 'partials/legal/terms_of_service.html'} ];
     
     $scope.template = null;
+    $scope.privacy_is_active = false;
+    $scope.privacy_is_toc = false;
 
     $scope.revealLegalDoc = function(doc) {
         if (doc == 'privacy-policy') {
-            $scope.template = $scope.templates[0];
+            
+            if ($scope.privacy_is_active == true) {
+                $scope.template = null;
+                $scope.privacy_is_active = false;
+            } else {
+                $scope.template = $scope.templates[0];
+                $scope.privacy_is_active = true;
+                $scope.toc_is_active = false;
+            }
         }
         else if (doc == 'toc') {
-            $scope.template = $scope.templates[1];
+
+            if ($scope.toc_is_active == true) {
+                $scope.template = null;
+                $scope.toc_is_active = false;
+            } else {
+                $scope.template = $scope.templates[1];
+                $scope.toc_is_active = true;
+                $scope.privacy_is_active = false;
+            }
         }
     }
     
