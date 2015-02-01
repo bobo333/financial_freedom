@@ -32,16 +32,17 @@
             <div class="until-fi">You're already financially independent.</div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid output-controls-section">
         <div class="row">
-            <div class="graph-section supporting-content">
+            <div class="graph-section supporting-content col-xs-12">
                 <div class="supporting-content-wrapper">
                     <div class="col-md-8" id="graph-wrapper">
                         <div id="retirement-graph"></div>
                         <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a></div>
                     </div>
-                    <div class="supporting-section-body col-md-4">
-                        <div id="expenses-control" class="input-control col-md-offset-3 col-md-5">
+
+                    <div class="output-control-container col-xs-12 col-md-4">
+                        <div id="expenses-control" class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
                             <div>
                             	<div>
 						        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', 100)"></button>
@@ -56,8 +57,9 @@
                             </div>
                             <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly expenses" data-placement="bottom"></i></div>
                         </div>
-                        <div class="controls-row col-md-12">
-                            <div class="input-control col-md-6">
+
+                        <div class="controls-row col-xs-12">
+                            <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
                                 <div>
                                     <div>
 						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('income', 100)"></button>
@@ -72,13 +74,14 @@
                                 </div>
                                 <div class="control-label">Income<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly after-tax income" data-placement="bottom"></i></div>
                             </div>
-                            <div class="input-control col-md-6">
+
+                            <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
                                 <div>
                                     <div>
 						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('assets', 1000)"></button>
 						        	</div>
 						        	<div>
-							        	<span class="dollar-ouput-label-assets">$</span>
+							        	<span class="dollar-ouput-label">$</span>
 	                                    <input ng-currency type="text" class="form-control assets-field secondary-output-field" ng-model="assets" ng-model-options="{ debounce: 700 }">
 	                                </div>
                                     <div>
@@ -88,11 +91,11 @@
                                 <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current total assets" data-placement="bottom"></i></div>
                             </div>
                         </div>
-                        <div class="assumptions-section col-md-12">
+                        <div class="assumptions-section col-xs-12">
                         	<div id="assumptions-border-top"></div>
-                            <div class="col-md-12 assumptions-title-wrapper">
+                            <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1 assumptions-title-wrapper">
                                 <span class="assumptions-title">Assumptions</span>
-                                <i id="assumptions-pencil" class="fa fa-pencil output-info-icon" ng-click="penClicked = !penClicked"></i>
+                                <span class="edit-link" ng-click="penClicked = !penClicked" ng-show="!penClicked">Edit</span>
                             </div>
                             <div class="col-md-12 assumptions-controls-wrapper" ng-class="{ assumptionseditable: penClicked, assumptionsnoteditable: !penClicked }">
                                 <div class="input-control col-md-4">
@@ -129,7 +132,7 @@
 		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
 		                                </div>
                                     </div>
-                                    <div class="control-label">Assets <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="top"></i></div>
+                                    <div class="control-label">Assets <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="left"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -137,5 +140,125 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+    	<div class="container-fluid actions-section">
+    		<div class="row">
+    			<div class="actions-section-title col-xs-12">
+		    		Get there faster
+		    	</div>
+    			<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-6  col-md-8 col-md-offset-2">
+    				<div class="row">
+		    			<div class="actions-container expenses-actions-container col-xs-12">
+		    				<div class="actions-container-title col-xs-12">
+		    					<div class="action-title">Reduce expenses</div>
+		    				</div>
+		    				<a href="http://www.mrmoneymustache.com/2012/05/07/what-do-you-mean-you-dont-have-a-bike/">
+			    				<div class="action-card-container expenses-card col-md-3" id="bicycling">
+			    					<div class="action-card">
+			    						<img src="img/bike-unsplash-crop.jpg">
+			    						<div class="action-label-wrapper">
+			    							<div class="action-label">Bike instead of drive</div>
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</a>
+			    			<a href="http://www.amazon.com/4-Hour-Chef-Cooking-Learning-Anything/dp/0547884591">
+			    				<div class="action-card-container expenses-card col-md-3" id="cooking">
+			    					<div class="action-card">
+			    						<img src="img/austrian_breakfast.jpg">
+			    						<div class="action-label-wrapper">
+			    							<div class="action-label">Cook</div>
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</a>
+			    			<a href="http://www.google.com/chrome/devices/chromecast/">
+			    				<div class="action-card-container expenses-card col-md-3" id="shelter">
+			    					<div class="action-card">
+			    						<img src="img/chromecast.jpeg">
+			    						<div class="action-label-wrapper">
+			    							<div class="action-label">Cut cable</div>
+			    						</div>
+			    						</div>
+			    				</div>
+			    			</a>
+			    			<a href="http://www.mrmoneymustache.com/?s=diy">
+			    				<div class="action-card-container expenses-card col-md-3" id="shelter">
+			    					<div class="action-card">
+			    						<img src="img/hammering.jpeg">
+			    						<div class="action-label-wrapper">
+			    							<div class="action-label">Learn to love DIY</div>
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</a>
+		    			</div>
+		    		</div>
+	    		</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-6  col-md-8 col-md-offset-2">
+    				<div class="row">
+		    			<div class="actions-container assets-actions-container col-xs-12 col-md-6">
+		    				<div class="actions-container-title col-xs-12">
+		    					<div class="action-title">Grow assets smartly</div>
+		    				</div>
+		    				<a href="https://www.betterment.com/">
+			    				<div class="action-card-container assets-card col-md-6" id="roboadvisor">
+			    					<div class="action-card">
+				    					<img src="img/betterment.png">
+				    					<div class="action-label-wrapper">
+				    						<div class="action-label">Invest automatically</div>
+				    					</div>
+				    				</div>
+			    				</div>
+			    			</a>
+			    			<a href="https://investor.vanguard.com/home/">
+			    				<div class="action-card-container assets-card col-md-6" id="learn-about">
+			    					<div class="action-card">
+				    					<img src="img/vanguard.png">
+				    					<div class="action-label-wrapper">
+				    						<div class="action-label">Invest cheaply</div>
+				    					</div>
+				    				</div>
+			    				</div>
+			    			</a>
+		    			</div>
+		    			<div class="actions-container income-actions-container col-xs-12 col-md-3">
+		    				<div class="actions-container-title col-xs-12">
+		    					<div class="action-title">Raise income</div>
+		    				</div>
+		    				<a href="http://www.iwillteachyoutoberich.com/blog/salary-negotiation-earning-more/">
+			    				<div class="action-card-container income-card col-md-12" id="drive">
+			    					<div class="action-card">
+				    					<img src="img/negotiate.png">
+				    					<div class="action-label-wrapper">
+				    						<div class="action-label">Negotiate a raise</div>
+				    					</div>
+				    				</div>
+			    				</div>
+			    			</a>
+		    			</div>
+		    			<div class="actions-container debts-actions-container col-xs-12 col-md-3">
+		    				<div class="actions-container-title col-xs-12">
+		    					<div class="action-title">Reduce debt</div>
+		    				</div>
+		    				<a href="http://unbury.me/">
+			    				<div class="action-card-container debts-card col-md-12" id="which-loans">
+			    					<div class="action-card">
+				    					<img src="img/creditcards.jpeg">
+				    					<div class="action-label-wrapper">
+				    						<div class="action-label">Eliminate high interest</div>
+				    					</div>
+				    				</div>
+			    				</div>
+			    			</a>
+		    			</div>
+		    		</div>
+	    		</div>
+    		</div>
+    	</div>
+
     </div>
 </div>

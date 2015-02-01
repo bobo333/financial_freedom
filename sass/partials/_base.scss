@@ -3,11 +3,17 @@
 @import "compass/reset";
 @import "compass/utilities";
 @import "compass/css3/selection";
+@import "compass/css3/transform";
 
 // Sass media queries
 @import "../bower_components/sass-mediaqueries/media-queries";
 
 // Font weights
+
+// Breakpoints
+$screen_sm_min: 768px;
+$screen_md_min: 992px;
+$screen_lg_min: 1200px;
 
 // Brand Name Font
 $brand_font_family: 'Oxygen', sans-serif;
@@ -16,12 +22,16 @@ $brand_font_weight_bold: 700;
 
 // Base Font
 $base_font_family: 'Open Sans', sans-serif;
-$base_font_size: 13px;
+$base_font_size: 15px;
 $base_line_height: 1;
 $base_font_weight_light: 300;
 $base_font_weight_normal: 400;
 $base_font_weight_semi_bold: 600;
 $base_font_weight: $base_font_weight_normal;
+
+@include min-screen($screen_sm_min) {
+	$base_font_size: 13px;
+}
 
 // Fixed Font
 $fixed_font_family: monospace;
@@ -32,8 +42,15 @@ $fixed_line_height: $base_line_height;
 
 
 // Colors
-$primary_green: #1D8E3B;
-$dark_green: #055D1C;
+$primary_green: #308E7F;
+$dark_green: #044137;
+$light_green: #60DAC7;
+
+$secondary_brown: #8E4B30;
+$secondary_brown_dark: #411909;
+
+$light_brown_bg: #FCF5EC;
+
 $body_text_color: #404040;
 
 // Custom Fonts
@@ -56,9 +73,14 @@ $body_text_color: #404040;
     @include transition-duration(0.3s);
 }
 
-// Breakpoints
-$screen_sm_min: 768px;
-$screen_md_min: 992px;
-$screen_lg_min: 1200px;
+// Borders
+
+$section-bottom-border: 1px solid rgba($primary_green,0.12);
+
+
+
+// Links
+
+
 
 //@import "../modules/*";
