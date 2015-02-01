@@ -1,4 +1,4 @@
-<div class="view-content container-fluid" id="about-view-content">
+<div class="view-content container-fluid" id="about-view-content" ng-controller="AboutController">
 		<div class="row">
             <div class="method-section supporting-content">
                 <div class="supporting-content-wrapper">
@@ -20,6 +20,19 @@
                         	We are <a href="https://github.com/bobo333" target="_blank">Steve</a> and <a href="http://www.nathanrkane.com" target="_blank">Nathan</a>, the makers of Plenti. We believe that people lead more fulfilling lives in financial security, when they can choose how they spend their time. We hope Plenti sheds light on how attainable financial freedom is for many working people, and inspires the lifestyle adjustments that bring financial independence more quickly, like smart spending and investing.
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="legal-section supporting-content">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                    <div id="footer-border-top"></div>
+                    <div class="footer-nav-wrapper">
+                        <div class="footer-nav-item" ng-click="revealLegalDoc('privacy-policy')">Privacy Policy</div><div class="footer-nav-item" ng-click="revealLegalDoc('toc')">Terms of Service</div>
+                    </div>
+                    <div class="legal-doc" ng-include="template.url">
+                    </div>
+
                 </div>
             </div>
         </div>

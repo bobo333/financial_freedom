@@ -123,6 +123,24 @@ FinancialFreedom.directive("btnOutputControl", function($filter){
     }
 });
 
+FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
+    $scope.templates =
+    [ { name: 'Privacy Policy', url: 'partials/legal/privacy_policy.html'},
+      { name: 'Terms of Service', url: 'partials/legal/terms_of_service.html'} ];
+    
+    $scope.template = null;
+
+    $scope.revealLegalDoc = function(doc) {
+        if (doc == 'privacy-policy') {
+            $scope.template = $scope.templates[0];
+        }
+        else if (doc == 'toc') {
+            $scope.template = $scope.templates[1];
+        }
+    }
+    
+}]);
+
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();

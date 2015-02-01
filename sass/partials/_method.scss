@@ -80,3 +80,34 @@ $method-section-border-radius: 15px;
 .about-text {
 	@include vertical-align;
 }
+
+#footer-border-top {
+	border-top: 1px solid rgba(#000,0.2);
+    position: absolute;
+    left: 10%;
+    right: 10%;
+}
+
+.footer-nav-wrapper {
+	padding: 20px 0px;
+}
+
+.footer-nav-item {
+	width: 50%;
+	text-align: center;
+	display: inline-block;
+	font-size: 0.6em;
+	color: $primary_green;
+
+	&:hover {
+        cursor: pointer;
+    }
+}
+
+.legal-category {
+	font-weight: $base_font_weight_semi_bold;
+}
+
+.legal-section {
+	width: 100%;
+}
