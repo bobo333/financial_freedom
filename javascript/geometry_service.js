@@ -20,10 +20,10 @@ FinancialFreedom.service('GeometryService', function() {
     };
 
     this.calculateIntersection = function(line1, line2) {
-        return {
-            x: calculateXIntersection(line1, line2),
-            y: calculateYIntersection(line1, line2)
-        }
+        var x = calculateXIntersection(line1, line2);
+        var y = calculateYIntersection(line1, line2);
+
+        return this.formatPoint(x, y);
     }
 
     calculateXIntersection = function(line1, line2) {
