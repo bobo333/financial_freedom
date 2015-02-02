@@ -7,10 +7,10 @@ FinancialFreedom.service('GeometryService', function() {
     };
 
     // point slope form: y - y1 = m(x - x1)
-    this.formatLineData = function(x, y, m) {
+    this.formatLineData = function(x1, y1, m) {
         return {
-            x: x,
-            y: y,
+            x: x1,
+            y: y1,
             m: m
         };
     };

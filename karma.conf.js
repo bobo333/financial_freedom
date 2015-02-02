@@ -15,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        // dependencies
         'bower_components/angular/angular.min.js',
         'node_modules/angular-mocks/angular-mocks.js',
         'bower_components/angular-animate/angular-animate.min.js',
@@ -22,6 +23,7 @@ module.exports = function(config) {
         'bower_components/angular-i18n/angular-locale_en-us.js',
         'javascript/custom/ng-currency.js',
         
+        // app source files
         'javascript/app.js',
         'javascript/date_service.js',
         'javascript/interest_service.js',
@@ -29,6 +31,7 @@ module.exports = function(config) {
         'javascript/retirement_calculator_service.js',
         'javascript/create_retirement_graph_service.js',
         
+        // app test files
         'test/unit/retirement_calculator_service_spec.js',
         'test/unit/interest_service_spec.js',
         'test/unit/date_service_spec.js',
