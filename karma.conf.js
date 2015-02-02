@@ -30,7 +30,8 @@ module.exports = function(config) {
         'javascript/create_retirement_graph_service.js',
         
         'test/unit/retirement_calculator_service_spec.js',
-        'test/unit/interest_service_spec.js'
+        'test/unit/interest_service_spec.js',
+        'test/unit/date_service_spec.js'
     ],
 
 
