@@ -7,7 +7,7 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         var show_tooltip = false;
         var tooltip_selector;
         container_width = $('#graph-wrapper').width();
-        minimum_graph_height = 500;
+        minimum_graph_height = 300;
         aspect_ratio = 16 / 9;
         scroll_bar_width = 20;
         pixels_per_axis_label = 75;

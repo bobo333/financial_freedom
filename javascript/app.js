@@ -22,8 +22,12 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/about.html',
         controller: ''
     })
+    .when('/', {
+        templateUrl: 'partials/intro.html',
+        controller: 'IntroController'
+    })
     .otherwise({
-        redirectTo: '/income'
+        redirectTo: '/'
     });
 }]);
 
@@ -38,8 +42,17 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$location',  function($location) {
+FinancialFreedom.controller('bodyController', ['$scope', '$location',  function($scope, $location) {
     $location.path("/");
+    $scope.isActive = function(route) {
+        return route == $location.path();
+    };
+}]);
+
+FinancialFreedom.controller('IntroController', ['$scope', '$location',  function($scope, $location) {
+    $scope.submitForm = function() {
+        $location.path('/income');
+    };
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
@@ -52,12 +65,15 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     };
 
     $scope.tabsAreVisible = function() {
-        if ($location.path() == '/about' || $location.path() == '/time-to-retirement') {
-            return false;
-        }
-        else {
-            return true;
-        }
+
+        non_visible_pages = [
+        '/about',
+        '/time-to-retirement',
+        '/'
+        ];
+
+        return non_visible_pages.indexOf($location.path() ) == -1;
+
     };
 }]);
 
@@ -183,12 +199,12 @@ FinancialFreedom.directive("percent", function($filter){
     var p = function(viewValue){ // format model value
         var m = viewValue.match(/^(\d+)\/(\d+)/);
         if (m != null)
-          return $filter('number')(parseInt(m[1])/parseInt(m[2]), 1);
-        return $filter('number')(parseFloat(viewValue)/100, 1);
+          return $filter('number')(parseInt(m[1])/parseInt(m[2]), 2);
+        return $filter('number')(parseFloat(viewValue)/100, 2);
     };
 
     var f = function(modelValue){ // format display value
-        return $filter('number')(parseFloat(modelValue)*100, 2) + '%';
+        return $filter('number')(parseFloat(modelValue)*100, 1) + '%';
     };
     
     return {
