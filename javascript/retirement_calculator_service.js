@@ -108,7 +108,7 @@ FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'Geo
         var points_for_intersection = retirement_data.graph_points.slice(-2);
         retirement_data.intersection_point = calculateIntersectionPoint(points_for_intersection);
     };
-    
+
     var padGraphData = function(retirement_data) {
         var points_to_add = retirement_data.graph_points.length / 6;
     
@@ -127,6 +127,7 @@ FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'Geo
         var expense_line_data = GeometryService.formatLineData(days_between, after_values.expenses, expense_slope);
         var withdraw_line_data = GeometryService.formatLineData(days_between, after_values.withdraw_limit, withdraw_slope);
         var intersection_point = GeometryService.calculateIntersection(expense_line_data, withdraw_line_data);
+        
         var intersection_date = getIntersectionDate(before_values.date, intersection_point.x);
         
         return GeometryService.formatPoint(intersection_date, intersection_point.y);
