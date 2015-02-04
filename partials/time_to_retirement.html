@@ -152,7 +152,7 @@
 		    			<div class="actions-container expenses-actions-container col-xs-12">
 		    				<div class="actions-container-title col-xs-12">
 		    					<div class="action-title">Reduce expenses</div>
-		    					<div class="suggested-amount-content">Your savings rate is <span percent class="suggested-amount-value">{{savingsRate}}</span></div>
+		    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Your savings rate is <span class="suggested-amount-value">{{savingsRate | number:0}}%</span></div>
 		    				</div>
 		    				<a href="http://www.mrmoneymustache.com/2012/05/07/what-do-you-mean-you-dont-have-a-bike/">
 			    				<div class="action-card-container expenses-card col-md-3" id="bicycling">
@@ -204,7 +204,7 @@
 		    			<div class="actions-container assets-actions-container col-xs-12 col-md-6">
 		    				<div class="actions-container-title col-xs-12">
 		    					<div class="action-title">Grow assets smartly</div>
-		    					<div class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income." data-placement="top"></i></div>
+		    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income." data-placement="top"></i></div>
 		    				</div>
 		    				<a href="https://www.betterment.com/">
 			    				<div class="action-card-container assets-card col-md-6" id="roboadvisor">
@@ -229,7 +229,7 @@
 		    			</div>
 		    			<div class="actions-container income-actions-container col-xs-12 col-md-3">
 		    				<div class="actions-container-title col-xs-12">
-		    					<div class="action-title">Raise income</div>
+		    					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Raise income</div>
 		    				</div>
 		    				<a href="http://www.iwillteachyoutoberich.com/blog/salary-negotiation-earning-more/">
 			    				<div class="action-card-container income-card col-md-12" id="drive">
@@ -244,7 +244,7 @@
 		    			</div>
 		    			<div class="actions-container debts-actions-container col-xs-12 col-md-3">
 		    				<div class="actions-container-title col-xs-12">
-		    					<div class="action-title">Reduce debt</div>
+		    					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Reduce debt</div>
 		    				</div>
 		    				<a href="http://unbury.me/">
 			    				<div class="action-card-container debts-card col-md-12" id="which-loans">

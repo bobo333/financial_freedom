@@ -529,8 +529,15 @@ input[type="text"].form-control {
 .suggested-amount-content {
     font-size: 1em;
     padding-bottom: 20px;
+    font-weight: $base_font_weight_light;
 }
 
 .suggested-amount-value {
     font-weight: $base_font_weight_semi_bold;
+}
+
+.add-title-margin {
+    @include min-screen($screen_md_min) {
+        margin-bottom: 37px;
+    }
 }
