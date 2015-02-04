@@ -191,6 +191,10 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
 
         var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
         $scope.refreshOutput(retirement_data);
+
+        $scope.contributionAmount = RetirementCalculatorService.getMonthlyIncome() - RetirementCalculatorService.getMonthlyExpenses();
+        $scope.savingsRate = (RetirementCalculatorService.getMonthlyIncome() - RetirementCalculatorService.getMonthlyExpenses()) / RetirementCalculatorService.getMonthlyIncome();
+        
     });
     
 }]);

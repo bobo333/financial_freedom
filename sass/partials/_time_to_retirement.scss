@@ -501,7 +501,7 @@ input[type="text"].form-control {
 }
 
 .action-title {
-    padding: 20px 20px 20px 5px;
+    padding: 20px 20px 20px 0px;
     font-size: 1.4em;
     color: $secondary_brown;
     font-weight: $base_font_weight_light;
@@ -515,9 +515,22 @@ input[type="text"].form-control {
     border-bottom: $section-bottom-border;
 }
 
+.actions-container-title {
+    padding-left: 20px;
+}
+
 .actions-container-border {
     border-top: 1px solid rgba($secondary_brown,0.3);
     position: absolute;
     left: 15%;
     right: 15%;
+}
+
+.suggested-amount-content {
+    font-size: 1em;
+    padding-bottom: 20px;
+}
+
+.suggested-amount-value {
+    font-weight: $base_font_weight_semi_bold;
 }
