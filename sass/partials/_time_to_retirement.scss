@@ -1,5 +1,7 @@
 // Time to retirement
 
+// set variables
+
 $expense_color: $secondary_brown;
 $withdraw_color: $primary_green;
 $intersection_color: $dark_green;
@@ -539,5 +541,17 @@ input[type="text"].form-control {
 .add-title-margin {
     @include min-screen($screen_md_min) {
         margin-bottom: 37px;
+    }
+}
+
+.actions-help-icon {
+    color: rgba($secondary_brown_dark,0.4);
+    margin: auto auto auto 5px;
+    font-size: 1.2em;
+    @include hover-animation(all);
+    width: 20px;
+
+    &:hover {
+        color: rgba($secondary_brown_dark,0.8);
     }
 }
