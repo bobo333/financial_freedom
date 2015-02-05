@@ -134,7 +134,7 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 
     var hideTemp = function() {
         $scope.template = null;
-    }
+    };
 
     $scope.revealLegalDoc = function(doc) {
         if (doc == 'privacy-policy') {
@@ -159,7 +159,7 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
                 $scope.privacy_is_active = false;
             }
         }
-    }
+    };
 
     
 }]);
