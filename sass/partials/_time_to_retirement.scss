@@ -1,5 +1,7 @@
 // Time to retirement
 
+// set variables
+
 $expense_color: $secondary_brown;
 $withdraw_color: $primary_green;
 $intersection_color: $dark_green;
@@ -501,7 +503,7 @@ input[type="text"].form-control {
 }
 
 .action-title {
-    padding: 20px 20px 20px 5px;
+    padding: 20px 20px 20px 0px;
     font-size: 1.4em;
     color: $secondary_brown;
     font-weight: $base_font_weight_light;
@@ -515,9 +517,41 @@ input[type="text"].form-control {
     border-bottom: $section-bottom-border;
 }
 
+.actions-container-title {
+    padding-left: 20px;
+}
+
 .actions-container-border {
     border-top: 1px solid rgba($secondary_brown,0.3);
     position: absolute;
     left: 15%;
     right: 15%;
+}
+
+.suggested-amount-content {
+    font-size: 1em;
+    padding-bottom: 20px;
+    font-weight: $base_font_weight_light;
+}
+
+.suggested-amount-value {
+    font-weight: $base_font_weight_semi_bold;
+}
+
+.add-title-margin {
+    @include min-screen($screen_md_min) {
+        margin-bottom: 37px;
+    }
+}
+
+.actions-help-icon {
+    color: rgba($secondary_brown_dark,0.4);
+    margin: auto auto auto 5px;
+    font-size: 1.2em;
+    @include hover-animation(all);
+    width: 20px;
+
+    &:hover {
+        color: rgba($secondary_brown_dark,0.8);
+    }
 }
