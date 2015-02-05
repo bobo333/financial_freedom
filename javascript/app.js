@@ -67,9 +67,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     $scope.tabsAreVisible = function() {
 
         non_visible_pages = [
-        '/about',
-        '/time-to-retirement',
-        '/'
+            '/about',
+            '/time-to-retirement',
+            '/'
         ];
 
         return non_visible_pages.indexOf($location.path() ) == -1;
@@ -132,11 +132,15 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     $scope.privacy_is_active = false;
     $scope.privacy_is_toc = false;
 
+    var hideTemp = function() {
+        $scope.template = null;
+    }
+
     $scope.revealLegalDoc = function(doc) {
         if (doc == 'privacy-policy') {
             
             if ($scope.privacy_is_active == true) {
-                $scope.template = null;
+                hideTemp();
                 $scope.privacy_is_active = false;
             } else {
                 $scope.template = $scope.templates[0];
@@ -147,7 +151,7 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
         else if (doc == 'toc') {
 
             if ($scope.toc_is_active == true) {
-                $scope.template = null;
+                hideTemp();
                 $scope.toc_is_active = false;
             } else {
                 $scope.template = $scope.templates[1];
@@ -156,6 +160,7 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
             }
         }
     }
+
     
 }]);
 
