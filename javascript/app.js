@@ -128,7 +128,6 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     [ { name: 'Privacy Policy', url: 'partials/legal/privacy_policy.html'},
       { name: 'Terms of Service', url: 'partials/legal/terms_of_service.html'} ];
     
-    $scope.template = null;
     $scope.privacy_is_active = false;
     $scope.privacy_is_toc = false;
 
@@ -136,28 +135,31 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
         $scope.template = null;
     };
 
+    var toggleDocState = function(doc_state) {
+        doc_state = !doc_state;
+    };
+
     $scope.revealLegalDoc = function(doc) {
         if (doc == 'privacy-policy') {
             
             if ($scope.privacy_is_active == true) {
                 hideTemp();
-                $scope.privacy_is_active = false;
+                
             } else {
                 $scope.template = $scope.templates[0];
-                $scope.privacy_is_active = true;
                 $scope.toc_is_active = false;
             }
+            toggleDocState($scope.privacy_is_active);
         }
         else if (doc == 'toc') {
-
+            
             if ($scope.toc_is_active == true) {
                 hideTemp();
-                $scope.toc_is_active = false;
             } else {
                 $scope.template = $scope.templates[1];
-                $scope.toc_is_active = true;
                 $scope.privacy_is_active = false;
             }
+            toggleDocState($scope.toc_is_active);
         }
     };
 
