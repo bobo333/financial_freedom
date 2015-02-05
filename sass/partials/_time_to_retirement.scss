@@ -521,3 +521,15 @@ input[type="text"].form-control {
     left: 15%;
     right: 15%;
 }
+
+#actions-disclaimer {
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+#privacy-link {
+    &:hover {
+        opacity: 1;
+    }
+}
+

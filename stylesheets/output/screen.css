@@ -1338,6 +1338,17 @@ input[type="text"].form-control {
   right: 15%;
 }
 
+/* line 525, ../../sass/partials/_time_to_retirement.scss */
+#actions-disclaimer {
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+/* line 531, ../../sass/partials/_time_to_retirement.scss */
+#privacy-link:hover {
+  opacity: 1;
+}
+
 /* line 2, ../../sass/partials/_animations.scss */
 .view-animate.ng-enter {
   -moz-transition-property: all;
