@@ -1,6 +1,4 @@
-var CreateRetirementGraphModule = angular.module('CreateRetirementGraphModule', []);
-
-CreateRetirementGraphModule.service('CreateRetirementGraphService', function() {
+FinancialFreedom.service('CreateRetirementGraphService', function() {
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
