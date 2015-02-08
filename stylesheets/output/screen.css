@@ -735,7 +735,7 @@ input:focus {
   width: 100%;
 }
 
-/* line 16, ../../sass/partials/_time_to_retirement.scss */
+/* line 18, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper .tooltip {
   z-index: 1;
 }
@@ -1440,6 +1440,17 @@ input[type="text"].form-control {
 /* line 554, ../../sass/partials/_time_to_retirement.scss */
 .actions-help-icon:hover {
   color: rgba(65, 25, 9, 0.8);
+}
+
+/* line 559, ../../sass/partials/_time_to_retirement.scss */
+#actions-disclaimer {
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+/* line 565, ../../sass/partials/_time_to_retirement.scss */
+#privacy-link:hover {
+  opacity: 1;
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
