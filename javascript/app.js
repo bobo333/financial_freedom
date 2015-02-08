@@ -67,9 +67,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     $scope.tabsAreVisible = function() {
 
         non_visible_pages = [
-        '/about',
-        '/time-to-retirement',
-        '/'
+            '/about',
+            '/time-to-retirement',
+            '/'
         ];
 
         return non_visible_pages.indexOf($location.path() ) == -1;
@@ -122,6 +122,49 @@ FinancialFreedom.directive("btnOutputControl", function($filter){
         templateUrl: 'partials/output_control.html'
     }
 });
+
+FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
+    $scope.templates =
+    [ { name: 'Privacy Policy', url: 'partials/legal/privacy_policy.html'},
+      { name: 'Terms of Service', url: 'partials/legal/terms_of_service.html'} ];
+    
+    $scope.privacy_is_active = false;
+    $scope.privacy_is_toc = false;
+
+    var hideTemp = function() {
+        $scope.template = null;
+    };
+
+    var toggleDocState = function(doc_state) {
+        doc_state = !doc_state;
+    };
+
+    $scope.revealLegalDoc = function(doc) {
+        if (doc == 'privacy-policy') {
+            
+            if ($scope.privacy_is_active == true) {
+                hideTemp();
+                
+            } else {
+                $scope.template = $scope.templates[0];
+                $scope.toc_is_active = false;
+            }
+            toggleDocState($scope.privacy_is_active);
+        }
+        else if (doc == 'toc') {
+            
+            if ($scope.toc_is_active == true) {
+                hideTemp();
+            } else {
+                $scope.template = $scope.templates[1];
+                $scope.privacy_is_active = false;
+            }
+            toggleDocState($scope.toc_is_active);
+        }
+    };
+
+    
+}]);
 
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
     
