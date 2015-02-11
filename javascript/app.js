@@ -135,35 +135,31 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     $scope.privacy_is_active = false;
     $scope.privacy_is_toc = false;
 
-    var hideTemp = function() {
+    var hideTemplate = function() {
         $scope.template = null;
-    };
-
-    var toggleDocState = function(doc_state) {
-        doc_state = !doc_state;
     };
 
     $scope.revealLegalDoc = function(doc) {
         if (doc == 'privacy-policy') {
             
             if ($scope.privacy_is_active == true) {
-                hideTemp();
-                
+                hideTemplate();
             } else {
                 $scope.template = $scope.templates[0];
                 $scope.toc_is_active = false;
             }
-            toggleDocState($scope.privacy_is_active);
+            $scope.privacy_is_active = !$scope.privacy_is_active;
+
         }
         else if (doc == 'toc') {
             
             if ($scope.toc_is_active == true) {
-                hideTemp();
+                hideTemplate();
             } else {
                 $scope.template = $scope.templates[1];
                 $scope.privacy_is_active = false;
             }
-            toggleDocState($scope.toc_is_active);
+            $scope.toc_is_active = !$scope.toc_is_active;
         }
     };
 
