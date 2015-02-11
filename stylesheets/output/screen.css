@@ -638,7 +638,7 @@ input:focus {
 @media screen and (min-width: 768px) {
   /* line 29, ../../sass/partials/_method.scss */
   .supporting-content-wrapper {
-    padding: 50px auto;
+    padding: 50px 0px;
   }
 }
 
@@ -757,6 +757,17 @@ input:focus {
 /* line 119, ../../sass/partials/_method.scss */
 .legal-section {
   width: 100%;
+}
+
+/* line 123, ../../sass/partials/_method.scss */
+.legal-doc {
+  padding: 0px 20px 0px 20px;
+}
+@media screen and (min-width: 768px) {
+  /* line 123, ../../sass/partials/_method.scss */
+  .legal-doc {
+    padding: 0px 0px;
+  }
 }
 
 /* line 18, ../../sass/partials/_time_to_retirement.scss */
@@ -1426,7 +1437,7 @@ input[type="text"].form-control {
 /* line 531, ../../sass/partials/_time_to_retirement.scss */
 .suggested-amount-content {
   font-size: 1em;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   font-weight: 300;
 }
 
