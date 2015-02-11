@@ -40,8 +40,15 @@ $nav-border-radius: 25px;
     background: $header_gradient_top;
 }
 
-.product-name {
 
+.logo-name-wrapper {
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo-name {
     font-family: $brand_font_family;
 	font-size: 1.5em;
 	font-weight: $brand_font_weight_bold;
@@ -189,4 +196,15 @@ $nav-border-radius: 25px;
 
 .collapse {
     background: white;
+}
+
+.header-text {
+    padding: 0px 0px;
+}
+
+.navbar-brand {
+    height: 45px;
+    @include min-screen($screen_sm_min) {
+        height: 60px;
+    }
 }

@@ -47,7 +47,10 @@
                                 <span class="icon-bar"></span>
                               </button>
                             <a class="header-text navbar-brand" ng-click="goToRoute('/income')">
-                                <img src="img/bowl.png" id="brand-logo"><span class="product-name">Plenti</span>
+                                <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
+                                <div class="logo-name-wrapper">
+                                    <span class="logo-name">Plenti</span>
+                                </div>
                             </a>
                         </div>
                         <div class="collapse navbar-collapse navbar-collapse-1">
