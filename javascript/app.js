@@ -42,15 +42,11 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window', function($scope, $location, $window) {
+FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window', 'GoogleAnalyticsService', function($scope, $location, $window, GoogleAnalyticsService) {
     $location.path("/");
     $scope.isActive = function(route) {
         return route == $location.path();
     };
-
-    $scope.$on('$routeChangeSuccess', function(event) {
-        $window.ga('send', 'pageview', { page: $location.url() });
-    });
 }]);
 
 FinancialFreedom.controller('IntroController', ['$scope', '$location',  function($scope, $location) {

@@ -16,7 +16,7 @@
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
@@ -29,7 +29,8 @@
         <script type="text/javascript" src="javascript/geometry_service.js"></script>
         <script type="text/javascript" src="javascript/retirement_calculator_service.js"></script>
         <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
-        <script type="text/javascript" src="javascript/google-analytics.js"></script>
+        <script type="text/javascript" src="javascript/google_analytics_service.js"></script>
+        <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
 
 
         <title>Plenti: Financial freedom for all</title>
