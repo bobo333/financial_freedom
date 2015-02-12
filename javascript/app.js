@@ -42,7 +42,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$scope', '$location',  function($scope, $location) {
+FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window', 'GoogleAnalyticsService', function($scope, $location, $window, GoogleAnalyticsService) {
     $location.path("/");
     $scope.isActive = function(route) {
         return route == $location.path();
