@@ -81,10 +81,11 @@ $nav-border-radius: 25px;
 .tabs-wrapper {
     background: rgba($dark_green, 0.2);
     height: $nav-height;
-    margin: 92px auto auto auto;
+    margin: 82px auto auto auto;
 
     @include min-screen($screen_sm_min) {
         width: 50%;
+        margin-top: 92px;
         @include border-bottom-radius($nav-border-radius);
     }
 }
@@ -169,13 +170,14 @@ $nav-border-radius: 25px;
 }
 
 #brand-logo {
-    margin-right: 20px;
-    width: 65px;
+    width: 45px;
     display: inline-block;
     cursor: pointer;
+    margin-right: 10px;
 
     @include min-screen($screen_sm_min) {
         width: 65px;
+        margin-right: 20px;
     }
 }
 

@@ -63,6 +63,10 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
     $scope.isActive = function(route) {
         return route == $location.path();
     };
+
+    $scope.$on('$routeChangeSuccess', function(event) {
+        $window.ga('send', 'pageview', { page: $location.url() });
+    });
     
     $scope.goToRoute = function(route) {
         $location.path(route);
