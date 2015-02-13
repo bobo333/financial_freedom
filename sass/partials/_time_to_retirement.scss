@@ -9,9 +9,10 @@ $tooltip_bg: rgba($primary_green,0.80);
 $main_bubble_color: #fff;
 $main_bubble_bg: #308E7F;
 $main_bubble_diameter: 150px;
-$control-button-height: 50px;
+$control-button-height: 45px;
 $expenses-field-height: 60px;
 $form-control-height: 50px;
+$control-button-border: 1px solid rgba($dark_green,0.1);
 
 #graph-wrapper {
 
@@ -189,8 +190,6 @@ $form-control-height: 50px;
     @include min-screen($screen_sm_min) {
         font-size: $base_font_size * 1.5;
     }
-
-
 }
 
 .output-info-icon {
@@ -265,14 +264,15 @@ input[type="text"].form-control {
     display: block;
     margin: auto auto;
     height: $control-button-height;
-    width: $control-button-height * 2;
+    width: $control-button-height * 3;
     font-size: 1.5em;
     padding: 0 0;
     outline: none !important;
-    background: #F4FBFA;
+    background: rgba(#D6E8E5, 0.3);
     color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
+    border: $control-button-border;
 
     &:focus {
         background: #F4FBFA;
@@ -285,28 +285,27 @@ input[type="text"].form-control {
 }
 
 .control-increase-button {
-    @include border-radius(0px); // override Bootstrap .btn
-    @include border-top-radius($control-button-height);
-    border-bottom: 0px;
-    border: 1px solid rgba($dark_green,0.2);
+    border-radius: 50% / 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     border-bottom: none;
 
     &:hover {
-        border: 1px solid rgba($dark_green,0.2);
+        border: $control-button-border;
         border-bottom: none;
     }
 }
 
 .control-decrease-button {
-    @include border-radius(0px); // override Bootstrap .btn
-    @include border-bottom-radius($control-button-height);
-    border-top: 0px;
-    border: 1px solid rgba($dark_green,0.2);
+    border-radius: 50% / 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     border-top: none;
 
     &:hover {
-        border: 1px solid rgba($dark_green,0.2);
+        border: $control-button-border;
         border-top: none;
+
     }
 }
 
@@ -314,20 +313,9 @@ input[type="text"].form-control {
     .control-change-button {
         display: block;
         margin: auto auto;
-        height: $control-button-height * (2/3);
-        width: $control-button-height * (4/3);
+        height: $control-button-height * 0.7;
+        width: $control-button-height * 2;
         font-size: 1.2em;
-    }
-    .control-increase-button {
-        @include border-radius(0px); // override Bootstrap .btn
-        @include border-top-radius($control-button-height * (3/2));
-        border-bottom: 0px;
-    }
-
-    .control-decrease-button {
-        @include border-radius(0px); // override Bootstrap .btn
-        @include border-bottom-radius($control-button-height * (3/2));
-        border-top: 0px;
     }
 }
 
@@ -451,7 +439,6 @@ input[type="text"].form-control {
 }
 
 .actions-section-title {
-    height: 50px;
     background: #fff;
     color: #404040;
     text-align: center;

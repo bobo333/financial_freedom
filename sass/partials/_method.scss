@@ -28,10 +28,6 @@ $method-section-border-radius: 15px;
 
 .supporting-content-wrapper {
 	padding: 20px 20px;
-
-	@include min-screen($screen_sm_min) {
-		padding: 50px 0px;
-	}
 }
 
 .supporting-section-title {
