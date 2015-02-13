@@ -46,14 +46,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                               </button>
-                            <a class="header-text navbar-brand" ng-click="goToRoute('/income')">
-                                <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
-                                <div class="logo-name-wrapper">
-                                    <span class="logo-name">Plenti</span>
+                            <a class="navbar-brand" ng-click="goToRoute('/income')">
+                                <div id="header-brand-wrapper">
+                                    <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
+                                    <div class="logo-name-wrapper">
+                                        <span class="logo-name">Plenti</span>
+                                    </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="collapse navbar-collapse navbar-collapse-1">
+                        <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
