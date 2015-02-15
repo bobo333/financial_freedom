@@ -1,56 +1,87 @@
 // Header
 
-
+$nav-hover-color: #25A793;
 
 // Colors
 $header_gradient_bottom: #276036;
 $header_gradient_top: #1E8E3B;
-$tab_wrapper_bg: #382513;
-$active_tab_color: #D8CAA8;
-$title_color: #FFFFFF;
+$tab_wrapper_bg: rgba(0,0,0,.1);
+$active_tab_color: rgba($dark_green,0.6);
+$title_color: #404040;
 $border-style: 1px solid rgba(0,0,0,.15);
+$nav-height: 50px;
+$nav-border-radius: 25px;
 
 .header {
-	@include background-image(linear-gradient($header_gradient_top,$header_gradient_bottom));
-	height: 150px;
+	height: 80px;
 	position: relative;
+    margin-top: 20px 0px 20px 0px;
 }
 
-.header-text {
-    font-family: $brand_font_family;
-    color: $title_color;
-    text-shadow: 0px 1px 4px rgba(0,0,0,0.50);
-    text-align: center;
-    @include vertical-align;
+.navbar-custom {
+    font-family: $base_font_family;
+    color: rgba($primary_green, 0.7);
+    padding: 15px 40px;
     @include hover-animation(color);
+    display: block;
+
 	a, a:hover {
-		color: $title_color;
+		color: $nav-hover-color;
 		text-decoration: none;
-        
 	}
+
     &:hover {
-        color: #EEFFDA;
-        cursor: pointer;
+        color: $nav-hover-color;
     }
 }
 
-.product-name {
-	font-size: $base_font_size*3;
-	font-weight: $brand_font_weight_bold;
+#header-accent {
+    height: 4px;
+    background: $header_gradient_top;
 }
 
-.tag-line {
-	font-weight: $brand_font_weight_light;
+.product-name {
+
+    font-family: $brand_font_family;
+	font-size: 1.5em;
+	font-weight: $brand_font_weight_bold;
+    color: $primary_green;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
+    @include hover-animation(color);
+    a, a:hover {
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: $primary_green;
+        cursor: pointer;
+    }
+
+    @include min-screen($screen_sm_min) {
+        font-size: 2em; 
+    }
 }
 
 .navbar {
 	border: none;
-	border-radius: 0px;
     margin-bottom: 0px !important;
+    height: 80px;
+    background: white;
+    box-shadow: 0px 2px 4px rgba(0,0,0,.15);
+    border-bottom-style: solid;
+    border-bottom-color: $primary_green;
+    border-bottom-width: 3px;
 }
 
 .tabs-wrapper {
-    background: $tab_wrapper_bg;
+    background: rgba($dark_green, 0.2);
+    height: $nav-height;
+    margin: 80px auto auto auto;
+
+    @include min-screen($screen_sm_min) {
+        width: 50%;
+        @include border-bottom-radius($nav-border-radius);
+    }
 }
 
 .tab-text {
@@ -60,31 +91,47 @@ $border-style: 1px solid rgba(0,0,0,.15);
 .header-tabs {
 
     @include min-screen($screen_sm_min) {
-        width: 60%;
-        margin: auto auto auto auto;
+        width: 100%;
+        margin: auto auto;
+        height: 98px;
     }
 
     .tab {
         @include basic-font;
         display: inline-block;
+        height: $nav-height;
         width: 33.3%;
         text-align: center;
-        border-top: none;
-        border-right: none;
         background: none;
-        color: white;
-        height: 60px;
+        color: $dark_green;
         font-size: $base_font_size * 1.5;
-        @include hover-animation(background);
+        margin-right: -4px; // correcting some random margin
+        border-right: 1px solid rgba($dark_green,0.3);
+        @include hover-animation(all);
+
+        &:first-child {
+
+            @include min-screen($screen_sm_min) {
+                @include border-bottom-left-radius($nav-border-radius);
+            }
+            
+        }
         
         &:last-child {
-            border-right: $border-style;
             width: 33.4%; // to fix the .1% offset it was showing
+            
+
+            @include min-screen($screen_sm_min) {
+                @include border-bottom-right-radius($nav-border-radius);
+            }
+
+            border-right: 0px solid #000;
         }
         
         &.active {
             font-weight: bold;
             background: $active_tab_color;
+            color: white;
 
             &:hover {
                 background: $active_tab_color;
@@ -93,8 +140,53 @@ $border-style: 1px solid rgba(0,0,0,.15);
         
         &:hover {
             cursor: pointer;
-            background: rgba($active_tab_color, 0.25);
+            background: rgba($dark_green,0.1);
         }
-
     }
+}
+
+.navbar-right {
+    margin-right: 15px;
+}
+
+.nav {
+    li {
+        .nav-item-custom {
+            color: red;
+            padding-right: 30px;
+            cursor: pointer;
+            @include hover-animation(all);
+            color: rgba($primary_green, 0.7);
+
+            &:hover {
+                background: rgba($primary_green, 1);
+            }
+        }
+    }
+}
+
+#brand-logo {
+    margin-right: 20px;
+    width: 65px;
+    display: inline;
+    cursor: pointer;
+
+    @include min-screen($screen_sm_min) {
+        width: 85px;
+    }
+}
+
+.navbar-default {
+    color: $primary_green;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: rgba($primary_green, 0.7); // override Bootstrap
+    &:hover {
+        color: rgba($primary_green, 1);
+    }
+}
+
+.collapse {
+    background: white;
 }

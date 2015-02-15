@@ -59,20 +59,29 @@ angular.module('ng-currency', [])
                 });
 
                 element.on("blur", function () {
-                    display_value = $filter('currency')(ngModel.$modelValue);
-                    if (display_value !== undefined) {
-                        display_value = display_value.substr(1);  // remove the leading dollar sign
-                    }
-                    element.val(display_value);
+                    element.val(formatDisplayVal(ngModel.$modelValue));
                 });
 
-                ngModel.$formatters.unshift(function (value) {
+                scope.$watch(function() {
+                    return ngModel.$modelValue;
+                }, function(value) {
+
+                    element.val(formatDisplayVal(value));
+                });
+
+                ngModel.$formatters.unshift(function (value) { 
+                    return formatDisplayVal(value);
+                });
+
+                function formatDisplayVal(value) {
+
                     display_value = $filter('currency')(value);
                     if (display_value !== undefined) {
                         display_value = display_value.substr(1);  // remove the leading dollar sign
+                        display_value = display_value.substr(0, display_value.length - 3);  // remove the trailing decimal places
                     }
                     return display_value;
-                });
+                }
 
                 scope.$watch(function () {
                     return ngModel.$modelValue

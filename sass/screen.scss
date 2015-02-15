@@ -9,6 +9,8 @@
 @import "partials/next_button";
 @import "partials/method";
 @import "partials/time_to_retirement";
+@import "partials/animations";
+@import "partials/intro";
 
 html,body
 {
@@ -25,4 +27,8 @@ body {
 
 * {
     @include selection(#7DD193, #fff);
+}
+
+.indexpage {
+	background: $dark_green;
 }

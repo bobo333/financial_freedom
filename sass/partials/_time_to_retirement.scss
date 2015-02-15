@@ -1,12 +1,22 @@
 // Time to retirement
 
-$expense_color: red;
-$withdraw_color: green;
-$intersection_color: black;
+// set variables
+
+$expense_color: $secondary_brown;
+$withdraw_color: $primary_green;
+$intersection_color: $dark_green;
+$tooltip_bg: rgba($primary_green,0.80);
+$main_bubble_color: #fff;
+$main_bubble_bg: #308E7F;
+$main_bubble_diameter: 150px;
+$control-button-height: 50px;
+$expenses-field-height: 60px;
+$form-control-height: 50px;
 
 #graph-wrapper {
 
     .tooltip {
+        z-index: 1;
         &.in {
             opacity: 1;
         }
@@ -16,22 +26,23 @@ $intersection_color: black;
         }
         
         .tooltip-arrow {
-            border-top-color: $primary_green;
+            border-top-color: $tooltip_bg;
         };
         
         .tooltip-inner {
             text-align: left;
-            background: $primary_green;
+            background: $tooltip_bg;
             font-size: 14px;
             padding: 10px;
+            line-height: 1.3em;
         }
     }
 
     #retirement-graph {
-        font-size: 12px;
+        font-size: 16px;
 
         .expense-line, .withdraw-line {
-            stroke-width: 1;
+            stroke-width: 2;
             fill: none;
             shapeRendering: crispEdges;
         }
@@ -66,7 +77,7 @@ $intersection_color: black;
 }
 
 .retirement-main-output {
-    margin-top: 100px;
+    margin-top: 0px;
     text-align: center;
 }
 
@@ -74,20 +85,473 @@ $intersection_color: black;
     @extend .after-input-text;
     text-align: center;
     text-transform: uppercase;
-    margin-top: 60px;
-    font-size: $base_font_size * 2;
+    font-size: $base_font_size * 1.5;
+    color: $main_bubble_color;
 }
 
 .retirement-years {
-    @extend .input-title;
-    font-size: $base_font_size * 15;
+    font-weight: $base_font_weight_semi_bold;
+    font-size: $base_font_size * 5;
+    margin-top: 50px;
+    color: $main_bubble_color;
 }
 
 .months-line {
-    color: #A0A0A0;
-    margin-top: 10px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 5px;
+    border-top: 0px solid black;
+    font-size: $base_font_size;
 }
 
 .cannot-retire {
     @extend .supporting-section-body;
+}
+
+.until-fi {
+    @extend .step-subheader;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.big-number-bg {
+    background: $main_bubble_bg;
+    width: $main_bubble_diameter;
+    height: $main_bubble_diameter;
+    @include border-radius(50%);
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.big-number-wrapper {
+    @include vertical-align;
+}
+
+.input-control {
+    text-align: center;
+    margin-bottom: 30px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.primary-control {
+    .control-label {
+        font-size: 1em;
+    }
+}
+    
+
+.control-label {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1em;
+
+    @include min-screen($screen_sm_min) {
+        font-size: 0.7em;
+    }
+}
+
+.assumptions-controls-wrapper {
+
+    margin-top: 70px;
+    margin-bottom: 40px;
+
+    @include min-screen($screen_sm_min) {
+        margin-top: 20px;
+    }
+}
+
+.controls-row {
+    margin-top: 10px;
+}
+
+.output-top-section {
+    margin-top: 90px;
+    padding-bottom: 50px;
+    border-bottom: $section-bottom-border;
+}
+
+.graph-section {
+    margin: 0px auto 0px auto;
+    background: #F4FBFA;
+    padding-bottom: 0px;
+}
+
+.output-control-container {
+
+    line-height: $base_line_height * 1.3;
+    font-size: $base_font_size;
+    padding: 0px auto 0px auto;
+    margin-top: 30px;
+
+    @include min-screen($screen_sm_min) {
+        font-size: $base_font_size * 1.5;
+    }
+
+
+}
+
+.output-info-icon {
+    color: rgba($dark_green,0.4);
+    display: block;
+    margin: 5px auto auto auto;
+    font-size: $base_font_size * 1.5;
+    @include hover-animation(all);
+    width: 20px;
+
+    &:hover {
+        color: rgba($dark_green,0.8);
+    }
+}
+
+.popover {
+    @include box-shadow(rgba(#000,0.1) 0px 2px 2px)
+}
+
+#explain-text {
+    font-size: $base_font_size;
+    margin-left: 75px;
+    margin-top: 20px;
+}
+
+input[type="text"].form-control {
+    text-align: center;
+    @include box-shadow(#fff 0px 0px 0px);
+    height: 50px;
+    width: 100%;
+    font-size: $base_font_size * 2;
+    margin: auto auto;
+    display: inline-block;
+    @include border-radius(5px);
+    border: 1px solid rgba($dark_green,0.2);
+}
+
+.icon-answer {
+    text-align: center;
+    display: block;
+    font-size: 5em;
+    color: #fff;
+}
+
+.dollar-label {
+    position: absolute;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.dollar-ouput-label-exp {
+    @extend .dollar-label;
+    left: -$expenses-field-height / 4;
+    top: $expenses-field-height;
+    font-size: 1.5em;
+}
+
+.dollar-ouput-label {
+    @extend .dollar-label;
+    left: -$control-button-height / 6;
+    top: $control-button-height - 5px;
+}
+
+#expenses-field {
+    height: $expenses-field-height;
+    width: 100%;
+    font-size: $base_font_size * 2;
+    display: inline-block;
+}
+
+.control-change-button {
+    display: block;
+    margin: auto auto;
+    height: $control-button-height;
+    width: $control-button-height * 2;
+    font-size: 1.5em;
+    padding: 0 0;
+    outline: none !important;
+    background: #F4FBFA;
+    color: $dark_green;
+    @include box-shadow(none !important);
+    @include hover-animation(all);
+
+    &:focus {
+        background: #F4FBFA;
+        outline: none !important;
+    }
+
+    &:hover {
+        background: #D6E8E5;
+    }
+}
+
+.control-increase-button {
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-top-radius($control-button-height);
+    border-bottom: 0px;
+    border: 1px solid rgba($dark_green,0.2);
+    border-bottom: none;
+
+    &:hover {
+        border: 1px solid rgba($dark_green,0.2);
+        border-bottom: none;
+    }
+}
+
+.control-decrease-button {
+    @include border-radius(0px); // override Bootstrap .btn
+    @include border-bottom-radius($control-button-height);
+    border-top: 0px;
+    border: 1px solid rgba($dark_green,0.2);
+    border-top: none;
+
+    &:hover {
+        border: 1px solid rgba($dark_green,0.2);
+        border-top: none;
+    }
+}
+
+.controls-row {
+    .control-change-button {
+        display: block;
+        margin: auto auto;
+        height: $control-button-height * (2/3);
+        width: $control-button-height * (4/3);
+        font-size: 1.2em;
+    }
+    .control-increase-button {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-top-radius($control-button-height * (3/2));
+        border-bottom: 0px;
+    }
+
+    .control-decrease-button {
+        @include border-radius(0px); // override Bootstrap .btn
+        @include border-bottom-radius($control-button-height * (3/2));
+        border-top: 0px;
+    }
+}
+
+#assumptions-border-top {
+    border-top: 1px solid rgba($primary_green,0.3);
+    position: absolute;
+    left: 15%;
+    right: 15%;
+}
+
+.edit-link {
+    display: inline-block;
+    float: right;
+    color: $dark_green;
+    font-weight: $base_font_weight_semi_bold;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.assumptions-section {
+    margin-top: 20px;
+    position: relative;
+}
+
+.assumptions-title-wrapper {
+    margin-top: 20px;
+    font-size: 1.2em;
+
+    @include min-screen($screen_sm_min) {
+        font-size: 0.8em;
+    }
+}
+
+.assumptionseditable {
+    input[type="text"].form-control {
+        width: 100px;
+        font-size: $base_font_size * 1.5;
+    }
+    @extend .controls-row;
+
+    margin-top: 50px;
+
+    @include min-screen($screen_sm_min) {
+        margin-top: 20px;
+    }
+}
+
+.assumptionsnoteditable {
+    .control-change-button {
+        display: none;
+    }
+
+    .control-label {
+        margin-top: 0px;
+    }
+
+    input[type="text"].form-control {
+        border: 0;
+        background: inherit;
+        &:hover {
+            cursor: text;
+        }
+    }
+}
+
+.no-retire-message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.leading-dollar-control {
+    z-index: 99;
+}
+
+// Actions Section
+
+.actions-section {
+    margin-bottom: 50px;
+}
+
+.actions-container {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 1px solid $secondary_brown;
+    background: $light_brown_bg;
+    position: relative;
+}
+
+.expenses-actions-container {
+    @include border-top-radius(5px);
+    border-bottom: 1px solid $secondary_brown;
+}
+
+.income-actions-container {
+    border-top: none;
+    border-right: 1px solid $secondary_brown;
+    border-left: 1px solid $secondary_brown;
+}
+
+.assets-actions-container {
+    @include border-bottom-left-radius(0px);
+    border-top: none;
+    
+    @include min-screen($screen_sm_min) {
+        border-right: none;
+        @include border-bottom-left-radius(5px);
+    }
+}
+
+.debts-actions-container {
+    @include border-bottom-right-radius(5px);
+    @include border-bottom-left-radius(5px);
+    border-top: none;
+    
+    @include min-screen($screen_sm_min) {
+        border-left: none;
+        @include border-bottom-left-radius(0px);
+    }
+}
+
+.actions-section-title {
+    height: 50px;
+    background: #fff;
+    color: #404040;
+    text-align: center;
+    margin: 35px auto 35px auto;
+    @extend .supporting-section-title;
+}
+
+.action-card-container {
+    display: inline-block;
+    padding: 0px 20px 20px 20px;
+}
+
+.action-card {
+    width: 100%;
+    height: 150px;
+    background: #000;
+    color: #fff;
+    position: relative;
+    @include border-radius(5px);
+    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px);
+    @include hover-animation(all);
+
+    &:hover {
+            @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
+            @include transform(scale(1.05));
+        }
+}
+
+.action-card {
+    .action-label-wrapper {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        background: rgba(#000, 0.5);
+        color: #fff;
+        height: 40px;
+        margin: auto auto;
+        @include border-radius(0px);
+        @include border-bottom-radius(5px);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        @include border-radius(5px);
+    }
+}
+
+.action-title {
+    padding: 20px 20px 20px 0px;
+    font-size: 1.4em;
+    color: $secondary_brown;
+    font-weight: $base_font_weight_light;
+}
+
+.action-label {
+    margin-top: 10px;
+}
+
+.output-controls-section {
+    border-bottom: $section-bottom-border;
+}
+
+.actions-container-title {
+    padding-left: 20px;
+}
+
+.actions-container-border {
+    border-top: 1px solid rgba($secondary_brown,0.3);
+    position: absolute;
+    left: 15%;
+    right: 15%;
+}
+
+.suggested-amount-content {
+    font-size: 1em;
+    padding-bottom: 20px;
+    font-weight: $base_font_weight_light;
+}
+
+.suggested-amount-value {
+    font-weight: $base_font_weight_semi_bold;
+}
+
+.add-title-margin {
+    @include min-screen($screen_md_min) {
+        margin-bottom: 37px;
+    }
+}
+
+.actions-help-icon {
+    color: rgba($secondary_brown_dark,0.4);
+    margin: auto auto auto 5px;
+    font-size: 1.2em;
+    @include hover-animation(all);
+    width: 20px;
+
+    &:hover {
+        color: rgba($secondary_brown_dark,0.8);
+    }
 }

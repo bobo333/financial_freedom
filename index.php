@@ -4,12 +4,14 @@
 
     <head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name=viewport content="width=device-width, initial-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600' rel='stylesheet' type='text/css'>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
+        <link rel="icon" type="image/png" href="img/favicon.ico">
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -21,34 +23,58 @@
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
         
-        <script type="text/javascript" src="javascript/retirement_calculator_module.js"></script>
         <script type="text/javascript" src="javascript/app.js"></script>
+        <script type="text/javascript" src="javascript/date_service.js"></script>
+        <script type="text/javascript" src="javascript/interest_service.js"></script>
+        <script type="text/javascript" src="javascript/geometry_service.js"></script>
+        <script type="text/javascript" src="javascript/retirement_calculator_service.js"></script>
+        <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
+        
 
-        <title>Financial Freedom</title>
+        <title>Plenti: Financial freedom for all</title>
     </head>
     
-    <body ng-controller="bodyController">
-
-        <div class="header-wrap" ng-controller="HeaderController">
-            <div class="header navbar navbar-default">
-                <div class="header-text" ng-click="goToRoute('/income')">
-                    <p class="product-name">Beanstalk</p>
-                    <p class="tag-line">Countdown to financial independence</p>
-                </div>
+    <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
+        <div class="header-wrapper" ng-controller="HeaderController">
+            <div class="navbar-wrapper">
+                <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            <a class="header-text navbar-brand" ng-click="goToRoute('/income')">
+                                <img src="img/bowl.png" id="brand-logo"><span class="product-name">Plenti</span>
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div class="tabs-wrapper">
+
+            <div class="tabs-wrapper" ng-show="tabsAreVisible()">
                 <div class="header-tabs">
                     <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
                         <div class="tab-text">1</div>
-                    </div><div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
+                    </div>
+                    <div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
                         <div class="tab-text">2</div>
-                    </div><div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
+                    </div>
+                    <div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
                         <div class="tab-text">3</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div ng-view></div>
+        
+        <div ng-view class="view-animate"></div>
     </body>
 
 </html>

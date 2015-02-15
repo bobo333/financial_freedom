@@ -1,41 +1,50 @@
 $next-button-height-min-sm: 80px;
-$next-button-height: 120px;
+$next-button-height: 80px;
+$next-button-border-color: $secondary_brown;
+$next-button-icon-color: $next-button-border-color;
 
 .next-button {
     @include basic-font;
-    position: fixed;
+    width: $next-button-height;
     height: $next-button-height;
-    bottom: 0;
-    background: $header-gradient-top;
+    background: $light_brown_bg;
     text-align: center;
-    color: $title-color;
-    opacity: 0;
-    width: 100%;
-    @include hover-animation(background);
-    @include hover-animation(opacity);
+    color: $next-button-icon-color;
+    @include hover-animation(all);
+    border: $next-button-border-color solid 2px;
+    display: block;
+    margin: 60px auto auto auto;
+    @include border-radius(50%);
+    position: relative;
 
-    @include min-screen($screen_sm_min) {
-        width: 250px;
-        height: $next-button-height-min-sm;
-        display: block;
-        margin: 60px auto auto auto;
-        @include border-radius(10px);
-        position: relative;
-    }
-
-    &.active {
+    &.ng-valid {
         opacity: 1;
         cursor: pointer;
         @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
     }
 
     &:hover {
-        background: #1CAD43;
+        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
+    }
+
+    &:click {
+        @include box-shadow(#fff, 0px);
     }
     
-    .text {
-        @include vertical-align;
-        text-transform: uppercase;
+    &[type=submit] {
         font-size: $base-font-size * 3;
+        padding: 0;
+        font-family: FontAwesome;
     }
+}
+
+.next-button.ng-valid {
+    opacity: 1;
+    cursor: pointer;
+    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
+}
+
+.next-button-wrapper {
+    padding: 0;
+    width: 100%;
 }
