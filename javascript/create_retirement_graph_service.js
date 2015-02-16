@@ -1,4 +1,4 @@
-FinancialFreedom.service('CreateRetirementGraphService', function() {
+FinancialFreedom.service('CreateRetirementGraphService', ['DateService', function(DateService) {
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
@@ -41,6 +41,13 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             ["%b", function(d) { return d.getMonth(); }],
             ["%Y", function() { return true; }]
         ]);
+
+        var xLabel = function(date) {
+            cur_date = new Date();
+            years_from_now = DateService.calculateYearsBetween(cur_date, date);
+
+            return years_from_now;
+        };
         
         var cur_date = new Date();
         var end_date = new Date();
@@ -66,7 +73,7 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         var xAxis = d3.svg.axis()
             .scale(xScale)
             .orient('bottom')
-            .tickFormat(customTimeFormat)
+            .tickFormat(xLabel)
             .ticks(number_of_x_ticks);
             
         var yAxis = d3.svg.axis()
@@ -186,4 +193,4 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     };
-});
+}]);
