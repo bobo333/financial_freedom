@@ -85,6 +85,13 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("class", "axis x-axis")
             .attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
             .call(xAxis);
+
+        chart.append("text")
+            .attr("class", "xaxis-label")
+            .attr("text-anchor", "end")
+            .attr("x", width)
+            .attr("y", height - 3)
+            .text("Years from now");
         
         chart.append("g")
             .attr("class", "axis y-axis")
