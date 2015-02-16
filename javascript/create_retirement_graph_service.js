@@ -143,32 +143,15 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             tooltip_selector = ".intersection-point";
         }
 
-        var legend = chart.append("g")
-            .attr("class", "legend")
-            .attr("width", 200)
-            .attr("height", 100)
-            .attr("transform", "translate(" + (margin.left + 40) + ", " + (margin.top + 20) + ") ");
-
-        legend.append("rect")
-            .attr("width", 18)
-            .attr("height", 2)
-            .attr("class", "expense-label");
-            
-        legend.append("rect")
-            .attr("width", 18)
-            .attr("height", 2)
-            .attr("transform", "translate(0," + 20 + ") ")
-            .attr("class", "withdraw-label");
-
-        legend.append("text")
-            .attr("x", 24)
-            .attr("y", 0)
+        chart.append("text")
+            .attr("x", 100)
+            .attr("y", 250)
             .attr("dy", ".35em")
             .text(function(d) { return 'Monthly expenses'; });
             
-        legend.append("text")
-            .attr("x", 24)
-            .attr("y", 20)
+        chart.append("text")
+            .attr("x", 100)
+            .attr("y", 400)
             .attr("dy", ".35em")
             .text(function(d) { return 'Monthly passive income'; });
         

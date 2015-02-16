@@ -1441,8 +1441,13 @@ input[type="text"].form-control {
 /* line 557, ../../sass/partials/_time_to_retirement.scss */
 .xaxis-label {
   font-weight: 600;
-  margin-top: 15px;
-  font-size: 1.8em;
+  font-size: 1em;
+}
+@media screen and (min-width: 992px) {
+  /* line 557, ../../sass/partials/_time_to_retirement.scss */
+  .xaxis-label {
+    font-size: 1.8em;
+  }
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
