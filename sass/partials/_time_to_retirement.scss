@@ -74,6 +74,19 @@ $control-button-border: 1px solid rgba($dark_green,0.1);
             fill: $intersection_color;
             stroke: $intersection_color;
         }
+
+        .expenses-label {
+            fill: rgba($expense_color,0.5);
+        }
+
+        .income-label {
+            fill: rgba($withdraw_color,0.5);
+        }
+
+        .curve-label {
+            font-weight: $base_font_weight_semi_bold;
+        }
+        
     }
 }
 
@@ -561,4 +574,3 @@ input[type="text"].form-control {
         font-size: 1.8em;
     }
 }
-

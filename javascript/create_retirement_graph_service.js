@@ -143,17 +143,43 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             tooltip_selector = ".intersection-point";
         }
 
-        chart.append("text")
-            .attr("x", 100)
-            .attr("y", 250)
-            .attr("dy", ".35em")
-            .text(function(d) { return 'Monthly expenses'; });
-            
-        chart.append("text")
-            .attr("x", 100)
-            .attr("y", 400)
-            .attr("dy", ".35em")
-            .text(function(d) { return 'Monthly passive income'; });
+        var label_container_expenses = chart.append("g")
+            .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ")
+            .attr("fill","#fff");
+
+        label_container_expenses.append("rect")
+            .attr("class", "expenses-label")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("rx", "5px")
+            .attr("ry", "5px")
+            .attr("width", 200)
+            .attr("height", 50);
+
+        label_container_expenses.append("text")
+            .attr("class", "curve-label")
+            .attr("x", 30)
+            .attr("y", 31)
+            .text('Monthly expenses');
+
+        var label_container_income = chart.append("g")
+            .attr("transform", "translate(" + margin.left + ", " + 200 + ") ")
+            .attr("fill","#fff");
+
+        label_container_income.append("rect")
+            .attr("class", "income-label")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("rx", "5px")
+            .attr("ry", "5px")
+            .attr("width", 220)
+            .attr("height", 50);
+
+        label_container_income.append("text")
+            .attr("class", "curve-label")
+            .attr("x", 17)
+            .attr("y", 31)
+            .text('Monthly passive income');    
         
         if (show_tooltip) {
             addToolTip(tooltip_selector, retirement_data);
