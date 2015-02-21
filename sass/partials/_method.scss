@@ -28,10 +28,6 @@ $method-section-border-radius: 15px;
 
 .supporting-content-wrapper {
 	padding: 20px 20px;
-
-	@include min-screen($screen_sm_min) {
-		padding: 50px auto;
-	}
 }
 
 .supporting-section-title {
@@ -118,4 +114,11 @@ $method-section-border-radius: 15px;
 
 .legal-section {
 	width: 100%;
+}
+
+.legal-doc {
+	padding: 0px 20px 0px 20px;
+	@include min-screen($screen_sm_min) {
+		padding: 0px 0px;
+	}
 }

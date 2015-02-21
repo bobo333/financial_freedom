@@ -40,8 +40,14 @@ $nav-border-radius: 25px;
     background: $header_gradient_top;
 }
 
-.product-name {
 
+.logo-name-wrapper {
+    height: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+.logo-name {
     font-family: $brand_font_family;
 	font-size: 1.5em;
 	font-weight: $brand_font_weight_bold;
@@ -65,7 +71,6 @@ $nav-border-radius: 25px;
 .navbar {
 	border: none;
     margin-bottom: 0px !important;
-    height: 80px;
     background: white;
     box-shadow: 0px 2px 4px rgba(0,0,0,.15);
     border-bottom-style: solid;
@@ -76,10 +81,11 @@ $nav-border-radius: 25px;
 .tabs-wrapper {
     background: rgba($dark_green, 0.2);
     height: $nav-height;
-    margin: 80px auto auto auto;
+    margin: 82px auto auto auto;
 
     @include min-screen($screen_sm_min) {
         width: 50%;
+        margin-top: 92px;
         @include border-bottom-radius($nav-border-radius);
     }
 }
@@ -152,8 +158,6 @@ $nav-border-radius: 25px;
 .nav {
     li {
         .nav-item-custom {
-            color: red;
-            padding-right: 30px;
             cursor: pointer;
             @include hover-animation(all);
             color: rgba($primary_green, 0.7);
@@ -166,13 +170,14 @@ $nav-border-radius: 25px;
 }
 
 #brand-logo {
-    margin-right: 20px;
-    width: 65px;
-    display: inline;
+    width: 45px;
+    display: inline-block;
     cursor: pointer;
+    margin-right: 10px;
 
     @include min-screen($screen_sm_min) {
-        width: 85px;
+        width: 65px;
+        margin-right: 20px;
     }
 }
 
@@ -189,4 +194,15 @@ $nav-border-radius: 25px;
 
 .collapse {
     background: white;
+}
+
+.navbar-brand {
+    height: 45px;
+    @include min-screen($screen_sm_min) {
+        height: 60px;
+    }
+}
+
+#header-brand-wrapper {
+    height: 100%;
 }

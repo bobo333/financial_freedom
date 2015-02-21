@@ -61,3 +61,13 @@
     }
 }
 
+#intro-graphic {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	width: 170px;
+	@include min-screen($screen_lg_min) {
+		width: 260px;
+	}
+}
