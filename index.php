@@ -31,7 +31,7 @@
         <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
         
 
-        <title>Plenti: Financial freedom for all</title>
+        <title>Plenti | Free Yourself</title>
     </head>
     
     <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">

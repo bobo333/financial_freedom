@@ -570,7 +570,18 @@ input[type="text"].form-control {
 .xaxis-label {
     font-weight: $base_font_weight_semi_bold;
     font-size: 1em;
-    @include min-screen($screen_md_min) {
+    display: none;
+    @include min-screen($screen_sm_min) {
         font-size: 1.8em;
+        display: block;
+    }
+}
+
+.label-under {
+    text-align: center;
+    width: 100%;
+    display: block;
+    @include min-screen($screen_sm_min) {
+        display: none;
     }
 }

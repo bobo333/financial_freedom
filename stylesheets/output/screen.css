@@ -1454,11 +1454,26 @@ input[type="text"].form-control {
 .xaxis-label {
   font-weight: 600;
   font-size: 1em;
+  display: none;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   /* line 570, ../../sass/partials/_time_to_retirement.scss */
   .xaxis-label {
     font-size: 1.8em;
+    display: block;
+  }
+}
+
+/* line 580, ../../sass/partials/_time_to_retirement.scss */
+.label-under {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  /* line 580, ../../sass/partials/_time_to_retirement.scss */
+  .label-under {
+    display: none;
   }
 }
 

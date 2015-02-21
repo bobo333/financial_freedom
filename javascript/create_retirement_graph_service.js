@@ -143,9 +143,15 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             tooltip_selector = ".intersection-point";
         }
 
+        var expenses_label_coords = findLabelCoordinates(graph_points);
+
+        var label_x = xScale(expenses_label_coords.x);
+        var expenses_label_y = yScale(expenses_label_coords.expenses_label_y);
+        var income_label_y = yScale(expenses_label_coords.income_label_y);
+
         var label_container_expenses = chart.append("g")
-            .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ")
-            .attr("fill","#fff");
+            .attr("fill","#fff")
+            .attr("transform", "translate(" + label_x + ", " + expenses_label_y + ") ");
 
         label_container_expenses.append("rect")
             .attr("class", "expenses-label")
@@ -163,8 +169,8 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .text('Monthly expenses');
 
         var label_container_income = chart.append("g")
-            .attr("transform", "translate(" + margin.left + ", " + 200 + ") ")
-            .attr("fill","#fff");
+            .attr("fill", "#fff")
+            .attr("transform", "translate(" + label_x + ", " + income_label_y + ") ");
 
         label_container_income.append("rect")
             .attr("class", "income-label")
@@ -179,7 +185,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("class", "curve-label")
             .attr("x", 17)
             .attr("y", 31)
-            .text('Monthly passive income');    
+            .text('Monthly passive income');
         
         if (show_tooltip) {
             addToolTip(tooltip_selector, retirement_data);
@@ -209,4 +215,23 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     };
+
+    function findLabelCoordinates(graph_points) {
+
+        var labelX;
+        var expenses_label_y;
+        var income_label_y;
+
+        var findX = Math.round(graph_points.length * 0.25);
+        var labelX = graph_points[findX].date;
+        var expenses_label_y = graph_points[findX].expenses;
+        var income_label_y = graph_points[findX].withdraw_limit;
+        
+        return {x : labelX, expenses_label_y : expenses_label_y, income_label_y : income_label_y};
+    }
+
 }]);
+
+
+
+
