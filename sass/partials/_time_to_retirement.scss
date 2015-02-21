@@ -76,15 +76,16 @@ $control-button-border: 1px solid rgba($dark_green,0.1);
         }
 
         .expenses-label {
-            fill: rgba($expense_color,0.5);
+            fill: rgba($expense_color,0.8);
         }
 
         .income-label {
-            fill: rgba($withdraw_color,0.5);
+            fill: rgba($withdraw_color,0.8);
         }
 
         .curve-label {
             font-weight: $base_font_weight_semi_bold;
+            font-size: 0.9em;
         }
         
     }

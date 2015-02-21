@@ -159,13 +159,13 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("y", 0)
             .attr("rx", "5px")
             .attr("ry", "5px")
-            .attr("width", 200)
-            .attr("height", 50);
+            .attr("width", 160)
+            .attr("height", 30);
 
         label_container_expenses.append("text")
             .attr("class", "curve-label")
-            .attr("x", 30)
-            .attr("y", 31)
+            .attr("x", 18)
+            .attr("y", 21)
             .text('Monthly expenses');
 
         var label_container_income = chart.append("g")
@@ -178,13 +178,13 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("y", 0)
             .attr("rx", "5px")
             .attr("ry", "5px")
-            .attr("width", 220)
-            .attr("height", 50);
+            .attr("width", 200)
+            .attr("height", 30);
 
         label_container_income.append("text")
             .attr("class", "curve-label")
-            .attr("x", 17)
-            .attr("y", 31)
+            .attr("x", 16)
+            .attr("y", 20)
             .text('Monthly passive income');
         
         if (show_tooltip) {
