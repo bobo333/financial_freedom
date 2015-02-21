@@ -37,6 +37,7 @@ $control-button-border: 1px solid rgba($dark_green,0.1);
             padding: 10px;
             line-height: 1.3em;
         }
+
     }
 
     #retirement-graph {
@@ -586,3 +587,36 @@ input[type="text"].form-control {
         display: none;
     }
 }
+
+.fade-twenty {
+    opacity: 0.2;
+}
+
+.no-graph-message-wrapper {
+    background: rgba(#fff,0.7);
+    @include border-radius(10px);
+    padding: 20px 20px 20px 20px;
+    margin: 0px auto;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    max-width: 300px;
+
+    @include min-screen($screen_md_min) {
+        max-width: 400px;
+    }
+    @include min-screen($screen_sm_min) {
+        padding: 50px 50px 50px 50px;
+        max-width: 700px;
+    }
+}
+
+.no-graph-message {
+    text-align: center;
+    font-size: 0.6em;
+    @include min-screen($screen_sm_min) {
+        font-size: 0.8em;
+    }
+}
+

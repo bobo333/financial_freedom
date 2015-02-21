@@ -37,7 +37,14 @@
             <div class="graph-section supporting-content col-xs-12">
                 <div class="supporting-content-wrapper">
                     <div class="col-md-8" id="graph-wrapper">
-                        <div id="retirement-graph"></div>
+                        <div id="retirement-graph" ng-class="{'fade-twenty': !retirement.graph_shown}">
+                        </div>
+                        <div class="no-graph-message-wrapper" ng-hide="retirement.graph_shown">
+                            <div ng-show="retirement.never_retire_shown" class="no-graph-message">Adjust what you entered for monthly expenses or income to see the cash flow necessary for eventual financial independence, and we'll show that path here.
+                            </div>
+                            <div ng-show="retirement.already_retired_shown" class="no-graph-message">Your average passive income has already safely exceeded your average expenses, <a href="#/about">according to our model</a>.
+                            </div>
+                        </div>
                         <div class="xaxis-label label-under">Years from now</div>
                         <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a></div>
                     </div>

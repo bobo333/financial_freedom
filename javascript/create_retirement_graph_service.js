@@ -201,7 +201,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var tooltip_text = "You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
 
         $(selector).tooltip({
-            container: "#graph-wrapper",
+            container: "#retirement-graph",
             title: tooltip_text,
             html: true,
             trigger: ''
