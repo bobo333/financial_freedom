@@ -197,7 +197,7 @@ $control-button-background: rgba($control-button-hover, 0.3);
 .output-info-icon {
     color: rgba($dark_green,0.4);
     display: block;
-    margin: 5px auto auto auto;
+    margin: 10px auto auto auto;
     font-size: $base_font_size * 1.5;
     @include hover-animation(all);
     width: 20px;
@@ -266,7 +266,7 @@ input[type="text"].form-control {
     display: block;
     margin: auto auto;
     height: $control-button-height;
-    width: $control-button-height * 3;
+    width: $control-button-height * 2.25;
     font-size: 1.5em;
     padding: 0 0;
     outline: none !important;
@@ -284,6 +284,11 @@ input[type="text"].form-control {
 
     &:hover {
         background: $control-button-hover;
+    }
+
+    @include min-screen($screen_sm_min) {
+        height: $control-button-height;
+        width: $control-button-height * 3;
     }
 }
 
@@ -308,7 +313,6 @@ input[type="text"].form-control {
     &:hover {
         border: $control-button-border;
         border-top: none;
-
     }
 }
 
