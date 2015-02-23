@@ -218,16 +218,16 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
     function findLabelCoordinates(graph_points) {
 
-        var labelX;
+        var label_x;
         var expenses_label_y;
         var income_label_y;
 
-        var findX = Math.round(graph_points.length * 0.25);
-        var labelX = graph_points[findX].date;
-        var expenses_label_y = graph_points[findX].expenses;
-        var income_label_y = graph_points[findX].withdraw_limit;
+        var x_index = Math.round(graph_points.length * 0.25);
+        var label_x = graph_points[x_index].date;
+        var expenses_label_y = graph_points[x_index].expenses;
+        var income_label_y = graph_points[x_index].withdraw_limit;
         
-        return {x : labelX, expenses_label_y : expenses_label_y, income_label_y : income_label_y};
+        return {x : label_x, expenses_label_y : expenses_label_y, income_label_y : income_label_y};
     }
 
 }]);
