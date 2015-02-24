@@ -166,6 +166,12 @@ $control-button-background: rgba($control-button-hover, 0.3);
     }
 }
 
+.assumptions-controls-wrapper {
+    .form-control {
+        max-width: 200px;
+    }
+}
+
 .controls-row {
     margin-top: 10px;
 }
@@ -221,7 +227,6 @@ input[type="text"].form-control {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
-    width: 100%;
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
@@ -267,7 +272,7 @@ input[type="text"].form-control {
     margin: auto auto;
     height: $control-button-height;
     width: $control-button-height * 2.25;
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 0 0;
     outline: none !important;
     background: $control-button-background;
@@ -335,9 +340,10 @@ input[type="text"].form-control {
 
 .edit-link {
     display: inline-block;
-    float: right;
+    margin-left: 10px;
     color: $dark_green;
     font-weight: $base_font_weight_semi_bold;
+    font-size: 0.9em;
 
     &:hover {
         cursor: pointer;
@@ -358,6 +364,25 @@ input[type="text"].form-control {
     }
 }
 
+.assumptions-toggle {
+    margin-left: 20px;
+    background: $control-button-background;
+    color: $dark_green;
+    border: $control-button-border;
+    @include hover-animation(all);
+
+    &:focus, &:visited {
+        background: $control-button-background;
+        outline: none !important;
+        border: $control-button-border;
+    }
+
+    &:hover {
+        background: $control-button-hover;
+        border: $control-button-border;
+    }
+}
+
 .assumptionseditable {
     input[type="text"].form-control {
         width: 100px;
@@ -369,24 +394,6 @@ input[type="text"].form-control {
 
     @include min-screen($screen_sm_min) {
         margin-top: 20px;
-    }
-}
-
-.assumptionsnoteditable {
-    .control-change-button {
-        display: none;
-    }
-
-    .control-label {
-        margin-top: 0px;
-    }
-
-    input[type="text"].form-control {
-        border: 0;
-        background: inherit;
-        &:hover {
-            cursor: text;
-        }
     }
 }
 
