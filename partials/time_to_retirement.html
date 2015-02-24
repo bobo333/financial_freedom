@@ -34,57 +34,9 @@
 <div class="container-fluid output-controls-section">
     <div class="row">
         <div class="graph-section supporting-content col-xs-12">
-            <div class="supporting-content-wrapper">
-                <div class="col-md-8" id="graph-wrapper">
-                    <div id="retirement-graph"></div>
-                    <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a>
-                        <span class="assumptions-title-wrapper">
-                            <button type="button" class="btn btn-default assumptions-toggle" ng-click="penClicked = !penClicked" ><span ng-show="!penClicked">Show</span><span ng-show="penClicked">Hide</span> assumptions</button>
-                        </span>
-                    </div>
-                    <div class="assumptions-section">
-                        <div class="assumptions-controls-wrapper" ng-show="penClicked" ng-class="assumptionseditable">
-                            <div class="input-control col-md-4">
-                                <div>
-                                    <div>
-                                        <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', 0.001)"></button>
-                                    </div>
-                                    <div><input type="text" percent class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked"></div>
-                                    <div class="">
-                                        <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', -0.001)"></button>
-                                    </div>
-                                </div>
-                                <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="top"></i></div>
-                            </div>
-                            <div class="input-control col-md-4">
-                                <div>
-                                    <div>
-                                        <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', 0.001)"></button>
-                                    </div>
-                                    <input type="text" percent class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
-                                    <div>
-                                        <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', -0.001)"></button>
-                                    </div>
-                                </div>
-                                <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="top"></i></div>
-                            </div>
-                            <div class="input-control col-md-4">
-                                <div>
-                                    <div>
-                                        <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('growth', 0.001)"></button>
-                                    </div>
-                                    <input type="text" percent class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
-                                    <div>
-                                        <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
-                                    </div>
-                                </div>
-                                <div class="control-label">Assets growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="top"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-8" id="graph-wrapper">
+                <div id="retirement-graph"></div>
             </div>
-
             <div class="output-control-container col-xs-12 col-md-4">
                 <div id="expenses-control" class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
                     <div>
@@ -136,8 +88,52 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
-
+            <div class="col-md-8 col-xs-12 assumptions-section">
+                <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a>
+                    <span class="assumptions-title-wrapper">
+                        <button type="button" class="btn btn-default assumptions-toggle" ng-click="penClicked = !penClicked" ><span ng-show="!penClicked">Show</span><span ng-show="penClicked">Hide</span> assumptions</button>
+                    </span>
+                </div>
+                <div>
+                    <div class="assumptions-controls-wrapper" ng-show="penClicked" ng-class="assumptionseditable">
+                        <div class="input-control col-md-4">
+                            <div>
+                                <div>
+                                    <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', 0.001)"></button>
+                                </div>
+                                <div><input type="text" percent class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked"></div>
+                                <div class="">
+                                    <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', -0.001)"></button>
+                                </div>
+                            </div>
+                            <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="top"></i></div>
+                        </div>
+                        <div class="input-control col-md-4">
+                            <div>
+                                <div>
+                                    <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', 0.001)"></button>
+                                </div>
+                                <input type="text" percent class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
+                                <div>
+                                    <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', -0.001)"></button>
+                                </div>
+                            </div>
+                            <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="top"></i></div>
+                        </div>
+                        <div class="input-control col-md-4">
+                            <div>
+                                <div>
+                                    <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('growth', 0.001)"></button>
+                                </div>
+                                <input type="text" percent class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
+                                <div>
+                                    <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
+                                </div>
+                            </div>
+                            <div class="control-label">Assets growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="top"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -219,8 +219,10 @@ $control-button-background: rgba($control-button-hover, 0.3);
 
 #explain-text {
     font-size: $base_font_size;
-    margin-left: 75px;
-    margin-top: 20px;
+    
+    @include min-screen($screen_sm_min) {
+        margin-left: 75px;
+    }
 }
 
 input[type="text"].form-control {
@@ -351,7 +353,7 @@ input[type="text"].form-control {
 }
 
 .assumptions-section {
-    margin-top: 20px;
+    margin: 20px auto;
     position: relative;
 }
 
@@ -365,9 +367,10 @@ input[type="text"].form-control {
 }
 
 .assumptions-toggle {
-    margin-left: 20px;
+    margin: 20px auto auto 0px;
     background: $control-button-background;
     color: $dark_green;
+    display: block;
     border: $control-button-border;
     @include hover-animation(all);
 
@@ -380,6 +383,10 @@ input[type="text"].form-control {
     &:hover {
         background: $control-button-hover;
         border: $control-button-border;
+    }
+    @include min-screen($screen_sm_min) {
+        display: inline-block;
+        margin: 0px auto auto 20px;
     }
 }
 
