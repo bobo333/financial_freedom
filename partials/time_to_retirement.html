@@ -91,11 +91,11 @@
             <div class="col-md-8 col-xs-12 assumptions-section">
                 <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a>
                     <span class="assumptions-title-wrapper">
-                        <button type="button" class="btn btn-default assumptions-toggle" ng-click="isCollapsed = !isCollapsed" ><span ng-show="!isCollapsed">Show</span><span ng-show="isCollapsed">Hide</span> assumptions</button>
+                        <button type="button" class="btn btn-default assumptions-toggle" ng-click="isCollapsed = !isCollapsed" ><span ng-show="isCollapsed">Show</span><span ng-show="!isCollapsed">Hide</span> assumptions</button>
                     </span>
                 </div>
                 <div>
-                    <div class="assumptions-controls-wrapper" ng-show="isCollapsed" ng-class="assumptionseditable">
+                    <div class="assumptions-controls-wrapper assumptionseditable" collapse="isCollapsed">
                         <div class="input-control col-md-4">
                             <div>
                                 <div>
