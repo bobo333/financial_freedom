@@ -91,17 +91,17 @@
             <div class="col-md-8 col-xs-12 assumptions-section">
                 <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a>
                     <span class="assumptions-title-wrapper">
-                        <button type="button" class="btn btn-default assumptions-toggle" ng-click="penClicked = !penClicked" ><span ng-show="!penClicked">Show</span><span ng-show="penClicked">Hide</span> assumptions</button>
+                        <button type="button" class="btn btn-default assumptions-toggle" ng-click="isCollapsed = !isCollapsed" ><span ng-show="!isCollapsed">Show</span><span ng-show="isCollapsed">Hide</span> assumptions</button>
                     </span>
                 </div>
                 <div>
-                    <div class="assumptions-controls-wrapper" ng-show="penClicked" ng-class="assumptionseditable">
+                    <div class="assumptions-controls-wrapper" ng-show="isCollapsed" ng-class="assumptionseditable">
                         <div class="input-control col-md-4">
                             <div>
                                 <div>
                                     <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', 0.001)"></button>
                                 </div>
-                                <div><input type="text" percent class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked"></div>
+                                <div><input type="text" percent class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }"></div>
                                 <div class="">
                                     <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', -0.001)"></button>
                                 </div>
@@ -113,7 +113,7 @@
                                 <div>
                                     <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', 0.001)"></button>
                                 </div>
-                                <input type="text" percent class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
+                                <input type="text" percent class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }">
                                 <div>
                                     <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', -0.001)"></button>
                                 </div>
@@ -125,7 +125,7 @@
                                 <div>
                                     <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('growth', 0.001)"></button>
                                 </div>
-                                <input type="text" percent class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
+                                <input type="text" percent class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }">
                                 <div>
                                     <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
                                 </div>

@@ -1,4 +1,4 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate','ui.bootstrap']);
 
 FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -171,7 +171,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     });
 
     $scope.showSteps = false;
-    $scope.penClicked = false;
+    $scope.isCollapsed = false;
 
     $scope.incrementOutputValue = function(output_value, increment) {
         if (output_value == 'expenses') {

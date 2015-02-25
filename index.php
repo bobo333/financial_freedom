@@ -17,9 +17,10 @@
         <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
+        <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
         
