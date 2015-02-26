@@ -389,20 +389,6 @@ input[type="text"].form-control {
     }
 }
 
-.assumptionseditable {
-    input[type="text"].form-control {
-        width: 100px;
-        font-size: $base_font_size * 1.5;
-    }
-    @extend .controls-row;
-
-    margin-top: 50px;
-
-    @include min-screen($screen_sm_min) {
-        margin-top: 20px;
-    }
-}
-
 .no-retire-message {
     margin-top: 20px;
     text-align: center;

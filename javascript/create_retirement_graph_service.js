@@ -1,4 +1,4 @@
-FinancialFreedom.service('CreateRetirementGraphService', function() {
+FinancialFreedom.service('CreateRetirementGraphService', ['$position', function($position) {
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
@@ -109,6 +109,8 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             .attr("class", "withdraw-line")
             .attr("d", withdraw_line(graph_points))
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+
+        var tooltip_text = addToolTipText(retirement_data);
         
         if (intersection_point) {
             chart.selectAll('circle')
@@ -123,7 +125,8 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
                 })
                 .attr('r', 5)
                 .attr('class', 'intersection-point')
-                .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
+                .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
+                .attr('tooltip', tooltip_text);
                 
             show_tooltip = true;
             tooltip_selector = ".intersection-point";
@@ -133,7 +136,8 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             .attr("class", "legend")
             .attr("width", 200)
             .attr("height", 100)
-            .attr("transform", "translate(" + (margin.left + 40) + ", " + (margin.top + 20) + ") ");
+            .attr("transform", "translate(" + (margin.left + 40) + ", " + (margin.top + 20) + ")")
+            .attr('tooltip', 'boom');
 
         legend.append("rect")
             .attr("width", 18)
@@ -159,26 +163,25 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             .text(function(d) { return 'Monthly passive income'; });
         
         if (show_tooltip) {
-            addToolTip(tooltip_selector, retirement_data);
+            //chart.selectAll(".intersection_point").append(addToolTip(retirement_data));
         }
     }  
     
-    function addToolTip(selector, retirement_data) {
+    function addToolTipText(retirement_data) {
         var date = retirement_data.intersection_point.x;
         var expenses = retirement_data.intersection_point.y;
         var asset_need = 25 * expenses * 12;
         asset_need = Math.round(asset_need);
-        
-        var tooltip_text = "You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
 
-        $(selector).tooltip({
-            container: "#graph-wrapper",
-            title: tooltip_text,
-            html: true,
-            trigger: ''
-        });
+        return "You will be able to safely live off passive income in " + date.getFullYear() + ", when you have total assets of $" + numberWithCommas(asset_need) + ".";
+        // $(selector).tooltip({
+        //     container: "#graph-wrapper",
+        //     title: tooltip_text,
+        //     html: true,
+        //     trigger: ''
+        // });
         
-        $(selector).tooltip('show');
+        //$(selector).tooltip('show');
     };
         
     function numberWithCommas(x) {
@@ -186,4 +189,4 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     };
-});
+}]);
