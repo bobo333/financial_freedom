@@ -41,6 +41,9 @@
         echo "<br>" . $row['password_and_salt'];
     }
 
+    $result->free();
+    $db->close();
+
     echo "<br><br>";
 
     session_start();
