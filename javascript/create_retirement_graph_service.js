@@ -43,10 +43,17 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         ]);
 
         var xLabel = function(date) {
-            cur_date = new Date();
-            years_from_now = DateService.calculateYearsBetween(cur_date, date);
+            var cur_date = new Date();
+            var current_years_from_now;
+            var new_years_from_now = DateService.calculateYearsBetween(cur_date, date);
 
-            return years_from_now;
+            if (current_years_from_now === new_years_from_now) {
+                return null;
+            }
+            else {
+                current_years_from_now = new_years_from_now
+                return new_years_from_now;
+            }
         };
         
         var cur_date = new Date();
