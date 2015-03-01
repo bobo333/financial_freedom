@@ -13,6 +13,7 @@ $control-button-height: 45px;
 $expenses-field-height: 60px;
 $form-control-height: 50px;
 $control-button-border: 1px solid rgba($dark_green,0.1);
+$control-button-hover: #D6E8E5;
 
 #graph-wrapper {
 
@@ -283,7 +284,7 @@ input[type="text"].form-control {
     font-size: 1.5em;
     padding: 0 0;
     outline: none !important;
-    background: rgba(#D6E8E5, 0.3);
+    background: rgba($control-button-hover, 0.3);
     color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
@@ -295,7 +296,7 @@ input[type="text"].form-control {
     }
 
     &:hover {
-        background: #D6E8E5;
+        background: $control-button-hover;
     }
 }
 
