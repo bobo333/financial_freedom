@@ -33,7 +33,7 @@
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
 
 
-        <title>Plenti: Financial freedom for all</title>
+        <title>Plenti | Free Yourself</title>
     </head>
     
     <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
