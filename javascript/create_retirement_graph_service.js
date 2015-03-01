@@ -1,4 +1,4 @@
-FinancialFreedom.service('CreateRetirementGraphService', function() {
+FinancialFreedom.service('CreateRetirementGraphService', ['DateService', function(DateService) {
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
@@ -41,6 +41,20 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             ["%b", function(d) { return d.getMonth(); }],
             ["%Y", function() { return true; }]
         ]);
+
+        var xLabel = function(date) {
+            var cur_date = new Date();
+            var current_years_from_now;
+            var new_years_from_now = DateService.calculateYearsBetween(cur_date, date);
+
+            if (current_years_from_now === new_years_from_now) {
+                return null;
+            }
+            else {
+                current_years_from_now = new_years_from_now
+                return new_years_from_now;
+            }
+        };
         
         var cur_date = new Date();
         var end_date = new Date();
@@ -66,7 +80,7 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         var xAxis = d3.svg.axis()
             .scale(xScale)
             .orient('bottom')
-            .tickFormat(customTimeFormat)
+            .tickFormat(xLabel)
             .ticks(number_of_x_ticks);
             
         var yAxis = d3.svg.axis()
@@ -78,6 +92,13 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             .attr("class", "axis x-axis")
             .attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
             .call(xAxis);
+
+        chart.append("text")
+            .attr("class", "xaxis-label")
+            .attr("text-anchor", "end")
+            .attr("x", width)
+            .attr("y", height - 3)
+            .text("Years from now");
         
         chart.append("g")
             .attr("class", "axis y-axis")
@@ -129,34 +150,49 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
             tooltip_selector = ".intersection-point";
         }
 
-        var legend = chart.append("g")
-            .attr("class", "legend")
-            .attr("width", 200)
-            .attr("height", 100)
-            .attr("transform", "translate(" + (margin.left + 40) + ", " + (margin.top + 20) + ") ");
+        var expenses_label_coords = findLabelCoordinates(graph_points);
 
-        legend.append("rect")
-            .attr("width", 18)
-            .attr("height", 2)
-            .attr("class", "expense-label");
-            
-        legend.append("rect")
-            .attr("width", 18)
-            .attr("height", 2)
-            .attr("transform", "translate(0," + 20 + ") ")
-            .attr("class", "withdraw-label");
+        var label_x = xScale(expenses_label_coords.x);
+        var expenses_label_y = yScale(expenses_label_coords.expenses_label_y);
+        var income_label_y = yScale(expenses_label_coords.income_label_y);
 
-        legend.append("text")
-            .attr("x", 24)
+        var label_container_expenses = chart.append("g")
+            .attr("fill","#fff")
+            .attr("transform", "translate(" + label_x + ", " + expenses_label_y + ") ");
+
+        label_container_expenses.append("rect")
+            .attr("class", "expenses-label")
+            .attr("x", 0)
             .attr("y", 0)
-            .attr("dy", ".35em")
-            .text(function(d) { return 'Monthly expenses'; });
-            
-        legend.append("text")
-            .attr("x", 24)
+            .attr("rx", "5px")
+            .attr("ry", "5px")
+            .attr("width", 160)
+            .attr("height", 30);
+
+        label_container_expenses.append("text")
+            .attr("class", "curve-label")
+            .attr("x", 18)
+            .attr("y", 21)
+            .text('Monthly expenses');
+
+        var label_container_income = chart.append("g")
+            .attr("fill", "#fff")
+            .attr("transform", "translate(" + label_x + ", " + income_label_y + ") ");
+
+        label_container_income.append("rect")
+            .attr("class", "income-label")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("rx", "5px")
+            .attr("ry", "5px")
+            .attr("width", 200)
+            .attr("height", 30);
+
+        label_container_income.append("text")
+            .attr("class", "curve-label")
+            .attr("x", 16)
             .attr("y", 20)
-            .attr("dy", ".35em")
-            .text(function(d) { return 'Monthly passive income'; });
+            .text('Monthly passive income');
         
         if (show_tooltip) {
             addToolTip(tooltip_selector, retirement_data);
@@ -172,7 +208,7 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         var tooltip_text = "You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
 
         $(selector).tooltip({
-            container: "#graph-wrapper",
+            container: "#retirement-graph",
             title: tooltip_text,
             html: true,
             trigger: ''
@@ -186,4 +222,23 @@ FinancialFreedom.service('CreateRetirementGraphService', function() {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     };
-});
+
+    function findLabelCoordinates(graph_points) {
+
+        var label_x;
+        var expenses_label_y;
+        var income_label_y;
+
+        var x_index = Math.round(graph_points.length * 0.25);
+        var label_x = graph_points[x_index].date;
+        var expenses_label_y = graph_points[x_index].expenses;
+        var income_label_y = graph_points[x_index].withdraw_limit;
+        
+        return {x : label_x, expenses_label_y : expenses_label_y, income_label_y : income_label_y};
+    }
+
+}]);
+
+
+
+
