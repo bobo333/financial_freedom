@@ -1,52 +1,73 @@
 <?php
 
-    $output = array(
-        'success' => True
-    );
-    
-    echo json_encode($output);
+    $response_obj = array();
 
-    $hash = password_hash('hi', PASSWORD_BCRYPT);
-    echo $hash;
-
-    var_dump(password_verify('hi', $hash));
-
-    $query = "
-        SELECT *
-        FROM `users`
-    ";
-
-    echo $query;
-
-    $db = new mysqli('localhost', 'root', '', 'financial_freedom');
-
-    if ($db->connect_errno > 0) {
-        die('Unable to connect to database [' . $db->connect_error . ']');
+    function check_logged_in() {
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+            $response_obj = array('errors' => ['Already logged in.']);
+            exit(json_encode($response_obj));
+        }
     }
 
-    if (!$result = $db->query($query)) {
-        die('There was an error running the query [' . $db->error . ']');
+    function check_params($request, $required_params) {
+        $errors = [];
+        foreach ($required_params as $param) {
+            if (!isset($request[$param])) {
+                $error_message = $param . " required.";
+                array_push($errors, $error_message);
+            }
+        }
+        if (count($errors) > 0) {
+            $response_obj = array('errors' => $errors);
+            exit(json_encode($response_obj));
+        }
     }
 
-
-    echo $result->num_rows;
-
-    var_dump($result);
-    print_r($result);
-
-    while ($row = $result->fetch_assoc()) {
-        var_dump($row);
-        print_r($row);
-        echo "<br>" . $row['email'];
-        echo "<br>" . $row['password_and_salt'];
+    function query_db($query) {
+        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        if ($db->connect_errno > 0) {
+            die('Unable to connect to database [' . $db->connect_error . ']');
+        }
+        if (!$result = $db->query($query)) {
+            die('There was an error running the query [' . $db->error . ']');
+        }
+        $db->close();
+        
+        return $result;
     }
 
-    $result->free();
-    $db->close();
+    function check_no_match($result) {
+        if ($result->num_rows == 0) {
+            $result->free();
+            $response_obj = array('errors' => ["No account with that email found."]);
+            exit(json_encode($response_obj));
+        }
+    }
 
-    echo "<br><br>";
+    function check_login_credentials($provided_password, $password_and_salt) {
+        if (password_verify($provided_password, $password_and_salt)) {
+            $_SESSION['logged_in'] = true;
+            $success_obj = array('success' => true);
+            echo(json_encode($success_obj));
+        } else {
+            $fail_obj = array('errors' => ["Incorrect password."]);
+            echo(json_encode($fail_obj));
+        }
+    }
 
     session_start();
-    var_dump($_SESSION);
-    var_dump($_COOKIE);
-    echo session_id();
+    check_logged_in();
+    $login_params = ['email', 'password'];
+    check_params($_GET, $login_params);
+    $password = $_GET['password'];
+    $email = $_GET['email'];
+    $query = "
+        SELECT email, password_and_salt
+        FROM `users`
+        WHERE email='" . $email . "'";
+
+    $result = query_db($query);
+    check_no_match($result);
+    $user_pw_hash = $result->fetch_assoc()['password_and_salt'];
+    check_login_credentials($password, $user_pw_hash);
+    $result->free();
