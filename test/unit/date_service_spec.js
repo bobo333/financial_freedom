@@ -109,4 +109,22 @@ describe('Unit: DateService', function() {
         expect(years_between).toBe(0);
     });
 
+    it('should return -2 years for days between January 1st, 2014 and January 1st, 2012', function() {
+        var date1 = new Date(2014, 0, 1);
+        var date2 = new Date(2012, 0, 1);
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(-2);
+    });
+
+    it('should return 1 year for days between December 31st, 2014 and January 1st, 2015', function() {
+        var date1 = new Date(2014, 11, 31);
+        var date2 = new Date(2015, 0, 1);
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(1);
+    });
+
 });
