@@ -162,9 +162,9 @@ FinancialFreedom.service('CreateRetirementGraphService', ['$position', function(
             .attr("dy", ".35em")
             .text(function(d) { return 'Monthly passive income'; });
         
-        if (show_tooltip) {
-            //chart.selectAll(".intersection_point").append(addToolTip(retirement_data));
-        }
+        // if (show_tooltip) {
+        //     //chart.selectAll(".intersection_point").append(addToolTip(retirement_data));
+        // }
     }  
     
     function addToolTipText(retirement_data) {
