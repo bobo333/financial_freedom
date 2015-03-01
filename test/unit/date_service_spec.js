@@ -100,7 +100,7 @@ describe('Unit: DateService', function() {
         expect(years_between).toBe(3);
     });
 
-    it('should return 1 year for days between January 1st, 2014 and December 31st, 2014', function() {
+    it('should return 0 year for days between January 1st, 2014 and December 31st, 2014', function() {
         var date1 = new Date(2014, 0, 1);
         var date2 = new Date(2014, 11, 31);
 
