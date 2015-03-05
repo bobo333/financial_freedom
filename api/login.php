@@ -19,22 +19,34 @@
         }
     }
 
-    function query_db($query) {
+    function login_query_db($email) {
         $db = new mysqli('localhost', 'root', '', 'financial_freedom');
         if ($db->connect_errno > 0) {
             die('Unable to connect to database [' . $db->connect_error . ']');
         }
-        if ( !($result = $db->query($query)) ) {
+
+        $query = "
+            SELECT email, password_and_salt
+            from `users`
+            WHERE email=?";
+        if ($statement = $db->prepare($query)) {
+            $statement->bind_param("s", $email);
+            $statement->execute();
+            $statement->bind_result($result_email, $result_pw_and_salt);
+            $statement->fetch();
+            $statement->close();
+        } else {
             die('There was an error running the query [' . $db->error . ']');
         }
-        $db->close();
         
-        return $result;
+        return [
+            'email' => $result_email,
+            'pw_and_salt' => $result_pw_and_salt
+        ];
     }
 
     function check_no_match($result) {
-        if ($result->num_rows == 0) {
-            $result->free();
+        if (is_null($result['email'])) {
             $errors = ["No account with that email found."];
             send_fail_response($errors);
         }
@@ -51,12 +63,18 @@
     }
 
     function send_success_response() {
-        $data = ['success' => true, 'errors' => []];
+        $data = [
+            'success' => true, 
+            'errors' => []
+        ];
         send_json_response($data);
     }
 
     function send_fail_response($errors) {
-        $data = ['success' => false, 'errors' => $errors];
+        $data = [
+            'success' => false, 
+            'errors' => $errors
+        ];
         send_json_response($data);
     }
 
@@ -70,12 +88,8 @@
     check_params($_GET, $login_params);
     $password = $_GET['password'];
     $email = $_GET['email'];
-    $query = "
-        SELECT email, password_and_salt
-        FROM `users`
-        WHERE email='" . $email . "'";
 
-    $result = query_db($query);
+    $result = login_query_db($email);
     check_no_match($result);
-    $user_pw_hash = $result->fetch_assoc()['password_and_salt'];
+    $user_pw_hash = $result['pw_and_salt'];
     check_login_credentials($password, $user_pw_hash);
