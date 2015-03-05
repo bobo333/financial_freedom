@@ -1,11 +1,8 @@
 <?php
-
-    $response_obj = array();
-
     function check_logged_in() {
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-            $response_obj = array('errors' => ['Already logged in.']);
-            exit(json_encode($response_obj));
+            $errors = ['User already logged in.'];
+            send_fail_response($errors);
         }
     }
 
@@ -14,12 +11,11 @@
         foreach ($required_params as $param) {
             if (!isset($request[$param])) {
                 $error_message = $param . " required.";
-                array_push($errors, $error_message);
+                $errors[] = $error_message;
             }
         }
         if (count($errors) > 0) {
-            $response_obj = array('errors' => $errors);
-            exit(json_encode($response_obj));
+            send_fail_response($errors);
         }
     }
 
@@ -28,7 +24,7 @@
         if ($db->connect_errno > 0) {
             die('Unable to connect to database [' . $db->connect_error . ']');
         }
-        if (!$result = $db->query($query)) {
+        if ( !($result = $db->query($query)) ) {
             die('There was an error running the query [' . $db->error . ']');
         }
         $db->close();
@@ -39,20 +35,33 @@
     function check_no_match($result) {
         if ($result->num_rows == 0) {
             $result->free();
-            $response_obj = array('errors' => ["No account with that email found."]);
-            exit(json_encode($response_obj));
+            $errors = ["No account with that email found."];
+            send_fail_response($errors);
         }
     }
 
     function check_login_credentials($provided_password, $password_and_salt) {
         if (password_verify($provided_password, $password_and_salt)) {
             $_SESSION['logged_in'] = true;
-            $success_obj = array('success' => true);
-            echo(json_encode($success_obj));
+            send_success_response();
         } else {
-            $fail_obj = array('errors' => ["Incorrect password."]);
-            echo(json_encode($fail_obj));
+            $errors = ["Incorrect password."];
+            send_fail_response($errors);
         }
+    }
+
+    function send_success_response() {
+        $data = ['success' => true, 'errors' => []];
+        send_json_response($data);
+    }
+
+    function send_fail_response($errors) {
+        $data = ['success' => false, 'errors' => $errors];
+        send_json_response($data);
+    }
+
+    function send_json_response($response_data) {
+        exit(json_encode($response_data));
     }
 
     session_start();
@@ -70,4 +79,3 @@
     check_no_match($result);
     $user_pw_hash = $result->fetch_assoc()['password_and_salt'];
     check_login_credentials($password, $user_pw_hash);
-    $result->free();
