@@ -1544,9 +1544,9 @@ input[type="text"].form-control {
 /* line 615, ../../sass/partials/_time_to_retirement.scss */
 .intersection-label {
   color: white;
-  padding: 10px 15px;
+  padding: 15px 15px;
   display: inline-block;
-  line-height: 1.4;
+  line-height: 1.2;
   z-index: 1;
   font-weight: 400;
 }

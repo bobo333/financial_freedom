@@ -51,7 +51,7 @@
                         	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', -100)"></button>
                         </div>
                     </div>
-                    <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" popover="Your current monthly expenses" popover-trigger="mouseenter"></i></div>
+                    <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" popover="Your current monthly expenses" popover-animation="true" popover-trigger="mouseenter" popover-placement="bottom" ></i></div>
                 </div>
 
                 <div class="controls-row col-xs-12">
@@ -68,7 +68,7 @@
                         		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('income', -100)"></button>
                         	</div>
                         </div>
-                        <div class="control-label">Income<i class="fa fa-question-circle output-info-icon" popover="Your current monthly after-tax income" popover-trigger="mouseenter"></i></div>
+                        <div class="control-label">Income<i class="fa fa-question-circle output-info-icon" popover="Your current monthly after-tax income" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
                     </div>
 
                     <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
@@ -84,7 +84,7 @@
                         		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('assets', -1000)"></button>
                         	</div>
                         </div>
-                        <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" popover="Your current total assets" popover-trigger="mouseenter"></i></div>
+                        <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" popover="Your current total assets" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                                     <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', -0.001)"></button>
                                 </div>
                             </div>
-                            <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" popover-trigger="mouseenter"></i></div>
+                            <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
                         </div>
                         <div class="input-control col-md-4">
                             <div>
@@ -118,7 +118,7 @@
                                     <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', -0.001)"></button>
                                 </div>
                             </div>
-                            <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual increase in your expenses. We assumed your current expenses would increase with inflation" popover-trigger="mouseenter"></i></div>
+                            <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual increase in your expenses. We assumed your current expenses would increase with inflation" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
                         </div>
                         <div class="input-control col-md-4">
                             <div>
@@ -130,7 +130,7 @@
                                     <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
                                 </div>
                             </div>
-                            <div class="control-label">Assets growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" popover-trigger="mouseenter"></i></div>
+                            <div class="control-label">Assets growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
     			<div class="actions-container assets-actions-container col-xs-12 col-md-6">
     				<div class="actions-container-title col-xs-12">
     					<div class="action-title">Grow assets smartly</div>
-    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle actions-help-icon" popover="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income" popover-trigger="mouseenter"></i></div>
+    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle actions-help-icon" popover="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
     				</div>
     				<a href="https://www.betterment.com/" target="_blank">
 	    				<div class="action-card-container assets-card col-md-6" id="roboadvisor">
