@@ -143,14 +143,14 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             var asset_need = 25 * expenses * 12;
             asset_need = Math.round(asset_need);
 
-            var carrot_width = 20;
-            var carrot_height = 10;
-            var carrot_start_point_x = 105;
-            var carrot_start_point_y = 110;
+            var triangle_width = 20;
+            var triangle_height = 10;
+            var triangle_start_point_x = 105;
+            var triangle_start_point_y = 110;
 
 
-            var lineData = [ { "x": carrot_start_point_x,   "y": carrot_start_point_y},  { "x": carrot_start_point_x + carrot_width,  "y": carrot_start_point_y},
-                                { "x": carrot_start_point_x + carrot_width / 2 ,  "y": carrot_start_point_y + carrot_height}, { "x": carrot_start_point_x,  "y": carrot_start_point_y}];
+            var lineData = [ { "x": triangle_start_point_x,   "y": triangle_start_point_y},  { "x": triangle_start_point_x + triangle_width,  "y": triangle_start_point_y},
+                                { "x": triangle_start_point_x + triangle_width / 2 ,  "y": triangle_start_point_y + triangle_height}, { "x": triangle_start_point_x,  "y": triangle_start_point_y}];
 
             var drawLinesBetweenPoints = d3.svg.line()
                 .x(function(d) { return d.x; })
