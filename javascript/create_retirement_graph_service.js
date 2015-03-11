@@ -67,7 +67,8 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var chart = d3.select('#retirement-graph').append('svg');
         chart.selectAll("*").remove();
         chart.attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.bottom + margin.top);
+                .attr('height', height + margin.bottom + margin.top)
+                .attr('class','graph-svg');
             
         var xScale = d3.time.scale()
             .domain([cur_date, end_date])

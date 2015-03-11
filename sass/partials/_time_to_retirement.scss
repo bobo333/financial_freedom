@@ -21,30 +21,14 @@ $control-button-background: rgba($control-button-hover, 0.3);
     .intersection-label-container {
         position: absolute;
         z-index: 1;
-        // &.in {
-        //     opacity: 1;
-        // }
-        
-        // .bold {
-        //     font-weight: $base_font_weight_semi_bold;
-        // }
-        
-        // .tooltip-arrow {
-        //     border-top-color: $tooltip_bg;
-        // };
-        
-        // .tooltip-inner {
-        //     text-align: left;
-        //     background: $tooltip_bg;
-        //     font-size: 14px;
-        //     padding: 10px;
-        //     line-height: 1.3em;
-        //}
-
     }
 
     #retirement-graph {
         font-size: 16px;
+
+        .graph-svg {
+            overflow: visible;
+        }
 
         .expense-line, .withdraw-line {
             stroke-width: 2;
