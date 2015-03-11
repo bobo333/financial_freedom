@@ -18,27 +18,29 @@ $control-button-background: rgba($control-button-hover, 0.3);
 
 #graph-wrapper {
 
-    .tooltip {
+    .intersection-label-container {
+        position: absolute;
         z-index: 1;
-        &.in {
-            opacity: 1;
-        }
+        // &.in {
+        //     opacity: 1;
+        // }
         
-        .bold {
-            font-weight: $base_font_weight_semi_bold;
-        }
+        // .bold {
+        //     font-weight: $base_font_weight_semi_bold;
+        // }
         
-        .tooltip-arrow {
-            border-top-color: $tooltip_bg;
-        };
+        // .tooltip-arrow {
+        //     border-top-color: $tooltip_bg;
+        // };
         
-        .tooltip-inner {
-            text-align: left;
-            background: $tooltip_bg;
-            font-size: 14px;
-            padding: 10px;
-            line-height: 1.3em;
-        }
+        // .tooltip-inner {
+        //     text-align: left;
+        //     background: $tooltip_bg;
+        //     font-size: 14px;
+        //     padding: 10px;
+        //     line-height: 1.3em;
+        //}
+
     }
 
     #retirement-graph {
@@ -76,6 +78,21 @@ $control-button-background: rgba($control-button-hover, 0.3);
             fill: $intersection_color;
             stroke: $intersection_color;
         }
+
+        .expenses-label {
+            fill: rgba($expense_color,0.8);
+        }
+
+        .income-label {
+            fill: rgba($withdraw_color,0.8);
+        }
+
+        .curve-label {
+            font-weight: $base_font_weight_semi_bold;
+            font-size: 0.9em;
+            max-width: 100px;
+        }
+        
     }
 }
 
@@ -557,5 +574,69 @@ input[type="text"].form-control {
 #privacy-link {
     &:hover {
         opacity: 1;
+    }
+}
+
+.xaxis-label {
+    font-weight: $base_font_weight_semi_bold;
+    font-size: 1em;
+    display: none;
+    @include min-screen($screen_sm_min) {
+        font-size: 1.8em;
+        display: block;
+    }
+}
+
+.label-under {
+    text-align: center;
+    width: 100%;
+    display: block;
+    @include min-screen($screen_sm_min) {
+        display: none;
+    }
+}
+
+.fade-twenty {
+    opacity: 0.2;
+}
+
+.no-graph-message-wrapper {
+    background: rgba(#fff,0.7);
+    @include border-radius(10px);
+    padding: 20px 20px 20px 20px;
+    margin: 0px auto;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    max-width: 300px;
+
+    @include min-screen($screen_md_min) {
+        max-width: 400px;
+    }
+    @include min-screen($screen_sm_min) {
+        padding: 50px 50px 50px 50px;
+        max-width: 700px;
+    }
+}
+
+.no-graph-message {
+    text-align: center;
+    font-size: 0.6em;
+    @include min-screen($screen_sm_min) {
+        font-size: 0.8em;
+    }
+}
+
+.intersection-label {
+    color: white;
+    padding: 10px 15px;
+    display: inline-block;
+    line-height: $base_line_height * 1.4;
+    z-index: 1;
+    font-weight: $base_font_weight_normal;
+
+    .bold {
+        font-weight: $base_font_weight_semi_bold;
     }
 }
