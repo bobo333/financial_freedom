@@ -1,7 +1,7 @@
 <?php
     function send_success_response() {
         $data = [
-            'success' => true,
+            'success' => TRUE,
             'errors' => []
         ];
         send_json_response($data);

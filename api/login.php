@@ -54,7 +54,7 @@
 
     function check_login_credentials($provided_password, $password_and_salt) {
         if (password_verify($provided_password, $password_and_salt)) {
-            $_SESSION['logged_in'] = true;
+            $_SESSION['logged_in'] = TRUE;
             send_success_response();
         } else {
             $errors = ["Incorrect password."];
@@ -64,7 +64,7 @@
 
     function send_success_response() {
         $data = [
-            'success' => true, 
+            'success' => TRUE, 
             'errors' => []
         ];
         send_json_response($data);
@@ -72,7 +72,7 @@
 
     function send_fail_response($errors) {
         $data = [
-            'success' => false, 
+            'success' => FALSE, 
             'errors' => $errors
         ];
         send_json_response($data);
