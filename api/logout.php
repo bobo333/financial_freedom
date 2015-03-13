@@ -1,15 +1,16 @@
 <?php
+    function send_success_response() {
+        $data = [
+            'success' => true,
+            'errors' => []
+        ];
+        send_json_response($data);
+    }
 
-    $output = array(
-        'success' => True
-    );
-    
-    echo json_encode($output);
+    function send_json_response($response_data) {
+        exit(json_encode($response_data));
+    }
 
     session_start();
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-        echo '<br><br>WAS LOGGED IN';
-        session_destroy();
-    } else {
-        echo '<br><br>ALREADY LOGGED OUT';
-    }
+    session_destroy();
+    send_success_response();
