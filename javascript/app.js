@@ -170,7 +170,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
     $scope.showSteps = false;
-    $scope.isCollapsed = true;
+    $scope.editCollapsed = true;
 
     $scope.incrementOutputValue = function(output_value, increment) {
         if (output_value == 'expenses') {
