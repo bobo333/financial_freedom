@@ -12,4 +12,11 @@ FinancialFreedom.service('DateService', function() {
     this.addDaysToDate = function(date, days) {
         date.setDate(date.getDate() + days);
     };
+
+    this.calculateYearsBetween = function(date1, date2) {
+        var date1_yr = date1.getFullYear();
+        var date2_yr = date2.getFullYear();
+
+        return date2_yr - date1_yr;
+    };
 });

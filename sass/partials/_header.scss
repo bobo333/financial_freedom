@@ -206,3 +206,11 @@ $nav-border-radius: 25px;
 #header-brand-wrapper {
     height: 100%;
 }
+
+.expanded-nav {
+    display: none;
+
+    @include min-screen($screen_sm_min) {
+        display: block;
+    }
+}

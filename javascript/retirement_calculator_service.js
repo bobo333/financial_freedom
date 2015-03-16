@@ -10,7 +10,7 @@ FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'Geo
     var total_assets;
     var monthly_income;
     var monthly_expenses;
-    
+
     this.getMonthlyIncome = function() {
         return monthly_income;
     };

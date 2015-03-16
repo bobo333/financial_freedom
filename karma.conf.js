@@ -21,6 +21,7 @@ module.exports = function(config) {
         'bower_components/angular-animate/angular-animate.min.js',
         'bower_components/angular-route/angular-route.min.js',
         'bower_components/angular-i18n/angular-locale_en-us.js',
+        'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'javascript/custom/ng-currency.js',
         
         // app source files
