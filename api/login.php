@@ -27,7 +27,7 @@
 
         $query = "
             SELECT email, password_and_salt
-            from `users`
+            FROM `users`
             WHERE email=?";
         if ($statement = $db->prepare($query)) {
             $statement->bind_param("s", $email);
@@ -79,6 +79,7 @@
     }
 
     function send_json_response($response_data) {
+        header('Content-Type: application/json');
         exit(json_encode($response_data));
     }
 
