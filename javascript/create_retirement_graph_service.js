@@ -69,7 +69,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         chart.attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.bottom + margin.top)
                 .attr('class','graph-svg');
-            
+
         var xScale = d3.time.scale()
             .domain([cur_date, end_date])
             .range([0, width]);
@@ -138,48 +138,8 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
             var intersection_point_x = xScale(intersection_point.x) - 40;
             var intersection_point_y = yScale(intersection_point.y) - 110;
-            var date = retirement_data.intersection_point.x;
-            var expenses = retirement_data.intersection_point.y;
-            var asset_need = 25 * expenses * 12;
-            asset_need = Math.round(asset_need);
 
-            var triangle_width = 20;
-            var triangle_height = 10;
-            var triangle_start_point_x = 105;
-            var triangle_start_point_y = 110;
-
-
-            var lineData = [ { "x": triangle_start_point_x,   "y": triangle_start_point_y},  { "x": triangle_start_point_x + triangle_width,  "y": triangle_start_point_y},
-                                { "x": triangle_start_point_x + triangle_width / 2 ,  "y": triangle_start_point_y + triangle_height}, { "x": triangle_start_point_x,  "y": triangle_start_point_y}];
-
-            var drawLinesBetweenPoints = d3.svg.line()
-                .x(function(d) { return d.x; })
-                .y(function(d) { return d.y; })
-                .interpolate("linear");
-
-            var intersection_point_label_container = chart.append("g")
-                .data([intersection_point])
-                .attr("class","intersection-label-container")
-                .attr("fill", "#000")
-                .attr("transform", "translate(" + intersection_point_x + ", " + intersection_point_y + ") ");
-
-            var intersection_rectangle = intersection_point_label_container.append("rect")
-                .attr("class", "income-label")
-                .attr("x", 0)
-                .attr("y", 0)
-                .attr("rx", "5px")
-                .attr("ry", "5px")
-                .attr("width", 220)
-                .attr("height", 110);
-
-            intersection_point_label_container.append("svg:foreignObject")
-                .attr("width", 220)
-                .attr("height", 110)
-                .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>" + numberWithCommas(asset_need) + "</b>.</span>");
-
-            intersection_point_label_container.append("path")
-                .attr("d", drawLinesBetweenPoints(lineData))
-                .attr("class", "income-label");
+            drawIntersectionToolTip(chart, intersection_point, intersection_point_x, intersection_point_y);
 
             chart.selectAll('circle')
                 .data([intersection_point])
@@ -202,6 +162,23 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var expenses_label_y = yScale(expenses_label_coords.expenses_label_y);
         var income_label_y = yScale(expenses_label_coords.income_label_y);
 
+        drawExpensesLabel(chart, label_x, expenses_label_y);
+
+        drawIncomeLabel(chart, label_x, income_label_y);
+    }  
+    
+    function addToolTipText(retirement_data) {
+        var date = retirement_data.intersection_point.x;
+        var expenses = retirement_data.intersection_point.y;
+        var asset_need = 25 * expenses * 12;
+        asset_need = Math.round(asset_need);
+
+        return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
+        
+    };
+
+    function drawExpensesLabel(chart, label_x, expenses_label_y) {
+
         var label_container_expenses = chart.append("g")
             .attr("fill","#fff")
             .attr("transform", "translate(" + label_x + ", " + expenses_label_y + ") ");
@@ -220,6 +197,9 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("x", 18)
             .attr("y", 21)
             .text('Monthly expenses');
+    }
+
+    function drawIncomeLabel(chart, label_x, income_label_y) {
 
         var label_container_income = chart.append("g")
             .attr("fill", "#fff")
@@ -239,17 +219,53 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("x", 16)
             .attr("y", 20)
             .text('Monthly passive income');
-    }  
-    
-    function addToolTipText(retirement_data) {
-        var date = retirement_data.intersection_point.x;
-        var expenses = retirement_data.intersection_point.y;
+    }
+            
+    function drawIntersectionToolTip(chart, intersection_point, intersection_point_x, intersection_point_y) {
+        
+        var date = intersection_point.x;
+        var expenses = intersection_point.y;
         var asset_need = 25 * expenses * 12;
         asset_need = Math.round(asset_need);
 
-        return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
-        
-    };
+        var triangle_width = 20;
+        var triangle_height = 10;
+        var triangle_start_point_x = 105;
+        var triangle_start_point_y = 110;
+
+
+        var lineData = [ { "x": triangle_start_point_x,   "y": triangle_start_point_y},  { "x": triangle_start_point_x + triangle_width,  "y": triangle_start_point_y},
+                            { "x": triangle_start_point_x + triangle_width / 2 ,  "y": triangle_start_point_y + triangle_height}, { "x": triangle_start_point_x,  "y": triangle_start_point_y}];
+
+        var drawLinesBetweenPoints = d3.svg.line()
+            .x(function(d) { return d.x; })
+            .y(function(d) { return d.y; })
+            .interpolate("linear");
+
+        var intersection_point_label_container = chart.append("g")
+            .data([intersection_point])
+            .attr("class","intersection-label-container")
+            .attr("fill", "#000")
+            .attr("transform", "translate(" + intersection_point_x + ", " + intersection_point_y + ") ");
+
+        var intersection_rectangle = intersection_point_label_container.append("rect")
+            .attr("class", "income-label")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("rx", "5px")
+            .attr("ry", "5px")
+            .attr("width", 220)
+            .attr("height", 110);
+
+        intersection_point_label_container.append("svg:foreignObject")
+            .attr("width", 220)
+            .attr("height", 110)
+            .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>" + numberWithCommas(asset_need) + "</b>.</span>");
+
+        intersection_point_label_container.append("path")
+            .attr("d", drawLinesBetweenPoints(lineData))
+            .attr("class", "income-label");
+    }
         
     function numberWithCommas(x) {
         var parts = x.toString().split(".");

@@ -209,8 +209,6 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
     });
 
-    $(".assumptions-toggle").attr("tooltip","some tooltip text");
-
     $scope.income = RetirementCalculatorService.getMonthlyIncome();
     $scope.assets = RetirementCalculatorService.getTotalAssets();
     $scope.expenses = RetirementCalculatorService.getMonthlyExpenses();
