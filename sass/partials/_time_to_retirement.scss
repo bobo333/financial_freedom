@@ -14,35 +14,21 @@ $expenses-field-height: 60px;
 $form-control-height: 50px;
 $control-button-border: 1px solid rgba($dark_green,0.1);
 $control-button-hover: #D6E8E5;
+$control-button-background: rgba($control-button-hover, 0.3);
 
 #graph-wrapper {
 
-    .tooltip {
+    .intersection-label-container {
+        position: absolute;
         z-index: 1;
-        &.in {
-            opacity: 1;
-        }
-        
-        .bold {
-            font-weight: $base_font_weight_semi_bold;
-        }
-        
-        .tooltip-arrow {
-            border-top-color: $tooltip_bg;
-        };
-        
-        .tooltip-inner {
-            text-align: left;
-            background: $tooltip_bg;
-            font-size: 14px;
-            padding: 10px;
-            line-height: 1.3em;
-        }
-
     }
 
     #retirement-graph {
         font-size: 16px;
+
+        .graph-svg {
+            overflow: visible;
+        }
 
         .expense-line, .withdraw-line {
             stroke-width: 2;
@@ -88,6 +74,7 @@ $control-button-hover: #D6E8E5;
         .curve-label {
             font-weight: $base_font_weight_semi_bold;
             font-size: 0.9em;
+            max-width: 100px;
         }
         
     }
@@ -173,10 +160,15 @@ $control-button-hover: #D6E8E5;
 .assumptions-controls-wrapper {
 
     margin-top: 70px;
-    margin-bottom: 40px;
 
     @include min-screen($screen_sm_min) {
         margin-top: 20px;
+    }
+}
+
+.assumptions-controls-wrapper {
+    .form-control {
+        max-width: 200px;
     }
 }
 
@@ -192,7 +184,7 @@ $control-button-hover: #D6E8E5;
 
 .graph-section {
     margin: 0px auto 0px auto;
-    background: #F4FBFA;
+    background: $light_bg_green;
     padding-bottom: 0px;
 }
 
@@ -211,7 +203,7 @@ $control-button-hover: #D6E8E5;
 .output-info-icon {
     color: rgba($dark_green,0.4);
     display: block;
-    margin: 5px auto auto auto;
+    margin: 10px auto auto auto;
     font-size: $base_font_size * 1.5;
     @include hover-animation(all);
     width: 20px;
@@ -227,15 +219,16 @@ $control-button-hover: #D6E8E5;
 
 #explain-text {
     font-size: $base_font_size;
-    margin-left: 75px;
-    margin-top: 30px;
+    
+    @include min-screen($screen_sm_min) {
+        margin-left: 75px;
+    }
 }
 
 input[type="text"].form-control {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
-    width: 100%;
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
@@ -280,23 +273,29 @@ input[type="text"].form-control {
     display: block;
     margin: auto auto;
     height: $control-button-height;
-    width: $control-button-height * 3;
-    font-size: 1.5em;
+    width: $control-button-height * 2.25;
+    font-size: 1.2em;
     padding: 0 0;
     outline: none !important;
-    background: rgba($control-button-hover, 0.3);
+    background: $control-button-background;
     color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
     border: $control-button-border;
 
-    &:focus {
-        background: #F4FBFA;
+    &:focus, &:visited {
+        background: $control-button-background;
         outline: none !important;
+        border: $control-button-border;
     }
 
     &:hover {
         background: $control-button-hover;
+    }
+
+    @include min-screen($screen_sm_min) {
+        height: $control-button-height;
+        width: $control-button-height * 3;
     }
 }
 
@@ -321,7 +320,6 @@ input[type="text"].form-control {
     &:hover {
         border: $control-button-border;
         border-top: none;
-
     }
 }
 
@@ -344,9 +342,10 @@ input[type="text"].form-control {
 
 .edit-link {
     display: inline-block;
-    float: right;
+    margin-left: 10px;
     color: $dark_green;
     font-weight: $base_font_weight_semi_bold;
+    font-size: 0.9em;
 
     &:hover {
         cursor: pointer;
@@ -354,7 +353,7 @@ input[type="text"].form-control {
 }
 
 .assumptions-section {
-    margin-top: 20px;
+    margin: 20px auto;
     position: relative;
 }
 
@@ -367,35 +366,27 @@ input[type="text"].form-control {
     }
 }
 
-.assumptionseditable {
-    input[type="text"].form-control {
-        width: 100px;
-        font-size: $base_font_size * 1.5;
+.assumptions-toggle {
+    margin: 20px auto auto 0px;
+    background: $control-button-background;
+    color: $dark_green;
+    display: block;
+    border: $control-button-border;
+    @include hover-animation(all);
+
+    &:focus, &:visited {
+        background: $control-button-background;
+        outline: none !important;
+        border: $control-button-border;
     }
-    @extend .controls-row;
 
-    margin-top: 50px;
-
+    &:hover {
+        background: $control-button-hover;
+        border: $control-button-border;
+    }
     @include min-screen($screen_sm_min) {
-        margin-top: 20px;
-    }
-}
-
-.assumptionsnoteditable {
-    .control-change-button {
-        display: none;
-    }
-
-    .control-label {
-        margin-top: 0px;
-    }
-
-    input[type="text"].form-control {
-        border: 0;
-        background: inherit;
-        &:hover {
-            cursor: text;
-        }
+        display: inline-block;
+        margin: 0px auto auto 20px;
     }
 }
 
@@ -589,10 +580,6 @@ input[type="text"].form-control {
     }
 }
 
-.fade-twenty {
-    opacity: 0.2;
-}
-
 .no-graph-message-wrapper {
     background: rgba(#fff,0.7);
     @include border-radius(10px);
@@ -621,3 +608,15 @@ input[type="text"].form-control {
     }
 }
 
+.intersection-label {
+    color: white;
+    padding: 15px 15px;
+    display: inline-block;
+    line-height: $base_line_height * 1.2;
+    z-index: 1;
+    font-weight: $base_font_weight_normal;
+
+    .bold {
+        font-weight: $base_font_weight_semi_bold;
+    }
+}

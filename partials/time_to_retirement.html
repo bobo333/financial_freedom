@@ -1,273 +1,260 @@
-<div>
-    <div class="container-fluid output-top-section">
-        <div class="row can-retire" ng-show="retirement.graph_shown">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 retirement-main-output">
-                <div class="big-number-bg">
-                    <div class="big-number-wrapper">
-                        <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
-                        <div class="retirement-time-units">years</div>
-                        <div class="months-line" ng-show="retirement.years_to_retirement < 5">
-                            <span class="" ng-bind="retirement.months_to_retirement"></span> months
-                        </div>
+<div class="container-fluid output-top-section">
+    <div class="row can-retire" ng-show="retirement.graph_shown">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 retirement-main-output">
+            <div class="big-number-bg">
+                <div class="big-number-wrapper">
+                    <div class="retirement-years" ng-bind="retirement.years_to_retirement"></div>
+                    <div class="retirement-time-units">years</div>
+                    <div class="months-line" ng-show="retirement.years_to_retirement < 5">
+                        <span class="" ng-bind="retirement.months_to_retirement"></span> months
                     </div>
                 </div>
-                <div class="until-fi">until financial independence</div>
             </div>
-        </div>
-        <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.never_retire_shown">
-        	<div class="big-number-bg">
-                <div class="big-number-wrapper">
-                	<i class="fa fa-remove icon-answer"></i>
-                </div>
-         	</div>
-            <div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a>
-            </div>
-        </div>
-        <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
-        	<div class="big-number-bg">
-                <div class="big-number-wrapper">
-                	<i class="fa fa-check icon-answer"></i>
-                </div>
-         	</div>
-            <div class="until-fi">You're already financially independent.</div>
+            <div class="until-fi">until financial independence</div>
         </div>
     </div>
-    <div class="container-fluid output-controls-section">
-        <div class="row">
-            <div class="graph-section supporting-content col-xs-12">
-                <div class="supporting-content-wrapper">
-                    <div class="col-md-8" id="graph-wrapper">
-                        <div id="retirement-graph" ng-class="{'fade-twenty': !retirement.graph_shown}">
+    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.never_retire_shown">
+    	<div class="big-number-bg">
+            <div class="big-number-wrapper">
+            	<i class="fa fa-remove icon-answer"></i>
+            </div>
+     	</div>
+        <div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a>
+        </div>
+    </div>
+    <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
+    	<div class="big-number-bg">
+            <div class="big-number-wrapper">
+            	<i class="fa fa-check icon-answer"></i>
+            </div>
+     	</div>
+        <div class="until-fi">You're already financially independent.</div>
+    </div>
+</div>
+<div class="container-fluid output-controls-section">
+    <div class="row">
+        <div class="graph-section supporting-content col-xs-12">
+            <div class="col-md-8" id="graph-wrapper">
+                <div id="retirement-graph"></div>
+            </div>
+            <div class="output-control-container col-xs-12 col-md-4">
+                <div id="expenses-control" class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
+                    <div>
+                    	<div>
+				        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', 100)"></button>
+				        </div>
+				        <div>
+				        	<span class="dollar-ouput-label-exp">$</span>
+                        	<input ng-currency type="text" id="expenses-field" class="form-control" ng-model="expenses" ng-model-options="{ debounce: 700 }"/>
                         </div>
-                        <div class="no-graph-message-wrapper" ng-hide="retirement.graph_shown">
-                            <div ng-show="retirement.never_retire_shown" class="no-graph-message">Adjust what you entered for monthly expenses or income to see the cash flow necessary for eventual financial independence, and we'll show that path here.
-                            </div>
-                            <div ng-show="retirement.already_retired_shown" class="no-graph-message">Your average passive income has already safely exceeded your average expenses, <a href="#/about">according to our model</a>.
-                            </div>
+                        <div>
+                        	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', -100)"></button>
                         </div>
-                        <div class="xaxis-label label-under">Years from now</div>
-                        <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a></div>
                     </div>
+                    <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" popover="Your current monthly expenses" popover-animation="true" popover-trigger="mouseenter" popover-placement="bottom" ></i></div>
+                </div>
 
-                    <div class="output-control-container col-xs-12 col-md-4">
-                        <div id="expenses-control" class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
+                <div class="controls-row col-xs-12">
+                    <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
+                        <div>
                             <div>
-                            	<div>
-						        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', 100)"></button>
-						        </div>
-						        <div>
-						        	<span class="dollar-ouput-label-exp">$</span>
-                                	<input ng-currency type="text" id="expenses-field" class="form-control" ng-model="expenses" ng-model-options="{ debounce: 700 }"/>
-                                </div>
-                                <div>
-                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', -100)"></button>
-                                </div>
+				        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('income', 100)"></button>
+				        	</div>
+				        	<div>
+					        	<span class="dollar-ouput-label">$</span>
+                                <input ng-currency type="text" class="form-control secondary-output-field income-field" ng-model="income" ng-model-options="{ debounce: 700 }">
                             </div>
-                            <div class="control-label">Expenses<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly expenses" data-placement="bottom"></i></div>
+                            <div>
+                        		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('income', -100)"></button>
+                        	</div>
                         </div>
+                        <div class="control-label">Income<i class="fa fa-question-circle output-info-icon" popover="Your current monthly after-tax income" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
+                    </div>
 
-                        <div class="controls-row col-xs-12">
-                            <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
-                                <div>
-                                    <div>
-						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('income', 100)"></button>
-						        	</div>
-						        	<div>
-							        	<span class="dollar-ouput-label">$</span>
-	                                    <input ng-currency type="text" class="form-control secondary-output-field income-field" ng-model="income" ng-model-options="{ debounce: 700 }">
-	                                </div>
-                                    <div>
-                                		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('income', -100)"></button>
-                                	</div>
-                                </div>
-                                <div class="control-label">Income<i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current monthly after-tax income" data-placement="bottom"></i></div>
+                    <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
+                        <div>
+                            <div>
+				        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('assets', 1000)"></button>
+				        	</div>
+				        	<div>
+					        	<span class="dollar-ouput-label">$</span>
+                                <input ng-currency type="text" class="form-control assets-field secondary-output-field" ng-model="assets" ng-model-options="{ debounce: 700 }">
                             </div>
-
-                            <div class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-5 col-md-offset-1">
-                                <div>
-                                    <div>
-						        		<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('assets', 1000)"></button>
-						        	</div>
-						        	<div>
-							        	<span class="dollar-ouput-label">$</span>
-	                                    <input ng-currency type="text" class="form-control assets-field secondary-output-field" ng-model="assets" ng-model-options="{ debounce: 700 }">
-	                                </div>
-                                    <div>
-                                		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('assets', -1000)"></button>
-                                	</div>
-                                </div>
-                                <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your current total assets" data-placement="bottom"></i></div>
-                            </div>
+                            <div>
+                        		<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('assets', -1000)"></button>
+                        	</div>
                         </div>
-                        <div class="assumptions-section col-xs-12">
-                        	<div id="assumptions-border-top"></div>
-                            <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1 assumptions-title-wrapper">
-                                <span class="assumptions-title">Assumptions</span>
-                                <span class="edit-link" ng-click="penClicked = !penClicked" ng-show="!penClicked">Edit</span>
-                            </div>
-                            <div class="col-md-12 assumptions-controls-wrapper" ng-class="{ assumptionseditable: penClicked, assumptionsnoteditable: !penClicked }">
-                                <div class="input-control col-md-4">
-                                    <div>
-							        	<div>
-						        			<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', 0.001)"></button>
-						        		</div>
-                                        <div><input type="text" percent class="form-control expenses-field assum-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked"></div>
-                                        <div class="">
-									        <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', -0.001)"></button>
-									    </div>
-                                    </div>
-                                    <div class="control-label">Income <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" data-placement="top"></i></div>
+                        <div class="control-label">Assets <i class="fa fa-question-circle output-info-icon" popover="Your current total assets" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-xs-12 assumptions-section">
+                <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a>
+                    <span class="assumptions-title-wrapper">
+                        <button type="button" class="btn btn-default assumptions-toggle" ng-click="editCollapsed = !editCollapsed"><span ng-show="editCollapsed">Show</span><span ng-show="!editCollapsed">Hide</span> assumptions</button>
+                    </span>
+                </div>
+                <div collapse="editCollapsed">
+                    <div class="assumptions-controls-wrapper">
+                        <div class="input-control col-md-4">
+                            <div>
+                                <div>
+                                    <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', 0.001)"></button>
                                 </div>
-                                <div class="input-control col-md-4">
-                                    <div>
-                                        <div>
-								        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', 0.001)"></button>
-								        </div>
-                                        <input type="text" percent class="form-control expenses-field assum-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
-                                        <div>
-		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', -0.001)"></button>
-		                                </div>
-                                    </div>
-                                    <div class="control-label">Expenses <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual increase in your expenses. We assumed your current expenses would increase with inflation" data-placement="top"></i></div>
-                                </div>
-                                <div class="input-control col-md-4">
-                                    <div>
-                                        <div>
-								        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('growth', 0.001)"></button>
-								        </div>
-                                        <input type="text" percent class="form-control expenses-field assum-field" ng-model="growth" ng-model-options="{ debounce: 700 }" ng-disabled="!penClicked">
-                                        <div>
-		                                	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
-		                                </div>
-                                    </div>
-                                    <div class="control-label">Assets <br>growth rate <i class="fa fa-question-circle output-info-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" data-placement="left"></i></div>
+                                <div><input type="text" percent class="form-control expenses-field" ng-model="incomeincrease" ng-model-options="{ debounce: 700 }"></div>
+                                <div class="">
+                                    <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('incomeincrease', -0.001)"></button>
                                 </div>
                             </div>
+                            <div class="control-label">Income growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual increase in your income. We assume an inflation rate of 3.5%, and a non-inflation increase of 1.5%, which is an estimate based on historical U.S. data" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
+                        </div>
+                        <div class="input-control col-md-4">
+                            <div>
+                                <div>
+                                    <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', 0.001)"></button>
+                                </div>
+                                <input type="text" percent class="form-control expenses-field" ng-model="expensesincrease" ng-model-options="{ debounce: 700 }">
+                                <div>
+                                    <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expensesincrease', -0.001)"></button>
+                                </div>
+                            </div>
+                            <div class="control-label">Expenses growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual increase in your expenses. We assumed your current expenses would increase with inflation" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
+                        </div>
+                        <div class="input-control col-md-4">
+                            <div>
+                                <div>
+                                    <button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('growth', 0.001)"></button>
+                                </div>
+                                <input type="text" percent class="form-control expenses-field" ng-model="growth" ng-model-options="{ debounce: 700 }">
+                                <div>
+                                    <button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('growth', -0.001)"></button>
+                                </div>
+                            </div>
+                            <div class="control-label">Assets growth rate <i class="fa fa-question-circle output-info-icon" popover="Annual growth of your assets. We assume assets are invested in stock index funds, which historically appreciate at 7-12%, which includes a 3.5% inflation rate" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-    	<div class="container-fluid actions-section">
-    		<div class="row">
-    			<div class="actions-section-title col-xs-12">
-		    		Reach financial independence sooner
-		    	</div>
-    			<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-6  col-md-8 col-md-offset-2">
-    				<div class="row">
-		    			<div class="actions-container expenses-actions-container col-xs-12">
-		    				<div class="actions-container-title col-xs-12">
-		    					<div class="action-title">Reduce expenses</div>
-		    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Your savings rate is <span class="suggested-amount-value">{{savingsRate | number:0}}%</span></div>
-		    				</div>
-		    				<a href="http://www.mrmoneymustache.com/2012/05/07/what-do-you-mean-you-dont-have-a-bike/" target="_blank">
-			    				<div class="action-card-container expenses-card col-md-3" id="bicycling">
-			    					<div class="action-card">
-			    						<img src="img/bike-unsplash-crop.jpg">
-			    						<div class="action-label-wrapper">
-			    							<div class="action-label">Bike instead of drive</div>
-			    						</div>
-			    					</div>
-			    				</div>
-			    			</a>
-			    			<a href="http://www.amazon.com/gp/product/0547884591/" target="_blank">
-			    				<div class="action-card-container expenses-card col-md-3" id="cooking">
-			    					<div class="action-card">
-			    						<img src="img/austrian_breakfast.jpg">
-			    						<div class="action-label-wrapper">
-			    							<div class="action-label">Cook</div>
-			    						</div>
-			    					</div>
-			    				</div>
-			    			</a>
-			    			<a href="http://www.amazon.com/gp/product/B00DR0PDNE/" target="_blank">
-			    				<div class="action-card-container expenses-card col-md-3">
-			    					<div class="action-card">
-			    						<img src="img/chromecast.jpeg">
-			    						<div class="action-label-wrapper">
-			    							<div class="action-label">Cut cable</div>
-			    						</div>
-			    					</div>
-			    				</div>
-			    			</a>
-			    			<a href="http://www.amazon.com/gp/product/1589235673/" target="_blank">
-			    				<div class="action-card-container expenses-card col-md-3">
-			    					<div class="action-card">
-			    						<img src="img/hammering.jpeg">
-			    						<div class="action-label-wrapper">
-			    							<div class="action-label">Learn to love DIY</div>
-			    						</div>
-			    					</div>
-			    				</div>
-			    			</a>
-		    			</div>
-		    		</div>
-	    		</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-6  col-md-8 col-md-offset-2">
-    				<div class="row">
-		    			<div class="actions-container assets-actions-container col-xs-12 col-md-6">
-		    				<div class="actions-container-title col-xs-12">
-		    					<div class="action-title">Grow assets smartly</div>
-		    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle actions-help-icon" data-toggle="popover" data-trigger="click hover" data-container="body" data-content="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income." data-placement="top"></i></div>
-		    				</div>
-		    				<a href="https://www.betterment.com/" target="_blank">
-			    				<div class="action-card-container assets-card col-md-6" id="roboadvisor">
-			    					<div class="action-card">
-				    					<img src="img/betterment.png">
-				    					<div class="action-label-wrapper">
-				    						<div class="action-label">Invest automatically</div>
-				    					</div>
-				    				</div>
-			    				</div>
-			    			</a>
-			    			<a href="https://investor.vanguard.com/home/" target="_blank">
-			    				<div class="action-card-container assets-card col-md-6" id="learn-about">
-			    					<div class="action-card">
-				    					<img src="img/vanguard.png">
-				    					<div class="action-label-wrapper">
-				    						<div class="action-label">Invest with low fees</div>
-				    					</div>
-				    				</div>
-			    				</div>
-			    			</a>
-		    			</div>
-		    			<div class="actions-container income-actions-container col-xs-12 col-md-3" target="_blank">
-		    				<div class="actions-container-title col-xs-12">
-		    					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Raise income</div>
-		    				</div>
-		    				<a href="http://www.iwillteachyoutoberich.com/blog/salary-negotiation-earning-more/">
-			    				<div class="action-card-container income-card col-md-12" id="drive">
-			    					<div class="action-card">
-				    					<img src="img/negotiate.png">
-				    					<div class="action-label-wrapper">
-				    						<div class="action-label">Negotiate a raise</div>
-				    					</div>
-				    				</div>
-			    				</div>
-			    			</a>
-		    			</div>
-		    			<div class="actions-container debts-actions-container col-xs-12 col-md-3" target="_blank">
-		    				<div class="actions-container-title col-xs-12">
-		    					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Reduce debt</div>
-		    				</div>
-		    				<a href="http://unbury.me/">
-			    				<div class="action-card-container debts-card col-md-12" id="which-loans">
-			    					<div class="action-card">
-				    					<img src="img/creditcards.jpeg">
-				    					<div class="action-label-wrapper">
-				    						<div class="action-label">Eliminate high interest</div>
-				    					</div>
-				    				</div>
-			    				</div>
-			    			</a>
-		    			</div>
-		    		</div>
-	    		</div>
-    		</div>
+</div>
+
+<div class="container-fluid actions-section">
+	<div class="row">
+		<div class="actions-section-title col-xs-12">
+    		Reach financial independence sooner
     	</div>
-    </div>
+		<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-6  col-md-8 col-md-offset-2">
+			<div class="row">
+    			<div class="actions-container expenses-actions-container col-xs-12">
+    				<div class="actions-container-title col-xs-12">
+    					<div class="action-title">Reduce expenses</div>
+    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Your saving rate is <span class="suggested-amount-value">{{savingsRate | number:0}}%</span></div>
+    				</div>
+    				<a href="http://www.mrmoneymustache.com/2012/05/07/what-do-you-mean-you-dont-have-a-bike/" target="_blank">
+	    				<div class="action-card-container expenses-card col-md-3" id="bicycling">
+	    					<div class="action-card">
+	    						<img src="img/bike-unsplash-crop.jpg">
+	    						<div class="action-label-wrapper">
+	    							<div class="action-label">Bike instead of drive</div>
+	    						</div>
+	    					</div>
+	    				</div>
+	    			</a>
+	    			<a href="http://www.amazon.com/gp/product/0547884591/" target="_blank">
+	    				<div class="action-card-container expenses-card col-md-3" id="cooking">
+	    					<div class="action-card">
+	    						<img src="img/austrian_breakfast.jpg">
+	    						<div class="action-label-wrapper">
+	    							<div class="action-label">Cook</div>
+	    						</div>
+	    					</div>
+	    				</div>
+	    			</a>
+	    			<a href="http://www.amazon.com/gp/product/B00DR0PDNE/" target="_blank">
+	    				<div class="action-card-container expenses-card col-md-3">
+	    					<div class="action-card">
+	    						<img src="img/chromecast.jpeg">
+	    						<div class="action-label-wrapper">
+	    							<div class="action-label">Cut cable</div>
+	    						</div>
+	    					</div>
+	    				</div>
+	    			</a>
+	    			<a href="http://www.amazon.com/gp/product/1589235673/" target="_blank">
+	    				<div class="action-card-container expenses-card col-md-3">
+	    					<div class="action-card">
+	    						<img src="img/hammering.jpeg">
+	    						<div class="action-label-wrapper">
+	    							<div class="action-label">Learn to love DIY</div>
+	    						</div>
+	    					</div>
+	    				</div>
+	    			</a>
+    			</div>
+    		</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-6  col-md-8 col-md-offset-2">
+			<div class="row">
+    			<div class="actions-container assets-actions-container col-xs-12 col-md-6">
+    				<div class="actions-container-title col-xs-12">
+    					<div class="action-title">Grow assets smartly</div>
+    					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle actions-help-icon" popover="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
+    				</div>
+    				<a href="https://www.betterment.com/" target="_blank">
+	    				<div class="action-card-container assets-card col-md-6" id="roboadvisor">
+	    					<div class="action-card">
+		    					<img src="img/betterment.png">
+		    					<div class="action-label-wrapper">
+		    						<div class="action-label">Invest automatically</div>
+		    					</div>
+		    				</div>
+	    				</div>
+	    			</a>
+	    			<a href="https://investor.vanguard.com/home/" target="_blank">
+	    				<div class="action-card-container assets-card col-md-6" id="learn-about">
+	    					<div class="action-card">
+		    					<img src="img/vanguard.png">
+		    					<div class="action-label-wrapper">
+		    						<div class="action-label">Invest with low fees</div>
+		    					</div>
+		    				</div>
+	    				</div>
+	    			</a>
+    			</div>
+    			<div class="actions-container income-actions-container col-xs-12 col-md-3" target="_blank">
+    				<div class="actions-container-title col-xs-12">
+    					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Raise income</div>
+    				</div>
+    				<a href="http://www.iwillteachyoutoberich.com/blog/salary-negotiation-earning-more/">
+	    				<div class="action-card-container income-card col-md-12" id="drive">
+	    					<div class="action-card">
+		    					<img src="img/negotiate.png">
+		    					<div class="action-label-wrapper">
+		    						<div class="action-label">Negotiate a raise</div>
+		    					</div>
+		    				</div>
+	    				</div>
+	    			</a>
+    			</div>
+    			<div class="actions-container debts-actions-container col-xs-12 col-md-3" target="_blank">
+    				<div class="actions-container-title col-xs-12">
+    					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Reduce debt</div>
+    				</div>
+    				<a href="http://unbury.me/">
+	    				<div class="action-card-container debts-card col-md-12" id="which-loans">
+	    					<div class="action-card">
+		    					<img src="img/creditcards.jpeg">
+		    					<div class="action-label-wrapper">
+		    						<div class="action-label">Eliminate high interest</div>
+		    					</div>
+		    				</div>
+	    				</div>
+	    			</a>
+    			</div>
+    		</div>
+		</div>
+	</div>
 </div>

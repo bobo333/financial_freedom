@@ -1,4 +1,4 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate','ui.bootstrap']);
 
 FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -56,6 +56,9 @@ FinancialFreedom.controller('IntroController', ['$scope', '$location',  function
 }]);
 
 FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
+
+    $scope.isCollapsed = true;
+
     $scope.isActive = function(route) {
         return route == $location.path();
     };
@@ -166,12 +169,8 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'Retirement
     
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
-    $(function () {
-        $('[data-toggle="popover"]').popover();
-    });
-
     $scope.showSteps = false;
-    $scope.penClicked = false;
+    $scope.editCollapsed = true;
 
     $scope.incrementOutputValue = function(output_value, increment) {
         if (output_value == 'expenses') {

@@ -1,10 +1,9 @@
 // Header
 
-$nav-hover-color: #25A793;
 
 // Colors
-$header_gradient_bottom: #276036;
-$header_gradient_top: #1E8E3B;
+$nav-hover-color: #25A793;
+$nav-font-color: white;
 $tab_wrapper_bg: rgba(0,0,0,.1);
 $active_tab_color: rgba($dark_green,0.6);
 $title_color: #404040;
@@ -35,11 +34,6 @@ $nav-border-radius: 25px;
     }
 }
 
-#header-accent {
-    height: 4px;
-    background: $header_gradient_top;
-}
-
 
 .logo-name-wrapper {
     height: 100%;
@@ -51,7 +45,7 @@ $nav-border-radius: 25px;
     font-family: $brand_font_family;
 	font-size: 1.5em;
 	font-weight: $brand_font_weight_bold;
-    color: $primary_green;
+    color: $nav-font-color;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
     @include hover-animation(color);
     a, a:hover {
@@ -59,7 +53,7 @@ $nav-border-radius: 25px;
     }
 
     &:hover {
-        color: $primary_green;
+        color: $nav-font-color;
         cursor: pointer;
     }
 
@@ -160,10 +154,10 @@ $nav-border-radius: 25px;
         .nav-item-custom {
             cursor: pointer;
             @include hover-animation(all);
-            color: rgba($primary_green, 0.7);
+            color: rgba($nav-font-color, 0.7);
 
             &:hover {
-                background: rgba($primary_green, 1);
+                background: rgba($nav-font-color, 1);
             }
         }
     }
@@ -182,13 +176,14 @@ $nav-border-radius: 25px;
 }
 
 .navbar-default {
-    color: $primary_green;
+    color: white;
+    background: $primary_green;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: rgba($primary_green, 0.7); // override Bootstrap
+    color: rgba($nav-font-color, 0.7); // override Bootstrap
     &:hover {
-        color: rgba($primary_green, 1);
+        color: rgba($nav-font-color, 1);
     }
 }
 
@@ -205,4 +200,12 @@ $nav-border-radius: 25px;
 
 #header-brand-wrapper {
     height: 100%;
+}
+
+.expanded-nav {
+    display: none;
+
+    @include min-screen($screen_sm_min) {
+        display: block;
+    }
 }
