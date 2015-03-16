@@ -17,6 +17,10 @@ $nav-border-radius: 25px;
     margin-top: 20px 0px 20px 0px;
 }
 
+.nav {
+    margin-top: 3px;
+}
+
 .navbar-custom {
     font-family: $base_font_family;
     color: rgba($primary_green, 0.7);
@@ -39,6 +43,8 @@ $nav-border-radius: 25px;
     height: 100%;
     position: relative;
     display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
 }
 
 .logo-name {
@@ -167,11 +173,12 @@ $nav-border-radius: 25px;
     width: 45px;
     display: inline-block;
     cursor: pointer;
+    vertical-align: top;
     margin-right: 10px;
+    margin-top: -2px;
 
     @include min-screen($screen_sm_min) {
         width: 65px;
-        margin-right: 20px;
     }
 }
 
