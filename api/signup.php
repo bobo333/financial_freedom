@@ -1,5 +1,4 @@
 <?php
-    # only allow post
     function only_allow_post() {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             http_response_code(403);
@@ -7,10 +6,29 @@
         }
     }
 
-    # check if logged in
+    function check_params($request, $required_params) {
+        $errors = [];
+        foreach ($required_params as $param) {
+            if (!isset($request[$param])) {
+                $error_message = $param . " required.";
+                $errors[] = $error_message;
+            }
+        }
+        if (count($errors) > 0) {
+            send_fail_response($errors);
+        }
+    }
+
     function check_logged_in() {
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             $errors = ['User already logged in.'];
+            send_fail_response($errors);
+        }
+    }
+
+    function check_valid_email($email) {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors = ['Invalid email.'];
             send_fail_response($errors);
         }
     }
@@ -22,7 +40,6 @@
         }
     }
 
-    # check if email in db
     function check_email_in_db($email) {
         $db = new mysqli('localhost', 'root', '', 'financial_freedom');
         if ($db->connect_errno > 0) {
@@ -30,15 +47,18 @@
         }
 
         $query = "
-            SELECT email
+            SELECT COUNT(id)
             FROM `users`
             WHERE email=?";
+
         if ($statement = $db->prepare($query)) {
             $statement->bind_param("s", $email);
             $statement->execute();
-            $statement->store_result();
+            $statement->bind_result($count);
+            $statement->fetch();
+            $statement->close();
 
-            if ($statement->num_rows > 0) {
+            if (intval($count) > 0) {
                 return TRUE;
             } else {
                 return FALSE;
@@ -46,20 +66,36 @@
         }
     }
 
-    # check if password meets requirements
-    # check other params are present
-        # monthly income
-        # total assets
-        # monthly expenses
-        # income growth rate
-        # investment growth rate
-        # expense growth rate
+    function check_password_length($password) {
+        if (strlen($password) < 6) {
+            $errors = ['Password must be at least 6 characters long.'];
+            send_fail_response($errors);
+        }
+    }
 
-    # create account and log user in
-    # return success true
+    function hash_password($password) {
+        return password_hash($password, PASSWORD_BCRYPT);
+    }
 
+    function create_new_account($email, $hashed_pw) {
+        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        if ($db->connect_errno > 0) {
+            die ('Unable to connect to database [' . $db->connect_error . ']');
+        }
 
+        $query = "
+            INSERT INTO `users`
+            (email, password_and_salt) VALUES (?, ?)";
+        if ($statement = $db->prepare($query)) {
+            $statement->bind_param("ss", $email, $hashed_pw);
+            $statement->execute();
+            $statement->close();
+        }
+    }
 
+    function login() {
+        $_SESSION['logged_in'] = TRUE;
+    }
 
     function send_fail_response($errors) {
         $data = [
@@ -69,12 +105,34 @@
         send_json_response($data);
     }
 
+    function send_success_response() {
+        $data = [
+            'success' => TRUE, 
+            'errors' => []
+        ];
+        send_json_response($data);
+    }
+
     function send_json_response($response_data) {
         header('Content-Type: application/json');
         exit(json_encode($response_data));
     }
 
+    session_start();
     only_allow_post();
+    check_logged_in();
+    
+    $signup_params = ['email', 'password'];
+    check_params($_POST, $signup_params);
 
     $email = $_POST['email'];
-    $email_used = check_email_used($email);
+    check_valid_email($email);
+    check_email_used($email);
+
+    $password = $_POST['password'];
+    check_password_length($password);
+    $hashed_pw = hash_password($password);
+
+    create_new_account($email, $hashed_pw);
+    login();
+    send_success_response();
