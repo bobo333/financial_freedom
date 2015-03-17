@@ -42,7 +42,7 @@
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                            <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>

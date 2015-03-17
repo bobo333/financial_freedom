@@ -44,7 +44,11 @@ $nav-border-radius: 25px;
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin-top: 3px;
+    margin-top: -1px;
+
+    @include min-screen($screen_sm_min) {
+        margin-top: 3px;    
+    }
 }
 
 .logo-name {
@@ -195,7 +199,6 @@ $nav-border-radius: 25px;
 }
 
 .collapse {
-    background: white;
 }
 
 .navbar-brand {
@@ -215,4 +218,28 @@ $nav-border-radius: 25px;
     @include min-screen($screen_sm_min) {
         display: block;
     }
+}
+
+#navbar-toggle-custom {
+    
+    &:visited {
+        background-color: rgba(white, 0.3);
+        border-color: white;
+    }
+    &:active {
+        background-color: rgba(white, 0.3);
+        border-color: white;
+    }
+    &:focus {
+        background-color: rgba(white, 0);
+        border-color: white;
+    }
+    &:hover {
+        background-color: rgba(white, 0.3);
+        border-color: white;
+    }
+}
+
+.icon-bar {
+     background-color: white !important;
 }
