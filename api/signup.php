@@ -93,8 +93,29 @@
         }
     }
 
-    function login() {
+    function get_account_id($email) {
+        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        if ($db->connect_errno > 0) {
+            die ('Unable to connect to database [' . $db->connect_error . ']');
+        }
+
+        $query = "
+            SELECT id
+            FROM `users`
+            WHERE email=?";
+        if ($statement = $db->prepare($query)) {
+            $statement->bind_param("s", $email);
+            $statement->bind_result($id);
+            $statement->execute();
+            $statement->fetch();
+            $statement->close();
+            return $id;
+        }
+    }
+
+    function login($account_id) {
         $_SESSION['logged_in'] = TRUE;
+        $_SESSION['user_id'] = $account_id;
     }
 
     function send_fail_response($errors) {
@@ -134,5 +155,6 @@
     $hashed_pw = hash_password($password);
 
     create_new_account($email, $hashed_pw);
-    login();
+    $account_id = get_account_id($email);
+    login($account_id);
     send_success_response();

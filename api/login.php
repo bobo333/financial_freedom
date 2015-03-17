@@ -26,13 +26,13 @@
         }
 
         $query = "
-            SELECT email, password_and_salt
+            SELECT id, email, password_and_salt
             FROM `users`
             WHERE email=?";
         if ($statement = $db->prepare($query)) {
             $statement->bind_param("s", $email);
             $statement->execute();
-            $statement->bind_result($result_email, $result_pw_and_salt);
+            $statement->bind_result($result_id, $result_email, $result_pw_and_salt);
             $statement->fetch();
             $statement->close();
         } else {
@@ -40,6 +40,7 @@
         }
         
         return [
+            'id' => $result_id,
             'email' => $result_email,
             'pw_and_salt' => $result_pw_and_salt
         ];
@@ -53,13 +54,15 @@
     }
 
     function check_login_credentials($provided_password, $password_and_salt) {
-        if (password_verify($provided_password, $password_and_salt)) {
-            $_SESSION['logged_in'] = TRUE;
-            send_success_response();
-        } else {
+        if (!password_verify($provided_password, $password_and_salt)) {
             $errors = ["Incorrect password."];
             send_fail_response($errors);
         }
+    }
+
+    function login($result) {
+        $_SESSION['logged_in'] = TRUE;
+        $_SESSION['user_id'] = $result['id'];
     }
 
     function send_success_response() {
@@ -94,3 +97,5 @@
     check_no_match($result);
     $user_pw_hash = $result['pw_and_salt'];
     check_login_credentials($password, $user_pw_hash);
+    login($result);
+    send_success_response();
