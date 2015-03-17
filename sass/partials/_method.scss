@@ -41,16 +41,16 @@ $method-section-border-radius: 15px;
 .supporting-section-body {
 
 	line-height: $base_line_height * 1.3;
-	font-size: $base_font_size;
+	font-size: $base_font_size * 1.5;
 	padding: 0px auto 0px auto;
 	margin-top: 30px;
-	max-width: 670px;
+	max-width: 720px;
 
 	li {
 		list-style-type: circle;
 	}
 	@include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 1.8;
+		font-size: $base_font_size * 2;
 	}
 }
 
