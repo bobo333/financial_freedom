@@ -223,20 +223,13 @@ $nav-border-radius: 25px;
 
 #navbar-toggle-custom {
     
-    &:visited {
+    &:hover, &:active, &:visited {
         background-color: rgba(white, 0.3);
         border-color: white;
     }
-    &:active {
-        background-color: rgba(white, 0.3);
-        border-color: white;
-    }
-    &:focus {
+
+    &:focus,  {
         background-color: rgba(white, 0);
-        border-color: white;
-    }
-    &:hover {
-        background-color: rgba(white, 0.3);
         border-color: white;
     }
 }

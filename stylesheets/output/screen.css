@@ -356,27 +356,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 226, ../../sass/partials/_header.scss */
-#navbar-toggle-custom:visited {
+#navbar-toggle-custom:hover, #navbar-toggle-custom:active, #navbar-toggle-custom:visited {
   background-color: rgba(255, 255, 255, 0.3);
   border-color: white;
 }
-/* line 230, ../../sass/partials/_header.scss */
-#navbar-toggle-custom:active {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: white;
-}
-/* line 234, ../../sass/partials/_header.scss */
+/* line 231, ../../sass/partials/_header.scss */
 #navbar-toggle-custom:focus {
   background-color: rgba(255, 255, 255, 0);
   border-color: white;
 }
-/* line 238, ../../sass/partials/_header.scss */
-#navbar-toggle-custom:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: white;
-}
 
-/* line 244, ../../sass/partials/_header.scss */
+/* line 237, ../../sass/partials/_header.scss */
 .icon-bar {
   background-color: white !important;
 }
