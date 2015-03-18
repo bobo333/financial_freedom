@@ -328,45 +328,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: white;
 }
 
-/* line 205, ../../sass/partials/_header.scss */
+/* line 202, ../../sass/partials/_header.scss */
 .navbar-brand {
   height: 45px;
 }
 @media screen and (min-width: 768px) {
-  /* line 205, ../../sass/partials/_header.scss */
+  /* line 202, ../../sass/partials/_header.scss */
   .navbar-brand {
     height: 60px;
   }
 }
 
-/* line 212, ../../sass/partials/_header.scss */
+/* line 209, ../../sass/partials/_header.scss */
 #header-brand-wrapper {
   height: 100%;
 }
 
-/* line 216, ../../sass/partials/_header.scss */
+/* line 213, ../../sass/partials/_header.scss */
 .expanded-nav {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  /* line 216, ../../sass/partials/_header.scss */
+  /* line 213, ../../sass/partials/_header.scss */
   .expanded-nav {
     display: block;
   }
 }
 
-/* line 226, ../../sass/partials/_header.scss */
+/* line 223, ../../sass/partials/_header.scss */
 #navbar-toggle-custom:hover, #navbar-toggle-custom:active, #navbar-toggle-custom:visited {
   background-color: rgba(255, 255, 255, 0.3);
   border-color: white;
 }
-/* line 231, ../../sass/partials/_header.scss */
+/* line 228, ../../sass/partials/_header.scss */
 #navbar-toggle-custom:focus {
   background-color: rgba(255, 255, 255, 0);
   border-color: white;
 }
 
-/* line 237, ../../sass/partials/_header.scss */
+/* line 234, ../../sass/partials/_header.scss */
 .icon-bar {
   background-color: white !important;
 }
