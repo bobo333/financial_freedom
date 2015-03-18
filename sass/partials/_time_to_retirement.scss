@@ -217,7 +217,7 @@ $actions-border: 1px solid $dark_green;
 }
 
 #explain-text {
-    font-size: $base_font_size;
+    font-size: 0.7em;
     
     @include min-screen($screen_sm_min) {
         margin-left: 75px;
@@ -483,6 +483,7 @@ input[type="text"].form-control {
         color: #fff;
         height: 40px;
         margin: auto auto;
+        font-size: 1.1em;
         @include border-radius(0px);
         @include border-bottom-radius(5px);
     }
@@ -497,13 +498,13 @@ input[type="text"].form-control {
 
 .action-title {
     padding: 20px 20px 20px 0px;
-    font-size: 1.4em;
+    font-size: 1.6em;
     color: $dark-green;
     font-weight: $base_font_weight_light;
 }
 
 .action-label {
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 .output-controls-section {
@@ -522,8 +523,8 @@ input[type="text"].form-control {
 }
 
 .suggested-amount-content {
-    font-size: 1em;
-    padding-bottom: 18px;
+    font-size: 1.1em;
+    padding-bottom: 27px;
     font-weight: $base_font_weight_light;
 }
 
@@ -533,7 +534,7 @@ input[type="text"].form-control {
 
 .add-title-margin {
     @include min-screen($screen_md_min) {
-        margin-bottom: 37px;
+        margin-bottom: 48px;
     }
 }
 
