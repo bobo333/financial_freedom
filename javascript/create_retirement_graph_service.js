@@ -231,7 +231,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var triangle_width = 20;
         var triangle_height = 10;
         var triangle_start_point_x = 105;
-        var triangle_start_point_y = 110;
+        var triangle_start_point_y = 109;
 
 
         var lineData = [ { "x": triangle_start_point_x,   "y": triangle_start_point_y},  { "x": triangle_start_point_x + triangle_width,  "y": triangle_start_point_y},

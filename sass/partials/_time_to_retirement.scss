@@ -73,7 +73,6 @@ $actions-border: 1px solid $dark_green;
 
         .curve-label {
             font-weight: $base_font_weight_semi_bold;
-            font-size: 0.9em;
             max-width: 100px;
         }
         
@@ -95,7 +94,7 @@ $actions-border: 1px solid $dark_green;
 
 .retirement-years {
     font-weight: $base_font_weight_semi_bold;
-    font-size: $base_font_size * 5;
+    font-size: 5em;
     margin-top: 50px;
     color: $main_bubble_color;
 }
@@ -610,11 +609,12 @@ input[type="text"].form-control {
 
 .intersection-label {
     color: white;
-    padding: 15px 15px;
+    padding: 16px 15px;
     display: inline-block;
-    line-height: $base_line_height * 1.2;
+    line-height: $base_line_height * 1.1;
     z-index: 1;
     font-weight: $base_font_weight_normal;
+    font-size: 1.1em;
 
     .bold {
         font-weight: $base_font_weight_semi_bold;
