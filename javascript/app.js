@@ -55,7 +55,7 @@ FinancialFreedom.controller('IntroController', ['$scope', '$location',  function
     };
 }]);
 
-FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
+FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal', function($scope, $location, $modal) {
 
     $scope.isCollapsed = true;
 
@@ -78,7 +78,42 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
         return non_visible_pages.indexOf($location.path() ) == -1;
 
     };
+
+    $scope.items = ['item1', 'item2', 'item3'];
+
+    $scope.open = function (size) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/login_modal.html',
+            controller: 'LoginModalInstanceCtrl',
+            size: size,
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }   
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        });
+    };
 }]);
+
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $modalInstance, items) {
+    $scope.items = items;
+    $scope.selected = {
+        item: $scope.items[0]
+    };
+
+    $scope.ok = function () {
+        $modalInstance.close($scope.selected.item);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});
 
 FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.income = {};
@@ -117,14 +152,6 @@ FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', '
         }  
     };
 }]);
-
-FinancialFreedom.directive("btnOutputControl", function($filter){
-    return {
-        scope: {},
-        restrict: 'E',
-        templateUrl: 'partials/output_control.html'
-    }
-});
 
 FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     $scope.templates =

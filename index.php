@@ -59,12 +59,25 @@
                         </div>
                         <div collapse="isCollapsed">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                                <li><a class="nav-item-custom" ng-click="open()">Sign in</a></li>
                             </ul>
-                        </div>
-                        <div class="expanded-nav" >
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Account</a></li>
+                            </ul>
+                        </div>
+                        <div class="expanded-nav">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom"><i class="fa fa-cog"></i></a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="open()">Sign in</a></li>
                             </ul>
                         </div>
                     </div>

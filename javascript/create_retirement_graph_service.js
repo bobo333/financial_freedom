@@ -195,7 +195,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         label_container_expenses.append("text")
             .attr("class", "curve-label")
             .attr("x", 18)
-            .attr("y", 21)
+            .attr("y", 20)
             .text('Monthly expenses');
     }
 
