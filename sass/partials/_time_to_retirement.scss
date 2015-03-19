@@ -7,14 +7,14 @@ $withdraw_color: $primary_green;
 $intersection_color: $dark_green;
 $tooltip_bg: rgba($primary_green,0.80);
 $main_bubble_color: #fff;
-$main_bubble_bg: #308E7F;
 $main_bubble_diameter: 150px;
 $control-button-height: 45px;
 $expenses-field-height: 60px;
 $form-control-height: 50px;
 $control-button-border: 1px solid rgba($dark_green,0.1);
-$control-button-hover: #D6E8E5;
-$control-button-background: rgba($control-button-hover, 0.3);
+$control-button-hover: rgba(84, 168, 136, 0.18);
+$control-button-background: rgba(84, 168, 136, 0.09);
+$actions-border: 1px solid $dark_green;
 
 #graph-wrapper {
 
@@ -118,7 +118,7 @@ $control-button-background: rgba($control-button-hover, 0.3);
 }
 
 .big-number-bg {
-    background: $main_bubble_bg;
+    background: $primary_green;
     width: $main_bubble_diameter;
     height: $main_bubble_diameter;
     @include border-radius(50%);
@@ -192,7 +192,6 @@ $control-button-background: rgba($control-button-hover, 0.3);
 
     line-height: $base_line_height * 1.3;
     font-size: $base_font_size;
-    padding: 0px auto 0px auto;
     margin-top: 30px;
 
     @include min-screen($screen_sm_min) {
@@ -218,7 +217,7 @@ $control-button-background: rgba($control-button-hover, 0.3);
 }
 
 #explain-text {
-    font-size: $base_font_size;
+    font-size: 0.7em;
     
     @include min-screen($screen_sm_min) {
         margin-left: 75px;
@@ -408,20 +407,20 @@ input[type="text"].form-control {
 .actions-container {
     padding-left: 0px;
     padding-right: 0px;
-    border: 1px solid $secondary_brown;
-    background: $light_brown_bg;
+    border: $actions-border;
+    background: $light_bg_green;
     position: relative;
 }
 
 .expenses-actions-container {
     @include border-top-radius(5px);
-    border-bottom: 1px solid $secondary_brown;
+    border-bottom: $actions-border;
 }
 
 .income-actions-container {
     border-top: none;
-    border-right: 1px solid $secondary_brown;
-    border-left: 1px solid $secondary_brown;
+    border-right: $actions-border;
+    border-left: $actions-border;
 }
 
 .assets-actions-container {
@@ -480,10 +479,11 @@ input[type="text"].form-control {
         bottom: 0;
         text-align: center;
         width: 100%;
-        background: rgba(#000, 0.5);
+        background: rgba($secondary_brown_dark, 0.5);
         color: #fff;
         height: 40px;
         margin: auto auto;
+        font-size: 1.1em;
         @include border-radius(0px);
         @include border-bottom-radius(5px);
     }
@@ -498,8 +498,8 @@ input[type="text"].form-control {
 
 .action-title {
     padding: 20px 20px 20px 0px;
-    font-size: 1.4em;
-    color: $secondary_brown;
+    font-size: 1.6em;
+    color: $dark-green;
     font-weight: $base_font_weight_light;
 }
 
@@ -523,8 +523,8 @@ input[type="text"].form-control {
 }
 
 .suggested-amount-content {
-    font-size: 1em;
-    padding-bottom: 18px;
+    font-size: 1.1em;
+    padding-bottom: 27px;
     font-weight: $base_font_weight_light;
 }
 
@@ -534,19 +534,19 @@ input[type="text"].form-control {
 
 .add-title-margin {
     @include min-screen($screen_md_min) {
-        margin-bottom: 37px;
+        margin-bottom: 48px;
     }
 }
 
 .actions-help-icon {
-    color: rgba($secondary_brown_dark,0.4);
+    color: rgba($dark_green,0.4);
     margin: auto auto auto 5px;
     font-size: 1.2em;
     @include hover-animation(all);
     width: 20px;
 
     &:hover {
-        color: rgba($secondary_brown_dark,0.8);
+        color: rgba($dark_green,0.8);
     }
 }
 
