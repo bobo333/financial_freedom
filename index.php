@@ -64,15 +64,27 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
-
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Account</a></li>
                             </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
+                            </ul>
                         </div>
                         <div class="expanded-nav">
+                            
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom"><i class="fa fa-cog"></i></a></li>
+                                <li class="dropdown" dropdown>
+                                   <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i><i class="fa fa-caret-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Account</a>
+                                            <a href="#">Sign out</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
+                            
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>

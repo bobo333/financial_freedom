@@ -383,6 +383,11 @@ h3 {
   background-color: white !important;
 }
 
+/* line 238, ../../sass/partials/_header.scss */
+.settings-cog {
+  margin-right: 5px;
+}
+
 /* line 3, ../../sass/partials/_input.scss */
 .view-content {
   padding: 0px;

@@ -99,6 +99,12 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
             $scope.selected = selectedItem;
         });
     };
+
+    $scope.toggled = function(open) {
+        $log.log('Dropdown is now: ', open);
+    };
+
+
 }]);
 
 FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $modalInstance, items) {
