@@ -40,6 +40,16 @@ $fixed_line_height: $base_line_height;
 
 // Headings
 
+h2 {
+    font-size: 3em;
+    font-weight: $base_font_weight_semi_bold;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: $base_font_weight_normal;
+}
+
 
 // Colors
 $primary_green: #2B8E69;

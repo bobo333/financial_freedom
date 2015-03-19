@@ -1,0 +1,33 @@
+.modal-header {
+	background-color: $light_bg_green;
+	@include border-top-radius(6px);
+}
+
+.modal-content {
+	@include border-top-radius(7px);
+
+}
+
+.modal-title {
+	color: $body_text_color;
+}
+
+.modal-backdrop {
+	background-color: black;
+	width: 100%;
+	height: 100%
+}
+
+.signin-side {
+	width: 70%;
+}
+
+.checkbox {
+	display: inline-block;
+}
+
+.login-modal {
+	.modal-footer {
+		text-align: center;
+	}
+}

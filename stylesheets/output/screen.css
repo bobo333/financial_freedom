@@ -67,6 +67,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+/* line 43, ../../sass/partials/_base.scss */
+h2 {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+/* line 48, ../../sass/partials/_base.scss */
+h3 {
+  font-size: 2em;
+  font-weight: 400;
+}
+
 /* line 14, ../../sass/partials/_header.scss */
 .header {
   height: 80px;
@@ -271,7 +283,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 158, ../../sass/partials/_header.scss */
 .navbar-right {
-  margin-right: 15px;
+  margin-right: 25px !important;
 }
 
 /* line 164, ../../sass/partials/_header.scss */
@@ -1759,7 +1771,55 @@ input[type="text"].form-control {
   }
 }
 
-/* line 15, ../../sass/screen.scss */
+/* line 1, ../../sass/partials/_account_modals.scss */
+.modal-header {
+  background-color: rgba(43, 142, 105, 0.05);
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* line 6, ../../sass/partials/_account_modals.scss */
+.modal-content {
+  -moz-border-radius-topleft: 7px;
+  -webkit-border-top-left-radius: 7px;
+  border-top-left-radius: 7px;
+  -moz-border-radius-topright: 7px;
+  -webkit-border-top-right-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+/* line 11, ../../sass/partials/_account_modals.scss */
+.modal-title {
+  color: #404040;
+}
+
+/* line 15, ../../sass/partials/_account_modals.scss */
+.modal-backdrop {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 21, ../../sass/partials/_account_modals.scss */
+.signin-side {
+  width: 70%;
+}
+
+/* line 25, ../../sass/partials/_account_modals.scss */
+.checkbox {
+  display: inline-block;
+}
+
+/* line 30, ../../sass/partials/_account_modals.scss */
+.login-modal .modal-footer {
+  text-align: center;
+}
+
+/* line 16, ../../sass/screen.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -1768,7 +1828,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* line 24, ../../sass/screen.scss */
+/* line 25, ../../sass/screen.scss */
 body {
   font-family: "Source Sans Pro", sans-serif;
 }
@@ -1784,7 +1844,7 @@ body {
   background-color: #7dd193;
 }
 
-/* line 32, ../../sass/screen.scss */
+/* line 33, ../../sass/screen.scss */
 .indexpage {
   background: #0d412e;
 }

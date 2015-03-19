@@ -87,6 +87,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
             templateUrl: 'partials/login_modal.html',
             controller: 'LoginModalInstanceCtrl',
             size: size,
+            backdrop: true,
             resolve: {
                 items: function () {
                     return $scope.items;
