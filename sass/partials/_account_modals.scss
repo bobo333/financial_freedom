@@ -18,8 +18,8 @@
 	height: 100%
 }
 
-.signin-side {
-	width: 70%;
+.signin-side, .signup-side {
+	display: inline-block;
 }
 
 .checkbox {
@@ -30,4 +30,10 @@
 	.modal-footer {
 		text-align: center;
 	}
+}
+
+.vert-divider {
+	width: 1px;
+	height: 100%;
+	background-color: #404040;
 }

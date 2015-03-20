@@ -120,6 +120,8 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $modalIn
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
+    $scope.signingUpOn = false;
 });
 
 FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {

@@ -193,7 +193,7 @@ $nav-border-radius: 25px;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: rgba($nav-font-color, 0.7); // override Bootstrap
+    color: rgba($nav-font-color, 0.8); // override Bootstrap
     &:hover {
         color: rgba($nav-font-color, 1);
     }
@@ -237,4 +237,6 @@ $nav-border-radius: 25px;
 
 .settings-cog {
     margin-right: 5px;
+    font-size: 1.3em;
+    vertical-align: top;
 }

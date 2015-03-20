@@ -75,7 +75,7 @@
                             
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown" dropdown>
-                                   <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i><i class="fa fa-caret-down"></i></a>
+                                   <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a href="#">Account</a>

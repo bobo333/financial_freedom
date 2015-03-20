@@ -1,10 +1,13 @@
-<div class="login-modal">
-    <div class="modal-header">
-        <h2 class="modal-title">Login</h2>
+<div class="login-modal container-fluid">
+    <div class="modal-header row">
+        <h2 class="modal-title" ng-show="!signingUpOn">Login</h2>
+        <h2 class="modal-title" ng-show="signingUpOn">Sign up for Plenti</h2>
     </div>
-    <div class="modal-body">
-        <form name="loginForm" ng-submit="submitForm()" novalidate>
-            <div class="signin-side">
+
+    <div class="modal-body row">
+        
+        <form name="loginForm" ng-submit="submitForm()" novalidate ng-show="!signingUpOn">
+            <div class="signin-side col-sm-8">
                 <h3>Email</h3>
                 <input type="email" class="form-control" required ng-model="emailsubmission" />
                 <h3>Password</h3>
@@ -17,14 +20,15 @@
                 </div>
 
                 <a href="#"> Forgot your email/password?</a>
-
+                <input type="submit" value="Login" class="btn btn-primary" />
             </div>
-            <div class="signup-side">
-            </div>
-    </div>
-        <div class="modal-footer">
-            <input type="submit" value="Login" class="btn btn-primary" />
-        </div>
         </form>
 
+        <div class="signup-side col-sm-4">
+            <a href="#">Create a Plenti account</a>
+        </div>
+    </div>
+               
+        
+    
 </div>

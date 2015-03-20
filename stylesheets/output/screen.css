@@ -333,7 +333,7 @@ h3 {
 
 /* line 195, ../../sass/partials/_header.scss */
 .navbar-default .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
 }
 /* line 197, ../../sass/partials/_header.scss */
 .navbar-default .navbar-nav > li > a:hover {
@@ -386,6 +386,8 @@ h3 {
 /* line 238, ../../sass/partials/_header.scss */
 .settings-cog {
   margin-right: 5px;
+  font-size: 1.3em;
+  vertical-align: top;
 }
 
 /* line 3, ../../sass/partials/_input.scss */
@@ -1810,8 +1812,8 @@ input[type="text"].form-control {
 }
 
 /* line 21, ../../sass/partials/_account_modals.scss */
-.signin-side {
-  width: 70%;
+.signin-side, .signup-side {
+  display: inline-block;
 }
 
 /* line 25, ../../sass/partials/_account_modals.scss */
@@ -1822,6 +1824,13 @@ input[type="text"].form-control {
 /* line 30, ../../sass/partials/_account_modals.scss */
 .login-modal .modal-footer {
   text-align: center;
+}
+
+/* line 35, ../../sass/partials/_account_modals.scss */
+.vert-divider {
+  width: 1px;
+  height: 100%;
+  background-color: #404040;
 }
 
 /* line 16, ../../sass/screen.scss */
