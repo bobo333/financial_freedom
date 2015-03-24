@@ -55,7 +55,7 @@ FinancialFreedom.controller('IntroController', ['$scope', '$location',  function
     };
 }]);
 
-FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal', function($scope, $location, $modal) {
+FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal', 'AuthService', 'UserStatusService', function($scope, $location, $modal, AuthService, UserStatusService) {
 
     $scope.isCollapsed = true;
 
@@ -104,25 +104,56 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
         $log.log('Dropdown is now: ', open);
     };
 
+    $scope.login = function() {
+        AuthService.login();
+        console.log("in header controller fxn")
+    };
+
+    $scope.logout = function() {
+        AuthService.logout();
+    };
+
+    $scope.attemptToSignIn = function() {
+        UserStatusService.assumeReturningUser();
+    };
+
+    $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
+        $scope.userSignedIn = isUserLoggedIn;
+    });
 
 }]);
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $modalInstance, items) {
-    $scope.items = items;
-    $scope.selected = {
-        item: $scope.items[0]
-    };
+FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance', 'items', 'UserStatusService', 'AuthService', function ($scope, $modalInstance, items, UserStatusService, AuthService) {    
 
     $scope.ok = function () {
-        $modalInstance.close($scope.selected.item);
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.signingUpOn = false;
-});
+    $scope.attemptToCreateAccount = function() {
+        UserStatusService.assumeNotReturningUser();
+    }
+
+    $scope.attemptToSignIn = function() {
+        UserStatusService.assumeReturningUser();
+    }
+
+    // $scope.$watch(UserStatusService.isReturningUser, function( isReturningUser ) {
+    //     $scope.isReturningUser = isReturningUser;
+    // });
+
+    $scope.login = function() {
+        AuthService.login();
+    };
+
+    
+    $scope.isReturningUser = UserStatusService.isReturningUser();
+
+
+}]);
 
 FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.income = {};

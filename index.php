@@ -15,7 +15,7 @@
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
@@ -31,6 +31,8 @@
         <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
+        <script type="text/javascript" src="javascript/auth_service.js"></script>
+        <script type="text/javascript" src="javascript/user_status_service.js"></script>
 
 
         <title>Plenti | Free Yourself</title>
@@ -58,28 +60,28 @@
                             </a>
                         </div>
                         <div collapse="isCollapsed">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="open()">Sign in</a></li>
+                            <ul class="nav navbar-nav navbar-right" ng-if="!userSignedIn">
+                                <li><a class="nav-item-custom" ng-click="open(); attemptToSignIn()">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Account</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn" ng-click="logout()">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
                             </ul>
                         </div>
                         <div class="expanded-nav">
                             
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn">
                                 <li class="dropdown" dropdown>
                                    <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a href="#">Account</a>
-                                            <a href="#">Sign out</a>
+                                            <a ng-click="logout()">Sign out</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -89,7 +91,7 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="open()">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="open(); attemptToSignIn()" ng-if="!userSignedIn">Sign in</a></li>
                             </ul>
                         </div>
                     </div>
