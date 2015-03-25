@@ -1,0 +1,34 @@
+<div class="account-modal container-fluid">
+    <div class="modal-header row">
+        <h2 class="modal-title">Your account</h2>
+    </div>
+
+    <div class="modal-body row">
+        
+                <form name="resetPassword" novalidate>
+
+                    <div>Member since [account create date]</div>
+                    <a href="#"> Change your password</a>
+
+                    <div class="form-group">
+                        <label for="oldPassword">Old password</label>
+                        <input type="password" id="oldPassword" class="form-control" required ng-model="oldpassword" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPassword1">New password</label>
+                        <input type="password" id="newPassword1" class="form-control" required ng-model="newpassword1" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPassword2">New password again</label>
+                        <input type="password" id="newPassword2" class="form-control" required ng-model="newpassword2" />
+                    </div>
+                    
+                    <input type="submit" value="Update password" ng-click="ok(); login()" class="btn btn-primary" />
+
+                </form>
+
+    </div>
+               
+</div>

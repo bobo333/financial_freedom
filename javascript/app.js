@@ -79,24 +79,23 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
 
     };
 
-    $scope.items = ['item1', 'item2', 'item3'];
-
-    $scope.open = function (size) {
+    $scope.openLoginModal = function (size) {
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
             controller: 'LoginModalInstanceCtrl',
             size: size,
             backdrop: true,
-            resolve: {
-                items: function () {
-                    return $scope.items;
-                }   
-            }
         });
+    };
 
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
+    $scope.openAccountModal = function (size) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/account_modal.html',
+            controller: 'AccountModalInstanceCtrl',
+            size: size,
+            backdrop: true,
         });
     };
 
@@ -123,7 +122,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
 
 }]);
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance', 'items', 'UserStatusService', 'AuthService', function ($scope, $modalInstance, items, UserStatusService, AuthService) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance', 'UserStatusService', 'AuthService', function ($scope, $modalInstance, UserStatusService, AuthService) {    
 
     $scope.ok = function () {
         $modalInstance.close();
@@ -149,9 +148,21 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
         AuthService.login();
     };
 
-    
+
     $scope.isReturningUser = UserStatusService.isReturningUser();
 
+
+}]);
+
+FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstance', 'AuthService', function ($scope, $modalInstance, AuthService) {    
+
+    $scope.ok = function() {
+        $modalInstance.close();
+    }
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
 
 }]);
 
