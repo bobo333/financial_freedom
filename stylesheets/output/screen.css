@@ -390,6 +390,24 @@ h3 {
   vertical-align: top;
 }
 
+/* line 244, ../../sass/partials/_header.scss */
+.dropdown-menu {
+  min-width: 120px;
+  padding: 0px 0px;
+}
+/* line 250, ../../sass/partials/_header.scss */
+.dropdown-menu li a {
+  padding: 10px 10px;
+}
+/* line 255, ../../sass/partials/_header.scss */
+.dropdown-menu a {
+  font-size: 1.3em;
+}
+/* line 259, ../../sass/partials/_header.scss */
+.dropdown-menu a:hover {
+  cursor: pointer;
+}
+
 /* line 3, ../../sass/partials/_input.scss */
 .view-content {
   padding: 0px;

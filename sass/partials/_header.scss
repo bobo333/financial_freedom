@@ -240,3 +240,23 @@ $nav-border-radius: 25px;
     font-size: 1.3em;
     vertical-align: top;
 }
+
+.dropdown-menu {
+
+    min-width: 120px;
+    padding: 0px 0px;
+
+    li {
+        a {
+            padding: 10px 10px;
+        }
+    }
+
+    a {
+        font-size: 1.3em;
+    }
+
+    a:hover {
+        cursor: pointer;
+    }
+}
