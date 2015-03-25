@@ -244,8 +244,12 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     
 }]);
 
-FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', function($scope, RetirementCalculatorService, CreateRetirementGraphService) {
+FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', function($scope, RetirementCalculatorService, CreateRetirementGraphService, AuthService) {
     
+    $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
+        $scope.userSignedIn = isUserLoggedIn;
+    });
+
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
     $scope.showSteps = false;
