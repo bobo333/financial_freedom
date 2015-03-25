@@ -7,28 +7,38 @@
         
                 <form name="resetPassword" novalidate>
 
+                    <div>Email [your email]</div>
+
                     <div>Member since [account create date]</div>
-                    <a href="#"> Change your password</a>
 
-                    <div class="form-group">
-                        <label for="oldPassword">Old password</label>
-                        <input type="password" id="oldPassword" class="form-control" required ng-model="oldpassword" />
-                    </div>
+                    <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
 
-                    <div class="form-group">
-                        <label for="newPassword1">New password</label>
-                        <input type="password" id="newPassword1" class="form-control" required ng-model="newpassword1" />
-                    </div>
+                    <div collapse="passwordResetFormCollapsed">
+                        <div class="form-group">
+                            <label for="oldPassword">Old password</label>
+                            <input type="password" id="oldPassword" class="form-control" required ng-model="oldpassword" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="newPassword2">New password again</label>
-                        <input type="password" id="newPassword2" class="form-control" required ng-model="newpassword2" />
+                        <div class="form-group">
+                            <label for="newPassword1">New password</label>
+                            <input type="password" id="newPassword1" class="form-control" required ng-model="newpassword1" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword2">New password one more time</label>
+                            <input type="password" id="newPassword2" class="form-control" required ng-model="newpassword2" />
+                        </div>
+                        
+                        <input type="submit" value="Update password" ng-click="ok(); login()" class="btn btn-primary" ng-class="{'disabled': !resetPassword.$valid } "/>
+                        <button ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed" class="btn btn-primary">Cancel</button>
                     </div>
-                    
-                    <input type="submit" value="Update password" ng-click="ok(); login()" class="btn btn-primary" />
 
                 </form>
 
+    </div>
+
+    <div class="modal-footer" ng-if="passwordResetFormCollapsed">
+        <button class="btn btn-primary" ng-click="cancel()">Close</button>
     </div>
                
 </div>

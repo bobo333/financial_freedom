@@ -1891,12 +1891,12 @@ input[type="text"].form-control {
   display: inline-block;
 }
 
-/* line 30, ../../sass/partials/_account_modals.scss */
-.login-modal .modal-footer {
+/* line 29, ../../sass/partials/_account_modals.scss */
+.modal-footer {
   text-align: center;
 }
 
-/* line 35, ../../sass/partials/_account_modals.scss */
+/* line 33, ../../sass/partials/_account_modals.scss */
 .vert-divider {
   width: 1px;
   height: 100%;

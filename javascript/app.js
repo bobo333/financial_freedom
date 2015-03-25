@@ -151,7 +151,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
 
     $scope.isReturningUser = UserStatusService.isReturningUser();
 
-
 }]);
 
 FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstance', 'AuthService', function ($scope, $modalInstance, AuthService) {    
@@ -163,6 +162,8 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstan
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
+    $scope.passwordResetFormCollapsed = true;
 
 }]);
 
