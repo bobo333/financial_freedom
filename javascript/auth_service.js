@@ -1,6 +1,6 @@
 FinancialFreedom.factory('AuthService', function() {
 
-	var userLoggedIn = true;
+	var userLoggedIn = false;
 
 	return {
 		login: function() { // eventually will have arguments of email and password
