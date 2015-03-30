@@ -133,21 +133,20 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
     };
 
     $scope.attemptToCreateAccount = function() {
-        UserStatusService.assumeNotReturningUser();
+        UserStatusService.assumeNewUser();
     }
 
     $scope.attemptToSignIn = function() {
         UserStatusService.assumeReturningUser();
     }
 
-    // $scope.$watch(UserStatusService.isReturningUser, function( isReturningUser ) {
-    //     $scope.isReturningUser = isReturningUser;
-    // });
+    $scope.$watch(UserStatusService.isReturningUser, function( isReturningUser ) {
+        $scope.isReturningUser = isReturningUser;
+    });
 
     $scope.login = function() {
         AuthService.login();
     };
-
 
     $scope.isReturningUser = UserStatusService.isReturningUser();
 
@@ -244,11 +243,25 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     
 }]);
 
-FinancialFreedom.controller('TimeToRetirementController', ['$scope', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', function($scope, RetirementCalculatorService, CreateRetirementGraphService, AuthService) {
+FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', 'UserStatusService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserStatusService) {
     
     $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
         $scope.userSignedIn = isUserLoggedIn;
     });
+
+    $scope.createAccountClicked = function() {
+        UserStatusService.assumeNewUser();
+    }
+
+    $scope.openLoginModal = function (size) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/login_modal.html',
+            controller: 'LoginModalInstanceCtrl',
+            size: size,
+            backdrop: true,
+        });
+    };
 
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 

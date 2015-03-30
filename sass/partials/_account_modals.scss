@@ -20,10 +20,11 @@
 
 .signin-side, .signup-side {
 	display: inline-block;
-}
-
-.checkbox {
-	display: inline-block;
+	text-align: right;
+	margin-top: 20px;
+	a:hover {
+        cursor: pointer;
+    }
 }
 
 .modal-footer {

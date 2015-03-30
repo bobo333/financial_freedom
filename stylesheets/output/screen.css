@@ -1639,20 +1639,20 @@ input[type="text"].form-control {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 652, ../../sass/partials/_time_to_retirement.scss */
+/* line 651, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button:hover, .sign-up-button:focus, .sign-up-button:active, .sign-up-button:visited {
   background: #da9b03;
   border: none;
   color: white !important;
   outline: none !important;
 }
-/* line 659, ../../sass/partials/_time_to_retirement.scss */
+/* line 658, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button:hover {
   background: #c58c01;
   color: white;
 }
 
-/* line 666, ../../sass/partials/_time_to_retirement.scss */
+/* line 665, ../../sass/partials/_time_to_retirement.scss */
 #expenses-control {
   margin-top: 30px;
 }
@@ -1895,19 +1895,20 @@ input[type="text"].form-control {
 /* line 21, ../../sass/partials/_account_modals.scss */
 .signin-side, .signup-side {
   display: inline-block;
+  text-align: right;
+  margin-top: 20px;
 }
-
 /* line 25, ../../sass/partials/_account_modals.scss */
-.checkbox {
-  display: inline-block;
+.signin-side a:hover, .signup-side a:hover {
+  cursor: pointer;
 }
 
-/* line 29, ../../sass/partials/_account_modals.scss */
+/* line 30, ../../sass/partials/_account_modals.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 33, ../../sass/partials/_account_modals.scss */
+/* line 34, ../../sass/partials/_account_modals.scss */
 .vert-divider {
   width: 1px;
   height: 100%;

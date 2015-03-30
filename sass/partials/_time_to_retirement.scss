@@ -647,7 +647,6 @@ input[type="text"].form-control {
     border: none;
     font-weight: $brand_font_weight_bold;
     @include hover-animation(all);
-    // @include border-left-radius(0px);
     
     &:hover, &:focus, &:active, &:visited {
         background: $secondary_brown;
