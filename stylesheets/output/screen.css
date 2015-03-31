@@ -1915,6 +1915,15 @@ input[type="text"].form-control {
   background-color: #404040;
 }
 
+/* line 40, ../../sass/partials/_account_modals.scss */
+.signup-side, .signin-side {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /* line 16, ../../sass/screen.scss */
 html, body {
   width: 100%;
