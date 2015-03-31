@@ -103,13 +103,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
         $log.log('Dropdown is now: ', open);
     };
 
-    $scope.login = function() {
-        AuthService.login();
-        console.log("in header controller fxn")
-    };
-
     $scope.logout = function() {
         AuthService.logout();
+        $location.path('/');
     };
 
     $scope.attemptToSignIn = function() {
@@ -122,7 +118,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
 
 }]);
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance', 'UserStatusService', 'AuthService', function ($scope, $modalInstance, UserStatusService, AuthService) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance', '$location', 'UserStatusService', 'AuthService', function ($scope, $modalInstance, $location, UserStatusService, AuthService) {    
 
     $scope.ok = function () {
         $modalInstance.close();
@@ -146,6 +142,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
 
     $scope.login = function() {
         AuthService.login();
+        $location.path('/time-to-retirement');
     };
 
     $scope.isReturningUser = UserStatusService.isReturningUser();
