@@ -1896,32 +1896,31 @@ input[type="text"].form-control {
 /* line 11, ../../sass/partials/_account_modals.scss */
 .modal-title {
   color: #404040;
+  letter-spacing: -0.02em;
 }
 
-/* line 15, ../../sass/partials/_account_modals.scss */
+/* line 16, ../../sass/partials/_account_modals.scss */
 .modal-backdrop {
   background-color: black;
   width: 100%;
   height: 100%;
 }
 
-/* line 21, ../../sass/partials/_account_modals.scss */
+/* line 22, ../../sass/partials/_account_modals.scss */
 .signin-side, .signup-side {
-  display: inline-block;
-  text-align: right;
-  margin-top: 20px;
+  margin-top: 10px;
 }
-/* line 25, ../../sass/partials/_account_modals.scss */
+/* line 24, ../../sass/partials/_account_modals.scss */
 .signin-side a:hover, .signup-side a:hover {
   cursor: pointer;
 }
 
-/* line 30, ../../sass/partials/_account_modals.scss */
+/* line 29, ../../sass/partials/_account_modals.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 34, ../../sass/partials/_account_modals.scss */
+/* line 33, ../../sass/partials/_account_modals.scss */
 .signup-side, .signin-side {
   position: relative;
   top: 50%;
@@ -1930,12 +1929,12 @@ input[type="text"].form-control {
   transform: translateY(-50%);
 }
 
-/* line 38, ../../sass/partials/_account_modals.scss */
+/* line 37, ../../sass/partials/_account_modals.scss */
 .login-form-controls-wrapper {
   width: 100%;
 }
 
-/* line 42, ../../sass/partials/_account_modals.scss */
+/* line 41, ../../sass/partials/_account_modals.scss */
 .forgot-password-link {
   display: inline-block;
   float: right;
@@ -1944,14 +1943,19 @@ input[type="text"].form-control {
   margin-bottom: 10px;
 }
 
-/* line 50, ../../sass/partials/_account_modals.scss */
+/* line 49, ../../sass/partials/_account_modals.scss */
 .remember-me-link {
   display: inline-block;
 }
 
-/* line 54, ../../sass/partials/_account_modals.scss */
+/* line 53, ../../sass/partials/_account_modals.scss */
 .modal-secondary-button {
   margin-left: 10px;
+}
+
+/* line 57, ../../sass/partials/_account_modals.scss */
+.modal-dialog {
+  width: 450px;
 }
 
 /* line 16, ../../sass/screen.scss */

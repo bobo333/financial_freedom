@@ -10,6 +10,7 @@
 
 .modal-title {
 	color: $body_text_color;
+	letter-spacing: -0.02em;
 }
 
 .modal-backdrop {
@@ -19,9 +20,7 @@
 }
 
 .signin-side, .signup-side {
-	display: inline-block;
-	text-align: right;
-	margin-top: 20px;
+	margin-top: 10px;
 	a:hover {
         cursor: pointer;
     }
@@ -53,4 +52,8 @@
 
 .modal-secondary-button {
 	margin-left: 10px;
+}
+
+.modal-dialog {
+	width: 450px;
 }

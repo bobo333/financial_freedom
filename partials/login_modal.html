@@ -1,15 +1,14 @@
 <div class="login-modal container-fluid">
     <div class="modal-header row">
 
-        <div class="modal-title-container col-xs-8">
+        <div class="modal-title-container">
             <h2 class="modal-title" ng-show="isReturningUser">Login</h2>
             <h2 class="modal-title" ng-show="!isReturningUser">Create account</h2>
         </div>
 
-        <div class="signup-side col-xs-4">
-            Or,
-            <input type="button" ng-click="attemptToCreateAccount()" ng-if="isReturningUser" class="btn btn-secondary modal-secondary-button" value="Sign up" />
-            <input type="button" ng-click="attemptToSignIn()" ng-if="!isReturningUser" class="btn btn-secondary modal-secondary-button" value="Sign in" />
+        <div class="signup-side">
+            <a ng-click="attemptToCreateAccount()" ng-if="isReturningUser">Or, sign up for Plenti</a>
+            <a ng-click="attemptToSignIn()" ng-if="!isReturningUser">Or, sign in</a>
         </div>
 
     </div>
@@ -18,7 +17,7 @@
 
     <div class="modal-body row">
         
-        <div class="col-sm-8">
+        <div class="">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" required ng-model="emailsubmission" />
