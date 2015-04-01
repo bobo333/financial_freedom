@@ -79,6 +79,24 @@ h3 {
   font-weight: 400;
 }
 
+/* line 93, ../../sass/partials/_base.scss */
+.form-group label {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+/* line 101, ../../sass/partials/_base.scss */
+.btn-primary {
+  background: #2b8e69;
+}
+
+/* line 105, ../../sass/partials/_base.scss */
+.btn-secondary {
+  background: white;
+  border: 2px solid #2b8e69;
+  color: #2b8e69;
+}
+
 /* line 14, ../../sass/partials/_header.scss */
 .header {
   height: 80px;
@@ -738,11 +756,6 @@ input:focus {
 }
 
 /* line 62, ../../sass/partials/_method.scss */
-.btn-primary {
-  background: #2b8e69;
-}
-
-/* line 66, ../../sass/partials/_method.scss */
 .about-section {
   background: #fff;
   width: 100%;
@@ -752,7 +765,7 @@ input:focus {
   border-radius: 0px;
 }
 
-/* line 75, ../../sass/partials/_method.scss */
+/* line 71, ../../sass/partials/_method.scss */
 .about-text {
   position: relative;
   top: 50%;
@@ -761,7 +774,7 @@ input:focus {
   transform: translateY(-50%);
 }
 
-/* line 79, ../../sass/partials/_method.scss */
+/* line 75, ../../sass/partials/_method.scss */
 #footer-border-top {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -769,12 +782,12 @@ input:focus {
   right: 10%;
 }
 
-/* line 86, ../../sass/partials/_method.scss */
+/* line 82, ../../sass/partials/_method.scss */
 .footer-nav-wrapper {
   padding: 20px 0px;
 }
 
-/* line 90, ../../sass/partials/_method.scss */
+/* line 86, ../../sass/partials/_method.scss */
 .footer-nav-item {
   width: 50%;
   text-align: center;
@@ -795,24 +808,24 @@ input:focus {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 99, ../../sass/partials/_method.scss */
+/* line 95, ../../sass/partials/_method.scss */
 .footer-nav-item:hover {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 105, ../../sass/partials/_method.scss */
+/* line 101, ../../sass/partials/_method.scss */
 .footer-nav-item-active {
   font-weight: 600;
   opacity: 1;
 }
 
-/* line 110, ../../sass/partials/_method.scss */
+/* line 106, ../../sass/partials/_method.scss */
 .legal-category {
   font-weight: 600;
 }
 
-/* line 114, ../../sass/partials/_method.scss */
+/* line 110, ../../sass/partials/_method.scss */
 .legal-section {
   width: 100%;
 }
@@ -1909,19 +1922,36 @@ input[type="text"].form-control {
 }
 
 /* line 34, ../../sass/partials/_account_modals.scss */
-.vert-divider {
-  width: 1px;
-  height: 100%;
-  background-color: #404040;
-}
-
-/* line 40, ../../sass/partials/_account_modals.scss */
 .signup-side, .signin-side {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+/* line 38, ../../sass/partials/_account_modals.scss */
+.login-form-controls-wrapper {
+  width: 100%;
+}
+
+/* line 42, ../../sass/partials/_account_modals.scss */
+.forgot-password-link {
+  display: inline-block;
+  float: right;
+  position: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 50, ../../sass/partials/_account_modals.scss */
+.remember-me-link {
+  display: inline-block;
+}
+
+/* line 54, ../../sass/partials/_account_modals.scss */
+.modal-secondary-button {
+  margin-left: 10px;
 }
 
 /* line 16, ../../sass/screen.scss */

@@ -7,8 +7,9 @@
         </div>
 
         <div class="signup-side col-xs-4">
-            <a ng-click="attemptToCreateAccount()" ng-if="isReturningUser">Create a Plenti account</a>
-            <a ng-click="attemptToSignIn()" ng-if="!isReturningUser">Already have an account? Sign in</a>
+            Or,
+            <input type="button" ng-click="attemptToCreateAccount()" ng-if="isReturningUser" class="btn btn-secondary modal-secondary-button" value="Sign up" />
+            <input type="button" ng-click="attemptToSignIn()" ng-if="!isReturningUser" class="btn btn-secondary modal-secondary-button" value="Sign in" />
         </div>
 
     </div>
@@ -31,12 +32,15 @@
                 <input type="password" class="form-control" required ng-model="passwordsubmission2" />
             </div>
 
-            <div><a href="#" ng-if="isReturningUser">Forgot your email/password?</a></div>
+            <div class="login-form-controls-wrapper">
+                <div class="checkbox remember-me-link" ng-if="isReturningUser">
+                    <label>
+                        <input type="checkbox" checked> Remember me
+                    </label>
+                </div>
 
-            <div class="checkbox" ng-if="isReturningUser">
-                <label>
-                    <input type="checkbox" checked> Remember me
-                </label>
+                <div class="forgot-password-link"><a href="#" ng-if="isReturningUser">Forgot your password?</a></div>
+                
             </div>
 
         </div>

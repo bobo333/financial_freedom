@@ -52,7 +52,6 @@ h3 {
 // Colors
 $primary_green: #2B8E69;
 $dark_green: #0D412E;
-$light_green: #60DAC7;
 $light_bg_green: rgba($primary_green, 0.05);
 
 $secondary_brown: #DA9B03;
@@ -88,7 +87,26 @@ $body_text_color: #404040;
 
 $section-bottom-border: 1px solid rgba($primary_green,0.12);
 
+// Forms
 
+.form-group {
+  label {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+}
+
+// Buttons
+
+.btn-primary {
+  background: $primary_green;
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid $primary_green;
+  color: $primary_green;
+}
 
 // Links
 

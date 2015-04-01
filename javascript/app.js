@@ -79,7 +79,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
 
     };
 
-    $scope.openLoginModal = function (size) {
+    $scope.openLoginModal = function(size) {
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
@@ -89,7 +89,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
         });
     };
 
-    $scope.openAccountModal = function (size) {
+    $scope.openAccountModal = function(size) {
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/account_modal.html',
