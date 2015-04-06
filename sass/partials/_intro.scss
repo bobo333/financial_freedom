@@ -40,7 +40,7 @@
 .lp-button-wrapper {
 	padding: 0;
 	width: 100%;
-	margin-bottom: 180px;
+	margin-bottom: 160px;
 }
 
 .lp-button {
@@ -78,13 +78,14 @@
 }
 
 #learn-more {
+	display: inline-block;
 	@extend .secondary-tagline;
 
 	.learn-more-icon {
 		margin-right: 10px;
 	}
 
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	
 }
 

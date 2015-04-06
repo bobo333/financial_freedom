@@ -1709,7 +1709,7 @@ input[type="text"].form-control {
 .lp-button-wrapper {
   padding: 0;
   width: 100%;
-  margin-bottom: 180px;
+  margin-bottom: 160px;
 }
 
 /* line 46, ../../sass/partials/_intro.scss */
@@ -1762,38 +1762,39 @@ input[type="text"].form-control {
 
 /* line 80, ../../sass/partials/_intro.scss */
 #learn-more {
-  margin-bottom: 20px;
+  display: inline-block;
+  margin-bottom: 40px;
 }
-/* line 83, ../../sass/partials/_intro.scss */
+/* line 84, ../../sass/partials/_intro.scss */
 #learn-more .learn-more-icon {
   margin-right: 10px;
 }
 
-/* line 91, ../../sass/partials/_intro.scss */
+/* line 92, ../../sass/partials/_intro.scss */
 .benefits-row {
   background: white;
   padding: 50px 10px;
 }
 
-/* line 96, ../../sass/partials/_intro.scss */
+/* line 97, ../../sass/partials/_intro.scss */
 .intro-benefit {
   margin: 30px auto;
 }
 @media screen and (min-width: 1200px) {
-  /* line 96, ../../sass/partials/_intro.scss */
+  /* line 97, ../../sass/partials/_intro.scss */
   .intro-benefit {
     margin: auto auto;
   }
 }
 
-/* line 103, ../../sass/partials/_intro.scss */
+/* line 104, ../../sass/partials/_intro.scss */
 .intro-benefit-title {
   text-align: center;
   font-size: 2.2em;
   font-weight: 600;
 }
 
-/* line 109, ../../sass/partials/_intro.scss */
+/* line 110, ../../sass/partials/_intro.scss */
 .intro-benefit-body {
   margin-top: 20px;
   font-size: 1.4em;
