@@ -40,6 +40,7 @@
 .lp-button-wrapper {
 	padding: 0;
 	width: 100%;
+	margin-bottom: 180px;
 }
 
 .lp-button {
@@ -70,4 +71,42 @@
 	@include min-screen($screen_lg_min) {
 		width: 260px;
 	}
+}
+
+.button-row {
+	
+}
+
+#learn-more {
+	@extend .secondary-tagline;
+
+	.learn-more-icon {
+		margin-right: 10px;
+	}
+
+	margin-bottom: 20px;
+	
+}
+
+.benefits-row {
+	background: white;
+	padding: 50px 10px;
+}
+
+.intro-benefit {
+	margin: 30px auto;
+	@include min-screen($screen_lg_min) {
+		margin: auto auto;
+	}
+}
+
+.intro-benefit-title {
+	text-align: center;
+	font-size: 2.2em;
+	font-weight: $base_font_weight_semi_bold;
+}
+
+.intro-benefit-body {
+	margin-top: 20px;
+	font-size: 1.4em;
 }
