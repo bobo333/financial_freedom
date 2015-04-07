@@ -139,6 +139,9 @@
         exit(json_encode($response_data));
     }
 
+    echo hash_password('123');
+    exit();
+
     session_start();
     only_allow_post();
     check_logged_in();
