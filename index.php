@@ -59,12 +59,18 @@
                         </div>
                         <div collapse="isCollapsed">
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="goToRoute('/method')">Method</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                         </div>
                         <div class="expanded-nav" >
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="goToRoute('/method')">Method</a></li>
                             </ul>
                         </div>
                     </div>
