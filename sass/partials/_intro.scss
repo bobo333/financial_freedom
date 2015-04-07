@@ -40,7 +40,7 @@
 .lp-button-wrapper {
 	padding: 0;
 	width: 100%;
-	margin-bottom: 160px;
+	margin-bottom: 130px;
 }
 
 .lp-button {
@@ -73,19 +73,14 @@
 	}
 }
 
-.button-row {
-	
-}
-
 #learn-more {
-	display: inline-block;
 	@extend .secondary-tagline;
-
+	display: inline-block;
+	margin-bottom: 40px;
+	
 	.learn-more-icon {
 		margin-right: 10px;
 	}
-
-	margin-bottom: 40px;
 	
 }
 
@@ -96,6 +91,7 @@
 
 .intro-benefit {
 	margin: 30px auto;
+	padding: 0px 20px;
 	@include min-screen($screen_lg_min) {
 		margin: auto auto;
 	}
@@ -110,4 +106,5 @@
 .intro-benefit-body {
 	margin-top: 20px;
 	font-size: 1.4em;
+	font-weight: $base_font_weight_light;
 }

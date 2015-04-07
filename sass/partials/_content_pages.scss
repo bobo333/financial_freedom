@@ -20,10 +20,9 @@ $method-section-border-radius: 15px;
 }
 
 .method-section {
-	margin: 0px auto 0px auto;
+	margin: 80px auto 0px auto;
 	background: $light_bg_green;
 	color: #404040;
-	margin-top: 80px;
 	border-bottom: 1px solid rgba(48, 142, 127, 0.12);
 	width: 100%;
 }
@@ -67,6 +66,7 @@ $method-section-border-radius: 15px;
 	background: #fff; 
 	width: 100%;
 	border: transparent;
+	margin: 80px auto 0px auto;
 	
 	@include border-radius(0px);
 

@@ -84,6 +84,18 @@ $section-bottom-border: 1px solid rgba($primary_green,0.12);
 
 // Links
 
+// Global icons
+
+.help-icon {
+  color: rgba($dark_green,0.4);
+  font-size: $base_font_size * 1.5;
+  @include hover-animation(all);
+  width: 20px;
+  &:hover {
+        color: rgba($dark_green,0.8);
+    }
+
+}
 
 
 //@import "../modules/*";

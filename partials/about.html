@@ -1,39 +1,27 @@
 <div class="view-content container-fluid" id="about-view-content" ng-controller="AboutController">
-		<div class="row">
-            <div class="method-section supporting-content">
-                <div class="supporting-content-wrapper">
-                    <div class="col-xs-12 col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                    	<div class="supporting-section-title">Method</div>
-                    	<div class="supporting-section-body">
-                        	Financial independence is the point at which passive income safely exceeds expenses. "Safely" is determined by <a href="http://en.wikipedia.org/wiki/Trinity_study">the 4% safe withdrawal rate,</a> which is the maximum rate at which you can spend your savings such that you don’t run out in your lifetime. With your assets invested in diversified stock market funds which historically gain on average 7-12% annually, one can safely live off passive income forever. <a href="http://www.mrmoneymustache.com/2012/05/29/how-much-do-i-need-for-retirement/" target="_blank">Learn more<a/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="about-section supporting-content">
-                <div class="supporting-content-wrapper">
-                    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                    	<div class="supporting-section-title">About us</div>
-                    	<div class="supporting-section-body">
-                        	We are <a href="https://github.com/bobo333" target="_blank">Steve</a> and <a href="http://www.nathanrkane.com" target="_blank">Nathan</a>, the makers of Plenti. We believe that people lead more fulfilling lives in financial security, when they can choose how they spend their time. We hope Plenti sheds light on how attainable financial freedom is for many working people, and inspires the lifestyle adjustments that bring financial independence more quickly, like smart spending and investing.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="legal-section supporting-content">
+    <div class="row">
+        <div class="about-section supporting-content">
+            <div class="supporting-content-wrapper">
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                    <div id="footer-border-top"></div>
-                    <div class="footer-nav-wrapper">
-                        <div class="footer-nav-item" ng-class="{ 'footer-nav-item-active': privacy_is_active }" ng-click="revealLegalDoc('privacy-policy')">Privacy Policy</div><div class="footer-nav-item" ng-class="{ 'footer-nav-item-active': toc_is_active }"  ng-click="revealLegalDoc('toc')">Terms of Service</div>
+                	<div class="supporting-section-title">About us</div>
+                	<div class="supporting-section-body">
+                    	We are <a href="https://github.com/bobo333" target="_blank">Steve</a> and <a href="http://www.nathanrkane.com" target="_blank">Nathan</a>, the makers of Plenti. We believe that people lead more fulfilling lives in financial security, when they can choose how they spend their time. We hope Plenti sheds light on how attainable financial freedom is for many working people, and inspires the lifestyle adjustments that bring financial independence more quickly, like smart spending and investing.
                     </div>
-
-                </div>
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 legal-doc text-fade-in supporting-section-body" ng-include="template.url">
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="legal-section supporting-content">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div id="footer-border-top"></div>
+                <div class="footer-nav-wrapper">
+                    <div class="footer-nav-item" ng-class="{ 'footer-nav-item-active': privacy_is_active }" ng-click="revealLegalDoc('privacy-policy')">Privacy Policy</div><div class="footer-nav-item" ng-class="{ 'footer-nav-item-active': toc_is_active }"  ng-click="revealLegalDoc('toc')">Terms of Service</div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 legal-doc text-fade-in supporting-section-body" ng-include="template.url">
+            </div>
+        </div>
+    </div>
 </div>

@@ -102,3 +102,7 @@ input:focus {
 	outline: none;
   	@include box-shadow(none !important);
 }
+
+.input-explain-icon {
+	margin-left: 10px;
+}

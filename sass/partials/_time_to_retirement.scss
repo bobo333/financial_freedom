@@ -200,16 +200,9 @@ $actions-border: 1px solid $dark_green;
 }
 
 .output-info-icon {
-    color: rgba($dark_green,0.4);
     display: block;
     margin: 10px auto auto auto;
-    font-size: $base_font_size * 1.5;
-    @include hover-animation(all);
     width: 20px;
-
-    &:hover {
-        color: rgba($dark_green,0.8);
-    }
 }
 
 .popover {

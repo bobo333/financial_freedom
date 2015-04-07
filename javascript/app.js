@@ -22,6 +22,10 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/about.html',
         controller: ''
     })
+    .when('/method', {
+        templateUrl: 'partials/method.html',
+        controller: ''
+    })
     .when('/', {
         templateUrl: 'partials/intro.html',
         controller: 'IntroController'
@@ -71,6 +75,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location',  functio
 
         non_visible_pages = [
             '/about',
+            '/method',
             '/time-to-retirement',
             '/'
         ];
