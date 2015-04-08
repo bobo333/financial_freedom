@@ -1,4 +1,6 @@
 <?php
+    require('config.php');
+
     function check_logged_in() {
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             $errors = ['User already logged in.'];
@@ -20,7 +22,8 @@
     }
 
     function login_query_db($email) {
-        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        global $config;
+        $db = new mysqli('localhost', 'root', '', $config['db_name']);
         if ($db->connect_errno > 0) {
             die('Unable to connect to database [' . $db->connect_error . ']');
         }
