@@ -67,7 +67,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 89, ../../sass/partials/_base.scss */
+/* line 32, ../../sass/partials/_base.scss */
+.italic {
+  font-style: italic;
+}
+
+/* line 93, ../../sass/partials/_base.scss */
 .help-icon {
   color: rgba(13, 65, 46, 0.4);
   font-size: 19.5px;
@@ -85,7 +90,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   transition-duration: 0.3s;
   width: 20px;
 }
-/* line 94, ../../sass/partials/_base.scss */
+/* line 98, ../../sass/partials/_base.scss */
 .help-icon:hover {
   color: rgba(13, 65, 46, 0.8);
 }
@@ -804,6 +809,11 @@ input:focus {
 /* line 112, ../../sass/partials/_content_pages.scss */
 .legal-section {
   width: 100%;
+}
+
+/* line 116, ../../sass/partials/_content_pages.scss */
+.content-subsection-header {
+  font-weight: 600;
 }
 
 /* line 21, ../../sass/partials/_time_to_retirement.scss */
@@ -1778,32 +1788,32 @@ input[type="text"].form-control {
   margin-right: 10px;
 }
 
-/* line 87, ../../sass/partials/_intro.scss */
+/* line 86, ../../sass/partials/_intro.scss */
 .benefits-row {
   background: white;
   padding: 50px 10px;
 }
 
-/* line 92, ../../sass/partials/_intro.scss */
+/* line 91, ../../sass/partials/_intro.scss */
 .intro-benefit {
   margin: 30px auto;
   padding: 0px 20px;
 }
 @media screen and (min-width: 1200px) {
-  /* line 92, ../../sass/partials/_intro.scss */
+  /* line 91, ../../sass/partials/_intro.scss */
   .intro-benefit {
     margin: auto auto;
   }
 }
 
-/* line 100, ../../sass/partials/_intro.scss */
+/* line 99, ../../sass/partials/_intro.scss */
 .intro-benefit-title {
   text-align: center;
   font-size: 2.2em;
   font-weight: 600;
 }
 
-/* line 106, ../../sass/partials/_intro.scss */
+/* line 105, ../../sass/partials/_intro.scss */
 .intro-benefit-body {
   margin-top: 20px;
   font-size: 1.4em;

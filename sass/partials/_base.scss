@@ -29,6 +29,10 @@ $base_font_weight_normal: 400;
 $base_font_weight_semi_bold: 600;
 $base_font_weight: $base_font_weight_normal;
 
+.italic {
+  font-style: italic;
+}
+
 @include min-screen($screen_sm_min) {
 	$base_font_size: 13px;
 }
