@@ -55,16 +55,33 @@ FinancialFreedom.controller('IntroController', ['$scope', '$location',  function
     };
 }]);
 
-FinancialFreedom.controller('HeaderController', ['$scope', '$location',  function($scope, $location) {
+FinancialFreedom.controller('HeaderController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
 
     $scope.isCollapsed = true;
+
+    var income = RetirementCalculatorService.getMonthlyIncome();
+    var assets = RetirementCalculatorService.getTotalAssets();
+    var expenses = RetirementCalculatorService.getMonthlyExpenses();
 
     $scope.isActive = function(route) {
         return route == $location.path();
     };
     
     $scope.goToRoute = function(route) {
-        $location.path(route);
+
+        var income = RetirementCalculatorService.getMonthlyIncome();
+        var assets = RetirementCalculatorService.getTotalAssets();
+        var expenses = RetirementCalculatorService.getMonthlyExpenses();
+        
+        if (route == '/assets' && !assets) { return; }
+
+        else if (route == '/expenses' && !expenses) { return; }
+
+        else {
+            $location.path(route);
+        }
+
+        
     };
 
     $scope.tabsAreVisible = function() {
