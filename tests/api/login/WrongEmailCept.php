@@ -4,5 +4,11 @@
     $I->sendGET('/login.php', array('email' => 'test_WRONG_EMAIL@test.com', 'password' => '123'));
     $I->seeResponseCodeIs(200);
     $I->seeResponseIsJson();
-    $I->seeResponseContains('{"success":false,"errors":["No account with that email found."]}');
+
+    $expected_response = [
+        "success" => FALSE,
+        "errors" => ["No account with that email found."]
+    ];
+
+    $I->seeJsonResponseContains($expected_response);
 ?>

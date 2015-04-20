@@ -6,5 +6,7 @@ namespace Codeception\Module;
 
 class ApiHelper extends \Codeception\Module
 {
-
+    public function seeJsonResponseContains($variable) {
+        $this->getModule('REST')->seeResponseContains(json_encode($variable, JSON_NUMERIC_CHECK));
+    }
 }

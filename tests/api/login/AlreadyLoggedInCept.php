@@ -5,5 +5,11 @@
     $I->sendGET('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
     $I->seeResponseCodeIs(200);
     $I->seeResponseIsJson();
-    $I->seeResponseContains('{"success":false,"errors":["User already logged in."]}');
+
+    $expected_response = [
+        "success" => FALSE,
+        "errors" => ["User already logged in."]
+    ];
+
+    $I->seeJsonResponseContains($expected_response);
 ?>

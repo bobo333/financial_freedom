@@ -4,5 +4,11 @@
     $I->sendGET('/login.php', array('email' => 'test1@test.com'));
     $I->seeResponseCodeIs(200);
     $I->seeResponseIsJson();
-    $I->seeResponseContains('{"success":false,"errors":["password required."]}');
+
+    $expected_response = [
+        "success" => FALSE,
+        "errors" => ["password required."]
+    ];
+
+    $I->seeJsonResponseContains($expected_response);
 ?>

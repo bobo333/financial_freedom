@@ -1,4 +1,6 @@
 <?php
+    require('config.php');
+
     function check_logged_in() {
         if ( (!(isset($_SESSION['logged_in']))) || !$_SESSION['logged_in']) {
             $errors = ['No user logged in.'];
@@ -7,9 +9,11 @@
     }
 
     function get_user_data() {
+        global $config;
+
         $user_id = $_SESSION['user_id'];
 
-        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        $db = new mysqli('localhost', 'root', '', $config['db_name']);
         if ($db->connect_errno > 0) {
             die ('Unable to connect to database [' . $db->connect_error . ']');
         }
@@ -57,7 +61,7 @@
 
     function send_json_response($response_data) {
         header('Content-Type: application/json');
-        exit(json_encode($response_data));
+        exit(json_encode($response_data, JSON_NUMERIC_CHECK));
     }
 
     session_start();
