@@ -1,4 +1,6 @@
 <?php
+    require("config.php");
+
     function only_allow_post() {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             http_response_code(403);
@@ -41,7 +43,9 @@
     }
 
     function check_email_in_db($email) {
-        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        global $config;
+
+        $db = new mysqli('localhost', 'root', '', $config['db_name']);
         if ($db->connect_errno > 0) {
             die ('Unable to connect to database [' . $db->connect_error . ']');
         }
@@ -78,7 +82,9 @@
     }
 
     function create_new_account($email, $hashed_pw) {
-        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        global $config;
+
+        $db = new mysqli('localhost', 'root', '', $config['db_name']);
         if ($db->connect_errno > 0) {
             die ('Unable to connect to database [' . $db->connect_error . ']');
         }
@@ -94,7 +100,9 @@
     }
 
     function get_account_id($email) {
-        $db = new mysqli('localhost', 'root', '', 'financial_freedom');
+        global $config;
+
+        $db = new mysqli('localhost', 'root', '', $config['db_name']);
         if ($db->connect_errno > 0) {
             die ('Unable to connect to database [' . $db->connect_error . ']');
         }
@@ -138,9 +146,6 @@
         header('Content-Type: application/json');
         exit(json_encode($response_data));
     }
-
-    echo hash_password('123');
-    exit();
 
     session_start();
     only_allow_post();
