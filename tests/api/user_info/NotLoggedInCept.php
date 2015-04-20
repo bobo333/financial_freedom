@@ -4,5 +4,11 @@
     $I->sendGET('/userinfo.php');
     $I->seeResponseCodeIs(200);
     $I->seeResponseIsJson();
-    $I->seeResponseContains('{"success":false,"errors":["No user logged in."]}');
+
+    $expected_response = [
+        "success" => FALSE,
+        "errors" => ["No user logged in."]
+    ];
+
+    $I->seeJsonResponseContains($expected_response);
 ?>
