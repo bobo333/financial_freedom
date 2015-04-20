@@ -19,5 +19,5 @@
 
     $I->assertEquals($response['success'], TRUE);
     $I->assertEquals($response["user_data"]["email"], "new_sign_up@signup.com");
-    $I->assertEquals($response["user_data"]["total_assets"], null);
+    $I->assertEquals($response["user_data"]["total_assets"], NULL);
 ?>
