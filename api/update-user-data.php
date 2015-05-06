@@ -33,6 +33,8 @@
         $field_set = FALSE;
         $valid_data = TRUE;
         $error_messages = [];
+        $data_values = [];
+        $data_types = '';
 
         if (isset($_POST['monthly_income'])) {
 
@@ -45,6 +47,8 @@
                 }
                 $update_query = $update_query . ' monthly_income = ?';
                 $field_set = TRUE;
+                $data_values[] = intval($_POST['monthly_income']);
+                $data_types = $data_types . 'i';
             }
         }
 
@@ -59,6 +63,8 @@
                 }
                 $update_query = $update_query . ' total_assets = ?';
                 $field_set = TRUE;
+                $data_values[] = intval($_POST['total_assets']);
+                $data_types = $data_types . 'i';
             }
         }
 
@@ -73,6 +79,8 @@
                 }
                 $update_query = $update_query . ' monthly_expenses = ?';
                 $field_set = TRUE;
+                $data_values[] = intval($_POST['monthly_expenses']);
+                $data_types = $data_types . 'i';
             }
         }
 
@@ -87,6 +95,8 @@
                 }
                 $update_query = $update_query . ' income_growth_rate = ?';
                 $field_set = TRUE;
+                $data_values[] = floatval($_POST['income_growth_rate']);
+                $data_types = $data_types . 'd';
             }
         }
 
@@ -101,6 +111,8 @@
                 }
                 $update_query = $update_query . ' investment_growth_rate = ?';
                 $field_set = TRUE;
+                $data_values[] = floatval($_POST['investment_growth_rate']);
+                $data_types = $data_types . 'd';
             }
         }
 
@@ -115,6 +127,8 @@
                 }
                 $update_query = $update_query . ' expenses_growth_rate = ?';
                 $field_set = TRUE;
+                $data_values[] = floatval($_POST['expenses_growth_rate']);
+                $data_types = $data_types . 'd';
             }
         }
 
@@ -122,7 +136,9 @@
             $update_query = $update_query . " WHERE id = ?";
             return [
                 'valid_data' => $valid_data,
-                'query' => $update_query
+                'query' => $update_query,
+                'data_values' => $data_values,
+                'data_types' => $data_types
             ];
         } else {
             return [
@@ -133,6 +149,38 @@
     }
 
 
+    function convert_to_reference($array) {
+        $refs = [];
+
+        foreach($array as $key => $value) {
+            $refs[$key] = &$array[$key];
+        }
+
+        return $refs;
+    }
+
+
+    function set_user_data($query, $data_types, $data_vals) {
+        global $config;
+
+        $user_id = $_SESSION['user_id'];
+
+        $data_types .= 's';
+        $data_vals[] = $user_id;
+
+        array_unshift($data_vals, $data_types);
+
+        $db = new mysqli('localhost', 'root', '', $config['db_name']);
+        if ($db->connect_errno > 0) {
+            die ('Unable to connect to database [' . $db->connect_error . ']');
+        }
+
+        if ($statement = $db->prepare($query)) {
+            call_user_func_array(array($statement, 'bind_param'), convert_to_reference($data_vals));
+            $statement->execute();
+            $statement->close();
+        }
+    }
 
 
 
@@ -195,10 +243,9 @@
         exit(json_encode($response_data, JSON_NUMERIC_CHECK));
     }
 
-    // only_allow_post();
-
+    only_allow_post();
     session_start();
-    // check_logged_in();
+    check_logged_in();
 
 
 
@@ -209,9 +256,15 @@
 
     if ($update_query_result['valid_data']) {
         echo $update_query_result['query'];
+        var_dump($update_query_result['data_values']);
+        var_dump($update_query_result['data_types']);
     } else {
-        var_dump($update_query_result);
+        $errors = $update_query_result['errors'];
+        send_fail_response($errors);
     }
+
+
+    set_user_data($update_query_result['query'], $update_query_result['data_types'], $update_query_result['data_values']);
 
     // $user_data = get_user_data();
     // send_success_response($user_data);

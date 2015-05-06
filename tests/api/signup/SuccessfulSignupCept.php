@@ -12,7 +12,7 @@
 
     $I->seeJsonResponseContains($expected_response);
 
-    $I->sendGET('/userinfo.php');
+    $I->sendGET('/get-user-data.php');
     $I->seeResponseCodeIs(200);
 
     $response = json_decode($I->grabResponse(), TRUE);

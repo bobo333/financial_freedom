@@ -1,6 +1,6 @@
 class_name: ApiTester
 modules:
-    enabled: [Db, PhpBrowser, REST, ApiHelper]
+    enabled: [Db, PhpBrowser, REST, ApiHelper, Asserts]
     config:
         Db:
             dsn: 'mysql:host=localhost;dbname=financial_freedom_test'
