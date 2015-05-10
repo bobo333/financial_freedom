@@ -248,23 +248,14 @@
     check_logged_in();
 
 
-
-
-
-
     $update_query_result = build_update_query();
 
     if ($update_query_result['valid_data']) {
-        echo $update_query_result['query'];
-        var_dump($update_query_result['data_values']);
-        var_dump($update_query_result['data_types']);
+        set_user_data($update_query_result['query'], $update_query_result['data_types'], $update_query_result['data_values']);
+
+        $user_data = get_user_data();
+        send_success_response($user_data);
     } else {
         $errors = $update_query_result['errors'];
         send_fail_response($errors);
     }
-
-
-    set_user_data($update_query_result['query'], $update_query_result['data_types'], $update_query_result['data_values']);
-
-    // $user_data = get_user_data();
-    // send_success_response($user_data);
