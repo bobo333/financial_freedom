@@ -247,6 +247,7 @@
     session_start();
     check_logged_in();
 
+
     $update_query_result = build_update_query();
 
     if ($update_query_result['valid_data']) {

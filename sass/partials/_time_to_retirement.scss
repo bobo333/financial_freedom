@@ -7,39 +7,28 @@ $withdraw_color: $primary_green;
 $intersection_color: $dark_green;
 $tooltip_bg: rgba($primary_green,0.80);
 $main_bubble_color: #fff;
-$main_bubble_bg: #308E7F;
 $main_bubble_diameter: 150px;
-$control-button-height: 50px;
+$control-button-height: 45px;
 $expenses-field-height: 60px;
 $form-control-height: 50px;
+$control-button-border: 1px solid rgba($dark_green,0.1);
+$control-button-hover: rgba(84, 168, 136, 0.18);
+$control-button-background: rgba(84, 168, 136, 0.09);
+$actions-border: 1px solid $dark_green;
 
 #graph-wrapper {
 
-    .tooltip {
+    .intersection-label-container {
+        position: absolute;
         z-index: 1;
-        &.in {
-            opacity: 1;
-        }
-        
-        .bold {
-            font-weight: $base_font_weight_semi_bold;
-        }
-        
-        .tooltip-arrow {
-            border-top-color: $tooltip_bg;
-        };
-        
-        .tooltip-inner {
-            text-align: left;
-            background: $tooltip_bg;
-            font-size: 14px;
-            padding: 10px;
-            line-height: 1.3em;
-        }
     }
 
     #retirement-graph {
         font-size: 16px;
+
+        .graph-svg {
+            overflow: visible;
+        }
 
         .expense-line, .withdraw-line {
             stroke-width: 2;
@@ -73,6 +62,21 @@ $form-control-height: 50px;
             fill: $intersection_color;
             stroke: $intersection_color;
         }
+
+        .expenses-label {
+            fill: rgba($expense_color,0.8);
+        }
+
+        .income-label {
+            fill: rgba($withdraw_color,0.8);
+        }
+
+        .curve-label {
+            font-weight: $base_font_weight_semi_bold;
+            font-size: 0.9em;
+            max-width: 100px;
+        }
+        
     }
 }
 
@@ -114,7 +118,7 @@ $form-control-height: 50px;
 }
 
 .big-number-bg {
-    background: $main_bubble_bg;
+    background: $primary_green;
     width: $main_bubble_diameter;
     height: $main_bubble_diameter;
     @include border-radius(50%);
@@ -156,10 +160,15 @@ $form-control-height: 50px;
 .assumptions-controls-wrapper {
 
     margin-top: 70px;
-    margin-bottom: 40px;
 
     @include min-screen($screen_sm_min) {
         margin-top: 20px;
+    }
+}
+
+.assumptions-controls-wrapper {
+    .form-control {
+        max-width: 200px;
     }
 }
 
@@ -175,7 +184,7 @@ $form-control-height: 50px;
 
 .graph-section {
     margin: 0px auto 0px auto;
-    background: #F4FBFA;
+    background: $light_bg_green;
     padding-bottom: 0px;
 }
 
@@ -183,20 +192,17 @@ $form-control-height: 50px;
 
     line-height: $base_line_height * 1.3;
     font-size: $base_font_size;
-    padding: 0px auto 0px auto;
     margin-top: 30px;
 
     @include min-screen($screen_sm_min) {
         font-size: $base_font_size * 1.5;
     }
-
-
 }
 
 .output-info-icon {
     color: rgba($dark_green,0.4);
     display: block;
-    margin: 5px auto auto auto;
+    margin: 10px auto auto auto;
     font-size: $base_font_size * 1.5;
     @include hover-animation(all);
     width: 20px;
@@ -211,16 +217,17 @@ $form-control-height: 50px;
 }
 
 #explain-text {
-    font-size: $base_font_size;
-    margin-left: 75px;
-    margin-top: 20px;
+    font-size: 0.7em;
+    
+    @include min-screen($screen_sm_min) {
+        margin-left: 75px;
+    }
 }
 
 input[type="text"].form-control {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
-    width: 100%;
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
@@ -265,47 +272,52 @@ input[type="text"].form-control {
     display: block;
     margin: auto auto;
     height: $control-button-height;
-    width: $control-button-height * 2;
-    font-size: 1.5em;
+    width: $control-button-height * 2.25;
+    font-size: 1.2em;
     padding: 0 0;
     outline: none !important;
-    background: #F4FBFA;
+    background: $control-button-background;
     color: $dark_green;
     @include box-shadow(none !important);
     @include hover-animation(all);
+    border: $control-button-border;
 
-    &:focus {
-        background: #F4FBFA;
+    &:focus, &:visited {
+        background: $control-button-background;
         outline: none !important;
+        border: $control-button-border;
     }
 
     &:hover {
-        background: #D6E8E5;
+        background: $control-button-hover;
+    }
+
+    @include min-screen($screen_sm_min) {
+        height: $control-button-height;
+        width: $control-button-height * 3;
     }
 }
 
 .control-increase-button {
-    @include border-radius(0px); // override Bootstrap .btn
-    @include border-top-radius($control-button-height);
-    border-bottom: 0px;
-    border: 1px solid rgba($dark_green,0.2);
+    border-radius: 50% / 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     border-bottom: none;
 
     &:hover {
-        border: 1px solid rgba($dark_green,0.2);
+        border: $control-button-border;
         border-bottom: none;
     }
 }
 
 .control-decrease-button {
-    @include border-radius(0px); // override Bootstrap .btn
-    @include border-bottom-radius($control-button-height);
-    border-top: 0px;
-    border: 1px solid rgba($dark_green,0.2);
+    border-radius: 50% / 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     border-top: none;
 
     &:hover {
-        border: 1px solid rgba($dark_green,0.2);
+        border: $control-button-border;
         border-top: none;
     }
 }
@@ -314,20 +326,9 @@ input[type="text"].form-control {
     .control-change-button {
         display: block;
         margin: auto auto;
-        height: $control-button-height * (2/3);
-        width: $control-button-height * (4/3);
+        height: $control-button-height * 0.7;
+        width: $control-button-height * 2;
         font-size: 1.2em;
-    }
-    .control-increase-button {
-        @include border-radius(0px); // override Bootstrap .btn
-        @include border-top-radius($control-button-height * (3/2));
-        border-bottom: 0px;
-    }
-
-    .control-decrease-button {
-        @include border-radius(0px); // override Bootstrap .btn
-        @include border-bottom-radius($control-button-height * (3/2));
-        border-top: 0px;
     }
 }
 
@@ -340,9 +341,10 @@ input[type="text"].form-control {
 
 .edit-link {
     display: inline-block;
-    float: right;
+    margin-left: 10px;
     color: $dark_green;
     font-weight: $base_font_weight_semi_bold;
+    font-size: 0.9em;
 
     &:hover {
         cursor: pointer;
@@ -350,7 +352,7 @@ input[type="text"].form-control {
 }
 
 .assumptions-section {
-    margin-top: 20px;
+    margin: 20px auto;
     position: relative;
 }
 
@@ -363,35 +365,27 @@ input[type="text"].form-control {
     }
 }
 
-.assumptionseditable {
-    input[type="text"].form-control {
-        width: 100px;
-        font-size: $base_font_size * 1.5;
+.assumptions-toggle {
+    margin: 20px auto auto 0px;
+    background: $control-button-background;
+    color: $dark_green;
+    display: block;
+    border: $control-button-border;
+    @include hover-animation(all);
+
+    &:focus, &:visited {
+        background: $control-button-background;
+        outline: none !important;
+        border: $control-button-border;
     }
-    @extend .controls-row;
 
-    margin-top: 50px;
-
+    &:hover {
+        background: $control-button-hover;
+        border: $control-button-border;
+    }
     @include min-screen($screen_sm_min) {
-        margin-top: 20px;
-    }
-}
-
-.assumptionsnoteditable {
-    .control-change-button {
-        display: none;
-    }
-
-    .control-label {
-        margin-top: 0px;
-    }
-
-    input[type="text"].form-control {
-        border: 0;
-        background: inherit;
-        &:hover {
-            cursor: text;
-        }
+        display: inline-block;
+        margin: 0px auto auto 20px;
     }
 }
 
@@ -413,20 +407,20 @@ input[type="text"].form-control {
 .actions-container {
     padding-left: 0px;
     padding-right: 0px;
-    border: 1px solid $secondary_brown;
-    background: $light_brown_bg;
+    border: $actions-border;
+    background: $light_bg_green;
     position: relative;
 }
 
 .expenses-actions-container {
     @include border-top-radius(5px);
-    border-bottom: 1px solid $secondary_brown;
+    border-bottom: $actions-border;
 }
 
 .income-actions-container {
     border-top: none;
-    border-right: 1px solid $secondary_brown;
-    border-left: 1px solid $secondary_brown;
+    border-right: $actions-border;
+    border-left: $actions-border;
 }
 
 .assets-actions-container {
@@ -451,7 +445,6 @@ input[type="text"].form-control {
 }
 
 .actions-section-title {
-    height: 50px;
     background: #fff;
     color: #404040;
     text-align: center;
@@ -486,10 +479,11 @@ input[type="text"].form-control {
         bottom: 0;
         text-align: center;
         width: 100%;
-        background: rgba(#000, 0.5);
+        background: rgba($secondary_brown_dark, 0.5);
         color: #fff;
         height: 40px;
         margin: auto auto;
+        font-size: 1.1em;
         @include border-radius(0px);
         @include border-bottom-radius(5px);
     }
@@ -504,8 +498,8 @@ input[type="text"].form-control {
 
 .action-title {
     padding: 20px 20px 20px 0px;
-    font-size: 1.4em;
-    color: $secondary_brown;
+    font-size: 1.6em;
+    color: $dark-green;
     font-weight: $base_font_weight_light;
 }
 
@@ -529,8 +523,8 @@ input[type="text"].form-control {
 }
 
 .suggested-amount-content {
-    font-size: 1em;
-    padding-bottom: 20px;
+    font-size: 1.1em;
+    padding-bottom: 27px;
     font-weight: $base_font_weight_light;
 }
 
@@ -540,19 +534,19 @@ input[type="text"].form-control {
 
 .add-title-margin {
     @include min-screen($screen_md_min) {
-        margin-bottom: 37px;
+        margin-bottom: 48px;
     }
 }
 
 .actions-help-icon {
-    color: rgba($secondary_brown_dark,0.4);
+    color: rgba($dark_green,0.4);
     margin: auto auto auto 5px;
     font-size: 1.2em;
     @include hover-animation(all);
     width: 20px;
 
     &:hover {
-        color: rgba($secondary_brown_dark,0.8);
+        color: rgba($dark_green,0.8);
     }
 }
 
@@ -564,5 +558,65 @@ input[type="text"].form-control {
 #privacy-link {
     &:hover {
         opacity: 1;
+    }
+}
+
+.xaxis-label {
+    font-weight: $base_font_weight_semi_bold;
+    font-size: 1em;
+    display: none;
+    @include min-screen($screen_sm_min) {
+        font-size: 1.8em;
+        display: block;
+    }
+}
+
+.label-under {
+    text-align: center;
+    width: 100%;
+    display: block;
+    @include min-screen($screen_sm_min) {
+        display: none;
+    }
+}
+
+.no-graph-message-wrapper {
+    background: rgba(#fff,0.7);
+    @include border-radius(10px);
+    padding: 20px 20px 20px 20px;
+    margin: 0px auto;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    max-width: 300px;
+
+    @include min-screen($screen_md_min) {
+        max-width: 400px;
+    }
+    @include min-screen($screen_sm_min) {
+        padding: 50px 50px 50px 50px;
+        max-width: 700px;
+    }
+}
+
+.no-graph-message {
+    text-align: center;
+    font-size: 0.6em;
+    @include min-screen($screen_sm_min) {
+        font-size: 0.8em;
+    }
+}
+
+.intersection-label {
+    color: white;
+    padding: 15px 15px;
+    display: inline-block;
+    line-height: $base_line_height * 1.2;
+    z-index: 1;
+    font-weight: $base_font_weight_normal;
+
+    .bold {
+        font-weight: $base_font_weight_semi_bold;
     }
 }

@@ -21,8 +21,8 @@ $brand_font_weight_light: 300;
 $brand_font_weight_bold: 700;
 
 // Base Font
-$base_font_family: 'Open Sans', sans-serif;
-$base_font_size: 15px;
+$base_font_family: 'Source Sans Pro', sans-serif;
+$base_font_size: 20px;
 $base_line_height: 1;
 $base_font_weight_light: 300;
 $base_font_weight_normal: 400;
@@ -42,12 +42,15 @@ $fixed_line_height: $base_line_height;
 
 
 // Colors
-$primary_green: #308E7F;
-$dark_green: #044137;
+$primary_green: #2B8E69;
+$dark_green: #0D412E;
 $light_green: #60DAC7;
+$light_bg_green: rgba($primary_green, 0.05);
 
-$secondary_brown: #8E4B30;
-$secondary_brown_dark: #411909;
+$secondary_brown: #DA9B03;
+$secondary_brown_dark: #5B4612;
+
+$tertiary_purple: #86399B;
 
 $light_brown_bg: #FCF5EC;
 

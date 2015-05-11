@@ -80,4 +80,51 @@ describe('Unit: DateService', function() {
 
         expect(date1.getTime()).toBe(date2.getTime());
     });
+
+    // calculateYearsBetween
+    it('should return 0 for two dates of the same day', function() {
+        var date1 = new Date();
+        var date2 = new Date();
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(0);
+    });
+
+    it('should return 3 for years between 2015 and 2018', function() {
+        var date1 = new Date(2015, 0, 1);
+        var date2 = new Date(2018, 0, 4);
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(3);
+    });
+
+    it('should return 0 year for days between January 1st, 2014 and December 31st, 2014', function() {
+        var date1 = new Date(2014, 0, 1);
+        var date2 = new Date(2014, 11, 31);
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(0);
+    });
+
+    it('should return -2 years for days between January 1st, 2014 and January 1st, 2012', function() {
+        var date1 = new Date(2014, 0, 1);
+        var date2 = new Date(2012, 0, 1);
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(-2);
+    });
+
+    it('should return 1 year for days between December 31st, 2014 and January 1st, 2015', function() {
+        var date1 = new Date(2014, 11, 31);
+        var date2 = new Date(2015, 0, 1);
+
+        var years_between = DateService.calculateYearsBetween(date1, date2);
+
+        expect(years_between).toBe(1);
+    });
+
 });

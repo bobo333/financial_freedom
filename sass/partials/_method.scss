@@ -21,41 +21,36 @@ $method-section-border-radius: 15px;
 
 .method-section {
 	margin: 0px auto 0px auto;
-	background: $dark_green;
-	color: #fff;
+	background: $light_bg_green;
+	color: #404040;
 	margin-top: 80px;
+	border-bottom: 1px solid rgba(48, 142, 127, 0.12);
+	width: 100%;
 }
 
 .supporting-content-wrapper {
 	padding: 20px 20px;
-
-	@include min-screen($screen_sm_min) {
-		padding: 50px auto;
-	}
 }
 
 .supporting-section-title {
 	font-weight: $base_font_weight_semi_bold;
 	font-size: $base_font_size * 3;
 	margin-top: 20px;
-
-	@include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 3;
-	}
 }
 
 .supporting-section-body {
 
 	line-height: $base_line_height * 1.3;
-	font-size: $base_font_size;
+	font-size: $base_font_size * 1.5;
 	padding: 0px auto 0px auto;
 	margin-top: 30px;
+	max-width: 720px;
 
 	li {
 		list-style-type: circle;
 	}
 	@include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 1.3;
+		font-size: $base_font_size * 2;
 	}
 }
 
