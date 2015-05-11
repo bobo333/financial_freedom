@@ -1,6 +1,13 @@
 <?php
     require('config.php');
 
+    function only_allow_post() {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(403);
+            exit();
+        }
+    }
+
     function check_logged_in() {
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             $errors = ['User already logged in.'];
@@ -90,11 +97,12 @@
     }
 
     session_start();
+    only_allow_post();
     check_logged_in();
     $login_params = ['email', 'password'];
-    check_params($_GET, $login_params);
-    $password = $_GET['password'];
-    $email = $_GET['email'];
+    check_params($_POST, $login_params);
+    $password = $_POST['password'];
+    $email = $_POST['email'];
 
     $result = login_query_db($email);
     check_no_match($result);

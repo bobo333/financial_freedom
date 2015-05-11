@@ -8,7 +8,7 @@
 
     $I = new ApiTester($scenario);
     $I->wantTo('Update expenses_growth_rate with negative decimal');
-    $I->sendGET('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
+    $I->sendPOST('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
 
     $I->sendGET('/update-user-data.php', $update_vals);
     $I->seeResponseCodeIs(403);

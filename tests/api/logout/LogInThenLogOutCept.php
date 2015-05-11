@@ -3,7 +3,7 @@
 
     $I = new ApiTester($scenario);
     $I->wantTo('Logout when already logged out');
-    $I->sendGET('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
+    $I->sendPOST('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
     $I->seeResponseContains('{"success":true,"errors":[]}');
     $I->sendGET('/logout.php');
     $I->sendGET('/get-user-data.php', array('email' => 'test1@test.com', 'password' => '123'));

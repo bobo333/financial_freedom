@@ -7,7 +7,7 @@
 
     $I = new ApiTester($scenario);
     $I->wantTo('Update with multiple errors');
-    $I->sendGET('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
+    $I->sendPOST('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
     $I->sendPOST('/update-user-data.php', $update_vals);
 
     $response = json_decode($I->grabResponse(), TRUE);

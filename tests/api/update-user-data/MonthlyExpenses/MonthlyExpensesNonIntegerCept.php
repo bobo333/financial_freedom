@@ -10,7 +10,7 @@
 
     $I = new ApiTester($scenario);
     $I->wantTo('Update monthly_expenses with non-integer');
-    $I->sendGET('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
+    $I->sendPOST('/login.php', array('email' => 'test1@test.com', 'password' => '123'));
     $I->sendPOST('/update-user-data.php', $update_vals);
 
     $I->seeResponseCodeIs(200);
