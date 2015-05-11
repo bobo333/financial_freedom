@@ -2,7 +2,9 @@
 
 Last Updated: 5/11/2015
 
-This is a JSON API. All calls will have the following fields in their returns unless the status code is not 200:
+----------
+
+This is a JSON API, it accepts and returns JSON. All calls will have the following fields in their returns unless the status code is not 200:
 
 	{
 		success: [boolean],
@@ -11,6 +13,8 @@ This is a JSON API. All calls will have the following fields in their returns un
 
 If the status code is 403 Forbidden, the type of request is likely incorrect. Ex: using GET instead of POST.
 
+## Available Endpoints ##
+
 ### Log In ###
 **POST /api/login.php**
 
@@ -18,8 +22,8 @@ Log in a user with the provided credentials.
 
 Parameters:
 
-- `email` [string], required
-- `password` [string], required
+- `email` [string, required]
+- `password` [string, required]
 
 Returns:
 
@@ -56,8 +60,8 @@ Create a new user.
 
 Parameters:
 
-- `email` [string] email address of the new user being created, required
-- `password` [string] password for the new user being created, required
+- `email` [string, required] email address of the new user being created
+- `password` [string, required] password for the new user being created
 
 Returns: 
 
@@ -108,12 +112,12 @@ Updates user data for the currently logged in user.
 
 Parameters:
 
-- `monthly_income` [int], monthly income of the current user. Optional.
-- `total_assets` [int], total assets of the current user. Optional.
-- `monthly_expenses` [int], monthly expenses of the current user. Optional.
-- `income_growth_rate` [float], current user's annual income growth rate. Optional.
-- `investment_growth_rate` [float], current user's annual investment growth rate. Optional.
-- `expenses_growth_rate` [float], current user's annual expenses growth rate. Optional.
+- `monthly_income` [int, optional], monthly income of the current user.
+- `total_assets` [int, optional], total assets of the current user.
+- `monthly_expenses` [int, optional], monthly expenses of the current user.
+- `income_growth_rate` [float, optional], current user's annual income growth rate.
+- `investment_growth_rate` [float, optional], current user's annual investment growth rate.
+- `expenses_growth_rate` [float, optional], current user's annual expenses growth rate.
 
 Returns:
 
