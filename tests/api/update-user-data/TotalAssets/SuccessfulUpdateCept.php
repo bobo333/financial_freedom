@@ -16,5 +16,6 @@
     $I->seeResponseIsJson();
     $I->assertEquals($response['success'], TRUE);
     $I->assertEquals($response['errors'], []);
+    $I->assertEquals($response['user_data']['total_assets'], $new_assets);
     $I->seeInDatabase('users', array('email' => 'test1@test.com', 'total_assets' => $new_assets));
 ?>

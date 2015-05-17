@@ -16,5 +16,6 @@
     $I->seeResponseIsJson();
     $I->assertEquals($response['success'], TRUE);
     $I->assertEquals($response['errors'], []);
+    $I->assertEquals($response['user_data']['expenses_growth_rate'], $new_growth_rate);
     $I->seeInDatabase('users', array('email' => 'test1@test.com', 'expenses_growth_rate' => $new_growth_rate));
 ?>

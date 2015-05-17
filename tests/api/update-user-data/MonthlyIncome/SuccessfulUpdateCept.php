@@ -16,5 +16,6 @@
     $I->seeResponseIsJson();
     $I->assertEquals($response['success'], TRUE);
     $I->assertEquals($response['errors'], []);
+    $I->assertEquals($response['user_data']['monthly_income'], $new_income);
     $I->seeInDatabase('users', array('email' => 'test1@test.com', 'monthly_income' => $new_income));
 ?>
