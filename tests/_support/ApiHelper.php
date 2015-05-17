@@ -1,5 +1,8 @@
 <?php
 namespace Codeception\Module;
+
+\codecept_debug(getcwd());
+
 require('api/config.php');
 global $config;
 \codecept_debug('hi');
