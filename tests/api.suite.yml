@@ -1,0 +1,15 @@
+class_name: ApiTester
+modules:
+    enabled: [Db, PhpBrowser, REST, ApiHelper, Asserts]
+    config:
+        Db:
+            dsn: 'mysql:host=localhost;dbname=financial_freedom_test'
+            user: 'root'
+            password: ''
+            dump: 'tests/_data/users.sql'
+            populate: true
+            cleanup: true
+        PhpBrowser:
+            url: 'http://localhost/financial_freedom'
+        REST:
+            url: 'http://localhost/financial_freedom/api'
