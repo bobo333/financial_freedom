@@ -20,15 +20,15 @@
         <div class="">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" required ng-model="emailsubmission" />
+                <input type="email" class="form-control" required ng-model="user.emailsubmission" />
             </div>
             <div class="form-group">
                 <label for="password1">Password</label>
-                <input type="password" class="form-control" required ng-model="passwordsubmission1" />
+                <input type="password" class="form-control" required ng-model="user.passwordsubmission1" />
             </div>
             <div class="form-group" ng-if="!isReturningUser">
                 <label for="password2">Password one more time</label>
-                <input type="password" class="form-control" required ng-model="passwordsubmission2" />
+                <input type="password" class="form-control" required ng-model="user.passwordsubmission2" />
             </div>
 
             <div class="login-form-controls-wrapper">

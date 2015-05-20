@@ -20,6 +20,7 @@
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
         <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
         
@@ -33,7 +34,6 @@
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
         <script type="text/javascript" src="javascript/auth_service.js"></script>
         <script type="text/javascript" src="javascript/user_status_service.js"></script>
-
 
         <title>Plenti | Free Yourself</title>
     </head>
@@ -69,7 +69,7 @@
                             <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn">
                                 <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn" ng-click="logout()">
+                            <ul class="nav navbar-nav navbar-right" ng-click="logout()">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
                             </ul>
                         </div>
@@ -92,6 +92,9 @@
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(); attemptToSignIn()" ng-if="!userSignedIn">Sign in</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" ng-click="logout()">
+                                <li><a class="nav-item-custom">Sign out</a></li>
                             </ul>
                         </div>
                     </div>

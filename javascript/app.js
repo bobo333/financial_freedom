@@ -1,4 +1,4 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate','ui.bootstrap']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate','ui.bootstrap','ngResource']);
 
 FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -67,6 +67,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
         $location.path(route);
     };
 
+
     $scope.tabsAreVisible = function() {
 
         non_visible_pages = [
@@ -112,9 +113,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
         UserStatusService.assumeReturningUser();
     };
 
-    $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
-        $scope.userSignedIn = isUserLoggedIn;
-    });
+    // $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
+    //     $scope.userSignedIn = isUserLoggedIn;
+    // });
 
 }]);
 
@@ -122,11 +123,15 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
 
     $scope.ok = function () {
         $modalInstance.close();
-    };
+    }
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
-    };
+    }
+
+    $scope.createAccount = function () {
+        AuthService.userSignup($scope.user);
+    }
 
     $scope.attemptToCreateAccount = function() {
         UserStatusService.assumeNewUser();
@@ -141,8 +146,8 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
     });
 
     $scope.login = function() {
-        AuthService.login();
-        $location.path('/time-to-retirement');
+        // AuthService.login();
+        // $location.path('/time-to-retirement');
     };
 
     $scope.isReturningUser = UserStatusService.isReturningUser();
@@ -237,14 +242,13 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
         }
     };
 
-    
 }]);
 
 FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', 'UserStatusService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserStatusService) {
     
-    $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
-        $scope.userSignedIn = isUserLoggedIn;
-    });
+    // $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
+    //     $scope.userSignedIn = isUserLoggedIn;
+    // });
 
     $scope.createAccountClicked = function() {
         UserStatusService.assumeNewUser();
