@@ -43,6 +43,7 @@
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
                     <div class="container-fluid">
+                        {{ userIsLoggedIn }}
                         <div class="navbar-header">
                             <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                                 <span class="sr-only">Toggle navigation</span>
@@ -60,13 +61,13 @@
                             </a>
                         </div>
                         <div collapse="isCollapsed">
-                            <ul class="nav navbar-nav navbar-right" ng-if="!userSignedIn">
+                            <ul class="nav navbar-nav navbar-right" ng-if="!userIsLoggedIn">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(); attemptToSignIn()">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn">
+                            <ul class="nav navbar-nav navbar-right" ng-if="userIsLoggedIn">
                                 <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-click="logout()">
@@ -75,7 +76,7 @@
                         </div>
                         <div class="expanded-nav">
                             
-                            <ul class="nav navbar-nav navbar-right" ng-if="userSignedIn">
+                            <ul class="nav navbar-nav navbar-right" ng-if="userIsLoggedIn">
                                 <li class="dropdown" dropdown>
                                    <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
                                     <ul class="dropdown-menu">
@@ -91,11 +92,12 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(); attemptToSignIn()" ng-if="!userSignedIn">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(); attemptToSignIn()" ng-if="!userIsLoggedIn">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-click="logout()">
                                 <li><a class="nav-item-custom">Sign out</a></li>
                             </ul>
+
                         </div>
                     </div>
                 </nav>

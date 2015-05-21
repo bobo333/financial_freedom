@@ -113,9 +113,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
         UserStatusService.assumeReturningUser();
     };
 
-    // $scope.$watch( AuthService.isUserLoggedIn , function( isUserLoggedIn ) {
-    //     $scope.userSignedIn = isUserLoggedIn;
-    // });
+    $scope.$watch( AuthService.userIsLoggedIn , function( userIsLoggedIn ) {
+        $scope.userIsLoggedIn = userIsLoggedIn;
+    });
 
 }]);
 
@@ -133,6 +133,10 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
         AuthService.userSignup($scope.user);
     }
 
+    $scope.login = function() {
+        AuthService.login($scope.user);
+    };
+
     $scope.attemptToCreateAccount = function() {
         UserStatusService.assumeNewUser();
     }
@@ -144,11 +148,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$modalInstance
     $scope.$watch(UserStatusService.isReturningUser, function( isReturningUser ) {
         $scope.isReturningUser = isReturningUser;
     });
-
-    $scope.login = function() {
-        // AuthService.login();
-        // $location.path('/time-to-retirement');
-    };
 
     $scope.isReturningUser = UserStatusService.isReturningUser();
 

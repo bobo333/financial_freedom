@@ -1,4 +1,7 @@
 FinancialFreedom.factory('AuthService', ['$resource', '$http', function($resource, $http) {
+
+	var userIsLoggedIn = false;
+
 	return {
 
 		userSignup: function(user) {
@@ -26,6 +29,46 @@ FinancialFreedom.factory('AuthService', ['$resource', '$http', function($resourc
           		this.data = data;
           		console.log("Request was a runaway success");
           		console.log(this.data);
+          		userIsLoggedIn = true;
+		  	}).
+		  	error(function(data, status, headers, config) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		    	this.data = data || "Request failed";
+          		this.status = status;
+          		console.log("Request was a massive failure");
+          		console.log(this.data);
+          		userIsLoggedIn = false;
+		  	});
+
+		},
+
+		login: function(user) {
+
+			var formData = {
+      			'email'       : user.emailsubmission,
+      			'password'    : user.passwordsubmission1
+  			};
+
+			var req = {
+				method: 'POST',
+				url: 'api/login.php',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				data: $.param(formData)
+			}
+
+			$http(req).
+	  		success(function(data, status, headers, config) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    	this.status = status;
+          		this.data = data;
+          		console.log("Request was a runaway success");
+          		console.log(this.data);
+          		userIsLoggedIn = true;
+
 		  	}).
 		  	error(function(data, status, headers, config) {
 		    // called asynchronously if an error occurs
@@ -37,6 +80,8 @@ FinancialFreedom.factory('AuthService', ['$resource', '$http', function($resourc
 		  	});
 
 		},
+
+		
 
 	 	logout: function() {
 	 		$http.get('api/logout.php').success(function(data, status, headers, config) {
