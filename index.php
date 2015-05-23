@@ -43,7 +43,6 @@
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
                     <div class="container-fluid">
-                        {{ currentUser.email }}
                         <div class="navbar-header">
                             <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                                 <span class="sr-only">Toggle navigation</span>

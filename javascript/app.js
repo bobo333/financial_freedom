@@ -118,18 +118,19 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
     };
 
     $scope.logout = function() {
+
         AuthService.logout();
-        $location.path('/');
     };
 
-    $scope.logout = function() {
+    // $scope.login = function (credentials) {
 
-        AuthService.logout().then(function ()  {
-            $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
-            $scope.setCurrentUser(null);
-            $location.path('/');
-        });
-    };
+    //     AuthService.login(credentials).then(function (user)  {
+    //         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+    //         $scope.setCurrentUser(user);
+    //     }, function () {
+    //         $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+    //     });
+    // };
 
     // $scope.attemptToSignIn = function() {
     //     Sess.assumeReturningUser();
@@ -161,9 +162,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '
     //     AuthService.userSignup(credentials);
     // }
 
-    $scope.login = function(credentials) {
-
-        //console.log(credentials);
+    $scope.login = function (credentials) {
 
         AuthService.login(credentials).then(function (user)  {
             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);

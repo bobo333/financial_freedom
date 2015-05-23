@@ -88,19 +88,23 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
   	};
 
 
- 	this.logout = function() {
+ 	authService.logout = function() {
  		$http.get('api/logout.php').success(function(data, status, headers, config) {
 	    // this callback will be called asynchronously
 	    // when the response is available
 	    	this.status = status;
       		this.data = data;
-      		console.log(data);
+      		console.log(this.status);
+
+      		Session.destroy();
+
+      		return this.data;
 	  	}).
 	  	error(function(data, status, headers, config) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
-	    	this.data = data || "Request failed";
       		this.status = status;
+      		return this.data;
 	  	});
  	};
 
