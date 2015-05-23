@@ -8,27 +8,28 @@
 
         <div class="signup-side">
             <a ng-click="attemptToCreateAccount()" ng-if="isReturningUser">Or, sign up for Plenti</a>
-            <a ng-click="attemptToSignIn()" ng-if="!isReturningUser">Or, sign in</a>
+            <a ng-if="!isReturningUser">Or, sign in</a>
+
+            {{ credentials.email }} 
         </div>
 
     </div>
 
-    <form name="loginForm" novalidate>
+    <form name="loginForm" ng-submit="login(credentials)" novalidate>
 
     <div class="modal-body row">
-        
         <div class="">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" required ng-model="user.emailsubmission" />
+                <label for="email">Email </label> 
+                <input type="email" class="form-control" required ng-model="credentials.email" />
             </div>
             <div class="form-group">
                 <label for="password1">Password</label>
-                <input type="password" class="form-control" required ng-model="user.passwordsubmission1" />
+                <input type="password" class="form-control" required ng-model="credentials.password" />
             </div>
             <div class="form-group" ng-if="!isReturningUser">
                 <label for="password2">Password one more time</label>
-                <input type="password" class="form-control" required ng-model="user.passwordsubmission2" />
+                <input type="password" class="form-control" required ng-model="credentials.passwordconfirm" />
             </div>
 
             <div class="login-form-controls-wrapper">
@@ -46,8 +47,9 @@
                 
     </div>
     <div class="modal-footer">
-        <input ng-if="isReturningUser" type="submit" value="Login" ng-click="ok(); login()" class="btn btn-primary login-button" />
-        <input ng-if="!isReturningUser" type="submit" value="Create account" ng-click="ok(); login(); createAccount()" class="btn btn-primary login-button" />    
+        <input ng-if="isReturningUser" type="submit" value="Login" ng-click="ok()" class="btn btn-primary login-button" />
+        <input ng-if="!isReturningUser" type="submit" value="Create account" ng-click="ok(); createAccount()" class="btn btn-primary login-button" /> 
+
     </div>
 
     </form>

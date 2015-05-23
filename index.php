@@ -33,7 +33,7 @@
         <script type="text/javascript" src="javascript/google_analytics_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
         <script type="text/javascript" src="javascript/auth_service.js"></script>
-        <script type="text/javascript" src="javascript/user_status_service.js"></script>
+        <script type="text/javascript" src="javascript/session_service.js"></script>
 
         <title>Plenti | Free Yourself</title>
     </head>
@@ -43,7 +43,7 @@
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
                     <div class="container-fluid">
-                        {{ userIsLoggedIn }}
+                        {{ currentUser.email }}
                         <div class="navbar-header">
                             <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                                 <span class="sr-only">Toggle navigation</span>
@@ -61,8 +61,8 @@
                             </a>
                         </div>
                         <div collapse="isCollapsed">
-                            <ul class="nav navbar-nav navbar-right" ng-if="!userIsLoggedIn">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(); attemptToSignIn()">Sign in</a></li>
+                            <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
@@ -92,7 +92,7 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(); attemptToSignIn()" ng-if="!userIsLoggedIn">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!userIsLoggedIn">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-click="logout()">
                                 <li><a class="nav-item-custom">Sign out</a></li>
