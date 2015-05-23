@@ -42,7 +42,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window', 'GoogleAnalyticsService', 'AuthService', function($scope, $location, $window, GoogleAnalyticsService, AuthService) {
+FinancialFreedom.controller('bodyController', ['$scope', '$rootScope', '$location', '$window', 'GoogleAnalyticsService', 'AuthService', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService) {
     
     $location.path("/");
 
@@ -50,10 +50,10 @@ FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window',
         return route == $location.path();
     };
 
-    $scope.currentUser = null;
+    $rootScope.currentUser = null;
 
-    $scope.setCurrentUser = function (user) {
-        $scope.currentUser = user;
+    $rootScope.setCurrentUser = function (user) {
+        $rootScope.currentUser = user;
     };
 
 }]);
@@ -66,7 +66,7 @@ FinancialFreedom.controller('IntroController', ['$scope', '$location',  function
 
 }]);
 
-FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal', 'AuthService', 'Session', function($scope, $location, $modal, AuthService, Session) {
+FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$location', '$modal', 'AuthService', 'Session', function($scope, $rootScope, $location, $modal, AuthService, Session) {
 
     $scope.isCollapsed = true;
 
@@ -120,26 +120,8 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$location', '$modal'
     $scope.logout = function() {
 
         AuthService.logout();
+        $rootScope.setCurrentUser(null);
     };
-
-    // $scope.login = function (credentials) {
-
-    //     AuthService.login(credentials).then(function (user)  {
-    //         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-    //         $scope.setCurrentUser(user);
-    //     }, function () {
-    //         $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-    //     });
-    // };
-
-    // $scope.attemptToSignIn = function() {
-    //     Sess.assumeReturningUser();
-    // };
-
-    // $scope.$watch( AuthService.userIsLoggedIn , function( userIsLoggedIn ) {
-    //     $scope.userIsLoggedIn = userIsLoggedIn;
-    // });
-
 
 }]);
 
@@ -158,33 +140,19 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '
         $modalInstance.dismiss('cancel');
     }
 
-    // $scope.createAccount = function (credentials) {
-    //     AuthService.userSignup(credentials);
-    // }
+    $scope.createAccount = function (credentials) {
+        AuthService.userSignup(credentials);
+    }
 
     $scope.login = function (credentials) {
 
         AuthService.login(credentials).then(function (user)  {
             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-            $scope.setCurrentUser(user);
+            $rootScope.setCurrentUser(user);
         }, function () {
             $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
         });
     };
-
-    // $scope.attemptToCreateAccount = function() {
-    //     UserStatusService.assumeNewUser();
-    // }
-
-    // $scope.attemptToSignIn = function() {
-    //     UserStatusService.assumeReturningUser();
-    // }
-
-    // $scope.$watch(UserStatusService.isReturningUser, function( isReturningUser ) {
-    //     $scope.isReturningUser = isReturningUser;
-    // });
-
-    // $scope.isReturningUser = UserStatusService.isReturningUser();
 
 }]);
 
@@ -290,7 +258,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', '
             templateUrl: 'partials/login_modal.html',
             controller: 'LoginModalInstanceCtrl',
             size: size,
-            backdrop: true,
+            backdrop: true
         });
     };
 

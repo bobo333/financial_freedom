@@ -2,44 +2,40 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
 
 	var authService = {};
 
-	// this.userIsLoggedIn = false;
+	authService.createAccount = function (credentials) {
 
-	// this.userSignup = function(user) {
+		var formData = {
+  			'email'       : credentials.email,
+  			'password'    : credentials.password
+		}
 
-	// 	var formData = {
- //  			'email'       : user.emailsubmission,
- //  			'password'    : user.passwordsubmission1
-	// 		};
+		var req = {
+			method: 'POST',
+			url: 'api/signup.php',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			data: $.param(formData)
+		}
 
-	// 	var req = {
-	// 		method: 'POST',
-	// 		url: 'api/signup.php',
-	// 		headers: {
-	// 			'Content-Type': 'application/x-www-form-urlencoded'
-	// 		},
-	// 		data: $.param(formData)
-	// 	}
+		return $http(req).
+  		success(function(data, status, headers, config) {
 
-	// 	$http(req).
- //  		success(function(data, status, headers, config) {
-	//     // this callback will be called asynchronously
-	//     // when the response is available
-	//     	this.status = status;
- //      		this.data = data;
- //      		console.log("Request was a runaway success");
- //      		console.log(this.data);
-	//   	}).
-	//   	error(function(data, status, headers, config) {
-	//     // called asynchronously if an error occurs
-	//     // or server returns response with an error status.
-	//     	this.data = data || "Request failed";
- //      		this.status = status;
- //      		console.log("Request was a massive failure");
- //      		console.log(this.data);
- //      		userIsLoggedIn = false;
-	//   	});
+      		this.data = data;
+      		Session.create(credentials.email);
+  			console.log(this.data);
 
-	// };
+      		return this.data;
+
+	  	}).
+	  	error(function(data, status, headers, config) {
+
+	    	this.data = data || "Request failed";
+	    	console.log(this.data);
+      		return this.data;
+	  	});
+
+	};
 
 	authService.login = function (credentials) {
 
@@ -59,24 +55,17 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
 
 		return $http(req).
   		success(function(data, status, headers, config) {
-	    // this callback will be called asynchronously
-	    // when the response is available
-	    	this.status = status;
-      		this.data = data;
-      		console.log("Login was a runaway success");
-      		console.log(this.data);
 
+      		this.data = data;
       		Session.create(credentials.email);
+  			console.log(this.data);
 
       		return this.data;
 
 	  	}).
 	  	error(function(data, status, headers, config) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
+
 	    	this.data = data || "Request failed";
-      		this.status = status;
-      		console.log("Request was a massive failure");
 
       		return this.data;
 	  	});
@@ -87,30 +76,25 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
     	return !!Session.email;
   	};
 
-
  	authService.logout = function() {
  		$http.get('api/logout.php').success(function(data, status, headers, config) {
-	    // this callback will be called asynchronously
-	    // when the response is available
-	    	this.status = status;
+
       		this.data = data;
-      		console.log(this.status);
 
       		Session.destroy();
 
+      		console.log(this.data);
+
       		return this.data;
+
 	  	}).
 	  	error(function(data, status, headers, config) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
+
       		this.status = status;
       		return this.data;
 	  	});
  	};
 
- 	
-
  	return authService;
 
-	
 }]);

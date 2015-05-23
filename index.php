@@ -39,6 +39,7 @@
     </head>
     
     <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
+
         <div class="header-wrapper" ng-controller="HeaderController">
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -50,7 +51,8 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" ng-click="goToRoute('/income')">
+
+                                <a class="navbar-brand" ng-click="goToRoute('/income')">
                                 <div id="header-brand-wrapper">
                                     <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
                                     <div class="logo-name-wrapper">
@@ -91,9 +93,9 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!userIsLoggedIn">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!currentUser">Sign in</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-click="logout()">
+                            <ul class="nav navbar-nav navbar-right" ng-click="logout()" ng-if="currentUser">
                                 <li><a class="nav-item-custom">Sign out</a></li>
                             </ul>
 
