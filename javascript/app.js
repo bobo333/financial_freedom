@@ -147,8 +147,19 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '
     $scope.login = function (credentials) {
 
         AuthService.login(credentials).then(function (user)  {
-            $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-            $rootScope.setCurrentUser(user);
+
+            if (this.data.success) {
+                $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                $rootScope.setCurrentUser(user);
+            }
+
+            else {
+                $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+                console.log(this.data.errors[0]);
+
+                return this.data.errors[0];
+            }
+
         }, function () {
             $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
         });
@@ -178,7 +189,7 @@ FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'Re
         if ($scope.incomeForm.$valid) {
             RetirementCalculatorService.setMonthlyIncome($scope.income.value);
             $location.path('/assets');
-        }  
+        }
     };
 
 }]);
