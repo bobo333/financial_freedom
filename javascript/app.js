@@ -89,7 +89,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
         return non_visible_pages.indexOf($location.path() ) == -1;
     };
 
-    $scope.openLoginModal = function(size) {
+    $scope.openLoginModal = function(size, userStatus) {
+
+        AuthService.data.updateShowSignUp(userStatus);
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
@@ -114,25 +116,10 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
     };
 
     $scope.logout = function() {
-        AuthService.logout();
-        // // $rootScope.setCurrentUser(null);
-    };
 
-}]);
+        AuthService.data.logout();
+        $rootScope.setCurrentUser(null);
 
-FinancialFreedom.controller('AuthAlertCtrl', ['$scope', 'Session', function ($scope, Session) {
-
-    $scope.alerts = [];
-
-    $scope.addAlert = function(type, message) {
-        $scope.alerts.push({
-            type: type, 
-            msg: message
-        });
-    };
-
-    $scope.closeAlert = function(index) {
-        $scope.alerts.splice(index, 1);
     };
 
     // $scope.showLogoutMessage = Session.showLogoutMessage;
@@ -141,38 +128,39 @@ FinancialFreedom.controller('AuthAlertCtrl', ['$scope', 'Session', function ($sc
 
 }]);
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($modalInstance, $location, AuthService, Session) {    
 
-    var self = this;
+FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '$modalInstance', '$location', 'AuthService', function ($scope, $rootScope, $modalInstance, $location, AuthService) {    
 
-    self.credentials = {
-        email : '',
-        password : ''
-    };
+    $scope.createAccount = function (credentials) {
+        AuthService.data.createAccount(credentials);
 
-    self.ok = function () {
-        $modalInstance.close();
-    }
+        if (this.data.success) {
+                $rootScope.setCurrentUser(user);
+            }
 
-    self.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    }
+            else {
+                console.log(this.data.errors[0]);
 
-    self.createAccount = function (credentials) {
-        AuthService.userSignup(credentials);
+                return this.data.errors[0];
+            }
+
     }
 
     self.login = function (credentials) {
 
         console.log("thing");
 
-        AuthService.login(credentials).then(function (user)  {
+        AuthService.data.login(credentials).then(function (user)  {
 
             if (this.data.success) {
+
                 Session.create(credentials.email);
+                $rootScope.setCurrentUser(user);
             }
 
             else {
+                console.log(this.data.errors[0]);
+
 
                 return angular.forEach(this.data.errors, function(key, value) {
                     console.log(key);
@@ -181,11 +169,14 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($modalInstance, 
             }
 
         }, function () {
-            console.log("Login failed");
+            console.log("Login failed")
         });
     };
 
-});
+    $scope.data = AuthService.data;
+        $scope.showSignUp = AuthService.data.showSignUp;
+
+}]);
 
 FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstance', 'AuthService', function ($scope, $modalInstance, AuthService) {    
 
@@ -277,22 +268,8 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 
 }]);
 
-FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', 'UserStatusService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserStatusService) {
 
-    $scope.createAccountClicked = function() {
-        UserStatusService.assumeNewUser();
-    }
-
-    $scope.openLoginModal = function (size) {
-
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/login_modal.html',
-            controller: 'LoginModalInstanceCtrl',
-            controllerAs: 'loginctrl',
-            size: size,
-            backdrop: true
-        });
-    };
+FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService) {
 
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 

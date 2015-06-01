@@ -98,7 +98,10 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'')" ng-if="!currentUser">Sign in</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'signUp')" ng-if="!currentUser">Sign up</a></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
