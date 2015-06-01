@@ -1,11 +1,26 @@
 FinancialFreedom.service('Session', function() {
 
-	this.create = function(email) {
+	var session = {};
+
+	session.create = function(email) {
 		this.email = email;
+		$window.sessionStorage
 	};
 
-	this.destroy = function() {
+	session.destroy = function() {
 		this.email = null;
 	};
+
+	session.checkSessionStatus = function() {
+		if ($window.sessionStorage["userInfo"]) {
+            this.currentUser = $window.sessionStorage["userInfo"];
+            return this.currentUser;
+        }
+        else {
+        	return null;
+        }
+	};
+
+	return session;
 
 });
