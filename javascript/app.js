@@ -80,7 +80,6 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
         $location.path(route);
     };
 
-
     $scope.tabsAreVisible = function() {
 
         non_visible_pages = [
@@ -93,7 +92,9 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
 
     };
 
-    $scope.openLoginModal = function(size) {
+    $scope.openLoginModal = function(size, userStatus) {
+
+        AuthService.data.updateShowSignUp(userStatus);
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
@@ -119,13 +120,13 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
 
     $scope.logout = function() {
 
-        AuthService.logout();
+        AuthService.data.logout();
         $rootScope.setCurrentUser(null);
     };
 
 }]);
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '$modalInstance', '$location', 'AUTH_EVENTS', 'AuthService', function ($scope, $rootScope, $modalInstance, $location, AUTH_EVENTS, AuthService) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '$modalInstance', '$location', 'AuthService', function ($scope, $rootScope, $modalInstance, $location, AuthService) {    
 
     $scope.credentials = {
         email : '',
@@ -141,29 +142,40 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '
     }
 
     $scope.createAccount = function (credentials) {
-        AuthService.userSignup(credentials);
-    }
+        AuthService.data.createAccount(credentials);
 
-    $scope.login = function (credentials) {
-
-        AuthService.login(credentials).then(function (user)  {
-
-            if (this.data.success) {
-                $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+        if (this.data.success) {
                 $rootScope.setCurrentUser(user);
             }
 
             else {
-                $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+                console.log(this.data.errors[0]);
+
+                return this.data.errors[0];
+            }
+    }
+
+    $scope.login = function (credentials) {
+
+        AuthService.data.login(credentials).then(function (user)  {
+
+            if (this.data.success) {
+                $rootScope.setCurrentUser(user);
+            }
+
+            else {
                 console.log(this.data.errors[0]);
 
                 return this.data.errors[0];
             }
 
         }, function () {
-            $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+            console.log("Login failed")
         });
     };
+
+    $scope.data = AuthService.data;
+        $scope.showSignUp = AuthService.data.showSignUp;
 
 }]);
 
@@ -257,21 +269,7 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 
 }]);
 
-FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', 'UserStatusService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserStatusService) {
-
-    $scope.createAccountClicked = function() {
-        UserStatusService.assumeNewUser();
-    }
-
-    $scope.openLoginModal = function (size) {
-
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/login_modal.html',
-            controller: 'LoginModalInstanceCtrl',
-            size: size,
-            backdrop: true
-        });
-    };
+FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService) {
 
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
@@ -362,11 +360,3 @@ FinancialFreedom.directive("percent", function($filter){
         }
     };
 });
-
-FinancialFreedom.constant('AUTH_EVENTS', {
-  loginSuccess: 'auth-login-success',
-  loginFailed: 'auth-login-failed',
-  logoutSuccess: 'auth-logout-success',
-  sessionTimeout: 'auth-session-timeout',
-  notAuthenticated: 'auth-not-authenticated'
-})
