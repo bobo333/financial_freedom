@@ -58,6 +58,7 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
 
       		this.data = data;
       		Session.create(credentials.email);
+
   			console.log(this.data);
 
       		return this.data;
@@ -80,9 +81,7 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
  		$http.get('api/logout.php').success(function(data, status, headers, config) {
 
       		this.data = data;
-
       		Session.destroy();
-
       		console.log(this.data);
 
       		return this.data;

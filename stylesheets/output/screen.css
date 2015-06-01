@@ -426,6 +426,18 @@ h3 {
   cursor: pointer;
 }
 
+/* line 264, ../../sass/partials/_header.scss */
+.auth-alert {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20px;
+  left: 0;
+  right: 0;
+  max-width: 500px;
+  z-index: 1040;
+}
+
 /* line 3, ../../sass/partials/_input.scss */
 .view-content {
   padding: 0px;

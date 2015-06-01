@@ -42,7 +42,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$scope', '$rootScope', '$location', '$window', 'GoogleAnalyticsService', 'AuthService', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService) {
+FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window', 'GoogleAnalyticsService', 'AuthService', 'Session', function($scope, $location, $window, GoogleAnalyticsService, AuthService, Session) {
     
     $location.path("/");
 
@@ -50,11 +50,11 @@ FinancialFreedom.controller('bodyController', ['$scope', '$rootScope', '$locatio
         return route == $location.path();
     };
 
-    $rootScope.currentUser = null;
+    $scope.currentUser = $window.sessionStorage["userInfo"];
 
-    $rootScope.setCurrentUser = function (user) {
-        $rootScope.currentUser = user;
-    };
+    $scope.$watch(Session.checkSessionStatus, function(updatedUser) {
+        $scope.currentUser = updatedUser;
+    });
 
 }]);
 
@@ -70,8 +70,6 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
 
     $scope.isCollapsed = true;
 
-    $scope.userIsLoggedIn = false;
-
     $scope.isActive = function(route) {
         return route == $location.path();
     };
@@ -79,7 +77,6 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
     $scope.goToRoute = function(route) {
         $location.path(route);
     };
-
 
     $scope.tabsAreVisible = function() {
 
@@ -90,7 +87,6 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
         ];
 
         return non_visible_pages.indexOf($location.path() ) == -1;
-
     };
 
     $scope.openLoginModal = function(size) {
@@ -118,54 +114,78 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
     };
 
     $scope.logout = function() {
-
         AuthService.logout();
-        $rootScope.setCurrentUser(null);
+        // // $rootScope.setCurrentUser(null);
     };
 
 }]);
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '$modalInstance', '$location', 'AUTH_EVENTS', 'AuthService', function ($scope, $rootScope, $modalInstance, $location, AUTH_EVENTS, AuthService) {    
+FinancialFreedom.controller('AuthAlertCtrl', ['$scope', 'Session', function ($scope, Session) {
 
-    $scope.credentials = {
+    $scope.alerts = [];
+
+    $scope.addAlert = function(type, message) {
+        $scope.alerts.push({
+            type: type, 
+            msg: message
+        });
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
+
+    // $scope.showLogoutMessage = Session.showLogoutMessage;
+
+    // $scope.addAlert('success', 'You\'ve been successfully logged out');
+
+}]);
+
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($modalInstance, $location, AuthService, Session) {    
+
+    var self = this;
+
+    self.credentials = {
         email : '',
         password : ''
     };
 
-    $scope.ok = function () {
+    self.ok = function () {
         $modalInstance.close();
     }
 
-    $scope.cancel = function () {
+    self.cancel = function () {
         $modalInstance.dismiss('cancel');
     }
 
-    $scope.createAccount = function (credentials) {
+    self.createAccount = function (credentials) {
         AuthService.userSignup(credentials);
     }
 
-    $scope.login = function (credentials) {
+    self.login = function (credentials) {
+
+        console.log("thing");
 
         AuthService.login(credentials).then(function (user)  {
 
             if (this.data.success) {
-                $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-                $rootScope.setCurrentUser(user);
+                Session.create(credentials.email);
             }
 
             else {
-                $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-                console.log(this.data.errors[0]);
 
-                return this.data.errors[0];
+                return angular.forEach(this.data.errors, function(key, value) {
+                    console.log(key);
+                    return key;
+                });
             }
 
         }, function () {
-            $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+            console.log("Login failed");
         });
     };
 
-}]);
+});
 
 FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstance', 'AuthService', function ($scope, $modalInstance, AuthService) {    
 
@@ -268,6 +288,7 @@ FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', '
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
             controller: 'LoginModalInstanceCtrl',
+            controllerAs: 'loginctrl',
             size: size,
             backdrop: true
         });
@@ -362,11 +383,3 @@ FinancialFreedom.directive("percent", function($filter){
         }
     };
 });
-
-FinancialFreedom.constant('AUTH_EVENTS', {
-  loginSuccess: 'auth-login-success',
-  loginFailed: 'auth-login-failed',
-  logoutSuccess: 'auth-logout-success',
-  sessionTimeout: 'auth-session-timeout',
-  notAuthenticated: 'auth-not-authenticated'
-})

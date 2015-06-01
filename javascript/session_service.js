@@ -1,24 +1,40 @@
-FinancialFreedom.service('Session', function() {
+FinancialFreedom.service('Session', ['$window', '$timeout', function($window, $timeout) {
 
-	this.create = function(email) {
+	var session = {};
+
+	session.showLogoutMessage = null;
+
+	session.create = function(email) {
 		this.email = email;
+		$window.sessionStorage["userInfo"] = JSON.stringify(email);
 	};
 
-	this.destroy = function() {
-		this.email = null;
-	};
-	
-	// var returningUser = null;
+	session.destroy = function() {
 
-	// return {
-	// 	assumeReturningUser: function() {
-	// 		returningUser = true;
-	// 	},
-	// 	assumeNewUser: function() {
-	// 		returningUser = null;
-	// 	},
-	// 	isReturningUser: function() {
-	// 		return returningUser;
-	// 	}
-	// }
-});
+		if ($window.sessionStorage["userInfo"] != 'undefined') {
+
+			session.showLogoutMessage = true;
+
+			$timeout(function() {
+				session.showLogoutMessage = null;
+				angular.copy(null, session.showLogoutMessage);
+				console.log("it's happening");
+			}, 2000);
+		}
+
+		$window.sessionStorage["userInfo"] = 'undefined';
+	};
+
+	session.checkSessionStatus = function() {
+		if ($window.sessionStorage["userInfo"]) {
+            this.currentUser = $window.sessionStorage["userInfo"];
+            return this.currentUser;
+        }
+        else {
+        	return null;
+        }
+	};
+
+	return session;
+
+}]);
