@@ -62,16 +62,16 @@
                             </a>
                         </div>
                         <div collapse="isCollapsed">
-                            <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign in</a></li>
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'')">Sign in</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign up</a></li>
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'signUp')">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-click="logout()">
@@ -91,24 +91,17 @@
                                     </ul>
                                 </li>
                             </ul>
-
-                            {{currentUser}}
                             
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'')" ng-if="!currentUser">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'')" ng-if="!data.currentUser">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'signUp')" ng-if="!currentUser">Sign up</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'signUp')" ng-if="!data.currentUser">Sign up</a></li>
                             </ul>
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign up</a></li>
-                            </ul>
-
-                            <ul class="nav navbar-nav navbar-right" ng-click="logout()">
+                            <ul class="nav navbar-nav navbar-right" ng-click="logout()" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom">Sign out</a></li>
                             </ul>
 
@@ -132,9 +125,9 @@
             </div>
         </div>
 
-        <div ng-controller="AuthAlertCtrl" class="auth-alert">
+        <!-- <div ng-controller="AuthAlertCtrl" class="auth-alert">
             <alert ng-if="showLogoutMessage" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-        </div>
+        </div> -->
 
         <div ng-view class="view-animate"></div>
     </body>

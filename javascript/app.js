@@ -42,7 +42,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window', 'GoogleAnalyticsService', 'AuthService', 'Session', function($scope, $location, $window, GoogleAnalyticsService, AuthService, Session) {
+FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session) {
     
     $location.path("/");
 
@@ -50,13 +50,11 @@ FinancialFreedom.controller('bodyController', ['$scope', '$location', '$window',
         return route == $location.path();
     };
 
-    $scope.currentUser = $window.sessionStorage["userInfo"];
+    $rootScope.data = Session.data;
+        $rootScope.currentUser = Session.data.currentUser;
+        $rootScope.email = Session.data.email;
 
-    $scope.$watch(Session.checkSessionStatus, function(updatedUser) {
-        $scope.currentUser = updatedUser;
-    });
-
-}]);
+});
 
 FinancialFreedom.controller('IntroController', ['$scope', '$location',  function($scope, $location) {
 
@@ -118,7 +116,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
     $scope.logout = function() {
 
         AuthService.data.logout();
-        $rootScope.setCurrentUser(null);
+        // $rootScope.setCurrentUser(null);
 
     };
 
@@ -129,38 +127,43 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
 }]);
 
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '$modalInstance', '$location', 'AuthService', function ($scope, $rootScope, $modalInstance, $location, AuthService) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, AuthService, Session) {    
 
     $scope.createAccount = function (credentials) {
-        AuthService.data.createAccount(credentials);
 
-        if (this.data.success) {
-                $rootScope.setCurrentUser(user);
+        console.log(credentials);
+
+        AuthService.data.createAccount(credentials).then(function(user) {
+
+            if (this.data.success) {
+
+                Session.data.create(credentials.email);
+
             }
 
             else {
                 console.log(this.data.errors[0]);
 
-                return this.data.errors[0];
-            }
+                return angular.forEach(this.data.errors, function(key, value) {
+                    console.log(key);
+                    return key;
+                });
+            } 
+        });
 
     }
 
-    self.login = function (credentials) {
-
-        console.log("thing");
+    $scope.login = function (credentials) {
 
         AuthService.data.login(credentials).then(function (user)  {
 
             if (this.data.success) {
 
-                Session.create(credentials.email);
-                $rootScope.setCurrentUser(user);
+                Session.data.create(credentials.email);
             }
 
             else {
                 console.log(this.data.errors[0]);
-
 
                 return angular.forEach(this.data.errors, function(key, value) {
                     console.log(key);
@@ -173,10 +176,18 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', ['$scope', '$rootScope', '
         });
     };
 
+    $scope.ok = function() {
+        $modalInstance.close();
+    }
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+
     $scope.data = AuthService.data;
         $scope.showSignUp = AuthService.data.showSignUp;
 
-}]);
+});
 
 FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstance', 'AuthService', function ($scope, $modalInstance, AuthService) {    
 

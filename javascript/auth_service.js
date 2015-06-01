@@ -8,9 +8,9 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
 		if (userStatus == "signUp") {
 			data.showSignUp = true;
 			return;
-		};
+		}
 
-		if (userStatus == "signIn") {
+		else {
 			data.showSignUp = false;
 			return;
 		};
@@ -36,7 +36,7 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
   		success(function(data, status, headers, config) {
 
       		this.data = data;
-      		Session.create(credentials.email);
+      		Session.data.create(credentials.email);
   			console.log(this.data);
 
       		return this.data;
@@ -71,7 +71,7 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
   		success(function(data, status, headers, config) {
 
       		this.data = data;
-      		Session.create(credentials.email);
+      		Session.data.create(credentials.email);
 
   			console.log(this.data);
 
@@ -88,14 +88,14 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
 	};
 
 	data.isAuthenticated = function () {
-    	return !!Session.email;
+    	return !!Session.data.email;
   	};
 
  	data.logout = function() {
  		$http.get('api/logout.php').success(function(data, status, headers, config) {
 
       		this.data = data;
-      		Session.destroy();
+      		Session.data.destroy();
       		console.log(this.data);
 
       		return this.data;

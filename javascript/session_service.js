@@ -1,40 +1,45 @@
 FinancialFreedom.service('Session', ['$window', '$timeout', function($window, $timeout) {
 
-	var session = {};
-
-	session.showLogoutMessage = null;
-
-	session.create = function(email) {
-		this.email = email;
-		$window.sessionStorage["userInfo"] = JSON.stringify(email);
+	var data = {
+		currentUser: null,
+		email: null
 	};
 
-	session.destroy = function() {
+	data.create = function(email) {
+		$window.sessionStorage["userInfo"] = JSON.stringify(email);
+		data.currentUser = true;
+		data.email = email;
+	};
+
+	data.destroy = function() {
 
 		if ($window.sessionStorage["userInfo"] != 'undefined') {
 
-			session.showLogoutMessage = true;
+			data.showLogoutMessage = true;
 
 			$timeout(function() {
-				session.showLogoutMessage = null;
-				angular.copy(null, session.showLogoutMessage);
+				data.showLogoutMessage = null;
+				angular.copy(null, data.showLogoutMessage);
 				console.log("it's happening");
 			}, 2000);
 		}
 
 		$window.sessionStorage["userInfo"] = 'undefined';
+		data.currentUser = null;
+		data.email = null;
 	};
 
-	session.checkSessionStatus = function() {
-		if ($window.sessionStorage["userInfo"]) {
-            this.currentUser = $window.sessionStorage["userInfo"];
-            return this.currentUser;
-        }
-        else {
-        	return null;
-        }
-	};
+	// data.checkSessionStatus = function() {
+	// 	if ($window.sessionStorage["userInfo"]) {
+ //            data.currentUser = $window.sessionStorage["userInfo"];
+ //        }
+ //        else {
+ //        	return null;
+ //        }
+	// };
 
-	return session;
+	return {
+		data: data
+	};
 
 }]);
