@@ -92,6 +92,7 @@ FinancialFreedom.factory('AuthService', ['$http', 'Session', function($http, Ses
   	};
 
  	data.logout = function() {
+
  		$http.get('api/logout.php').success(function(data, status, headers, config) {
 
       		this.data = data;

@@ -42,7 +42,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   }
 }]);
 
-FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session) {
+FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, RetirementCalculatorService) {
     
     $location.path("/");
 
@@ -54,17 +54,21 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
         $rootScope.currentUser = Session.data.currentUser;
         $rootScope.email = Session.data.email;
 
+    if ($rootScope.currentUser) {
+        RetirementCalculatorService.fetchUserData();
+    }
+
 });
 
-FinancialFreedom.controller('IntroController', ['$scope', '$location',  function($scope, $location) {
+FinancialFreedom.controller('IntroController', function($scope, $location) {
 
     $scope.submitForm = function() {
         $location.path('/income');
     };
 
-}]);
+});
 
-FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$location', '$modal', 'AuthService', 'Session', function($scope, $rootScope, $location, $modal, AuthService, Session) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session) {
 
     $scope.isCollapsed = true;
 
@@ -124,7 +128,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
 
     // $scope.addAlert('success', 'You\'ve been successfully logged out');
 
-}]);
+});
 
 
 FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, AuthService, Session, RetirementCalculatorService) {    
@@ -161,6 +165,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             if (this.data.success) {
 
                 Session.data.create(credentials.email);
+                RetirementCalculatorService.fetchUserData();
             }
 
             else {

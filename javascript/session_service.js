@@ -1,4 +1,4 @@
-FinancialFreedom.service('Session', ['$window', '$timeout', function($window, $timeout) {
+FinancialFreedom.service('Session', function($window, $timeout) {
 
 	var initialCheck = function() {
 		if ($window.sessionStorage["userInfo"] == 'undefined') {
@@ -42,4 +42,4 @@ FinancialFreedom.service('Session', ['$window', '$timeout', function($window, $t
 		data: data
 	};
 
-}]);
+});

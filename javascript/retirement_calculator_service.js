@@ -7,11 +7,32 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
     
-    var total_assets;
     var monthly_income;
+    var total_assets;
     var monthly_expenses;
 
+    var fetched_user_data;
+
+    this.fetchUserData = function() {
+
+        UserDataService.data.getUserData().then(function(data) {
+
+            fetched_user_data = data.data.user_data;
+
+            monthly_income  = fetched_user_data['monthly_income'];
+            total_assets  = fetched_user_data['total_assets'];
+            monthly_expenses  = fetched_user_data['monthly_expenses'];
+            income_increase_rate = fetched_user_data['income_growth_rate'];
+            expenses_increase_rate = fetched_user_data['expenses_growth_rate'];
+            growth_rate = fetched_user_data['investment_growth_rate'];
+
+        });
+
+    };
+
     this.getMonthlyIncome = function() {
+        console.log("this is monthly income get ");
+        console.log(monthly_income);
         return monthly_income;
     };
 
