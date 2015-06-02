@@ -34,6 +34,7 @@
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
         <script type="text/javascript" src="javascript/auth_service.js"></script>
         <script type="text/javascript" src="javascript/session_service.js"></script>
+        <script type="text/javascript" src="javascript/user_data_service.js"></script>
 
         <title>Plenti | Free Yourself</title>
     </head>

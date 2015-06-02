@@ -1,7 +1,16 @@
 FinancialFreedom.service('Session', ['$window', '$timeout', function($window, $timeout) {
 
+	var initialCheck = function() {
+		if ($window.sessionStorage["userInfo"] == 'undefined') {
+			return null;
+		}
+		else {
+			return $window.sessionStorage["userInfo"];
+		}
+	}
+
 	var data = {
-		currentUser: null,
+		currentUser: initialCheck(),
 		email: null
 	};
 
@@ -28,15 +37,6 @@ FinancialFreedom.service('Session', ['$window', '$timeout', function($window, $t
 		data.currentUser = null;
 		data.email = null;
 	};
-
-	// data.checkSessionStatus = function() {
-	// 	if ($window.sessionStorage["userInfo"]) {
- //            data.currentUser = $window.sessionStorage["userInfo"];
- //        }
- //        else {
- //        	return null;
- //        }
-	// };
 
 	return {
 		data: data

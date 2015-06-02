@@ -1,4 +1,4 @@
-FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'GeometryService', 'DateService', function(InterestService, GeometryService, DateService) {
+FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataService) {
     var withdrawal_rate = .04;
     var inflation_rate = .035;
     var income_increase_rate = .05;
@@ -17,6 +17,7 @@ FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'Geo
 
     this.setMonthlyIncome = function(new_monthly_income) {
         monthly_income = new_monthly_income;
+        UserDataService.data.updateUserData('monthly_income',monthly_income);
     };
     
     this.getTotalAssets = function() {
@@ -25,6 +26,7 @@ FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'Geo
     
     this.setTotalAssets = function(new_total_assets) {
         total_assets = new_total_assets;
+        UserDataService.data.updateUserData('monthly_income',monthly_income);
     };
     
     this.getMonthlyExpenses = function() {
@@ -234,4 +236,4 @@ FinancialFreedom.service('RetirementCalculatorService', ['InterestService', 'Geo
         };
     };
     
-}]);
+});

@@ -163,7 +163,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             }
 
             else {
-                console.log(this.data.errors[0]);
 
                 return angular.forEach(this.data.errors, function(key, value) {
                     console.log(key);
