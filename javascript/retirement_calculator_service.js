@@ -17,8 +17,17 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
 
     this.setMonthlyIncome = function(new_monthly_income) {
         monthly_income = new_monthly_income;
-        UserDataService.data.updateUserData('monthly_income',monthly_income);
+        saveMonthlyIncome(monthly_income);     
     };
+
+    var saveMonthlyIncome = function(monthly_income) {
+
+        var new_monthly_income = {
+            'monthly_income': monthly_income
+        }
+
+        UserDataService.data.updateUserData(new_monthly_income);
+    }
     
     this.getTotalAssets = function() {
         return total_assets;
@@ -26,16 +35,36 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     
     this.setTotalAssets = function(new_total_assets) {
         total_assets = new_total_assets;
-        UserDataService.data.updateUserData('monthly_income',monthly_income);
+        saveTotalAssets(total_assets);  
     };
+
+    var saveTotalAssets = function(total_assets) {
+
+        var new_total_assets = {
+            'total_assets': total_assets
+        }
+        
+        UserDataService.data.updateUserData(new_total_assets);
+    }
     
     this.getMonthlyExpenses = function() {
         return monthly_expenses;
     };
+
     
     this.setMonthlyExpenses = function(new_monthly_expenses) {
         monthly_expenses = new_monthly_expenses;
+        saveMonthlyExpenses(monthly_expenses);
     };
+
+    var saveMonthlyExpenses = function(monthly_expenses) {
+
+        var new_monthly_expenses = {
+            'monthly_expenses': monthly_expenses
+        }
+        
+        UserDataService.data.updateUserData(new_monthly_expenses);
+    }
 
     this.getInflationRate = function() {
         return inflation_rate;
@@ -51,7 +80,17 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
 
     this.setIncomeIncreaseRate = function(new_income_increase_rate) {
         income_increase_rate = new_income_increase_rate;
+        saveIncomeIncreaseRate(income_increase_rate);
     };
+
+    var saveIncomeIncreaseRate = function(income_increase_rate) {
+
+        var new_income_increase_rate = {
+            'income_growth_rate': income_increase_rate
+        }
+        
+        UserDataService.data.updateUserData(new_income_increase_rate);
+    }
 
     this.getExpensesIncreaseRate = function() {
         return expenses_increase_rate;
@@ -59,7 +98,17 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
 
     this.setExpensesIncreaseRate = function(new_expenses_increase_rate) {
         expenses_increase_rate = new_expenses_increase_rate;
+        saveExpensesIncreaseRate(expenses_increase_rate);
     };
+
+    var saveExpensesIncreaseRate = function(expenses_increase_rate) {
+
+        var new_expenses_increase_rate = {
+            'expenses_growth_rate' : expenses_increase_rate
+        }
+        
+        UserDataService.data.updateUserData(new_expenses_increase_rate );
+    }
 
     this.getGrowthRate = function() {
         return growth_rate;
@@ -67,15 +116,29 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
 
     this.setGrowthRate = function(new_growth_rate) {
         growth_rate = new_growth_rate;
-    };
-    
-    this.getInflationRate = function() {
-        return inflation_rate;
+        saveGrowthRate(growth_rate);
     };
 
-    this.setInflationRate = function(new_inflation_rate) {
-        inflation_rate = new_inflation_rate;
-    };
+    var saveGrowthRate = function(growth_rate) {
+
+        var new_growth_rate = {
+            'investment_growth_rate' : growth_rate
+        }
+
+        UserDataService.data.updateUserData(new_growth_rate);
+
+    }
+
+    this.saveInitialContants = function() {
+
+        var initial_constants = {
+            'income_growth_rate': income_increase_rate,
+            'expenses_growth_rate' : expenses_increase_rate,
+            'investment_growth_rate' : growth_rate
+        }
+
+        UserDataService.data.updateUserData(initial_constants);
+    }
 
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();

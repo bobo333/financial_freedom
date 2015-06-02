@@ -127,7 +127,7 @@ FinancialFreedom.controller('HeaderController', ['$scope', '$rootScope', '$locat
 }]);
 
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, AuthService, Session) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, AuthService, Session, RetirementCalculatorService) {    
 
     $scope.createAccount = function (credentials) {
 
@@ -138,6 +138,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             if (this.data.success) {
 
                 Session.data.create(credentials.email);
+                RetirementCalculatorService.saveInitialContants();
 
             }
 

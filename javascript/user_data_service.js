@@ -42,15 +42,22 @@ FinancialFreedom.factory('UserDataService', function($http, Session) {
 
 	}
 
-	data.updateUserData = function(key, newVal) {
+	// data.initializeConstants = function() {
 
-		data.user_values[key] = newVal;
+	// 	var income_growth_rate = RetirementCalculatorService.getIncomeIncreaseRate();
+	// 	var expenses_increase_rate = RetirementCalculatorService.getExpensesIncreaseRate();
+	// 	var investment_growth_rate = RetirementCalculatorService.getGrowthRate();
 
-		form_data = {
-			key : newVal
-		}
+	// 	var initials = {
+	// 		'income_growth_rate' : income_growth_rate,
+	// 		'expenses_growth_rate' : expenses_increase_rate,
+	// 		'investment_growth_rate' : investment_growth_rate
+	// 	}
 
-		console.log(form_data);
+	// 	return initials;
+	// }
+
+	data.updateUserData = function(new_user_data) {
 
 		var req = {
 			method: 'POST',
@@ -58,7 +65,7 @@ FinancialFreedom.factory('UserDataService', function($http, Session) {
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
-			data: $.param(form_data)
+			data: $.param(new_user_data)
 		}
 
 		if (Session.data.currentUser) {
