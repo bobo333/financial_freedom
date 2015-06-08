@@ -7,17 +7,19 @@ FinancialFreedom.service('Session', function($window, $timeout) {
 		else {
 			return $window.sessionStorage["userInfo"];
 		}
-	}
+	};
 
 	var data = {
 		currentUser: initialCheck(),
 		email: null
 	};
 
-	data.create = function(email) {
-		$window.sessionStorage["userInfo"] = JSON.stringify(email);
+	data.create = function(user_data) {
+		//$window.sessionStorage["userInfo"] = JSON.stringify(email);
+		$window.sessionStorage.setItem("userInfo", angular.toJson(user_data));		
 		data.currentUser = true;
-		data.email = email;
+		data.email = user_data.email;
+		console.log(angular.fromJson($window.sessionStorage.getItem("userInfo")));
 	};
 
 	data.destroy = function() {

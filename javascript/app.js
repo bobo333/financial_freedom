@@ -194,7 +194,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
 });
 
-FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstance', 'AuthService', function ($scope, $modalInstance, AuthService) {    
+FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache) {    
 
     $scope.ok = function() {
         $modalInstance.close();
@@ -206,7 +206,10 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', ['$scope', '$modalInstan
 
     $scope.passwordResetFormCollapsed = true;
 
-}]);
+    $scope.userEmail = UserDataCache.email;
+    $scope.userCreatedAt = UserDataCache.created_at;
+
+});
 
 FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
     $scope.income = {};
@@ -375,4 +378,14 @@ FinancialFreedom.directive("percent", function($filter){
             ctrl.$formatters.unshift(f);
         }
     };
+});
+
+FinancialFreedom.factory("UserDataCache", function() {
+
+    var UserDataCache = {};
+
+    UserDataCache.email = '';
+    UserDataCache.created_at = null;
+
+    return UserDataCache;
 });

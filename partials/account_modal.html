@@ -7,11 +7,11 @@
         
         <form name="resetPassword" novalidate>
 
-            <div>Email [your email]</div>
+            <div>{{ userEmail }} </div>
 
-            <div>Member since [account create date]</div>
+            <div>{{ userCreatedAt }}</div>
 
-            <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
+            <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-if="passwordResetRouteExists" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
 
             <div collapse="passwordResetFormCollapsed">
                 <div class="form-group">
