@@ -25,14 +25,23 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
             income_increase_rate = fetched_user_data['income_growth_rate'];
             expenses_increase_rate = fetched_user_data['expenses_growth_rate'];
             growth_rate = fetched_user_data['investment_growth_rate'];
-
         });
 
     };
 
+    this.destroyUserData = function() {
+
+        monthly_income  = undefined;
+        total_assets  = undefined;
+        monthly_expenses  = undefined;
+        income_increase_rate = .05;
+        expenses_increase_rate = inflation_rate;
+        growth_rate = .075;
+
+    };
+
     this.getMonthlyIncome = function() {
-        console.log("this is monthly income get ");
-        console.log(monthly_income);
+
         return monthly_income;
     };
 

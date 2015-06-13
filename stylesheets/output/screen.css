@@ -89,8 +89,16 @@ h3 {
 .btn-primary {
   background: #2b8e69;
 }
+/* line 104, ../../sass/partials/_base.scss */
+.btn-primary[disabled] {
+  background: #2b8e69;
+}
+/* line 108, ../../sass/partials/_base.scss */
+.btn-primary:hover {
+  background: #0d412e;
+}
 
-/* line 105, ../../sass/partials/_base.scss */
+/* line 113, ../../sass/partials/_base.scss */
 .btn-secondary {
   background: white;
   border: 2px solid #2b8e69;
@@ -1905,34 +1913,34 @@ input[type="text"].form-control {
   border-top-right-radius: 7px;
 }
 
-/* line 11, ../../sass/partials/_account_modals.scss */
+/* line 10, ../../sass/partials/_account_modals.scss */
 .modal-title {
   color: #404040;
   letter-spacing: -0.02em;
 }
 
-/* line 16, ../../sass/partials/_account_modals.scss */
+/* line 15, ../../sass/partials/_account_modals.scss */
 .modal-backdrop {
   background-color: black;
   width: 100%;
   height: 100%;
 }
 
-/* line 22, ../../sass/partials/_account_modals.scss */
+/* line 21, ../../sass/partials/_account_modals.scss */
 .signin-side, .signup-side {
   margin-top: 10px;
 }
-/* line 24, ../../sass/partials/_account_modals.scss */
+/* line 23, ../../sass/partials/_account_modals.scss */
 .signin-side a:hover, .signup-side a:hover {
   cursor: pointer;
 }
 
-/* line 29, ../../sass/partials/_account_modals.scss */
+/* line 28, ../../sass/partials/_account_modals.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 33, ../../sass/partials/_account_modals.scss */
+/* line 32, ../../sass/partials/_account_modals.scss */
 .signup-side, .signin-side {
   position: relative;
   top: 50%;
@@ -1941,12 +1949,12 @@ input[type="text"].form-control {
   transform: translateY(-50%);
 }
 
-/* line 37, ../../sass/partials/_account_modals.scss */
+/* line 36, ../../sass/partials/_account_modals.scss */
 .login-form-controls-wrapper {
   width: 100%;
 }
 
-/* line 41, ../../sass/partials/_account_modals.scss */
+/* line 40, ../../sass/partials/_account_modals.scss */
 .forgot-password-link {
   display: inline-block;
   float: right;
@@ -1955,19 +1963,30 @@ input[type="text"].form-control {
   margin-bottom: 10px;
 }
 
-/* line 49, ../../sass/partials/_account_modals.scss */
+/* line 48, ../../sass/partials/_account_modals.scss */
 .remember-me-link {
   display: inline-block;
 }
 
-/* line 53, ../../sass/partials/_account_modals.scss */
+/* line 52, ../../sass/partials/_account_modals.scss */
 .modal-secondary-button {
   margin-left: 10px;
 }
 
-/* line 57, ../../sass/partials/_account_modals.scss */
+/* line 56, ../../sass/partials/_account_modals.scss */
 .modal-dialog {
   width: 450px;
+}
+
+/* line 60, ../../sass/partials/_account_modals.scss */
+.form-control.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+/* line 64, ../../sass/partials/_account_modals.scss */
+.field-error {
+  margin-top: 5px;
+  color: red;
 }
 
 /* line 16, ../../sass/screen.scss */

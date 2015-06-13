@@ -99,7 +99,15 @@ $section-bottom-border: 1px solid rgba($primary_green,0.12);
 // Buttons
 
 .btn-primary {
-  background: $primary_green;
+    background: $primary_green;
+
+    &[disabled] {
+        background: $primary_green;
+    }
+
+    &:hover {
+        background: $dark_green;
+    }
 }
 
 .btn-secondary {

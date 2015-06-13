@@ -5,7 +5,6 @@
 
 .modal-content {
 	@include border-top-radius(7px);
-
 }
 
 .modal-title {
@@ -57,3 +56,12 @@
 .modal-dialog {
 	width: 450px;
 }
+
+.form-control.ng-invalid.ng-touched {
+    border-color: red;
+ }
+
+ .field-error {
+ 	margin-top: 5px;
+ 	color: red;
+ }

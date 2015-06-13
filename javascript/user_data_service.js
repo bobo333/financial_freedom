@@ -7,7 +7,6 @@ FinancialFreedom.factory('UserDataService', function($http, Session, UserDataCac
 		return $http.get('api/get-user-data.php').success(function(response, status, headers, config) {
 
   			// data.user_data = response.user_data; Set user data
-  			console.log(response.user_data);
 
   			UserDataCache.email = response.user_data.email;
   			UserDataCache.created_at = response.user_data.created_at;
@@ -17,7 +16,6 @@ FinancialFreedom.factory('UserDataService', function($http, Session, UserDataCac
 	  	error(function(response, status, headers, config) {
 
 	    	this.data = response || "Request failed";
-	    	console.log(this.data);
       		return this.data;
 	  	});
 	}
@@ -38,8 +36,6 @@ FinancialFreedom.factory('UserDataService', function($http, Session, UserDataCac
 	  		success(function(data, status, headers, config) {
 
 	      		this.data = data;
-	  			console.log(this.data);
-
 
 	      		return this.data;
 
@@ -47,12 +43,15 @@ FinancialFreedom.factory('UserDataService', function($http, Session, UserDataCac
 		  	error(function(data, status, headers, config) {
 
 		    	this.data = data || "Request failed";
-		    	console.log(this.data);
 	      		return this.data;
 		  	});
 		}
 			
 
+	}
+
+	data.destroy = function() {
+		data: {}
 	}
 
 	return {

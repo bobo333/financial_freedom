@@ -120,6 +120,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     $scope.logout = function() {
 
         AuthService.data.logout();
+        $scope.goToRoute('/');
         // $rootScope.setCurrentUser(null);
 
     };
@@ -131,7 +132,11 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 });
 
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, AuthService, Session, RetirementCalculatorService) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, RetirementCalculatorService) {    
+
+    $scope.goToRoute = function(route) {
+        $location.path(route);
+    };
 
     $scope.createAccount = function (credentials) {
 
@@ -143,7 +148,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
                 Session.data.create(credentials.email);
                 RetirementCalculatorService.saveInitialContants();
-
             }
 
             else {
@@ -166,6 +170,10 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
                 Session.data.create(credentials.email);
                 RetirementCalculatorService.fetchUserData();
+                $modalInstance.close();
+                $timeout(function() {
+                    $scope.goToRoute('/time-to-retirement')
+                },500);
             }
 
             else {
@@ -181,9 +189,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
         });
     };
 
-    $scope.ok = function() {
-        $modalInstance.close();
-    }
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
@@ -389,3 +394,26 @@ FinancialFreedom.factory("UserDataCache", function() {
 
     return UserDataCache;
 });
+
+var compareTo = function() {
+    return {
+      require: "ngModel",
+      scope: {
+        otherModelValue: "=compareTo"
+      },
+      link: function(scope, element, attributes, ngModel) {
+
+        ngModel.$validators.compareTo = function(modelValue) {
+          return modelValue == scope.otherModelValue;
+        };
+
+        scope.$watch("otherModelValue", function() {
+          ngModel.$validate();
+        });
+      }
+    };
+  };
+
+FinancialFreedom.directive("compareTo", compareTo);
+
+
