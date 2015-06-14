@@ -54,7 +54,10 @@
 
             </div>
                     
+            <div class="field-error">{{ loginFailureMessage }} </div>
         </div>
+
+        
 
         <div class="modal-footer">
             <button type="submit" ng-click="ok()" class="btn btn-primary login-button" ng-disabled="loginForm.$invalid">Login</button>
@@ -75,6 +78,7 @@
                 <div ng-show="signUpForm.$submitted || signUpForm.emailField.$touched" class="field-error">
                     <span ng-show="signUpForm.emailField.$error.email">Oops—looks like you need to write a real email.</span>
                 </div>
+                <div class="field-error">{{ signUpFailureMessage }} </div>
             </div>
             
             <div class="form-group">
@@ -114,7 +118,7 @@
         </div>
 
         <div class="modal-footer">
-            <button type="submit" ng-click="ok()" class="btn btn-primary login-button" ng-disabled="signUpForm.$invalid">Sign up</button>
+            <button type="submit" class="btn btn-primary login-button" ng-disabled="signUpForm.$invalid">Sign up</button>
         </div>
 
     </form>

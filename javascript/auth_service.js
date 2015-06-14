@@ -56,7 +56,7 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 		var formData = {
   			'email'       : credentials.email,
   			'password'    : credentials.password
-		}
+		};
 
 		var req = {
 			method: 'POST',
@@ -65,13 +65,16 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			data: $.param(formData)
-		}
+		};
 
 		return $http(req).
   		success(function(data, status, headers, config) {
 
       		this.data = data;
-      		Session.data.create(credentials.email);
+      		
+      		if (this.data.success) {
+      			Session.data.create(credentials.email);
+      		}
 
   			console.log(this.data);
 

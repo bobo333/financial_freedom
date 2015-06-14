@@ -58,6 +58,8 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
         RetirementCalculatorService.fetchUserData();
     }
 
+    console.log($rootScope.currentUser);
+
 });
 
 FinancialFreedom.controller('IntroController', function($scope, $location) {
@@ -134,6 +136,9 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
 FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, RetirementCalculatorService) {    
 
+    $scope.loginFailureMessage = '';
+    $scope.signUpFailureMessage = '';
+
     $scope.goToRoute = function(route) {
         $location.path(route);
     };
@@ -152,6 +157,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
             else {
                 console.log(this.data.errors[0]);
+                $scope.signUpFailureMessage = "Email already in use. Either sign in or try a different one."
 
                 return angular.forEach(this.data.errors, function(key, value) {
                     console.log(key);
@@ -178,6 +184,8 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
             else {
 
+                $scope.loginFailureMessage = "Your email or password was incorrect. Please try again.";
+
                 return angular.forEach(this.data.errors, function(key, value) {
                     console.log(key);
                     return key;
@@ -185,7 +193,8 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             }
 
         }, function () {
-            console.log("Login failed")
+            console.log("Login request failed. Check your internet connection.")
+            $scope.loginFailureMessage = "Login attempt failed. Check your internet connection and try again.";
         });
     };
 
