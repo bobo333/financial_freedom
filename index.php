@@ -123,10 +123,6 @@
             </div>
         </div>
 
-        <!-- <div ng-controller="AuthAlertCtrl" class="auth-alert">
-            <alert ng-if="showLogoutMessage" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-        </div> -->
-
         <div ng-view class="view-animate"></div>
     </body>
 </html>

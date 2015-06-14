@@ -1,9 +1,9 @@
-FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataService) {
-    var withdrawal_rate = .04;
-    var inflation_rate = .035;
-    var income_increase_rate = .05;
+FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataService, INITIAL_CALCULATOR_CONSTANTS) {
+    var withdrawal_rate = INITIAL_CALCULATOR_CONSTANTS.withdrawal_rate;
+    var inflation_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
+    var income_increase_rate = INITIAL_CALCULATOR_CONSTANTS.income_increase_rate;
     var expenses_increase_rate = inflation_rate;
-    var growth_rate = .075;
+    var growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
     
@@ -37,7 +37,6 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         income_increase_rate = .05;
         expenses_increase_rate = inflation_rate;
         growth_rate = .075;
-
     };
 
     this.getMonthlyIncome = function() {

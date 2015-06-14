@@ -13,7 +13,7 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 		else {
 			data.showSignUp = false;
 			return;
-		};
+		}
 	};
 
 	data.createAccount = function (credentials) {
@@ -21,7 +21,7 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 		var formData = {
   			'email'       : credentials.email,
   			'password'    : credentials.password
-		}
+		};
 
 		var req = {
 			method: 'POST',
@@ -30,14 +30,13 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			data: $.param(formData)
-		}
+		};
 
 		return $http(req).
   		success(function(data, status, headers, config) {
 
       		this.data = data;
       		Session.data.create(credentials.email);
-  			console.log(this.data);
 
       		return this.data;
 
@@ -45,7 +44,6 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 	  	error(function(data, status, headers, config) {
 
 	    	this.data = data || "Request failed";
-	    	console.log(this.data);
       		return this.data;
 	  	});
 
@@ -76,7 +74,6 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
       			Session.data.create(credentials.email);
       		}
 
-  			console.log(this.data);
 
       		return this.data;
 
@@ -101,7 +98,6 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
       		this.data = data;
       		Session.data.destroy();
       		RetirementCalculatorService.destroyUserData();
-      		console.log(this.data);
 
       		return this.data;
 

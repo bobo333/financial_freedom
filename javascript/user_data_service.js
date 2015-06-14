@@ -6,8 +6,6 @@ FinancialFreedom.factory('UserDataService', function($http, Session, UserDataCac
 
 		return $http.get('api/get-user-data.php').success(function(response, status, headers, config) {
 
-  			// data.user_data = response.user_data; Set user data
-
   			UserDataCache.email = response.user_data.email;
   			UserDataCache.created_at = response.user_data.created_at;
 

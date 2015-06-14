@@ -58,8 +58,6 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
         RetirementCalculatorService.fetchUserData();
     }
 
-    console.log($rootScope.currentUser);
-
 });
 
 FinancialFreedom.controller('IntroController', function($scope, $location) {
@@ -123,16 +121,9 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
         AuthService.data.logout();
         $scope.goToRoute('/');
-        // $rootScope.setCurrentUser(null);
-
     };
 
-    // $scope.showLogoutMessage = Session.showLogoutMessage;
-
-    // $scope.addAlert('success', 'You\'ve been successfully logged out');
-
 });
-
 
 FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, RetirementCalculatorService) {    
 
@@ -145,8 +136,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
     $scope.createAccount = function (credentials) {
 
-        console.log(credentials);
-
         AuthService.data.createAccount(credentials).then(function(user) {
 
             if (this.data.success) {
@@ -156,17 +145,15 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             }
 
             else {
-                console.log(this.data.errors[0]);
-                $scope.signUpFailureMessage = "Email already in use. Either sign in or try a different one."
+                $scope.signUpFailureMessage = "Email already in use. Either sign in or try a different one.";
 
                 return angular.forEach(this.data.errors, function(key, value) {
-                    console.log(key);
                     return key;
                 });
             } 
         });
 
-    }
+    };
 
     $scope.login = function (credentials) {
 
@@ -178,7 +165,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
                 RetirementCalculatorService.fetchUserData();
                 $modalInstance.close();
                 $timeout(function() {
-                    $scope.goToRoute('/time-to-retirement')
+                    $scope.goToRoute('/time-to-retirement');
                 },500);
             }
 
@@ -187,13 +174,11 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
                 $scope.loginFailureMessage = "Your email or password was incorrect. Please try again.";
 
                 return angular.forEach(this.data.errors, function(key, value) {
-                    console.log(key);
                     return key;
                 });
             }
 
         }, function () {
-            console.log("Login request failed. Check your internet connection.")
             $scope.loginFailureMessage = "Login attempt failed. Check your internet connection and try again.";
         });
     };
@@ -212,7 +197,7 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.ok = function() {
         $modalInstance.close();
-    }
+    };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
@@ -394,17 +379,31 @@ FinancialFreedom.directive("percent", function($filter){
     };
 });
 
-FinancialFreedom.factory("UserDataCache", function() {
+var INITIAL_CALCULATOR_CONSTANTS = {
+    
+        "withdrawal_rate" : .04,
+        "inflation_rate" : .035,
+        "income_increase_rate" : .05,
+        "growth_rate" : .075
+};
+
+FinancialFreedom.factory("UserDataCache", function(INITIAL_CALCULATOR_CONSTANTS) {
 
     var UserDataCache = {};
 
     UserDataCache.email = '';
     UserDataCache.created_at = null;
+    UserDataCache.monthly_income  = undefined;
+    UserDataCache.total_assets  = undefined;
+    UserDataCache.monthly_expenses  = undefined;
+    UserDataCache.income_increase_rate = INITIAL_CALCULATOR_CONSTANTS.income_increase_rate;
+    UserDataCache.expenses_increase_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
+    UserDataCache.growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
 
     return UserDataCache;
 });
 
-var compareTo = function() {
+function compareTo () {
     return {
       require: "ngModel",
       scope: {
@@ -424,5 +423,4 @@ var compareTo = function() {
   };
 
 FinancialFreedom.directive("compareTo", compareTo);
-
-
+FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);

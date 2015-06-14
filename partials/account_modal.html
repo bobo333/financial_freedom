@@ -29,7 +29,7 @@
                     <input type="password" id="newPassword2" class="form-control" required ng-model="newpassword2" />
                 </div>
                 
-                <input type="submit" value="Update password" ng-click="ok(); login()" class="btn btn-primary" ng-class="{'disabled': !resetPassword.$valid } "/>
+                <input type="submit" value="Update password" ng-click="ok()" class="btn btn-primary" ng-class="{'disabled': !resetPassword.$valid } "/>
                 <button ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed" class="btn btn-primary">Cancel</button>
             </div>
         </form>
