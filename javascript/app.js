@@ -26,6 +26,10 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/intro.html',
         controller: 'IntroController'
     })
+    .when('/test', {
+        templateUrl: 'partials/test.html',
+        controller: 'TestController'
+    })
     .otherwise({
         redirectTo: '/'
     });
@@ -58,8 +62,6 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
         RetirementCalculatorService.fetchUserData();
     }
 
-    console.log($rootScope.currentUser);
-
 });
 
 FinancialFreedom.controller('IntroController', function($scope, $location) {
@@ -67,6 +69,14 @@ FinancialFreedom.controller('IntroController', function($scope, $location) {
     $scope.submitForm = function() {
         $location.path('/income');
     };
+
+});
+
+FinancialFreedom.controller('TestController', function($scope, $location, RetirementCalculatorService) {
+    var dates = RetirementCalculatorService.calculateDollarsToTime(500, false, false);
+
+    $scope.spendy = dates.spendy.intersection_point.x;
+    $scope.thrifty = dates.thrifty.intersection_point.x;
 
 });
 

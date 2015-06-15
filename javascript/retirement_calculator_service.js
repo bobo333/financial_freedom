@@ -14,9 +14,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var fetched_user_data;
 
     this.fetchUserData = function() {
-
         UserDataService.data.getUserData().then(function(data) {
-
             fetched_user_data = data.data.user_data;
 
             monthly_income  = fetched_user_data['monthly_income'];
@@ -26,18 +24,15 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
             expenses_increase_rate = fetched_user_data['expenses_growth_rate'];
             growth_rate = fetched_user_data['investment_growth_rate'];
         });
-
     };
 
     this.destroyUserData = function() {
-
         monthly_income  = undefined;
         total_assets  = undefined;
         monthly_expenses  = undefined;
         income_increase_rate = .05;
         expenses_increase_rate = inflation_rate;
         growth_rate = .075;
-
     };
 
     this.getMonthlyIncome = function() {
@@ -57,7 +52,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         }
 
         UserDataService.data.updateUserData(new_monthly_income);
-    }
+    };
     
     this.getTotalAssets = function() {
         return total_assets;
@@ -81,7 +76,6 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         return monthly_expenses;
     };
 
-    
     this.setMonthlyExpenses = function(new_monthly_expenses) {
         monthly_expenses = new_monthly_expenses;
         saveMonthlyExpenses(monthly_expenses);
@@ -120,7 +114,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         }
         
         UserDataService.data.updateUserData(new_income_increase_rate);
-    }
+    };
 
     this.getExpensesIncreaseRate = function() {
         return expenses_increase_rate;
@@ -138,7 +132,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         }
         
         UserDataService.data.updateUserData(new_expenses_increase_rate );
-    }
+    };
 
     this.getGrowthRate = function() {
         return growth_rate;
@@ -150,17 +144,14 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     };
 
     var saveGrowthRate = function(growth_rate) {
-
         var new_growth_rate = {
             'investment_growth_rate' : growth_rate
         }
 
         UserDataService.data.updateUserData(new_growth_rate);
-
-    }
+    };
 
     this.saveInitialContants = function() {
-
         var initial_constants = {
             'income_growth_rate': income_increase_rate,
             'expenses_growth_rate' : expenses_increase_rate,
@@ -168,7 +159,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         }
 
         UserDataService.data.updateUserData(initial_constants);
-    }
+    };
 
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();
@@ -180,6 +171,41 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         }
 
         return retirement_data;
+    };
+
+    this.calculateDollarsToTime = function(amount, expense, recurring) {
+        var spendy_data = this.initialRetirementData();
+        var thrifty_data = this.initialRetirementData();
+
+        if (expense) {
+            if (recurring) {
+                spendy_data.monthly_expenses = spendy_data.monthly_expenses + amount;
+            } else {
+                spendy_data.total_assets = spendy_data.total_assets - amount;
+            }
+        } else {
+            if (recurring) {
+                thrifty_data.monthly_income = thrifty_data.monthly_income + amount;
+            } else {
+                thrifty_data.total_assets = spendy_data.total_assets + amount;
+            }
+        }
+
+        calculateRetirementTrajectory(spendy_data);
+        calculateRetirementTrajectory(thrifty_data);
+
+        if (spendy_data.can_retire) {
+            addIntersectionPoint(spendy_data);
+        }
+
+        if (thrifty_data.can_retire) {
+            addIntersectionPoint(thrifty_data);
+        }
+
+        return {
+            spendy: spendy_data,
+            thrifty: thrifty_data
+        };
     };
     
     var calculateRetirementTrajectory = function(retirement_data) {
