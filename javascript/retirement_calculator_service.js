@@ -1,161 +1,13 @@
-FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataService, INITIAL_CALCULATOR_CONSTANTS) {
+FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataService, UserDataCache, INITIAL_CALCULATOR_CONSTANTS) {
+    
     var withdrawal_rate = INITIAL_CALCULATOR_CONSTANTS.withdrawal_rate;
     var inflation_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
-    var income_increase_rate = INITIAL_CALCULATOR_CONSTANTS.income_increase_rate;
-    var expenses_increase_rate = inflation_rate;
-    var growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
-    
-    var monthly_income;
-    var total_assets;
-    var monthly_expenses;
 
-    var fetched_user_data;
 
-    this.fetchUserData = function() {
-
-        UserDataService.data.getUserData().then(function(data) {
-
-            fetched_user_data = data.data.user_data;
-
-            monthly_income  = fetched_user_data['monthly_income'];
-            total_assets  = fetched_user_data['total_assets'];
-            monthly_expenses  = fetched_user_data['monthly_expenses'];
-            income_increase_rate = fetched_user_data['income_growth_rate'];
-            expenses_increase_rate = fetched_user_data['expenses_growth_rate'];
-            growth_rate = fetched_user_data['investment_growth_rate'];
-        });
-
-    };
-
-    this.destroyUserData = function() {
-
-        monthly_income  = undefined;
-        total_assets  = undefined;
-        monthly_expenses  = undefined;
-        income_increase_rate = .05;
-        expenses_increase_rate = inflation_rate;
-        growth_rate = .075;
-    };
-
-    this.getMonthlyIncome = function() {
-
-        return monthly_income;
-    };
-
-    this.setMonthlyIncome = function(new_monthly_income) {
-        monthly_income = new_monthly_income;
-        saveMonthlyIncome(monthly_income);     
-    };
-
-    var saveMonthlyIncome = function(monthly_income) {
-
-        var new_monthly_income = {
-            'monthly_income': monthly_income
-        }
-
-        UserDataService.data.updateUserData(new_monthly_income);
-    }
-    
-    this.getTotalAssets = function() {
-        return total_assets;
-    };
-    
-    this.setTotalAssets = function(new_total_assets) {
-        total_assets = new_total_assets;
-        saveTotalAssets(total_assets);  
-    };
-
-    var saveTotalAssets = function(total_assets) {
-
-        var new_total_assets = {
-            'total_assets': total_assets
-        }
-        
-        UserDataService.data.updateUserData(new_total_assets);
-    }
-    
-    this.getMonthlyExpenses = function() {
-        return monthly_expenses;
-    };
-
-    
-    this.setMonthlyExpenses = function(new_monthly_expenses) {
-        monthly_expenses = new_monthly_expenses;
-        saveMonthlyExpenses(monthly_expenses);
-    };
-
-    var saveMonthlyExpenses = function(monthly_expenses) {
-
-        var new_monthly_expenses = {
-            'monthly_expenses': monthly_expenses
-        }
-        
-        UserDataService.data.updateUserData(new_monthly_expenses);
-    }
-
-    this.getInflationRate = function() {
-        return inflation_rate;
-    };
-
-    this.setInflationRate = function(new_inflation_rate) {
-        inflation_rate = new_inflation_rate;
-    };
-
-    this.getIncomeIncreaseRate = function() {
-        return income_increase_rate;
-    };
-
-    this.setIncomeIncreaseRate = function(new_income_increase_rate) {
-        income_increase_rate = new_income_increase_rate;
-        saveIncomeIncreaseRate(income_increase_rate);
-    };
-
-    var saveIncomeIncreaseRate = function(income_increase_rate) {
-
-        var new_income_increase_rate = {
-            'income_growth_rate': income_increase_rate
-        }
-        
-        UserDataService.data.updateUserData(new_income_increase_rate);
-    }
-
-    this.getExpensesIncreaseRate = function() {
-        return expenses_increase_rate;
-    };
-
-    this.setExpensesIncreaseRate = function(new_expenses_increase_rate) {
-        expenses_increase_rate = new_expenses_increase_rate;
-        saveExpensesIncreaseRate(expenses_increase_rate);
-    };
-
-    var saveExpensesIncreaseRate = function(expenses_increase_rate) {
-
-        var new_expenses_increase_rate = {
-            'expenses_growth_rate' : expenses_increase_rate
-        }
-        
-        UserDataService.data.updateUserData(new_expenses_increase_rate );
-    }
-
-    this.getGrowthRate = function() {
-        return growth_rate;
-    };
-
-    this.setGrowthRate = function(new_growth_rate) {
-        growth_rate = new_growth_rate;
-        saveGrowthRate(growth_rate);
-    };
-
-    var saveGrowthRate = function(growth_rate) {
-
-        var new_growth_rate = {
-            'investment_growth_rate' : growth_rate
-        }
-
-        UserDataService.data.updateUserData(new_growth_rate);
-
+    var getUserData = function() {
+        return UserDataCache.userData;
     }
 
     this.saveInitialContants = function() {
@@ -164,10 +16,10 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
             'income_growth_rate': income_increase_rate,
             'expenses_growth_rate' : expenses_increase_rate,
             'investment_growth_rate' : growth_rate
-        }
+        };
 
         UserDataService.data.updateUserData(initial_constants);
-    }
+    };
 
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();
@@ -184,7 +36,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var calculateRetirementTrajectory = function(retirement_data) {
         if (canRetire(retirement_data)) {
             return setImmediateRetirement(retirement_data);
-        };
+        }
     
         while (retirement_data.months < MAX_MONTHS) {
             addNextGraphPoint(retirement_data);
@@ -194,7 +46,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
                 addNextGraphPoint(retirement_data);
                 retirement_data.can_retire = true;
                 break;
-            };
+            }
         }
     };
     
@@ -269,6 +121,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     
     var updateMonthlyIncome = function(retirement_data) {
         var monthly_income = retirement_data.monthly_income;
+        income_increase_rate = get_income_increase_rate();
     
         retirement_data.monthly_income = InterestService.addInterest(monthly_income, income_increase_rate);
     };
@@ -311,16 +164,19 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     };
     
     this.initialRetirementData = function() {
+
+        var userData = getUserData();
+
         var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
-        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(growth_rate, 12);
-        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(expenses_increase_rate, 12);
+        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(userData.growth_rate, 12);
+        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(userData.expenses_increase_rate, 12);
         
         return {
             months: 0,
             graph_points: [],
-            total_assets: total_assets,
-            monthly_income: monthly_income,
-            monthly_expenses: monthly_expenses,
+            total_assets: userData.total_assets,
+            monthly_income: userData.monthly_income,
+            monthly_expenses: userData.monthly_expenses,
             can_retire: false,
             monthly_inflation_rate: monthly_inflation_rate,
             monthly_growth_rate: monthly_growth_rate,

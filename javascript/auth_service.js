@@ -1,4 +1,4 @@
-FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalculatorService) {
+FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) {
 
 	var data = {
 		showSignUp: false
@@ -97,7 +97,7 @@ FinancialFreedom.factory('AuthService', function($http, Session, RetirementCalcu
 
       		this.data = data;
       		Session.data.destroy();
-      		RetirementCalculatorService.destroyUserData();
+      		UserDataCache.userData.resetUserData();
 
       		return this.data;
 

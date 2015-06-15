@@ -4,15 +4,18 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
 
     $routeProvider.when('/income', {
         templateUrl: 'partials/income_input.html',
-        controller: 'IncomeInputController'
+        controller: 'IncomeInputController',
+        controllerAs: 'incomectrl'
     })
     .when('/assets', {
         templateUrl: 'partials/assets_input.html',
-        controller: 'AssetsInputController'
+        controller: 'AssetsInputController',
+        controllerAs: 'assetsctrl'
     })
     .when('/expenses', {
         templateUrl: 'partials/expenses_input.html',
-        controller: 'ExpensesInputController'
+        controller: 'ExpensesInputController',
+        controllerAs: 'expensesctrl'
     })
     .when('/time-to-retirement', {
         templateUrl: 'partials/time_to_retirement.html',
@@ -35,14 +38,14 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   return {
     restrict: 'A',
     link : function($scope, $element) {
-      $timeout(function() {
-        $element[0].focus();
-      });
+        $timeout(function() {
+            $element[0].focus();
+        });
     }
-  }
+  };
 }]);
 
-FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, RetirementCalculatorService) {
+FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, UserDataCache) {
     
     $location.path("/");
 
@@ -55,7 +58,7 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
         $rootScope.email = Session.data.email;
 
     if ($rootScope.currentUser) {
-        RetirementCalculatorService.fetchUserData();
+        UserDataCache.userData.fetchUserData();
     }
 
 });
@@ -125,7 +128,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
 });
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, RetirementCalculatorService) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, UserDataCache) {    
 
     $scope.loginFailureMessage = '';
     $scope.signUpFailureMessage = '';
@@ -152,7 +155,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
                 });
             } 
         });
-
     };
 
     $scope.login = function (credentials) {
@@ -162,7 +164,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             if (this.data.success) {
 
                 Session.data.create(credentials.email);
-                RetirementCalculatorService.fetchUserData();
+                UserDataCache.userData.fetchUserData();
                 $modalInstance.close();
                 $timeout(function() {
                     $scope.goToRoute('/time-to-retirement');
@@ -193,7 +195,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
 });
 
-FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache) {    
+FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, userData) {    
 
     $scope.ok = function() {
         $modalInstance.close();
@@ -205,48 +207,48 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.passwordResetFormCollapsed = true;
 
-    $scope.userEmail = UserDataCache.email;
-    $scope.userCreatedAt = UserDataCache.created_at;
+    $scope.userEmail = userData.email;
+    $scope.userCreatedAt = userData.created_at;
 
 });
 
-FinancialFreedom.controller('IncomeInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
-    $scope.income = {};
-    $scope.income.value = RetirementCalculatorService.getMonthlyIncome();
+FinancialFreedom.controller('IncomeInputController', function($scope, $location, UserDataCache) {
     
-    $scope.submitForm = function() {
-        if ($scope.incomeForm.$valid) {
-            RetirementCalculatorService.setMonthlyIncome($scope.income.value);
-            $location.path('/assets');
-        }
+    var vm = this;
+    vm.income = UserDataCache.userData.monthly_income;
+    
+    vm.submitForm = function() {
+
+        UserDataCache.userData.monthly_income = vm.income;
+        $location.path('/assets');
+
     };
 
-}]);
+});
 
-FinancialFreedom.controller('AssetsInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
-    $scope.assets = {};
-    $scope.assets.value = RetirementCalculatorService.getTotalAssets();
+FinancialFreedom.controller('AssetsInputController', function($scope, $location, UserDataCache) {
 
-    $scope.submitForm = function() {
-        if ($scope.assetsForm.$valid) {
-            RetirementCalculatorService.setTotalAssets($scope.assets.value);
-            $location.path('/expenses');
-        }  
+    var vm = this;
+    vm.assets = UserDataCache.userData.total_assets;
+
+    vm.submitForm = function() {
+        UserDataCache.userData.total_assets = vm.assets;
+        $location.path('/expenses');
     };
 
-}]);
+});
 
-FinancialFreedom.controller('ExpensesInputController', ['$scope', '$location', 'RetirementCalculatorService', function($scope, $location, RetirementCalculatorService) {
-    $scope.expenses = {};
-    $scope.expenses.value = RetirementCalculatorService.getMonthlyExpenses();
+FinancialFreedom.controller('ExpensesInputController', function($scope, $location, UserDataCache) {
 
-    $scope.submitForm = function() {
-        if ($scope.expensesForm.$valid) {
-            RetirementCalculatorService.setMonthlyExpenses($scope.expenses.value);
-            $location.path('/time-to-retirement');
-        }  
+    var vm = this;
+    vm.expenses = UserDataCache.userData.monthly_expenses;
+
+    vm.submitForm = function() {
+        UserDataCache.userData.monthly_expenses = vm.expenses;
+        $location.path('/time-to-retirement');
     };
-}]);
+
+});
 
 FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
     $scope.templates =
@@ -287,76 +289,89 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 }]);
 
 
-FinancialFreedom.controller('TimeToRetirementController', ['$scope', '$modal', 'RetirementCalculatorService', 'CreateRetirementGraphService', 'AuthService', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService) {
+FinancialFreedom.controller('TimeToRetirementController', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserDataCache) {
 
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
     $scope.showSteps = false;
     $scope.editCollapsed = true;
 
+    $scope.openLoginModal = function(size, userStatus) {
+
+        AuthService.data.updateShowSignUp(userStatus);
+
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/login_modal.html',
+            controller: 'LoginModalInstanceCtrl',
+            size: size,
+            backdrop: true,
+        });
+    };
+
     $scope.incrementOutputValue = function(output_value, increment) {
         if (output_value == 'expenses') {
-            $scope.expenses = $scope.expenses + increment;
+            $scope.userData.expenses += increment;
         }
         if (output_value == 'income') {
-            $scope.income = $scope.income + increment;
+            $scope.userData.income += increment;
         }
         if (output_value == 'assets') {
-            $scope.assets = $scope.assets + increment;
+            $scope.userData.assets += increment;
         }
         if (output_value == 'incomeincrease') {
-            $scope.incomeincrease = $scope.incomeincrease + increment;
+            $scope.userData.incomeincrease += increment;
         }
         if (output_value == 'expensesincrease') {
-            $scope.expensesincrease = $scope.expensesincrease + increment;
+            $scope.userData.expensesincrease += increment;
         }
         if (output_value == 'growth') {
-            $scope.growth = $scope.growth + increment;
+            $scope.userData.growth += increment;
         }
-    }
+    };
 
     $scope.refreshOutput = function(retirement_data) {
 
         $scope.retirement = {};
-        var months_to_retirement = retirement_data['months'];
+        var months_to_retirement = retirement_data.months;
         $scope.retirement.years_to_retirement = Math.floor(months_to_retirement / 12);
         $scope.retirement.months_to_retirement = months_to_retirement % 12;
         $scope.retirement.graph_shown = retirement_data.can_retire && !retirement_data.can_retire_immediately;
         $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
         $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
-    }
+        console.log("refreshed");
+    };
     
     $(window).resize(function() {
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
     });
 
-    $scope.income = RetirementCalculatorService.getMonthlyIncome();
-    $scope.assets = RetirementCalculatorService.getTotalAssets();
-    $scope.expenses = RetirementCalculatorService.getMonthlyExpenses();
-    $scope.inflation = RetirementCalculatorService.getInflationRate();
-    $scope.incomeincrease = RetirementCalculatorService.getIncomeIncreaseRate();
-    $scope.expensesincrease = RetirementCalculatorService.getExpensesIncreaseRate();
-    $scope.growth = RetirementCalculatorService.getGrowthRate();
+    $scope.userData = UserDataCache.userData;
+    
+    $scope.userData.expenses = UserDataCache.userData.monthly_expenses;
+    $scope.userData.income = UserDataCache.userData.monthly_income;
+    $scope.userData.assets = UserDataCache.userData.total_assets;
+    $scope.userData.incomeincrease = UserDataCache.userData.income_increase_rate;
+    $scope.userData.expensesincrease = UserDataCache.userData.expenses_increase_rate;
+    $scope.userData.growth = UserDataCache.userData.growth_rate;
 
-    $scope.$watchGroup(['expenses','income','assets','inflation','incomeincrease','expensesincrease','growth'], function(new_values) {
+    $scope.$watchGroup(['userData.expenses','userData.income','userData.assets','userData.incomeincrease','userData.expensesincrease','userData.growth'], function(new_values) {
 
-        RetirementCalculatorService.setMonthlyExpenses(new_values[0]);
-        RetirementCalculatorService.setMonthlyIncome(new_values[1]);
-        RetirementCalculatorService.setTotalAssets(new_values[2]);
-        RetirementCalculatorService.setInflationRate(new_values[3]);
-        RetirementCalculatorService.setIncomeIncreaseRate(new_values[4]);
-        RetirementCalculatorService.setExpensesIncreaseRate(new_values[5]);
-        RetirementCalculatorService.setGrowthRate(new_values[6]);
+        UserDataCache.userData.setMonthlyExpenses(new_values[0]);
+        UserDataCache.userData.setMonthlyIncome(new_values[1]);
+        UserDataCache.userData.setTotalAssets(new_values[2]);
+        UserDataCache.userData.setIncomeIncreaseRate(new_values[3]);
+        UserDataCache.userData.setExpensesIncreaseRate(new_values[4]);
+        UserDataCache.userData.setGrowthRate(new_values[5]);
 
         var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
         $scope.refreshOutput(retirement_data);
 
-        $scope.contributionAmount = RetirementCalculatorService.getMonthlyIncome() - RetirementCalculatorService.getMonthlyExpenses();
-        $scope.savingsRate = ((RetirementCalculatorService.getMonthlyIncome() - RetirementCalculatorService.getMonthlyExpenses()) / RetirementCalculatorService.getMonthlyIncome())*100;
+        $scope.contributionAmount = UserDataCache.userData.monthly_income - UserDataCache.userData.monthly_expenses;
+        $scope.savingsRate = ((UserDataCache.userData.monthly_income - UserDataCache.userData.monthly_expenses) / UserDataCache.userData.monthly_income)*100;
     });
     
-}]);
+});
 
 FinancialFreedom.directive("percent", function($filter){
     var p = function(viewValue){ // format model value
@@ -381,46 +396,142 @@ FinancialFreedom.directive("percent", function($filter){
 
 var INITIAL_CALCULATOR_CONSTANTS = {
     
-        "withdrawal_rate" : .04,
-        "inflation_rate" : .035,
-        "income_increase_rate" : .05,
-        "growth_rate" : .075
+        "withdrawal_rate" : 0.04,
+        "inflation_rate" : 0.035,
+        "income_increase_rate" : 0.05,
+        "growth_rate" : 0.075
 };
 
-FinancialFreedom.factory("UserDataCache", function(INITIAL_CALCULATOR_CONSTANTS) {
+function UserDataCache(INITIAL_CALCULATOR_CONSTANTS, UserDataService) {
 
-    var UserDataCache = {};
+    var userData = {};
 
-    UserDataCache.email = '';
-    UserDataCache.created_at = null;
-    UserDataCache.monthly_income  = undefined;
-    UserDataCache.total_assets  = undefined;
-    UserDataCache.monthly_expenses  = undefined;
-    UserDataCache.income_increase_rate = INITIAL_CALCULATOR_CONSTANTS.income_increase_rate;
-    UserDataCache.expenses_increase_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
-    UserDataCache.growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
+    userData.email = '';
+    userData.created_at = null;
+    userData.monthly_income  = null;
+    userData.total_assets  = null;
+    userData.monthly_expenses  = null;
+    userData.income_increase_rate = INITIAL_CALCULATOR_CONSTANTS.income_increase_rate;
+    userData.expenses_increase_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
+    userData.growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
 
-    return UserDataCache;
-});
+    userData.fetchUserData = function() {
+
+        UserDataService.data.getUserData().then(function(data) {
+
+            fetched_user_data = data.data.user_data;
+
+            userData.email = fetched_user_data.email;
+            userData.created_at = fetched_user_data.created_at;
+            userData.monthly_income  = fetched_user_data.monthly_income;
+            userData.total_assets  = fetched_user_data.total_assets;
+            userData.monthly_expenses  = fetched_user_data.monthly_expenses;
+            userData.income_increase_rate = fetched_user_data.income_growth_rate;
+            userData.expenses_increase_rate = fetched_user_data.expenses_growth_rate;
+            userData.growth_rate = fetched_user_data.investment_growth_rate;
+
+        });
+    };
+
+    userData.resetUserData = function() {
+
+        userData.email = '';
+        userData.created_at = null;
+        userData.monthly_income = null;
+        userData.total_assets  = null;
+        userData.monthly_expenses  = null;
+        userData.income_increase_rate = INITIAL_CALCULATOR_CONSTANTS.income_increase_rate;
+        userData.expenses_increase_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
+        userData.growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
+    };
+
+    userData.setMonthlyIncome = function(monthly_income) {
+
+        userData.monthly_income = monthly_income;
+
+        var new_monthly_income = {
+            'monthly_income': monthly_income
+        };
+
+        UserDataService.data.updateUserData(new_monthly_income);
+    };
+
+    userData.setTotalAssets = function(total_assets) {
+
+        userData.total_assets = total_assets;
+        var new_total_assets = {
+            'total_assets': total_assets
+        };
+        
+        UserDataService.data.updateUserData(new_total_assets);
+    };
+    
+    userData.setMonthlyExpenses = function(monthly_expenses) {
+
+        userData.monthly_expenses = monthly_expenses;
+        var new_monthly_expenses = {
+            'monthly_expenses': monthly_expenses
+        };
+        
+        UserDataService.data.updateUserData(new_monthly_expenses);
+    };
+
+    userData.setIncomeIncreaseRate = function(income_increase_rate) {
+
+        userData.income_increase_rate = income_increase_rate;
+        var new_income_increase_rate = {
+            'income_growth_rate': income_increase_rate
+        };
+        
+        UserDataService.data.updateUserData(new_income_increase_rate);
+    };
+
+    userData.setExpensesIncreaseRate = function(expenses_increase_rate) {
+
+        userData.expenses_increase_rate = expenses_increase_rate;
+        var new_expenses_increase_rate = {
+            'expenses_growth_rate' : expenses_increase_rate
+        };
+        
+        UserDataService.data.updateUserData(new_expenses_increase_rate );
+    };
+
+    userData.setGrowthRate = function(growth_rate) {
+
+        userData.growth_rate = growth_rate;
+        var new_growth_rate = {
+            'investment_growth_rate' : growth_rate
+        };
+
+        UserDataService.data.updateUserData(new_growth_rate);
+
+    };
+
+    return {
+        userData : userData
+    };
+
+}
 
 function compareTo () {
     return {
-      require: "ngModel",
-      scope: {
-        otherModelValue: "=compareTo"
-      },
-      link: function(scope, element, attributes, ngModel) {
+        require: "ngModel",
+        scope: {
+            otherModelValue: "=compareTo"
+        },
+        link: function(scope, element, attributes, ngModel) {
 
-        ngModel.$validators.compareTo = function(modelValue) {
-          return modelValue == scope.otherModelValue;
-        };
+            ngModel.$validators.compareTo = function(modelValue) {
+                return modelValue == scope.otherModelValue;
+            };
 
         scope.$watch("otherModelValue", function() {
           ngModel.$validate();
         });
       }
     };
-  };
+}
 
 FinancialFreedom.directive("compareTo", compareTo);
 FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);
+FinancialFreedom.factory("UserDataCache",UserDataCache);

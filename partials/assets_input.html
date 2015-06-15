@@ -1,9 +1,11 @@
 <div class="view-content container-fluid">
-	<form name="assetsForm" ng-submit="submitForm()" novalidate>
+	<form name="assetsForm" ng-submit="assetsctrl.submitForm()" novalidate>
 		<div class="row">
 		    <div class="view-body-content col-xs-12 col-md-8 col-md-offset-4">
 			    <div class="input-title">Assets</div>
+
 			    <div class="step-subheader">All cash, investments, and property ownership</div>
+
 				    <div class="input-field-wrapper">
 				        <span class="leading-dollar">$</span>
 				        <input type="text" 
@@ -14,7 +16,7 @@
 			        	max="999999999"
 			        	placeholder="50,000" 
 			        	class="steps" 
-			        	ng-model="assets.value" />
+			        	ng-model="assetsctrl.assets" />
 				    </div>
 			</div>
 		</div>
