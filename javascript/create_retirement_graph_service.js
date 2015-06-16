@@ -260,7 +260,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         intersection_point_label_container.append("svg:foreignObject")
             .attr("width", 220)
             .attr("height", 110)
-            .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>" + numberWithCommas(asset_need) + "</b>.</span>");
+            .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>$" + numberWithCommas(asset_need) + "</b>.</span>");
 
         intersection_point_label_container.append("path")
             .attr("d", drawLinesBetweenPoints(lineData))

@@ -21,7 +21,6 @@ FinancialFreedom.service('Session', function($window, $timeout) {
 	};
 
 	data.destroy = function() {
-
 		$window.sessionStorage.userInfo = 'undefined';
 		data.currentUser = null;
 		data.email = null;

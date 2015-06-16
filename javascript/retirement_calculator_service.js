@@ -8,18 +8,11 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
 
     var getUserData = function() {
         return UserDataCache.userData;
-    }
-
-    this.saveInitialContants = function() {
-
-        var initial_constants = {
-            'income_growth_rate': income_increase_rate,
-            'expenses_growth_rate' : expenses_increase_rate,
-            'investment_growth_rate' : growth_rate
-        };
-
-        UserDataService.data.updateUserData(initial_constants);
     };
+
+    var income_increase_rate = getUserData().income_increase_rate;
+    var expenses_increase_rate = getUserData().expenses_increase_rate;
+    var growth_rate = getUserData().growth_rate;
 
     this.calculateRetirementInfo = function() {
         var retirement_data = this.initialRetirementData();
@@ -121,7 +114,6 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     
     var updateMonthlyIncome = function(retirement_data) {
         var monthly_income = retirement_data.monthly_income;
-        income_increase_rate = get_income_increase_rate();
     
         retirement_data.monthly_income = InterestService.addInterest(monthly_income, income_increase_rate);
     };
@@ -131,7 +123,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
             date: date,
             expenses: expenses,
             withdraw_limit: withdraw_limit
-        }
+        };
     };
     
     var incrementMonthCount = function(retirement_data) {

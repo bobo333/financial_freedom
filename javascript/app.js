@@ -195,7 +195,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
 });
 
-FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, userData) {    
+FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache) {    
 
     $scope.ok = function() {
         $modalInstance.close();
@@ -207,8 +207,8 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.passwordResetFormCollapsed = true;
 
-    $scope.userEmail = userData.email;
-    $scope.userCreatedAt = userData.created_at;
+    $scope.userEmail = UserDataCache.userData.email;
+    $scope.userCreatedAt = UserDataCache.userData.created_at;
 
 });
 
@@ -346,14 +346,21 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, $moda
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
     });
 
-    $scope.userData = UserDataCache.userData;
-    
-    $scope.userData.expenses = UserDataCache.userData.monthly_expenses;
-    $scope.userData.income = UserDataCache.userData.monthly_income;
-    $scope.userData.assets = UserDataCache.userData.total_assets;
-    $scope.userData.incomeincrease = UserDataCache.userData.income_increase_rate;
-    $scope.userData.expensesincrease = UserDataCache.userData.expenses_increase_rate;
-    $scope.userData.growth = UserDataCache.userData.growth_rate;
+    $scope.loadData = function() {
+        $scope.userData = UserDataCache.userData;
+        
+        $scope.userData.expenses = UserDataCache.userData.monthly_expenses;
+        $scope.userData.income = UserDataCache.userData.monthly_income;
+        $scope.userData.assets = UserDataCache.userData.total_assets;
+        $scope.userData.incomeincrease = UserDataCache.userData.income_increase_rate;
+        $scope.userData.expensesincrease = UserDataCache.userData.expenses_increase_rate;
+        $scope.userData.growth = UserDataCache.userData.growth_rate;
+    };
+
+    $scope.$watch(AuthService.data.isAuthenticated, function() {
+        $scope.loadData();
+        console.log("yo yo");
+    });
 
     $scope.$watchGroup(['userData.expenses','userData.income','userData.assets','userData.incomeincrease','userData.expensesincrease','userData.growth'], function(new_values) {
 
