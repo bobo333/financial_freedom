@@ -150,7 +150,7 @@ Potential errors include:
 - `total_assets` is negative
 - `total_assets` is not an integer
 
-### Update User Data ###
+### Change Password ###
 **POST /api/change-password.php**
 
 Updates password for the current user.

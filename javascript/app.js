@@ -210,6 +210,10 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
     $scope.userEmail = UserDataCache.userData.email;
     $scope.userCreatedAt = UserDataCache.userData.created_at;
 
+    $scope.reset = function () {
+        console.log("this will call a service to reset the password")
+    }
+
 });
 
 FinancialFreedom.controller('IncomeInputController', function($scope, $location, UserDataCache) {

@@ -4,14 +4,14 @@
     </div>
 
     <div class="modal-body row">
-        
-        <form name="resetPassword" novalidate>
 
-            <div>{{ userEmail }} </div>
+        <div>Account email: {{ userEmail }} </div>
 
-            <div>{{ userCreatedAt }}</div>
+        <div>Account created: {{ userCreatedAt }}</div>
 
-            <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-if="passwordResetRouteExists" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
+        <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
+            
+        <form name="resetPassword" novalidate role="form" ng-submit="reset(credentials)" novalidate >
 
             <div collapse="passwordResetFormCollapsed">
                 <div class="form-group">
@@ -20,16 +20,27 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="newPassword1">New password</label>
-                    <input type="password" id="newPassword1" class="form-control" required ng-model="newpassword1" />
+                    <label for="password">Password</label>
+                    <input type="password" name="passwordField" class="form-control" required ng-model="credentials.password" ng-minlength="6" />
+                    <div ng-show="resetPassword.passwordField.$touched" class="field-error">
+                        <span ng-show="resetPassword.passwordField.$error.required">Please enter a password</span>
+                    </div>
+                    <div ng-show="resetPassword.passwordField.$touched" class="field-error">
+                        <span ng-show="resetPassword.passwordField.$error.minlength">Your password must be at least 6 characters long.</span>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="newPassword2">New password one more time</label>
-                    <input type="password" id="newPassword2" class="form-control" required ng-model="newpassword2" />
+                    <label for="password">Repeat Password</label>
+                    <input type="password" compare-to="credentials.password" required name="passwordConfirmField" class="form-control" ng-model="credentials.passwordconfirm" />
+        
+                    <div ng-show="resetPassword.passwordConfirmField.$dirty" class="field-error">
+                        <span ng-show="resetPassword.passwordConfirmField.$error.required">Please confirm your password</span>
+                        <span ng-show="resetPassword.passwordConfirmField.$error.compareTo && !resetPassword.passwordConfirmField.$error.required">Your passwords must match.</span>
+                    </div>
                 </div>
                 
-                <input type="submit" value="Update password" ng-click="ok()" class="btn btn-primary" ng-class="{'disabled': !resetPassword.$valid } "/>
+                <button type="submit" class="btn btn-primary" ng-class="{'disabled': !resetPassword.$valid }">Update password</button>
                 <button ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed" class="btn btn-primary">Cancel</button>
             </div>
         </form>
