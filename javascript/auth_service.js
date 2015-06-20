@@ -91,6 +91,39 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
     	return !!Session.data.email;
   	};
 
+  	data.resetPassword = function(credentials) {
+
+		var formData = {
+  			'old_password'	: credentials.password,
+  			'new_password'	: credentials.passwordconfirm
+		};
+
+		var req = {
+			method: 'POST',
+			url: 'api/change-password.php',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			data: $.param(formData)
+		};
+
+		return $http(req).
+  		success(function(data, status, headers, config) {
+
+      		this.data = data;
+
+      		return this.data;
+
+	  	}).
+	  	error(function(data, status, headers, config) {
+
+	    	this.data = data || "Request failed";
+
+      		return this.data;
+	  	});
+
+  	};
+
  	data.logout = function() {
 
  		$http.get('api/logout.php').success(function(data, status, headers, config) {

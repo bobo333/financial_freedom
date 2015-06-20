@@ -11,7 +11,7 @@
 
         <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
             
-        <form name="resetPassword" novalidate role="form" ng-submit="reset(credentials)" novalidate >
+        <form name="resetPassword" novalidate role="form" ng-submit="setPassword(credentials)">
 
             <div collapse="passwordResetFormCollapsed">
                 <div class="form-group">

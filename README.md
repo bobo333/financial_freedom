@@ -157,8 +157,8 @@ Updates password for the current user.
 
 Parameters:
 
-- `old_password` [string], monthly income of the current user.
-- `new_password` [string], total assets of the current user. Must be at least 6 characters.
+- `old_password` [string, required], existing password the current user.
+- `new_password` [string, required], desired new password for the current user.
 
 Returns:
 

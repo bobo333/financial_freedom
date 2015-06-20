@@ -144,7 +144,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
             if (this.data.success) {
 
                 Session.data.create(credentials.email);
-                RetirementCalculatorService.saveInitialContants();
             }
 
             else {
@@ -195,7 +194,7 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
 
 });
 
-FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache) {    
+FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache, AuthService) {    
 
     $scope.ok = function() {
         $modalInstance.close();
@@ -209,10 +208,32 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.userEmail = UserDataCache.userData.email;
     $scope.userCreatedAt = UserDataCache.userData.created_at;
+    $scope.resetPasswordFailureMessage = '';
 
-    $scope.reset = function () {
-        console.log("this will call a service to reset the password")
-    }
+    $scope.setPassword = function (credentials) {
+
+        console.log("got here");
+
+        AuthService.data.resetPassword(credentials).then(function ()  {
+
+            if (!this.data.success) {
+                
+                $scope.resetPasswordFailureMessage = "Your attempt to reset your password failed.";
+
+                return angular.forEach(this.data.errors, function(key, value) {
+                    return key;
+                });
+            }
+
+            else {
+                console.log("password reset");
+            }
+
+        }, function () {
+            $scope.loginFailureMessage = "Login attempt failed. Check your internet connection and try again.";
+        });
+    };
+
 
 });
 
