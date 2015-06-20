@@ -94,8 +94,8 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
   	data.resetPassword = function(credentials) {
 
 		var formData = {
-  			'old_password'	: credentials.password,
-  			'new_password'	: credentials.passwordconfirm
+  			'old_password'	: credentials.old_password,
+  			'new_password'	: credentials.new_password
 		};
 
 		var req = {
@@ -112,12 +112,17 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
 
       		this.data = data;
 
+            console.log(this.data);
+
+
       		return this.data;
 
 	  	}).
 	  	error(function(data, status, headers, config) {
 
 	    	this.data = data || "Request failed";
+
+	    	console.log(this.data);
 
       		return this.data;
 	  	});

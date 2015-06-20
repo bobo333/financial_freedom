@@ -212,11 +212,11 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.setPassword = function (credentials) {
 
-        console.log("got here");
-
         AuthService.data.resetPassword(credentials).then(function ()  {
 
             if (!this.data.success) {
+
+                console.log("got here");
                 
                 $scope.resetPasswordFailureMessage = "Your attempt to reset your password failed.";
 
@@ -226,6 +226,7 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
             }
 
             else {
+                $scope.passwordResetFormCollapsed = true;
                 console.log("password reset");
             }
 
