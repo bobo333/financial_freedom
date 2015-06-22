@@ -161,8 +161,11 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         UserDataService.data.updateUserData(initial_constants);
     };
 
-    this.calculateRetirementInfo = function() {
-        var retirement_data = this.initialRetirementData();
+    this.calculateRetirementInfo = function(retirement_data) {
+        if (retirement_data === undefined) {
+            var retirement_data = this.initialRetirementData();            
+        }
+
         calculateRetirementTrajectory(retirement_data);
         
         if (retirement_data.can_retire) {
@@ -171,41 +174,6 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         }
 
         return retirement_data;
-    };
-
-    this.calculateDollarsToTime = function(amount, expense, recurring) {
-        var spendy_data = this.initialRetirementData();
-        var thrifty_data = this.initialRetirementData();
-
-        if (expense) {
-            if (recurring) {
-                spendy_data.monthly_expenses = spendy_data.monthly_expenses + amount;
-            } else {
-                spendy_data.total_assets = spendy_data.total_assets - amount;
-            }
-        } else {
-            if (recurring) {
-                thrifty_data.monthly_income = thrifty_data.monthly_income + amount;
-            } else {
-                thrifty_data.total_assets = spendy_data.total_assets + amount;
-            }
-        }
-
-        calculateRetirementTrajectory(spendy_data);
-        calculateRetirementTrajectory(thrifty_data);
-
-        if (spendy_data.can_retire) {
-            addIntersectionPoint(spendy_data);
-        }
-
-        if (thrifty_data.can_retire) {
-            addIntersectionPoint(thrifty_data);
-        }
-
-        return {
-            spendy: spendy_data,
-            thrifty: thrifty_data
-        };
     };
     
     var calculateRetirementTrajectory = function(retirement_data) {

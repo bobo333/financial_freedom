@@ -30,6 +30,7 @@
         <script type="text/javascript" src="javascript/geometry_service.js"></script>
         <script type="text/javascript" src="javascript/retirement_calculator_service.js"></script>
         <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
+        <script type="text/javascript" src="javascript/dollars_to_time_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
         <script type="text/javascript" src="javascript/auth_service.js"></script>

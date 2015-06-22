@@ -26,9 +26,9 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/intro.html',
         controller: 'IntroController'
     })
-    .when('/test', {
-        templateUrl: 'partials/test.html',
-        controller: 'TestController'
+    .when('/dollars-to-time', {
+        templateUrl: 'partials/dollars_to_time.html',
+        controller: 'DollarsToTimeController'
     })
     .otherwise({
         redirectTo: '/'
@@ -72,11 +72,37 @@ FinancialFreedom.controller('IntroController', function($scope, $location) {
 
 });
 
-FinancialFreedom.controller('TestController', function($scope, $location, RetirementCalculatorService) {
-    var dates = RetirementCalculatorService.calculateDollarsToTime(500, false, false);
+FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, DollarsToTimeService) {
+    var dates = DollarsToTimeService.calculateDollarsToTime(0, false, false);
 
-    $scope.spendy = dates.spendy.intersection_point.x;
-    $scope.thrifty = dates.thrifty.intersection_point.x;
+    $scope.dates = {
+        spendy: dates.spendy.intersection_point.x,
+        thrifty: dates.thrifty.intersection_point.x
+    };
+
+    $scope.calc_values = {
+        amount: 0,
+        expense: true,
+        recurring: true
+    };
+
+    $scope.$watch('calc_values', function(new_value, old_value) {
+        var amount = parseInt($scope.calc_values.amount);
+
+        if ($scope.calc_values.amount === '') {
+            amount = 0;
+        } else if (amount === NaN) {
+            return;
+        }
+
+        dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring);
+        $scope.dates.spendy = dates.spendy.intersection_point.x;
+        $scope.dates.thrifty = dates.thrifty.intersection_point.x;
+
+        $scope.dates.years = dates.difference.years;
+        $scope.dates.months = dates.difference.months;
+        $scope.dates.days = dates.difference.days;
+    }, true);
 
 });
 
