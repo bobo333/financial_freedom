@@ -448,6 +448,10 @@ function UserDataCache(INITIAL_CALCULATOR_CONSTANTS, UserDataService) {
     userData.expenses_increase_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
     userData.growth_rate = INITIAL_CALCULATOR_CONSTANTS.growth_rate;
 
+    userData.getUserData = function() {
+        return userData;
+    };
+
     userData.fetchUserData = function() {
 
         UserDataService.data.getUserData().then(function(data) {

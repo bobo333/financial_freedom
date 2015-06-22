@@ -1,4 +1,4 @@
-FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataService, UserDataCache, INITIAL_CALCULATOR_CONSTANTS) {
+FinancialFreedom.service('RetirementCalculatorService', function(InterestService, GeometryService, DateService, UserDataCache, INITIAL_CALCULATOR_CONSTANTS) {
     
     var withdrawal_rate = INITIAL_CALCULATOR_CONSTANTS.withdrawal_rate;
     var inflation_rate = INITIAL_CALCULATOR_CONSTANTS.inflation_rate;
@@ -7,7 +7,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
 
 
     var getUserData = function() {
-        return UserDataCache.userData;
+        return UserDataCache.userData.getUserData();
     };
 
     var income_increase_rate = getUserData().income_increase_rate;
