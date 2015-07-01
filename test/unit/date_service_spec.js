@@ -4,7 +4,7 @@ describe('Unit: DateService', function() {
     beforeEach(module('FinancialFreedom'));
 
     beforeEach(inject(function(_DateService_) {
-        DateService = _DateService_
+        DateService = _DateService_;
     }));
 
     // calculateDaysBetween
