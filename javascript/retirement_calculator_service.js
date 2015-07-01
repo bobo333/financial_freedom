@@ -5,6 +5,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
 
+
     var getUserData = function() {
         return UserDataCache.userData.getUserData();
     };
