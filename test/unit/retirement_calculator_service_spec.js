@@ -1,13 +1,69 @@
 describe('Unit: RetirementCalculatorService', function() {
     var RetirementCalculatorService;
+    var mockUserDataCache;
+    var mockUserDataCacheSvc;
 
     beforeEach(module('FinancialFreedom'));
 
-    beforeEach(inject(function(_RetirementCalculatorService_) {
+    beforeEach(inject(function(_RetirementCalculatorService_, _UserDataCache_) {
 
         RetirementCalculatorService = _RetirementCalculatorService_;
+        UserDataCache = _UserDataCache_;
 
     }));
+
+    beforeEach(module(function($provide) {
+        
+        var userData = {
+            total_assets: null,
+            monthly_income: null,
+            monthly_expenses: null,
+            monthly_inflation_rate: 0.002870898719076642,
+            monthly_growth_rate: 0.006044919024291717,
+            monthly_expenses_increase_rate: 0.002870898719076642,
+            income_increase_rate: 0.05,
+            expenses_increase_rate: 0.035,
+            growth_rate: 0.075
+        };
+        
+        mockUserDataCacheSvc = {
+
+            getUserData: function() {
+                return userData;
+            },
+
+            setUserData: function(monthly_income, total_assets, monthly_expenses) {
+
+                userData.monthly_income = monthly_income;
+                userData.total_assets = total_assets;
+                userData.monthly_expenses = monthly_expenses;
+            }
+
+        };
+
+        $provide.value('UserDataCache', mockUserDataCacheSvc);
+
+    }));
+
+        
+
+    // beforeEach(function($provide) {
+    //     // fakeRetirementData = {
+    //     //     months: 0,
+    //     //     graph_points: [],
+    //     //     total_assets: null,
+    //     //     monthly_income: null,
+    //     //     monthly_expenses: null,
+    //     //     can_retire: false,
+    //     //     monthly_inflation_rate: 0.002870898719076642,
+    //     //     monthly_growth_rate: 0.006044919024291717,
+    //     //     monthly_expenses_increase_rate: 0.002870898719076642,
+    //     //     income_increase_rate: 0.05,
+    //     //     expenses_increase_rate: 0.035,
+    //     //     growth_rate: 0.075
+    //     // };
+
+    // });
     
     // calculateRetirementInfo
     it('should have calculateRetirementInfo function', function() {
@@ -16,17 +72,14 @@ describe('Unit: RetirementCalculatorService', function() {
     
     it('should return 1200 months for zero net worth and zero income from calculatMonthsToRetirement', function() {
 
-        spyOn(RetirementCalculatorService,'initialRetirementData').and.returnValue({
-            months: 0,
-            graph_points: [],
-            total_assets: 0,
-            monthly_income: 0,
-            monthly_expenses: 5000,
-            can_retire: false,
-            monthly_inflation_rate: 0.002870898719076642,
-            monthly_growth_rate: 0.006044919024291717,
-            monthly_expenses_increase_rate: 0.002870898719076642
-        });
+
+        mockUserDataCacheSvc.setUserData(0, 0, 5000);
+
+        // fakeRetirementData.total_assets = 0;
+        // fakeRetirementData.monthly_income = 0;
+        // fakeRetirementData.monthly_expenses = 5000;
+
+        // spyOn(RetirementCalculatorService,'initialRetirementData').and.returnValue(fakeRetirementData);
 
         var val = RetirementCalculatorService.calculateRetirementInfo();
 
@@ -34,42 +87,32 @@ describe('Unit: RetirementCalculatorService', function() {
 
     });
 
-    it('should decrease months to retirement when income increase rate increases', function() {
+    // it('should decrease months to retirement when income increase rate increases', function() {
 
-        var income_increase = 0.006044919024291717;
+    //     fakeRetirementData.total_assets = 250000;
+    //     fakeRetirementData.monthly_income = 6000;
+    //     fakeRetirementData.monthly_expenses = 1500;
+    //     fakeRetirementData.income_increase_rate = 0.05;
 
-        var i = 0;
+    //     var i = 0;
 
-        spyOn(RetirementCalculatorService,'initialRetirementData').and.callFake(function() {
+    //     spyOn(RetirementCalculatorService,'initialRetirementData').and.callFake(function() {
 
-            i++;
+    //         i++;
 
-            if (i == 2) {
-                income_increase = income_increase*1.2;
-            }
+    //         if (i == 2) {
+    //             fakeRetirementData.income_increase_rate *= 1.2;
+    //         }
 
-            return {
-                months: 0,
-                graph_points: [],
-                total_assets: 250000,
-                monthly_income: 6000,
-                monthly_expenses: 1500,
-                can_retire: false,
-                monthly_inflation_rate: 0.002870898719076642,
-                monthly_growth_rate: income_increase,
-                monthly_expenses_increase_rate: 0.002870898719076642
-            };
+    //         return fakeRetirementData;
+    //     });
 
-        });
+    //     var old_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        var old_val = RetirementCalculatorService.calculateRetirementInfo();
+    //     var new_val = RetirementCalculatorService.calculateRetirementInfo();
 
-        RetirementCalculatorService.initialRetirementData.isSpy = false;
-
-        var new_val = RetirementCalculatorService.calculateRetirementInfo();
-
-        expect(new_val.months).toBeLessThan(old_val.months);
-    });
+    //     expect(new_val.months).toBeLessThan(old_val.months);
+    // });
 
     // it('should increase months to retirement when expenses increase rate increases', function() {
     //     RetirementCalculatorService.setTotalAssets(250000);

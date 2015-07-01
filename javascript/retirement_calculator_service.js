@@ -5,17 +5,36 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
 
-
     var getUserData = function() {
         return UserDataCache.userData.getUserData();
     };
 
-    var income_increase_rate = getUserData().income_increase_rate;
-    var expenses_increase_rate = getUserData().expenses_increase_rate;
-    var growth_rate = getUserData().growth_rate;
+    var initialRetirementData = function() {
+
+        var userData = getUserData();
+
+        var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
+        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(userData.growth_rate, 12);
+        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(userData.expenses_increase_rate, 12);
+        
+        return {
+            months: 0,
+            graph_points: [],
+            total_assets: userData.total_assets,
+            monthly_income: userData.monthly_income,
+            monthly_expenses: userData.monthly_expenses,
+            can_retire: false,
+            monthly_inflation_rate: monthly_inflation_rate,
+            monthly_growth_rate: monthly_growth_rate,
+            monthly_expenses_increase_rate: monthly_expenses_increase_rate,
+            income_increase_rate: userData.income_increase_rate,
+            expenses_increase_rate: userData.expenses_increase_rate,
+            growth_rate: userData.growth_rate
+        };
+    };
 
     this.calculateRetirementInfo = function() {
-        var retirement_data = this.initialRetirementData();
+        var retirement_data = initialRetirementData();
         calculateRetirementTrajectory(retirement_data);
         
         if (retirement_data.can_retire) {
@@ -115,7 +134,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var updateMonthlyIncome = function(retirement_data) {
         var monthly_income = retirement_data.monthly_income;
     
-        retirement_data.monthly_income = InterestService.addInterest(monthly_income, income_increase_rate);
+        retirement_data.monthly_income = InterestService.addInterest(monthly_income, retirement_data.income_increase_rate);
     };
     
     var formatGraphData = function(date, expenses, withdraw_limit) {
@@ -155,25 +174,5 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         return months % 12 === 0;
     };
     
-    this.initialRetirementData = function() {
-
-        var userData = getUserData();
-
-        var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
-        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(userData.growth_rate, 12);
-        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(userData.expenses_increase_rate, 12);
-        
-        return {
-            months: 0,
-            graph_points: [],
-            total_assets: userData.total_assets,
-            monthly_income: userData.monthly_income,
-            monthly_expenses: userData.monthly_expenses,
-            can_retire: false,
-            monthly_inflation_rate: monthly_inflation_rate,
-            monthly_growth_rate: monthly_growth_rate,
-            monthly_expenses_increase_rate: monthly_expenses_increase_rate
-        };
-    };
     
 });
