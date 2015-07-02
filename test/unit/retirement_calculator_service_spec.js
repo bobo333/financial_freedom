@@ -1,7 +1,6 @@
 describe('Unit: RetirementCalculatorService', function() {
     
     var RetirementCalculatorService;
-
     var userData;
 
     beforeEach(module('FinancialFreedom', function($provide) {
@@ -21,9 +20,7 @@ describe('Unit: RetirementCalculatorService', function() {
         mockUserDataCacheSvc = {
 
             userData: {
-
                 getUserData: function() {
-
                     return userData;
                 }
             }

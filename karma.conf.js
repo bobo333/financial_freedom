@@ -39,7 +39,9 @@ module.exports = function(config) {
         'test/unit/retirement_calculator_service_spec.js',
         'test/unit/interest_service_spec.js',
         'test/unit/date_service_spec.js',
-        'test/unit/geometry_service_spec.js'
+        'test/unit/geometry_service_spec.js',
+        'test/unit/auth_service_spec.js',
+        'test/unit/user_data_cache_spec.js'
     ],
 
 

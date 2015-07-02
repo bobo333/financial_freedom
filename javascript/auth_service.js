@@ -97,19 +97,12 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
   		success(function(data, status, headers, config) {
 
       		this.data = data;
-
-            console.log(this.data);
-
-
       		return this.data;
 
 	  	}).
 	  	error(function(data, status, headers, config) {
 
 	    	this.data = data || "Request failed";
-
-	    	console.log(this.data);
-
       		return this.data;
 	  	});
 
