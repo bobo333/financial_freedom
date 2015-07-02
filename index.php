@@ -15,7 +15,7 @@
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
@@ -53,7 +53,7 @@
                                 <span class="icon-bar"></span>
                             </button>
 
-                                <a class="navbar-brand" ng-click="goToRoute('/income')">
+                            <a class="navbar-brand" ng-click="goToRoute('/income')">
                                 <div id="header-brand-wrapper">
                                     <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
                                     <div class="logo-name-wrapper">

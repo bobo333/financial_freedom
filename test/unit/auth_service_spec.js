@@ -25,19 +25,4 @@ describe('Unit: AuthService', function() {
 		expect(angular.isFunction(AuthService.data.createAccount)).toBe(true);	
 	});
 
-	// it("should make an ajax call to /api/login.php", function () {
-
-	// 	var credentials = {
-	// 		email: "some@email.com",
-	// 		password: "somePassword"
-	// 	};
-
-	// 	$httpBackend.whenGET("/api/v1/fruits").respond([{
-	// 	    id: 1,
-	// 	    name: "banana"
-	// 	  }]);
-
-	// 	expect(AuthService.data.login(credentials).toBeDefined());
-	// });
-
 });
