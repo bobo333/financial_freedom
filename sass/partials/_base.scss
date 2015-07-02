@@ -8,8 +8,6 @@
 // Sass media queries
 @import "../bower_components/sass-mediaqueries/media-queries";
 
-// Font weights
-
 // Breakpoints
 $screen_sm_min: 768px;
 $screen_md_min: 992px;
@@ -40,11 +38,20 @@ $fixed_line_height: $base_line_height;
 
 // Headings
 
+h2 {
+    font-size: 3em;
+    font-weight: $base_font_weight_semi_bold;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: $base_font_weight_normal;
+}
+
 
 // Colors
 $primary_green: #2B8E69;
 $dark_green: #0D412E;
-$light_green: #60DAC7;
 $light_bg_green: rgba($primary_green, 0.05);
 
 $secondary_brown: #DA9B03;
@@ -80,7 +87,34 @@ $body_text_color: #404040;
 
 $section-bottom-border: 1px solid rgba($primary_green,0.12);
 
+// Forms
 
+.form-group {
+  label {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+}
+
+// Buttons
+
+.btn-primary {
+    background: $primary_green;
+
+    &[disabled] {
+        background: $primary_green;
+    }
+
+    &:hover {
+        background: $dark_green;
+    }
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid $primary_green;
+  color: $primary_green;
+}
 
 // Links
 

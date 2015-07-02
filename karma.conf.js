@@ -29,14 +29,19 @@ module.exports = function(config) {
         'javascript/date_service.js',
         'javascript/interest_service.js',
         'javascript/geometry_service.js',
+        'javascript/user_data_service.js',
         'javascript/retirement_calculator_service.js',
         'javascript/create_retirement_graph_service.js',
+        'javascript/session_service.js',
+        'javascript/auth_service.js',
         
         // app test files
         'test/unit/retirement_calculator_service_spec.js',
         'test/unit/interest_service_spec.js',
         'test/unit/date_service_spec.js',
-        'test/unit/geometry_service_spec.js'
+        'test/unit/geometry_service_spec.js',
+        'test/unit/auth_service_spec.js',
+        'test/unit/user_data_cache_spec.js'
     ],
 
 

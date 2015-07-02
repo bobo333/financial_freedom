@@ -20,6 +20,7 @@
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
         <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
         
@@ -31,12 +32,15 @@
         <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
-
+        <script type="text/javascript" src="javascript/auth_service.js"></script>
+        <script type="text/javascript" src="javascript/session_service.js"></script>
+        <script type="text/javascript" src="javascript/user_data_service.js"></script>
 
         <title>Plenti | Free Yourself</title>
     </head>
     
     <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
+
         <div class="header-wrapper" ng-controller="HeaderController">
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -48,6 +52,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
+
                             <a class="navbar-brand" ng-click="goToRoute('/income')">
                                 <div id="header-brand-wrapper">
                                     <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
@@ -58,14 +63,46 @@
                             </a>
                         </div>
                         <div collapse="isCollapsed">
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)">Sign in</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
+                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                                <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" ng-click="logout()">
+                                <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
                             </ul>
                         </div>
-                        <div class="expanded-nav" >
+                        <div class="expanded-nav">
+                            
+                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                                <li class="dropdown" dropdown>
+                                   <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a ng-click="openAccountModal()">Account</a>
+                                            <a ng-click="logout()">Sign out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)" ng-if="!data.currentUser">Sign in</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)" ng-if="!data.currentUser">Sign up</a></li>
+                            </ul>
+
                         </div>
                     </div>
                 </nav>
@@ -85,7 +122,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div ng-view class="view-animate"></div>
     </body>
 </html>

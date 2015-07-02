@@ -149,3 +149,26 @@ Potential errors include:
 - `monthly_income` is not an integer
 - `total_assets` is negative
 - `total_assets` is not an integer
+
+### Change Password ###
+**POST /api/change-password.php**
+
+Updates password for the current user.
+
+Parameters:
+
+- `old_password` [string, required], existing password the current user.
+- `new_password` [string, required], desired new password for the current user.
+
+Returns:
+
+- `success` [boolean] indicating if updating user data was successful
+- `errors` [array of strings] messages indicating why call was unsuccessful (will be empty when success is `true`)
+
+Potential errors include:
+
+- no user currently logged in
+- `old_password` is not present
+- `new_password` is not present
+- `old_password` is incorrect
+- `new_password` is shorter than 6 characters

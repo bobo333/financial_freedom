@@ -76,7 +76,7 @@ angular.module('ng-currency', [])
                 function formatDisplayVal(value) {
 
                     display_value = $filter('currency')(value);
-                    if (display_value !== undefined) {
+                    if (display_value !== undefined && display_value !== null ) {
                         display_value = display_value.substr(1);  // remove the leading dollar sign
                         display_value = display_value.substr(0, display_value.length - 3);  // remove the trailing decimal places
                     }

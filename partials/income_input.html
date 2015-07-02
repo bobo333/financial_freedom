@@ -1,5 +1,5 @@
 <div class="view-content container-fluid">
-	<form name="incomeForm" ng-submit="submitForm()" novalidate>
+	<form name="incomeForm" ng-submit="income_ctrl.submitForm()" novalidate>
 		<div class="row">
 		    <div class="view-body-content col-xs-12 col-md-8 col-md-offset-4">
 			    <div class="input-title">Income</div>
@@ -8,15 +8,15 @@
 			    
 			    <div class="input-field-wrapper">
 		        	<span class="leading-dollar">$</span>
-		        	<input type="text" 
-		        	autofocus 
+		        	<input type="text"
+		        	autofocus
 		        	required
 		        	ng-currency
-		        	placeholder="4,500" 
+		        	placeholder="4,500"
 		        	class="steps"
 		        	min="0"
 		        	max="99999"
-		        	ng-model="income.value" />
+		        	ng-model="income_ctrl.income" />
 		        	<span class="after-input-text">per month</span>
 			    </div>
 			</div>

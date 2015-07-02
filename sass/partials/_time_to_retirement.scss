@@ -15,9 +15,10 @@ $control-button-border: 1px solid rgba($dark_green,0.1);
 $control-button-hover: rgba(84, 168, 136, 0.18);
 $control-button-background: rgba(84, 168, 136, 0.09);
 $actions-border: 1px solid $dark_green;
+$signup_button_hover_color: #C58C01;
 
 #graph-wrapper {
-
+    
     .intersection-label-container {
         position: absolute;
         z-index: 1;
@@ -73,7 +74,6 @@ $actions-border: 1px solid $dark_green;
 
         .curve-label {
             font-weight: $base_font_weight_semi_bold;
-            font-size: 0.9em;
             max-width: 100px;
         }
         
@@ -95,7 +95,7 @@ $actions-border: 1px solid $dark_green;
 
 .retirement-years {
     font-weight: $base_font_weight_semi_bold;
-    font-size: $base_font_size * 5;
+    font-size: 5em;
     margin-top: 50px;
     color: $main_bubble_color;
 }
@@ -192,7 +192,6 @@ $actions-border: 1px solid $dark_green;
 
     line-height: $base_line_height * 1.3;
     font-size: $base_font_size;
-    margin-top: 30px;
 
     @include min-screen($screen_sm_min) {
         font-size: $base_font_size * 1.5;
@@ -610,13 +609,59 @@ input[type="text"].form-control {
 
 .intersection-label {
     color: white;
-    padding: 15px 15px;
+    padding: 16px 15px;
     display: inline-block;
-    line-height: $base_line_height * 1.2;
+    line-height: $base_line_height * 1.1;
     z-index: 1;
     font-weight: $base_font_weight_normal;
+    font-size: 1.1em;
 
     .bold {
         font-weight: $base_font_weight_semi_bold;
     }
+}
+
+.sign-up-wrapper {
+    text-align: center;
+}
+
+.sign-up-container {
+    display: inline-block;
+    @include border-radius(10px);
+    @include translateY(-50%);
+    border: 1px solid $secondary_brown;
+    background: $light_brown_bg;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.sign-up-caption {
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.sign-up-button {
+    background: $secondary_brown;
+    color: white;
+    border: none;
+    font-weight: $brand_font_weight_bold;
+    @include hover-animation(all);
+    
+    &:hover, &:focus, &:active, &:visited {
+        background: $secondary_brown;
+        border: none;
+        color: white !important;
+        outline: none !important;
+    }
+
+    &:hover {
+        background: $signup_button_hover_color;
+        color: white;
+    }
+    
+}
+
+#expenses-control {
+    margin-top: 30px;
 }

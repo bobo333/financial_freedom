@@ -1,12 +1,8 @@
 <?php
 namespace Codeception\Module;
 
-\codecept_debug(getcwd());
-
 require('api/config.php');
 global $config;
-\codecept_debug('hi');
-\codecept_debug($config['db_name']);
 
 // here you can define custom actions
 // all public methods declared in helper class will be available in $I
