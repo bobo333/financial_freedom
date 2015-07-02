@@ -23,6 +23,7 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
 
       		this.data = data;
       		Session.data.create(credentials.email);
+      		UserDataCache.userData.fetchUserData();
 
       		return this.data;
 

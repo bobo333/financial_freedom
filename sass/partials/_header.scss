@@ -123,8 +123,7 @@ $nav-border-radius: 25px;
 
             @include min-screen($screen_sm_min) {
                 @include border-bottom-left-radius($nav-border-radius);
-            }
-            
+            }     
         }
         
         &:last-child {
@@ -160,6 +159,12 @@ $nav-border-radius: 25px;
     .navbar-right {
         li {
             margin-right: 25px;
+        }
+
+        .dropdown-menu {
+            li {
+                margin-right: 0px;
+            }
         }
     }
 }

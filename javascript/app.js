@@ -145,8 +145,8 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
         AuthService.data.createAccount(credentials).then(function(user) {
 
             if (this.data.success) {
-
                 Session.data.create(credentials.email);
+                $modalInstance.close();
             }
 
             else {
@@ -209,15 +209,28 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.userEmail = UserDataCache.userData.email;
     $scope.userCreatedAt = UserDataCache.userData.created_at;
-    $scope.resetPasswordFailureMessage = '';
+
+    // $scope.loadData = function() {
+    //     $scope.userData = UserDataCache.userData;
+
+    //     $scope.userEmail = UserDataCache.userData.monthly_expenses;
+    //     $scope.userCreatedAt = UserDataCache.userData.monthly_income;
+    // };
+
+    // $scope.$watch(UserDataCache.userData.email, function() {
+    //     $scope.loadData();
+    // });
+
+    // $scope.$watch(UserDataCache.userData.userCreatedAt, function() {
+    //     $scope.loadData();
+    // });
+
 
     $scope.setPassword = function (credentials) {
 
         AuthService.data.resetPassword(credentials).then(function ()  {
 
             if (!this.data.success) {
-
-                console.log("got here");
                 
                 $scope.resetPasswordFailureMessage = "Your attempt to reset your password failed.";
 
@@ -228,7 +241,6 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
             else {
                 $scope.passwordResetFormCollapsed = true;
-                console.log("password reset");
             }
 
         }, function () {
