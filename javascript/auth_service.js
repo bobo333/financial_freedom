@@ -1,20 +1,6 @@
 FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) {
 
-	var data = {
-		showSignUp: false
-	};
-
-	 data.updateShowSignUp = function(userStatus) {
-		if (userStatus == "signUp") {
-			data.showSignUp = true;
-			return;
-		}
-
-		else {
-			data.showSignUp = false;
-			return;
-		}
-	};
+	var data = {};
 
 	data.createAccount = function (credentials) {
 

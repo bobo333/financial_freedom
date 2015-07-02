@@ -64,10 +64,10 @@
                         </div>
                         <div collapse="isCollapsed">
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'')">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'signUp')">Sign up</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
@@ -97,10 +97,10 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'')" ng-if="!data.currentUser">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)" ng-if="!data.currentUser">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large,'signUp')" ng-if="!data.currentUser">Sign up</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)" ng-if="!data.currentUser">Sign up</a></li>
                             </ul>
 
                         </div>

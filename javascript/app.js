@@ -94,15 +94,18 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
         return non_visible_pages.indexOf($location.path() ) == -1;
     };
 
-    $scope.openLoginModal = function(size, userStatus) {
-
-        AuthService.data.updateShowSignUp(userStatus);
+    $scope.openLoginModal = function(size, showSignUp) {
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
             controller: 'LoginModalInstanceCtrl',
             size: size,
             backdrop: true,
+            resolve: {
+                showSignUp: function() {
+                    return showSignUp;
+                }
+            }
         });
     };
 
@@ -128,7 +131,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
 });
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, UserDataCache) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, UserDataCache, showSignUp) {    
 
     $scope.loginFailureMessage = '';
     $scope.signUpFailureMessage = '';
@@ -184,13 +187,11 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
         });
     };
 
-
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.data = AuthService.data;
-        $scope.showSignUp = AuthService.data.showSignUp;
+    $scope.showSignUp = showSignUp;
 
 });
 
@@ -322,15 +323,18 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, $moda
     $scope.showSteps = false;
     $scope.editCollapsed = true;
 
-    $scope.openLoginModal = function(size, userStatus) {
-
-        AuthService.data.updateShowSignUp(userStatus);
+    $scope.openLoginModal = function(size, showSignUp) {
 
         var modalInstance = $modal.open({
             templateUrl: 'partials/login_modal.html',
             controller: 'LoginModalInstanceCtrl',
             size: size,
             backdrop: true,
+            resolve: {
+                showSignUp: function() {
+                    return showSignUp;
+                }
+            }
         });
     };
 
@@ -365,7 +369,6 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, $moda
         $scope.retirement.never_retire_shown = !retirement_data.can_retire && !retirement_data.can_retire_immediately;
         $scope.retirement.already_retired_shown = retirement_data.can_retire_immediately;
         CreateRetirementGraphService.createRetirementGraph(retirement_data);
-        console.log("refreshed");
     };
     
     $(window).resize(function() {
@@ -385,7 +388,6 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, $moda
 
     $scope.$watch(AuthService.data.isAuthenticated, function() {
         $scope.loadData();
-        console.log("yo yo");
     });
 
     $scope.$watchGroup(['userData.expenses','userData.income','userData.assets','userData.incomeincrease','userData.expensesincrease','userData.growth'], function(new_values) {
