@@ -4,15 +4,16 @@ FinancialFreedom.factory('UserDataService', function($http, Session) {
 
 	data.getUserData = function() {
 
-		return $http.get('api/get-user-data.php').success(function(response, status, headers, config) {
+		return $http.get('api/get-user-data.php')
+			.success(function(response, status, headers, config) {
 
-      		return response.user_data;
-	  	}).
-	  	error(function(response, status, headers, config) {
+      			return response.user_data;
+	  		}).
+		  	error(function(response, status, headers, config) {
 
-	    	this.data = response || "Request failed";
-      		return this.data;
-	  	});
+		    	this.data = response || "Request failed";
+	      		return this.data;
+		  	});
 	};
 
 	data.updateUserData = function(new_user_data) {
@@ -28,18 +29,18 @@ FinancialFreedom.factory('UserDataService', function($http, Session) {
 
 		if (Session.data.currentUser) {
 			return $http(req).
-	  		success(function(data, status, headers, config) {
+		  		success(function(data, status, headers, config) {
 
-	      		this.data = data;
+		      		this.data = data;
 
-	      		return this.data;
+		      		return this.data;
 
-		  	}).
-		  	error(function(data, status, headers, config) {
+			  	}).
+			  	error(function(data, status, headers, config) {
 
-		    	this.data = data || "Request failed";
-	      		return this.data;
-		  	});
+			    	this.data = data || "Request failed";
+		      		return this.data;
+			  	});
 		}
 			
 

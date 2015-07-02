@@ -19,20 +19,20 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
 		};
 
 		return $http(req).
-  		success(function(data, status, headers, config) {
+	  		success(function(data, status, headers, config) {
 
-      		this.data = data;
-      		Session.data.create(credentials.email);
-      		UserDataCache.userData.fetchUserData();
+	      		this.data = data;
+	      		Session.data.create(credentials.email);
+	      		UserDataCache.userData.fetchUserData();
 
-      		return this.data;
+	      		return this.data;
 
-	  	}).
-	  	error(function(data, status, headers, config) {
+		  	}).
+		  	error(function(data, status, headers, config) {
 
-	    	this.data = data || "Request failed";
-      		return this.data;
-	  	});
+		    	this.data = data || "Request failed";
+	      		return this.data;
+		  	});
 
 	};
 
@@ -53,24 +53,24 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
 		};
 
 		return $http(req).
-  		success(function(data, status, headers, config) {
+	  		success(function(data, status, headers, config) {
 
-      		this.data = data;
-      		
-      		if (this.data.success) {
-      			Session.data.create(credentials.email);
-      		}
+	      		this.data = data;
+	      		
+	      		if (this.data.success) {
+	      			Session.data.create(credentials.email);
+	      		}
 
 
-      		return this.data;
+	      		return this.data;
 
-	  	}).
-	  	error(function(data, status, headers, config) {
+		  	}).
+		  	error(function(data, status, headers, config) {
 
-	    	this.data = data || "Request failed";
+		    	this.data = data || "Request failed";
 
-      		return this.data;
-	  	});
+	      		return this.data;
+		  	});
 
 	};
 
@@ -95,36 +95,37 @@ FinancialFreedom.factory('AuthService', function($http, Session, UserDataCache) 
 		};
 
 		return $http(req).
-  		success(function(data, status, headers, config) {
+	  		success(function(data, status, headers, config) {
 
-      		this.data = data;
-      		return this.data;
+	      		this.data = data;
+	      		return this.data;
 
-	  	}).
-	  	error(function(data, status, headers, config) {
+		  	}).
+		  	error(function(data, status, headers, config) {
 
-	    	this.data = data || "Request failed";
-      		return this.data;
-	  	});
+		    	this.data = data || "Request failed";
+	      		return this.data;
+		  	});
 
   	};
 
  	data.logout = function() {
 
- 		$http.get('api/logout.php').success(function(data, status, headers, config) {
+ 		$http.get('api/logout.php')
+	 		.success(function(data, status, headers, config) {
 
-      		this.data = data;
-      		Session.data.destroy();
-      		UserDataCache.userData.resetUserData();
+	      		this.data = data;
+	      		Session.data.destroy();
+	      		UserDataCache.userData.resetUserData();
 
-      		return this.data;
+	      		return this.data;
 
-	  	}).
-	  	error(function(data, status, headers, config) {
+		  	}).
+		  	error(function(data, status, headers, config) {
 
-      		this.status = status;
-      		return this.data;
-	  	});
+	      		this.status = status;
+	      		return this.data;
+		  	});
  	};
 
  	return {

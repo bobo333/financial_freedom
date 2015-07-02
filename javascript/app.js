@@ -5,17 +5,17 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
     $routeProvider.when('/income', {
         templateUrl: 'partials/income_input.html',
         controller: 'IncomeInputController',
-        controllerAs: 'incomectrl'
+        controllerAs: 'income_ctrl'
     })
     .when('/assets', {
         templateUrl: 'partials/assets_input.html',
         controller: 'AssetsInputController',
-        controllerAs: 'assetsctrl'
+        controllerAs: 'assets_ctrl'
     })
     .when('/expenses', {
         templateUrl: 'partials/expenses_input.html',
         controller: 'ExpensesInputController',
-        controllerAs: 'expensesctrl'
+        controllerAs: 'expenses_ctrl'
     })
     .when('/time-to-retirement', {
         templateUrl: 'partials/time_to_retirement.html',
@@ -209,22 +209,6 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
     $scope.userEmail = UserDataCache.userData.email;
     $scope.userCreatedAt = UserDataCache.userData.created_at;
-
-    // $scope.loadData = function() {
-    //     $scope.userData = UserDataCache.userData;
-
-    //     $scope.userEmail = UserDataCache.userData.monthly_expenses;
-    //     $scope.userCreatedAt = UserDataCache.userData.monthly_income;
-    // };
-
-    // $scope.$watch(UserDataCache.userData.email, function() {
-    //     $scope.loadData();
-    // });
-
-    // $scope.$watch(UserDataCache.userData.userCreatedAt, function() {
-    //     $scope.loadData();
-    // });
-
 
     $scope.setPassword = function (credentials) {
 
