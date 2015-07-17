@@ -63,10 +63,10 @@
                             </a>
                         </div>
                         <div collapse="isCollapsed">
-                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                            <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)">Sign in</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
+                            <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
@@ -75,12 +75,11 @@
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right" ng-click="logout()">
+                            <ul class="nav navbar-nav navbar-right" ng-click="logout()" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
                             </ul>
                         </div>
                         <div class="expanded-nav">
-                            
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
                                 <li class="dropdown" dropdown>
                                    <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
@@ -92,7 +91,6 @@
                                     </ul>
                                 </li>
                             </ul>
-                            
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
