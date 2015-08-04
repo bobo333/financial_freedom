@@ -36,7 +36,7 @@
         <script type="text/javascript" src="javascript/session_service.js"></script>
         <script type="text/javascript" src="javascript/user_data_service.js"></script>
 
-        <title>Plenti | Free Yourself</title>
+        <title>Abound | Free Yourself</title>
     </head>
     
     <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
@@ -57,7 +57,7 @@
                                 <div id="header-brand-wrapper">
                                     <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
                                     <div class="logo-name-wrapper">
-                                        <span class="logo-name">Plenti</span>
+                                        <span class="logo-name">Abound</span>
                                     </div>
                                 </div>
                             </a>
