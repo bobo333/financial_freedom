@@ -11,7 +11,7 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         return UserDataCache.userData.getUserData();
     };
 
-    var initialRetirementData = function() {
+    this.initialRetirementData = function() {
         var userData = getUserData();
 
         var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
@@ -34,8 +34,10 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         };
     };
 
-    this.calculateRetirementInfo = function() {
-        var retirement_data = initialRetirementData();
+    this.calculateRetirementInfo = function(retirement_data) {
+        if (retirement_data === undefined) {
+            retirement_data = this.initialRetirementData();
+        }
         calculateRetirementTrajectory(retirement_data);
         
         if (retirement_data.can_retire) {

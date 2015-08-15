@@ -22,8 +22,9 @@ amount: <input type="text" ng-model="calc_values.amount" />
 
 <br>
 
-recurring: <input type="checkbox" ng-model="calc_values.recurring" value="true" />
+recurring: <input type="checkbox" ng-model="calc_values.recurring" ng-value="true" />
 
 <br>
 
-expense: <input type="checkbox" ng-model="calc_values.expense" value="true" />
+expense <input type="radio" ng-model="calc_values.expense" ng-value="true" ng-checked="true"> <br>
+income <input type="radio" ng-model="calc_values.expense" ng-value="false">
