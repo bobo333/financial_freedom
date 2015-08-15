@@ -2,8 +2,8 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
-        var graph_points = retirement_data['graph_points'];
-        var intersection_point = retirement_data['intersection_point'];
+        var graph_points = retirement_data.graph_points;
+        var intersection_point = retirement_data.intersection_point;
         var show_tooltip = false;
         var tooltip_selector;
         container_width = $('#graph-wrapper').width();
@@ -29,7 +29,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         function yTickFormat(tick_value) {
             tick_value = numberWithCommas(tick_value);
             return '$' + tick_value;
-        };
+        }
         
         var customTimeFormat = d3.time.format.multi([
             [".%L", function(d) { return d.getMilliseconds(); }],
@@ -51,7 +51,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
                 return null;
             }
             else {
-                current_years_from_now = new_years_from_now
+                current_years_from_now = new_years_from_now;
                 return new_years_from_now;
             }
         };
@@ -153,7 +153,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
                 })
                 .attr('r', 5)
                 .attr('class', 'intersection-point')
-                .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
+                .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
                 
         }
 
@@ -165,7 +165,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         drawExpensesLabel(chart, label_x, expenses_label_y);
 
         drawIncomeLabel(chart, label_x, income_label_y);
-    }  
+    };
     
     function addToolTipText(retirement_data) {
         var date = retirement_data.intersection_point.x;
@@ -175,7 +175,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
         return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
         
-    };
+    }
 
     function drawExpensesLabel(chart, label_x, expenses_label_y) {
 
@@ -260,7 +260,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         intersection_point_label_container.append("svg:foreignObject")
             .attr("width", 220)
             .attr("height", 110)
-            .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>" + numberWithCommas(asset_need) + "</b>.</span>");
+            .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>$" + numberWithCommas(asset_need) + "</b>.</span>");
 
         intersection_point_label_container.append("path")
             .attr("d", drawLinesBetweenPoints(lineData))

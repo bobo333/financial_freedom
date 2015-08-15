@@ -1,22 +1,23 @@
 <div class="login-modal container-fluid">
 
+    <i class="fa fa-close modal-icon-close" ng-click="cancel()"></i>
 
     <div class="modal-header row">
 
         <div class="modal-title-container">
 
-            <h2 class="modal-title" ng-if="!data.showSignUp">Sign in</h2>
-            <h2 class="modal-title" ng-if="data.showSignUp">Sign up</h2>
+            <h2 class="modal-title" ng-if="!showSignUp">Sign in</h2>
+            <h2 class="modal-title" ng-if="showSignUp">Sign up</h2>
         </div>
 
-        <div class="signup-side" ng-click="data.showSignUp = !data.showSignUp">
-            <a ng-if="!data.showSignUp">Or, sign up for Plenti</a>
-            <a ng-if="data.showSignUp">Or, sign in</a>
+        <div class="signup-side" ng-click="showSignUp = !showSignUp">
+            <a ng-if="!showSignUp">Or, sign up for Abound</a>
+            <a ng-if="showSignUp">Or, sign in</a>
         </div>
 
     </div>
 
-    <form name="loginForm" role="form" ng-submit="login(credentials)" novalidate ng-if="!data.showSignUp">
+    <form name="loginForm" role="form" ng-submit="login(credentials)" novalidate ng-if="!showSignUp">
     
         <div class="modal-body row">
             <div class="">
@@ -36,9 +37,6 @@
                     <div ng-show="loginForm.$submitted" class="field-error">
                         <span ng-show="loginForm.passwordField.$error.required">Please enter a password</span>
                     </div>
-                    <!-- <div ng-show="loginForm.$submitted" class="field-error">
-                        <span ng-show="loginForm.passwordField.$error">Dang, that password wasn't quite right.</span>
-                    </div> -->
                 </div>
 
                 <div class="login-form-controls-wrapper" ng-show="null">
@@ -65,7 +63,7 @@
 
     </form>
 
-    <form name="signUpForm" ng-submit="createAccount(credentials)" novalidate ng-if="data.showSignUp">
+    <form name="signUpForm" ng-submit="createAccount(credentials)" novalidate ng-if="showSignUp">
 
         <div class="modal-body row">
         <div class="">
