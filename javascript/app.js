@@ -79,8 +79,9 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
     var dates = DollarsToTimeService.calculateDollarsToTime(0, false, false);
 
     $scope.dates = {
-        spendy: dates.spendy.intersection_point.x,
-        thrifty: dates.thrifty.intersection_point.x
+        years: 0,
+        months: 0,
+        days: 0
     };
 
     $scope.calc_values = {
@@ -92,15 +93,11 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
     $scope.$watch('calc_values', function(new_value, old_value) {
         var amount = parseInt($scope.calc_values.amount);
 
-        if ($scope.calc_values.amount === '') {
+        if ($scope.calc_values.amount === '' || $scope.calc_values.amount === NaN || isNaN(amount)) {
             amount = 0;
-        } else if (amount === NaN) {
-            return;
         }
 
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring);
-        $scope.dates.spendy = dates.spendy.intersection_point.x;
-        $scope.dates.thrifty = dates.thrifty.intersection_point.x;
 
         $scope.dates.years = dates.difference.years;
         $scope.dates.months = dates.difference.months;
