@@ -79,7 +79,7 @@ FinancialFreedom.controller('IntroController', function($scope, $location) {
 
 });
 
-FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session, UserDataCache) {
 
     $scope.isCollapsed = true;
 
@@ -89,6 +89,17 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     
     $scope.goToRoute = function(route) {
         $location.path(route);
+    };
+
+    $scope.logoLink = function() {
+
+        if (UserDataCache.userData.monthly_expenses) {
+            $location.path('/time-to-retirement');
+        }
+
+        else {
+            $location.path('/income');
+        }
     };
 
     $scope.tabsAreVisible = function() {

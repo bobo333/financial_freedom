@@ -451,6 +451,11 @@ h3 {
   z-index: 1040;
 }
 
+/* line 285, ../../sass/partials/_header.scss */
+.nav-content-wrapper {
+  max-width: 960px;
+}
+
 /* line 3, ../../sass/partials/_input.scss */
 .view-content {
   padding: 0px;
