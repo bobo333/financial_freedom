@@ -92,6 +92,9 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
     };
 
     $scope.$watch('calc_values', function(new_value, old_value) {
+
+        $scope.cashflowLabel = $scope.calc_values.expense ? 'Reduced from' : 'Added to';
+
         var amount = parseInt($scope.calc_values.amount);
 
         if ($scope.calc_values.amount === '' || $scope.calc_values.amount === NaN || isNaN(amount)) {
@@ -107,7 +110,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
 
 });
 
-FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session, UserDataCache) {
 
     $scope.isCollapsed = true;
 
@@ -118,6 +121,17 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     $scope.goToRoute = function(route) {
         $location.path(route);
     };
+
+    $scope.converterLink = function() {
+
+            if (UserDataCache.userData.monthly_expenses) {
+                $location.path('/dollars-to-time');
+            }
+
+            else {
+                $location.path('/income');
+            }
+        };
 
     $scope.tabsAreVisible = function() {
 
