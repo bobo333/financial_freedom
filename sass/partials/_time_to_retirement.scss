@@ -659,9 +659,38 @@ input[type="text"].form-control {
         background: $signup_button_hover_color;
         color: white;
     }
-    
 }
 
 #expenses-control {
     margin-top: 30px;
+}
+
+.dollars-to-time-wrapper {
+    margin-top: 120px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calc-time-wrapper {
+    display: inline-block;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.calc-control {
+    margin-top: 10px;
+}
+
+.calc-time-number {
+    font-size: 3em;
+    font-weight: $brand_font_weight_bold;
+}
+
+.calc-container {
+    margin-top: 3%;
+}
+
+.calc-equal {
+    font-size: 6em;
 }

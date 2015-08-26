@@ -1690,9 +1690,45 @@ input[type="text"].form-control {
   color: white;
 }
 
-/* line 665, ../../sass/partials/_time_to_retirement.scss */
+/* line 664, ../../sass/partials/_time_to_retirement.scss */
 #expenses-control {
   margin-top: 30px;
+}
+
+/* line 668, ../../sass/partials/_time_to_retirement.scss */
+.dollars-to-time-wrapper {
+  margin-top: 120px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 675, ../../sass/partials/_time_to_retirement.scss */
+.calc-time-wrapper {
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+}
+
+/* line 681, ../../sass/partials/_time_to_retirement.scss */
+.calc-control {
+  margin-top: 10px;
+}
+
+/* line 685, ../../sass/partials/_time_to_retirement.scss */
+.calc-time-number {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+/* line 690, ../../sass/partials/_time_to_retirement.scss */
+.calc-container {
+  margin-top: 3%;
+}
+
+/* line 694, ../../sass/partials/_time_to_retirement.scss */
+.calc-equal {
+  font-size: 6em;
 }
 
 /* line 2, ../../sass/partials/_animations.scss */

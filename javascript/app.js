@@ -76,6 +76,7 @@ FinancialFreedom.controller('IntroController', function($scope, $location) {
 });
 
 FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, DollarsToTimeService) {
+
     var dates = DollarsToTimeService.calculateDollarsToTime(0, false, false);
 
     $scope.dates = {
@@ -85,9 +86,9 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
     };
 
     $scope.calc_values = {
-        amount: 0,
+        amount: null,
         expense: true,
-        recurring: true
+        recurring: false
     };
 
     $scope.$watch('calc_values', function(new_value, old_value) {
@@ -121,6 +122,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     $scope.tabsAreVisible = function() {
 
         non_visible_pages = [
+            '/dollars-to-time',
             '/about',
             '/time-to-retirement',
             '/'
