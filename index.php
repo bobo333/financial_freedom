@@ -71,7 +71,7 @@
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" href="#/dollars-to-time">Dollar-time converter</a></li>
+                                <li><a class="nav-item-custom" href="#/dollars-to-time">Money-to-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
@@ -100,7 +100,7 @@
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" href="#/dollars-to-time">Dollar-time converter</a></li>
+                                <li><a class="nav-item-custom" href="#/dollars-to-time">Money-to-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)" ng-if="!data.currentUser">Sign in</a></li>

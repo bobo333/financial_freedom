@@ -666,24 +666,29 @@ input[type="text"].form-control {
 }
 
 .dollars-to-time-wrapper {
-    margin-top: 120px;
+    border: $section-bottom-border;
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
+    background: white;
+    margin-top: 30px;
+    padding: 15px 35px 30px 35px;
+    border-radius: 4px;
 }
 
 .calc-time-wrapper {
     display: inline-block;
     text-align: center;
-    margin-right: 15px;
+    margin-right: 10%;
 }
 
 .calc-control {
     margin-top: 10px;
+    text-align: center;
 }
 
 .calc-time-number {
-    font-size: 3em;
+    font-size: 6em;
     font-weight: $brand_font_weight_bold;
 }
 
@@ -693,4 +698,47 @@ input[type="text"].form-control {
 
 .calc-equal {
     font-size: 6em;
+    text-align: center;
+    opacity: 0.4;
+    padding-top: 30px;
+}
+
+.calc-view-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: $light_bg_green;
+    margin-top: 92px;
+    padding-top: 20px;
+}
+
+.calc-title {
+    text-align: center;
+}
+
+.calc-time-label {
+    font-size: 2em;
+}
+
+.calc-input {
+    margin-top: 0px;
+
+    .leading-dollar {
+        margin-left: 0px;
+    }
+}
+
+.calc-toggle {
+    width: 100px;
+}
+
+.calc-output-wrapper {
+    text-align: center;
+}
+
+.calc-control {
+    .btn.active {
+        font-weight: $brand_font_weight_bold;
+        box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), 
+                    inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1) 
+    }
 }

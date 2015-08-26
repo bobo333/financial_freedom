@@ -1697,38 +1697,90 @@ input[type="text"].form-control {
 
 /* line 668, ../../sass/partials/_time_to_retirement.scss */
 .dollars-to-time-wrapper {
-  margin-top: 120px;
+  border: 1px solid rgba(43, 142, 105, 0.12);
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
+  background: white;
+  margin-top: 30px;
+  padding: 15px 35px 30px 35px;
+  border-radius: 4px;
 }
 
-/* line 675, ../../sass/partials/_time_to_retirement.scss */
+/* line 679, ../../sass/partials/_time_to_retirement.scss */
 .calc-time-wrapper {
   display: inline-block;
   text-align: center;
-  margin-right: 15px;
-}
-
-/* line 681, ../../sass/partials/_time_to_retirement.scss */
-.calc-control {
-  margin-top: 10px;
+  margin-right: 10%;
 }
 
 /* line 685, ../../sass/partials/_time_to_retirement.scss */
-.calc-time-number {
-  font-size: 3em;
-  font-weight: 700;
+.calc-control {
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* line 690, ../../sass/partials/_time_to_retirement.scss */
+.calc-time-number {
+  font-size: 6em;
+  font-weight: 700;
+}
+
+/* line 695, ../../sass/partials/_time_to_retirement.scss */
 .calc-container {
   margin-top: 3%;
 }
 
-/* line 694, ../../sass/partials/_time_to_retirement.scss */
+/* line 699, ../../sass/partials/_time_to_retirement.scss */
 .calc-equal {
   font-size: 6em;
+  text-align: center;
+  opacity: 0.4;
+  padding-top: 30px;
+}
+
+/* line 706, ../../sass/partials/_time_to_retirement.scss */
+.calc-view-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(43, 142, 105, 0.05);
+  margin-top: 92px;
+  padding-top: 20px;
+}
+
+/* line 714, ../../sass/partials/_time_to_retirement.scss */
+.calc-title {
+  text-align: center;
+}
+
+/* line 718, ../../sass/partials/_time_to_retirement.scss */
+.calc-time-label {
+  font-size: 2em;
+}
+
+/* line 722, ../../sass/partials/_time_to_retirement.scss */
+.calc-input {
+  margin-top: 0px;
+}
+/* line 725, ../../sass/partials/_time_to_retirement.scss */
+.calc-input .leading-dollar {
+  margin-left: 0px;
+}
+
+/* line 730, ../../sass/partials/_time_to_retirement.scss */
+.calc-toggle {
+  width: 100px;
+}
+
+/* line 734, ../../sass/partials/_time_to_retirement.scss */
+.calc-output-wrapper {
+  text-align: center;
+}
+
+/* line 739, ../../sass/partials/_time_to_retirement.scss */
+.calc-control .btn.active {
+  font-weight: 700;
+  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
