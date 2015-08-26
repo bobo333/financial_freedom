@@ -71,10 +71,14 @@
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" href="#/dollars-to-time">Dollar-time converter</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
+
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
-                                <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
+                                <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i>Account</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-click="logout()" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
@@ -94,6 +98,9 @@
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-item-custom" href="#/dollars-to-time">Dollar-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)" ng-if="!data.currentUser">Sign in</a></li>
