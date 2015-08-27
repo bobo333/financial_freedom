@@ -467,8 +467,7 @@ input[type="text"].form-control {
     @include hover-animation(all);
 
     &:hover {
-            @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
-            @include transform(scale(1.05));
+            @include transform(translateY(-5px));
         }
 }
 
@@ -478,7 +477,7 @@ input[type="text"].form-control {
         bottom: 0;
         text-align: center;
         width: 100%;
-        background: rgba($secondary_brown_dark, 0.5);
+        background: rgba(black, 0.4);
         color: #fff;
         height: 40px;
         margin: auto auto;
