@@ -72,10 +72,6 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
-                            </ul>
-
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i>Account</a></li>
                             </ul>
@@ -94,9 +90,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
@@ -128,5 +121,6 @@
         </div>
 
         <div ng-view class="view-animate"></div>
+        <abound-footer></abound-footer>
     </body>
 </html>

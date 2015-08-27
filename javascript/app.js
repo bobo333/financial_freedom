@@ -173,6 +173,10 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
             $location.path('/time-to-retirement');
         }
 
+        else if (!UserDataCache.userData.monthly_income) {
+            $location.path('/');
+        }
+
         else {
             $location.path('/income');
         }
@@ -647,6 +651,14 @@ function compareTo () {
     };
 }
 
+function aboundFooter () {
+    return {
+        restrict: 'E',
+        templateUrl: "partials/footer.html"
+    };
+}
+
+FinancialFreedom.directive("aboundFooter", aboundFooter);
 FinancialFreedom.directive("compareTo", compareTo);
 FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);
 FinancialFreedom.factory("UserDataCache",UserDataCache);

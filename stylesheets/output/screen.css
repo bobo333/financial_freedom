@@ -455,7 +455,7 @@ h3 {
   z-index: 1040;
 }
 
-/* line 285, ../../sass/partials/_header.scss */
+/* line 289, ../../sass/partials/_header.scss */
 .nav-content-wrapper {
   max-width: 960px;
 }
@@ -467,17 +467,16 @@ h3 {
 
 /* line 7, ../../sass/partials/_input.scss */
 .dollars-to-time-wrapper.input-wrapper {
-  margin-top: 10%;
   max-width: 615px;
   text-align: center;
 }
 
-/* line 13, ../../sass/partials/_input.scss */
+/* line 12, ../../sass/partials/_input.scss */
 .leading-dollar {
   margin-left: 25px;
 }
 
-/* line 17, ../../sass/partials/_input.scss */
+/* line 16, ../../sass/partials/_input.scss */
 input[type="text"].steps {
   width: 150px;
   height: 60px;
@@ -489,7 +488,7 @@ input[type="text"].steps {
   border-bottom-width: 1px;
 }
 @media screen and (min-width: 768px) {
-  /* line 17, ../../sass/partials/_input.scss */
+  /* line 16, ../../sass/partials/_input.scss */
   input[type="text"].steps {
     width: 300px;
     line-height: 1;
@@ -573,7 +572,7 @@ input[type="text"].steps::-webkit-input-placeholder {
   }
 }
 
-/* line 48, ../../sass/partials/_input.scss */
+/* line 47, ../../sass/partials/_input.scss */
 .input-title {
   font-size: 3em;
   color: #404040;
@@ -583,24 +582,24 @@ input[type="text"].steps::-webkit-input-placeholder {
   margin-top: 2%;
 }
 @media screen and (min-width: 768px) {
-  /* line 48, ../../sass/partials/_input.scss */
+  /* line 47, ../../sass/partials/_input.scss */
   .input-title {
     font-size: 5em;
   }
 }
 
-/* line 61, ../../sass/partials/_input.scss */
+/* line 60, ../../sass/partials/_input.scss */
 .input-title, .step-subheader, .until-fi, .input-field-wrapper {
   text-align: center;
 }
 @media screen and (min-width: 992px) {
-  /* line 61, ../../sass/partials/_input.scss */
+  /* line 60, ../../sass/partials/_input.scss */
   .input-title, .step-subheader, .until-fi, .input-field-wrapper {
     text-align: inherit;
   }
 }
 
-/* line 69, ../../sass/partials/_input.scss */
+/* line 68, ../../sass/partials/_input.scss */
 .step-subheader, .until-fi {
   font-size: 1em;
   margin-top: 5px;
@@ -608,14 +607,14 @@ input[type="text"].steps::-webkit-input-placeholder {
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {
-  /* line 69, ../../sass/partials/_input.scss */
+  /* line 68, ../../sass/partials/_input.scss */
   .step-subheader, .until-fi {
     font-size: 1.5em;
     line-height: 1;
   }
 }
 
-/* line 80, ../../sass/partials/_input.scss */
+/* line 79, ../../sass/partials/_input.scss */
 .input-field-wrapper {
   font-size: 26px;
   font-weight: 300;
@@ -623,26 +622,26 @@ input[type="text"].steps::-webkit-input-placeholder {
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 80, ../../sass/partials/_input.scss */
+  /* line 79, ../../sass/partials/_input.scss */
   .input-field-wrapper {
     font-size: 39px;
     margin-top: 20px;
   }
 }
-/* line 91, ../../sass/partials/_input.scss */
+/* line 90, ../../sass/partials/_input.scss */
 .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
   font-size: 13px;
   margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 91, ../../sass/partials/_input.scss */
+  /* line 90, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
     font-size: 26px;
     vertical-align: middle;
   }
 }
 
-/* line 102, ../../sass/partials/_input.scss */
+/* line 101, ../../sass/partials/_input.scss */
 input:focus {
   outline: none;
   -moz-box-shadow: none !important;
@@ -1751,53 +1750,58 @@ input[type="text"].form-control {
   height: 100vh;
   width: 100vw;
   background: rgba(43, 142, 105, 0.05);
-  margin-top: 92px;
-  padding-top: 20px;
+  padding-top: 30%;
+}
+@media screen and (min-width: 768px) {
+  /* line 705, ../../sass/partials/_time_to_retirement.scss */
+  .calc-view-wrapper {
+    padding-top: 15%;
+  }
 }
 
-/* line 713, ../../sass/partials/_time_to_retirement.scss */
+/* line 716, ../../sass/partials/_time_to_retirement.scss */
 .calc-title {
   text-align: center;
 }
 
-/* line 717, ../../sass/partials/_time_to_retirement.scss */
+/* line 720, ../../sass/partials/_time_to_retirement.scss */
 .calc-time-label {
   font-size: 1.5em;
   text-transform: uppercase;
 }
 
-/* line 722, ../../sass/partials/_time_to_retirement.scss */
+/* line 725, ../../sass/partials/_time_to_retirement.scss */
 .calc-input {
   margin-top: 0px;
 }
-/* line 725, ../../sass/partials/_time_to_retirement.scss */
+/* line 728, ../../sass/partials/_time_to_retirement.scss */
 .calc-input .leading-dollar {
   margin-left: 0px;
 }
 
-/* line 730, ../../sass/partials/_time_to_retirement.scss */
+/* line 733, ../../sass/partials/_time_to_retirement.scss */
 .calc-toggle {
   width: 100px;
 }
 
-/* line 734, ../../sass/partials/_time_to_retirement.scss */
+/* line 737, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-wrapper {
   text-align: center;
 }
 
-/* line 739, ../../sass/partials/_time_to_retirement.scss */
+/* line 742, ../../sass/partials/_time_to_retirement.scss */
 .calc-control .btn.active {
   font-weight: 700;
   box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* line 746, ../../sass/partials/_time_to_retirement.scss */
+/* line 749, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-digit-wrapper {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 751, ../../sass/partials/_time_to_retirement.scss */
+/* line 754, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-subtext {
   font-size: 1.1em;
   margin-top: 20px;
@@ -1809,7 +1813,7 @@ input[type="text"].form-control {
   text-align: center;
 }
 
-/* line 762, ../../sass/partials/_time_to_retirement.scss */
+/* line 765, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-inactive {
   opacity: 0.3;
 }
@@ -1918,6 +1922,7 @@ input[type="text"].form-control {
   background: #0d412e;
   padding: 35% 5%;
   text-align: center;
+  position: relative;
 }
 @media screen and (min-width: 768px) {
   /* line 1, ../../sass/partials/_intro.scss */
@@ -1926,7 +1931,7 @@ input[type="text"].form-control {
   }
 }
 
-/* line 13, ../../sass/partials/_intro.scss */
+/* line 14, ../../sass/partials/_intro.scss */
 .primary-tagline {
   font-size: 3em;
   color: white;
@@ -1938,13 +1943,13 @@ input[type="text"].form-control {
   margin-left: 15px;
 }
 @media screen and (min-width: 768px) {
-  /* line 13, ../../sass/partials/_intro.scss */
+  /* line 14, ../../sass/partials/_intro.scss */
   .primary-tagline {
     font-size: 5em;
   }
 }
 
-/* line 28, ../../sass/partials/_intro.scss */
+/* line 29, ../../sass/partials/_intro.scss */
 .secondary-tagline {
   color: white;
   opacity: 0.8;
@@ -1958,20 +1963,20 @@ input[type="text"].form-control {
   margin-left: auto;
 }
 @media screen and (min-width: 768px) {
-  /* line 28, ../../sass/partials/_intro.scss */
+  /* line 29, ../../sass/partials/_intro.scss */
   .secondary-tagline {
     font-size: 1.7em;
     line-height: 1.4em;
   }
 }
 
-/* line 46, ../../sass/partials/_intro.scss */
+/* line 47, ../../sass/partials/_intro.scss */
 .lp-button-wrapper {
   padding: 0;
   width: 100%;
 }
 
-/* line 51, ../../sass/partials/_intro.scss */
+/* line 52, ../../sass/partials/_intro.scss */
 .lp-button {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -1999,12 +2004,12 @@ input[type="text"].form-control {
   font-size: 1.5em;
   cursor: pointer;
 }
-/* line 65, ../../sass/partials/_intro.scss */
+/* line 66, ../../sass/partials/_intro.scss */
 .lp-button:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* line 70, ../../sass/partials/_intro.scss */
+/* line 71, ../../sass/partials/_intro.scss */
 #intro-graphic {
   display: inline-block;
   margin-left: auto;
@@ -2129,7 +2134,28 @@ input[type="text"].form-control {
   color: red;
 }
 
-/* line 16, ../../sass/screen.scss */
+/* line 1, ../../sass/partials/_footer.scss */
+.footer-container {
+  position: relative;
+  width: 100%;
+  background: rgba(43, 142, 105, 0.05);
+}
+
+/* line 7, ../../sass/partials/_footer.scss */
+.footer-content-wrapper {
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 25px 0px;
+}
+/* line 14, ../../sass/partials/_footer.scss */
+.footer-content-wrapper a {
+  width: 150px;
+  margin: auto;
+}
+
+/* line 17, ../../sass/screen.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -2138,7 +2164,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* line 25, ../../sass/screen.scss */
+/* line 26, ../../sass/screen.scss */
 body {
   font-family: "Source Sans Pro", sans-serif;
 }

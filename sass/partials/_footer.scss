@@ -1,0 +1,19 @@
+.footer-container {
+	position: relative;
+	width: 100%;
+	background: $light_bg_green;
+}
+
+.footer-content-wrapper {
+	max-width: 500px;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 25px 0px;
+
+	a {
+		width: 150px;
+		margin: auto;
+	}
+}
+

@@ -4,6 +4,7 @@
 	background: $dark_green;
 	padding: 35% 5%;
 	text-align: center;
+	position: relative;
 	
 	@include min-screen($screen_sm_min) {
 		padding: 15% 5%;
