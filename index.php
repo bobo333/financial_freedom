@@ -44,7 +44,7 @@
         <div class="header-wrapper" ng-controller="HeaderController">
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-                    <div class="container-fluid">
+                    <div class="container-fluid nav-content-wrapper">
                         <div class="navbar-header">
                             <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                                 <span class="sr-only">Toggle navigation</span>
@@ -53,7 +53,7 @@
                                 <span class="icon-bar"></span>
                             </button>
 
-                            <a class="navbar-brand" ng-click="goToRoute('/income')">
+                            <a class="navbar-brand" ng-click="logoLink()">
                                 <div id="header-brand-wrapper">
                                     <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
                                     <div class="logo-name-wrapper">

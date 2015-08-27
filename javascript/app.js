@@ -25,6 +25,14 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/about.html',
         controller: ''
     })
+    .when('/privacy', {
+        templateUrl: 'partials/legal/privacy_policy.html',
+        controller: ''
+    })
+    .when('/terms-of-service', {
+        templateUrl: 'partials/legal/terms_of_service.html',
+        controller: ''
+    })
     .when('/', {
         templateUrl: 'partials/intro.html',
         controller: 'IntroController'
@@ -159,11 +167,24 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
             }
         };
 
+    $scope.logoLink = function() {
+
+        if (UserDataCache.userData.monthly_expenses) {
+            $location.path('/time-to-retirement');
+        }
+
+        else {
+            $location.path('/income');
+        }
+    };
+
     $scope.tabsAreVisible = function() {
 
         non_visible_pages = [
             '/dollars-to-time',
             '/about',
+            '/privacy',
+            '/terms-of-service',
             '/time-to-retirement',
             '/'
         ];
@@ -366,30 +387,6 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 
     var hideTemplate = function() {
         $scope.template = null;
-    };
-
-    $scope.revealLegalDoc = function(doc) {
-        if (doc == 'privacy-policy') {
-            
-            if ($scope.privacy_is_active == true) {
-                hideTemplate();
-            } else {
-                $scope.template = $scope.templates[0];
-                $scope.toc_is_active = false;
-            }
-            $scope.privacy_is_active = !$scope.privacy_is_active;
-
-        }
-        else if (doc == 'toc') {
-            
-            if ($scope.toc_is_active == true) {
-                hideTemplate();
-            } else {
-                $scope.template = $scope.templates[1];
-                $scope.privacy_is_active = false;
-            }
-            $scope.toc_is_active = !$scope.toc_is_active;
-        }
     };
 
 }]);
