@@ -464,14 +464,15 @@ h3 {
 .dollars-to-time-wrapper.input-wrapper {
   margin-top: 10%;
   max-width: 615px;
+  text-align: center;
 }
 
-/* line 12, ../../sass/partials/_input.scss */
+/* line 13, ../../sass/partials/_input.scss */
 .leading-dollar {
   margin-left: 25px;
 }
 
-/* line 16, ../../sass/partials/_input.scss */
+/* line 17, ../../sass/partials/_input.scss */
 input[type="text"].steps {
   width: 150px;
   height: 60px;
@@ -483,7 +484,7 @@ input[type="text"].steps {
   border-bottom-width: 1px;
 }
 @media screen and (min-width: 768px) {
-  /* line 16, ../../sass/partials/_input.scss */
+  /* line 17, ../../sass/partials/_input.scss */
   input[type="text"].steps {
     width: 300px;
     line-height: 1;
@@ -567,7 +568,7 @@ input[type="text"].steps::-webkit-input-placeholder {
   }
 }
 
-/* line 47, ../../sass/partials/_input.scss */
+/* line 48, ../../sass/partials/_input.scss */
 .input-title {
   font-size: 3em;
   color: #404040;
@@ -577,24 +578,24 @@ input[type="text"].steps::-webkit-input-placeholder {
   margin-top: 2%;
 }
 @media screen and (min-width: 768px) {
-  /* line 47, ../../sass/partials/_input.scss */
+  /* line 48, ../../sass/partials/_input.scss */
   .input-title {
     font-size: 5em;
   }
 }
 
-/* line 60, ../../sass/partials/_input.scss */
+/* line 61, ../../sass/partials/_input.scss */
 .input-title, .step-subheader, .until-fi, .input-field-wrapper {
   text-align: center;
 }
 @media screen and (min-width: 992px) {
-  /* line 60, ../../sass/partials/_input.scss */
+  /* line 61, ../../sass/partials/_input.scss */
   .input-title, .step-subheader, .until-fi, .input-field-wrapper {
     text-align: inherit;
   }
 }
 
-/* line 68, ../../sass/partials/_input.scss */
+/* line 69, ../../sass/partials/_input.scss */
 .step-subheader, .until-fi {
   font-size: 1em;
   margin-top: 5px;
@@ -602,14 +603,14 @@ input[type="text"].steps::-webkit-input-placeholder {
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {
-  /* line 68, ../../sass/partials/_input.scss */
+  /* line 69, ../../sass/partials/_input.scss */
   .step-subheader, .until-fi {
     font-size: 1.5em;
     line-height: 1;
   }
 }
 
-/* line 79, ../../sass/partials/_input.scss */
+/* line 80, ../../sass/partials/_input.scss */
 .input-field-wrapper {
   font-size: 26px;
   font-weight: 300;
@@ -617,26 +618,26 @@ input[type="text"].steps::-webkit-input-placeholder {
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 79, ../../sass/partials/_input.scss */
+  /* line 80, ../../sass/partials/_input.scss */
   .input-field-wrapper {
     font-size: 39px;
     margin-top: 20px;
   }
 }
-/* line 90, ../../sass/partials/_input.scss */
+/* line 91, ../../sass/partials/_input.scss */
 .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
   font-size: 13px;
   margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 90, ../../sass/partials/_input.scss */
+  /* line 91, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
     font-size: 26px;
     vertical-align: middle;
   }
 }
 
-/* line 101, ../../sass/partials/_input.scss */
+/* line 102, ../../sass/partials/_input.scss */
 input:focus {
   outline: none;
   -moz-box-shadow: none !important;
@@ -1909,62 +1910,65 @@ input[type="text"].form-control {
 
 /* line 1, ../../sass/partials/_intro.scss */
 .intro-content {
-  margin-top: 120px;
-  padding: 0px 20px;
+  width: 100vw;
+  height: 100vh;
+  background: #0d412e;
+  padding: 35% 5%;
+  text-align: center;
 }
 @media screen and (min-width: 768px) {
   /* line 1, ../../sass/partials/_intro.scss */
   .intro-content {
-    margin-top: 200px;
+    padding: 15% 5%;
   }
 }
 
-/* line 10, ../../sass/partials/_intro.scss */
+/* line 13, ../../sass/partials/_intro.scss */
 .primary-tagline {
-  font-size: 2em;
+  font-size: 3em;
   color: white;
   font-weight: 600;
   text-align: center;
   text-shadow: 0px 0px 3px black;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15px;
 }
 @media screen and (min-width: 768px) {
-  /* line 10, ../../sass/partials/_intro.scss */
+  /* line 13, ../../sass/partials/_intro.scss */
   .primary-tagline {
-    font-size: 3em;
+    font-size: 5em;
   }
 }
 
-/* line 22, ../../sass/partials/_intro.scss */
+/* line 28, ../../sass/partials/_intro.scss */
 .secondary-tagline {
   color: white;
-  opacity: 0.7;
-  margin-top: 20px;
+  opacity: 0.8;
+  margin-top: 10px;
   font-size: 1em;
   font-weight: 300;
   text-align: center;
-  line-height: 1.2em;
+  line-height: 1.4em;
+  max-width: 550px;
+  margin-right: auto;
+  margin-left: auto;
 }
 @media screen and (min-width: 768px) {
-  /* line 22, ../../sass/partials/_intro.scss */
+  /* line 28, ../../sass/partials/_intro.scss */
   .secondary-tagline {
-    font-size: 1.4em;
-    line-height: 1.3em;
-  }
-}
-@media screen and (min-width: 1200px) {
-  /* line 22, ../../sass/partials/_intro.scss */
-  .secondary-tagline {
-    padding: 0px 100px;
+    font-size: 1.7em;
+    line-height: 1.4em;
   }
 }
 
-/* line 40, ../../sass/partials/_intro.scss */
+/* line 46, ../../sass/partials/_intro.scss */
 .lp-button-wrapper {
   padding: 0;
   width: 100%;
 }
 
-/* line 45, ../../sass/partials/_intro.scss */
+/* line 51, ../../sass/partials/_intro.scss */
 .lp-button {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -1984,7 +1988,7 @@ input[type="text"].form-control {
   border: white solid 2px;
   color: white;
   background: black;
-  margin: 110px auto auto auto;
+  margin: 55px auto auto auto;
   text-align: center;
   display: block;
   background: #0d412e;
@@ -1992,24 +1996,19 @@ input[type="text"].form-control {
   font-size: 1.5em;
   cursor: pointer;
 }
-/* line 59, ../../sass/partials/_intro.scss */
+/* line 65, ../../sass/partials/_intro.scss */
 .lp-button:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* line 64, ../../sass/partials/_intro.scss */
+/* line 70, ../../sass/partials/_intro.scss */
 #intro-graphic {
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  width: 170px;
-}
-@media screen and (min-width: 1200px) {
-  /* line 64, ../../sass/partials/_intro.scss */
-  #intro-graphic {
-    width: 260px;
-  }
+  width: 30%;
+  max-width: 160px;
 }
 
 /* line 1, ../../sass/partials/_account_modals.scss */
@@ -2150,9 +2149,4 @@ body {
 *::selection {
   color: white;
   background-color: #7dd193;
-}
-
-/* line 33, ../../sass/screen.scss */
-.indexpage {
-  background: #0d412e;
 }

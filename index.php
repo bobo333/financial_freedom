@@ -39,7 +39,7 @@
         <title>Abound | Free Yourself</title>
     </head>
     
-    <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
+    <body ng-controller="bodyController">
 
         <div class="header-wrapper" ng-controller="HeaderController">
             <div class="navbar-wrapper">
