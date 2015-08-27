@@ -103,9 +103,12 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
 
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring);
 
-        $scope.dates.years = dates.difference.years;
-        $scope.dates.months = dates.difference.months;
-        $scope.dates.days = dates.difference.days;
+        if (dates.difference) {
+            $scope.dates.years = dates.difference.years;
+            $scope.dates.months = dates.difference.months;
+            $scope.dates.days = dates.difference.days;
+        }
+            
     }, true);
 
 });

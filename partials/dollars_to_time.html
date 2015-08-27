@@ -3,6 +3,7 @@
 	<div class="dollars-to-time-wrapper">
 
 		<div class="supporting-section-title calc-title">Convert money to time</div>
+		<div class="calc-output-subtext">Find the impact that changes in your financial situation would have on your time until financial independence.</div>
 
 		<div class="calc-container">
 			<div class="row">
@@ -34,9 +35,9 @@
 					</div>
 				</div>
 				<div class="col-sm-2">
-					<div class="calc-equal">=</div>
+					<div class="calc-equal" ng-class="{ 'calc-output-inactive': !calc_values.amount}">=</div>
 				</div>
-				<div class="col-sm-5 col calc-output-wrapper">
+				<div class="col-sm-5 col calc-output-wrapper" ng-class="{ 'calc-output-inactive': !calc_values.amount}">
 
 					<div class="calc-output-digit-wrapper">
 						<div class="calc-time-wrapper">

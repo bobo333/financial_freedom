@@ -699,7 +699,6 @@ input[type="text"].form-control {
 .calc-equal {
     font-size: 6em;
     text-align: center;
-    opacity: 0.4;
     padding-top: 30px;
 }
 
@@ -754,7 +753,12 @@ input[type="text"].form-control {
     margin-top: 20px;
     opacity: 0.6;
     line-height: 1.2em;
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+}
+
+.calc-output-inactive{
+    opacity: 0.3;
 }
