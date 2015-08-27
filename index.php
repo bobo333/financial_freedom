@@ -3,7 +3,6 @@
 <html ng-app="FinancialFreedom">
 
     <head>
-
         <meta name=viewport content="width=device-width, initial-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
@@ -108,21 +107,20 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)" ng-if="!data.currentUser">Sign up</a></li>
                             </ul>
-
                         </div>
                     </div>
                 </nav>
             </div>
 
-            <div class="tabs-wrapper" ng-show="tabsAreVisible()">
+            <div class="tabs-wrapper" ng-if="tabsAreVisible()">
                 <div class="header-tabs">
-                    <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
+                    <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="setupStep('/income')">
                         <div class="tab-text">1</div>
                     </div>
-                    <div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
+                    <div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="setupStep('/assets')">
                         <div class="tab-text">2</div>
                     </div>
-                    <div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
+                    <div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="setupStep('/expenses')">
                         <div class="tab-text">3</div>
                     </div>
                 </div>

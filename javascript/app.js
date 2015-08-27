@@ -122,6 +122,29 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
         $location.path(route);
     };
 
+    $scope.setupStep = function(route) {
+        
+        if (route == '/income') {
+            $location.path(route);
+        }
+
+        else if (route == '/assets' && UserDataCache.userData.monthly_income) {
+            $location.path(route);
+        }
+
+        else if (route == '/expenses' && UserDataCache.userData.total_assets) {
+            $location.path(route);
+        }
+
+        else if (route == '/time-to-retirement' && UserDataCache.userData.monthly_expenses) {
+            $location.path(route);
+        }
+
+        else {
+            return;
+        }
+    };
+
     $scope.converterLink = function() {
 
             if (UserDataCache.userData.monthly_expenses) {
@@ -288,12 +311,14 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
 FinancialFreedom.controller('IncomeInputController', function($scope, $location, UserDataCache) {
     
-    var vm = this;
-    vm.income = UserDataCache.userData.monthly_income;
-    
-    vm.submitForm = function() {
+    $scope.income = UserDataCache.userData.monthly_income;
 
-        UserDataCache.userData.monthly_income = vm.income;
+    $scope.$watch('income', function(new_value) {
+        UserDataCache.userData.monthly_income = $scope.income;
+    });
+    
+    $scope.submitForm = function() {
+
         $location.path('/assets');
 
     };
@@ -302,11 +327,13 @@ FinancialFreedom.controller('IncomeInputController', function($scope, $location,
 
 FinancialFreedom.controller('AssetsInputController', function($scope, $location, UserDataCache) {
 
-    var vm = this;
-    vm.assets = UserDataCache.userData.total_assets;
+    $scope.assets = UserDataCache.userData.total_assets;
 
-    vm.submitForm = function() {
-        UserDataCache.userData.total_assets = vm.assets;
+    $scope.$watch('assets', function(new_value) {
+        UserDataCache.userData.total_assets = $scope.assets;
+    });
+
+    $scope.submitForm = function() {
         $location.path('/expenses');
     };
 
@@ -314,11 +341,13 @@ FinancialFreedom.controller('AssetsInputController', function($scope, $location,
 
 FinancialFreedom.controller('ExpensesInputController', function($scope, $location, UserDataCache) {
 
-    var vm = this;
-    vm.expenses = UserDataCache.userData.monthly_expenses;
+    $scope.expenses = UserDataCache.userData.monthly_expenses;
 
-    vm.submitForm = function() {
-        UserDataCache.userData.monthly_expenses = vm.expenses;
+    $scope.$watch('expenses', function(new_value) {
+        UserDataCache.userData.monthly_expenses = $scope.expenses;
+    });
+
+    $scope.submitForm = function() {
         $location.path('/time-to-retirement');
     };
 

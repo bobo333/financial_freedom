@@ -83,13 +83,17 @@ $nav-border-radius: 25px;
 }
 
 .tabs-wrapper {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
     background: rgba($dark_green, 0.2);
     height: $nav-height;
     margin: 82px auto auto auto;
 
     @include min-screen($screen_sm_min) {
+        top: 10px;
         width: 50%;
-        margin-top: 92px;
         @include border-bottom-radius($nav-border-radius);
     }
 }
