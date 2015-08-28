@@ -2131,14 +2131,20 @@ input[type="text"].form-control {
   color: red;
 }
 
+/* line 85, ../../sass/partials/_account_modals.scss */
+.checkbox.login-checkbox {
+  margin-top: 25px;
+}
+
 /* line 1, ../../sass/partials/_footer.scss */
 .footer-container {
   position: relative;
   width: 100%;
   background: rgba(43, 142, 105, 0.05);
+  border-top: 1px solid rgba(43, 142, 105, 0.12);
 }
 
-/* line 7, ../../sass/partials/_footer.scss */
+/* line 8, ../../sass/partials/_footer.scss */
 .footer-content-wrapper {
   max-width: 500px;
   display: flex;
@@ -2146,7 +2152,7 @@ input[type="text"].form-control {
   margin: 0 auto;
   padding: 25px 0px;
 }
-/* line 14, ../../sass/partials/_footer.scss */
+/* line 15, ../../sass/partials/_footer.scss */
 .footer-content-wrapper a {
   width: 150px;
   margin: auto;
