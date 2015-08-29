@@ -121,7 +121,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
 
 });
 
-FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session, UserDataCache) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, AuthService, Session, UserDataCache, modalService) {
 
     $scope.isCollapsed = true;
 
@@ -196,18 +196,15 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
         return non_visible_pages.indexOf($location.path() ) == -1;
     };
 
-    $scope.openLoginModal = function(size, showSignUp) {
+    $scope.openLoginModal = function() {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/login_modal.html',
-            controller: 'LoginModalInstanceCtrl',
-            size: size,
-            backdrop: true,
-            resolve: {
-                showSignUp: function() {
-                    return showSignUp;
-                }
-            }
+        var modalOptions = {
+            headerText: "Sign up",
+            showSignUp: true
+        };
+
+        modalService.showModal({}, modalOptions).then(function (result) {
+            
         });
     };
 
@@ -217,7 +214,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
             templateUrl: 'partials/account_modal.html',
             controller: 'AccountModalInstanceCtrl',
             size: size,
-            backdrop: true,
+            backdrop: true
         });
     };
 
@@ -233,7 +230,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
 });
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, UserDataCache, showSignUp) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $location, $timeout, AuthService, Session, UserDataCache) {    
 
     $scope.loginFailureMessage = '';
     $scope.signUpFailureMessage = '';
@@ -292,8 +289,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-
-    $scope.showSignUp = showSignUp;
 
 });
 
@@ -396,25 +391,17 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 }]);
 
 
-FinancialFreedom.controller('TimeToRetirementController', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserDataCache) {
+FinancialFreedom.controller('TimeToRetirementController', function($scope, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserDataCache, modalService) {
 
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
     $scope.showSteps = false;
     $scope.editCollapsed = true;
 
-    $scope.openLoginModal = function(size, showSignUp) {
+    $scope.openLoginModal = function() {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/login_modal.html',
-            controller: 'LoginModalInstanceCtrl',
-            size: size,
-            backdrop: true,
-            resolve: {
-                showSignUp: function() {
-                    return showSignUp;
-                }
-            }
+        modalService.showModal({}, modalOptions).then(function (result) {
+
         });
     };
 

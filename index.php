@@ -14,7 +14,7 @@
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
@@ -35,6 +35,7 @@
         <script type="text/javascript" src="javascript/auth_service.js"></script>
         <script type="text/javascript" src="javascript/session_service.js"></script>
         <script type="text/javascript" src="javascript/user_data_service.js"></script>
+        <script type="text/javascript" src="javascript/modal_service.js"></script>
 
         <title>Abound | Free Yourself</title>
     </head>
@@ -95,10 +96,10 @@
                                 <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)" ng-if="!data.currentUser">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)" ng-if="!data.currentUser">Sign up</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign up</a></li>
                             </ul>
                         </div>
                     </div>
