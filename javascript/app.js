@@ -4,18 +4,15 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
 
     $routeProvider.when('/income', {
         templateUrl: 'partials/income_input.html',
-        controller: 'IncomeInputController',
-        controllerAs: 'income_ctrl'
+        controller: 'InputController'
     })
     .when('/assets', {
         templateUrl: 'partials/assets_input.html',
-        controller: 'AssetsInputController',
-        controllerAs: 'assets_ctrl'
+        controller: 'InputController'
     })
     .when('/expenses', {
         templateUrl: 'partials/expenses_input.html',
-        controller: 'ExpensesInputController',
-        controllerAs: 'expenses_ctrl'
+        controller: 'InputController'
     })
     .when('/time-to-retirement', {
         templateUrl: 'partials/time_to_retirement.html',
@@ -26,13 +23,11 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         controller: ''
     })
     .when('/privacy', {
-        templateUrl: 'partials/legal/privacy_policy.html',
-        controller: ''
+        templateUrl: 'partials/legal/privacy_policy.html'
     })
     .when('/terms-of-service', {
-        templateUrl: 'partials/legal/terms_of_service.html',
-        controller: ''
-    })
+        templateUrl: 'partials/legal/terms_of_service.html'
+        })
     .when('/', {
         templateUrl: 'partials/intro.html',
         controller: 'IntroController'
@@ -337,47 +332,33 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
 });
 
-FinancialFreedom.controller('IncomeInputController', function($scope, $location, UserDataCache) {
-    
-    $scope.income = UserDataCache.userData.monthly_income;
+FinancialFreedom.controller('InputController', function($scope, $location, UserDataCache) {
 
-    $scope.$watch('income', function(new_value) {
-        UserDataCache.userData.monthly_income = $scope.income;
+    $scope.inputVal = {};
+    
+    $scope.inputVal.income = UserDataCache.userData.monthly_income;
+    $scope.inputVal.assets = UserDataCache.userData.total_assets;
+    $scope.inputVal.expenses = UserDataCache.userData.monthly_expenses;
+
+    $scope.$watchGroup(['inputVal.income','inputVal.assets','inputVal.expenses'], function(new_values) {
+        UserDataCache.userData.monthly_income = new_values[0];
+        UserDataCache.userData.total_assets = new_values[1];
+        UserDataCache.userData.monthly_expenses = new_values[2];
     });
     
-    $scope.submitForm = function() {
-
+    $scope.submitIncomeForm = function() {
         $location.path('/assets');
-
     };
 
-});
-
-FinancialFreedom.controller('AssetsInputController', function($scope, $location, UserDataCache) {
-
-    $scope.assets = UserDataCache.userData.total_assets;
-
-    $scope.$watch('assets', function(new_value) {
-        UserDataCache.userData.total_assets = $scope.assets;
-    });
-
-    $scope.submitForm = function() {
+    $scope.submitAssetsForm = function() {
         $location.path('/expenses');
     };
 
-});
-
-FinancialFreedom.controller('ExpensesInputController', function($scope, $location, UserDataCache) {
-
-    $scope.expenses = UserDataCache.userData.monthly_expenses;
-
-    $scope.$watch('expenses', function(new_value) {
-        UserDataCache.userData.monthly_expenses = $scope.expenses;
-    });
-
-    $scope.submitForm = function() {
+    $scope.submitExpensesForm = function() {
         $location.path('/time-to-retirement');
     };
+
+    
 
 });
 

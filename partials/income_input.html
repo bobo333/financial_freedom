@@ -1,5 +1,5 @@
 <div class="calc-view-wrapper">
-	<form name="incomeForm" ng-submit="submitForm()" novalidate>
+	<form name="incomeForm" ng-submit="submitIncomeForm()" novalidate>
 		<div class="row">
 		    <div class="dollars-to-time-wrapper input-wrapper">
 			    <div class="input-title">Income</div>
@@ -16,7 +16,8 @@
 		        	class="steps"
 		        	min="0"
 		        	max="99999"
-		        	ng-model="income" />
+		        	ng-model="inputVal.income" 
+		        	/>
 		        	<span class="after-input-text">per month</span>
 			    </div>
 			</div>
