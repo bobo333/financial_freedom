@@ -3,7 +3,6 @@
 <html ng-app="FinancialFreedom">
 
     <head>
-
         <meta name=viewport content="width=device-width, initial-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
@@ -30,6 +29,7 @@
         <script type="text/javascript" src="javascript/geometry_service.js"></script>
         <script type="text/javascript" src="javascript/retirement_calculator_service.js"></script>
         <script type="text/javascript" src="javascript/create_retirement_graph_service.js"></script>
+        <script type="text/javascript" src="javascript/dollars_to_time_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_service.js"></script>
         <script type="text/javascript" src="javascript/google_analytics_setup.js"></script>
         <script type="text/javascript" src="javascript/auth_service.js"></script>
@@ -39,12 +39,12 @@
         <title>Abound | Free Yourself</title>
     </head>
     
-    <body ng-controller="bodyController" ng-class="{'indexpage': isActive('/')}">
+    <body ng-controller="bodyController">
 
         <div class="header-wrapper" ng-controller="HeaderController">
             <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-                    <div class="container-fluid">
+                    <div class="container-fluid nav-content-wrapper">
                         <div class="navbar-header">
                             <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                                 <span class="sr-only">Toggle navigation</span>
@@ -53,7 +53,7 @@
                                 <span class="icon-bar"></span>
                             </button>
 
-                            <a class="navbar-brand" ng-click="goToRoute('/income')">
+                            <a class="navbar-brand" ng-click="logoLink()">
                                 <div id="header-brand-wrapper">
                                     <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
                                     <div class="logo-name-wrapper">
@@ -70,10 +70,10 @@
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                                <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
-                                <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i> Account</a></li>
+                                <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i>Account</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-click="logout()" ng-if="data.currentUser">
                                 <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
@@ -92,7 +92,7 @@
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="goToRoute('/about')">About</a></li>
+                                <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)" ng-if="!data.currentUser">Sign in</a></li>
@@ -100,21 +100,20 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)" ng-if="!data.currentUser">Sign up</a></li>
                             </ul>
-
                         </div>
                     </div>
                 </nav>
             </div>
 
-            <div class="tabs-wrapper" ng-show="tabsAreVisible()">
+            <div class="tabs-wrapper" ng-if="tabsAreVisible()">
                 <div class="header-tabs">
-                    <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="goToRoute('/income')">
+                    <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="setupStep('/income')">
                         <div class="tab-text">1</div>
                     </div>
-                    <div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="goToRoute('/assets')">
+                    <div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="setupStep('/assets')">
                         <div class="tab-text">2</div>
                     </div>
-                    <div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="goToRoute('/expenses')">
+                    <div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="setupStep('/expenses')">
                         <div class="tab-text">3</div>
                     </div>
                 </div>
@@ -122,5 +121,6 @@
         </div>
 
         <div ng-view class="view-animate"></div>
+        <abound-footer></abound-footer>
     </body>
 </html>

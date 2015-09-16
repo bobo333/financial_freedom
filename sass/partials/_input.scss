@@ -4,9 +4,9 @@ $input_field_width: 300px;
 	padding: 0px;
 }
 
-.view-body-content {
-	padding: 0;
-	margin-top: 35px;
+.dollars-to-time-wrapper.input-wrapper {
+	max-width: 615px;
+	text-align: center;
 }
 
 .leading-dollar {
@@ -50,7 +50,7 @@ input[type="text"].steps {
 	line-height: 70px;
 	font-weight: $base_font_weight_semi_bold;
 	text-transform: uppercase;
-	margin-top: 50px;
+	margin-top: 2%;
     
 	@include min-screen($screen_sm_min) {
 		font-size: 5em;
@@ -84,7 +84,7 @@ input[type="text"].steps {
 
 	@include min-screen($screen_sm_min) {
 		font-size: $base_font_size * 3;
-		margin-top: 50px;
+		margin-top: 20px;
 	}
 
 	.after-input-text {

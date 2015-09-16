@@ -467,8 +467,7 @@ input[type="text"].form-control {
     @include hover-animation(all);
 
     &:hover {
-            @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
-            @include transform(scale(1.05));
+            @include transform(translateY(-5px));
         }
 }
 
@@ -478,7 +477,7 @@ input[type="text"].form-control {
         bottom: 0;
         text-align: center;
         width: 100%;
-        background: rgba($secondary_brown_dark, 0.5);
+        background: rgba(black, 0.4);
         color: #fff;
         height: 40px;
         margin: auto auto;
@@ -659,9 +658,109 @@ input[type="text"].form-control {
         background: $signup_button_hover_color;
         color: white;
     }
-    
 }
 
 #expenses-control {
     margin-top: 30px;
+}
+
+.dollars-to-time-wrapper {
+    border: $section-bottom-border;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    margin-top: 30px;
+    padding: 15px 35px 30px 35px;
+    border-radius: 4px;
+}
+
+.calc-time-wrapper {
+    display: inline-block;
+    text-align: center;
+    margin-right: 25px;
+}
+
+.calc-control {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.calc-time-number {
+    font-size: 5em;
+    font-weight: $brand_font_weight_bold;
+}
+
+.calc-container {
+    margin-top: 3%;
+}
+
+.calc-equal {
+    font-size: 6em;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.calc-view-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: $light_bg_green;
+    padding-top: 30%;
+
+    @include min-screen($screen_sm_min) {
+        padding-top: 15%;
+    }
+}
+
+.calc-title {
+    text-align: center;
+}
+
+.calc-time-label {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.calc-input {
+    margin-top: 0px;
+
+    .leading-dollar {
+        margin-left: 0px;
+    }
+}
+
+.calc-toggle {
+    width: 100px;
+}
+
+.calc-output-wrapper {
+    text-align: center;
+}
+
+.calc-control {
+    .btn.active {
+        font-weight: $brand_font_weight_bold;
+        box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), 
+                    inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1) 
+    }
+}
+
+.calc-output-digit-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calc-output-subtext {
+    font-size: 1.1em;
+    margin-top: 20px;
+    opacity: 0.6;
+    line-height: 1.2em;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.calc-output-inactive{
+    opacity: 0.3;
 }

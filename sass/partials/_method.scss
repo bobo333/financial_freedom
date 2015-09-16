@@ -3,45 +3,39 @@ $method-section-border-radius: 15px;
 .supporting-content {
 
 	color: #404040;
-	float: right;
 	position: relative;
 	padding-left: 0px;
 	padding-bottom: 50px;
 	font-weight: $base_font_weight_light;
-	font-size: $base_font_size * 2;
+	font-size: $base_font_size * 1.2;
 	
 	@include min-screen($screen_md_min) {
-		font-size: $base_font_size * 1.5;
+		font-size: $base_font_size * 1.2;
 	}
 
 	@include min-screen($screen_lg_min) {
-		font-size: $base_font_size * 2;
+		font-size: $base_font_size * 1.5;
 	}
 }
 
 .method-section {
 	margin: 0px auto 0px auto;
-	background: $light_bg_green;
 	color: #404040;
 	margin-top: 80px;
 	border-bottom: 1px solid rgba(48, 142, 127, 0.12);
 	width: 100%;
 }
 
-.supporting-content-wrapper {
-	padding: 20px 20px;
-}
-
 .supporting-section-title {
 	font-weight: $base_font_weight_semi_bold;
 	font-size: $base_font_size * 3;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .supporting-section-body {
 
 	line-height: $base_line_height * 1.3;
-	font-size: $base_font_size * 1.5;
 	padding: 0px auto 0px auto;
 	margin-top: 30px;
 	max-width: 720px;
@@ -50,7 +44,7 @@ $method-section-border-radius: 15px;
 		list-style-type: circle;
 	}
 	@include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 2;
+		font-size: $base_font_size * 1.5;
 	}
 }
 
@@ -72,15 +66,13 @@ $method-section-border-radius: 15px;
 	@include vertical-align;
 }
 
-#footer-border-top {
-	border-top: 1px solid rgba(#000,0.2);
-    position: absolute;
-    left: 10%;
-    right: 10%;
-}
-
 .footer-nav-wrapper {
-	padding: 20px 0px;
+	max-width: 500px;
+    padding: 20px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5em;
+    border-top: 1px solid rgba(48, 142, 127, 0.12);
 }
 
 .footer-nav-item {
@@ -109,4 +101,11 @@ $method-section-border-radius: 15px;
 
 .legal-section {
 	width: 100%;
+}
+
+.supporting-content-wrapper {
+	max-width: 700px;
+	padding: 20px 35px;
+	margin-left: auto;
+	margin-right: auto;
 }

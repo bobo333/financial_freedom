@@ -231,11 +231,23 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var triangle_width = 20;
         var triangle_height = 10;
         var triangle_start_point_x = 105;
-        var triangle_start_point_y = 109;
+        var triangle_start_point_y = 0;
 
+        var intersect_adjust = intersection_point_y + 150;
 
-        var lineData = [ { "x": triangle_start_point_x,   "y": triangle_start_point_y},  { "x": triangle_start_point_x + triangle_width,  "y": triangle_start_point_y},
-                            { "x": triangle_start_point_x + triangle_width / 2 ,  "y": triangle_start_point_y + triangle_height}, { "x": triangle_start_point_x,  "y": triangle_start_point_y}];
+        var lineData = [    {   "x": triangle_start_point_x,   
+                                "y": triangle_start_point_y
+                            },  
+                            {   "x": triangle_start_point_x + triangle_width,  
+                                "y": triangle_start_point_y
+                            },
+                            {   "x": triangle_start_point_x + triangle_width / 2, 
+                                "y": triangle_start_point_y - triangle_height
+                            },
+                            {   "x": triangle_start_point_x,  
+                                "y": triangle_start_point_y
+                            }
+                        ];
 
         var drawLinesBetweenPoints = d3.svg.line()
             .x(function(d) { return d.x; })
@@ -246,7 +258,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .data([intersection_point])
             .attr("class","intersection-label-container")
             .attr("fill", "#000")
-            .attr("transform", "translate(" + intersection_point_x + ", " + intersection_point_y + ") ");
+            .attr("transform", "translate(" + intersection_point_x + ", " + intersect_adjust + ") ");
 
         var intersection_rectangle = intersection_point_label_container.append("rect")
             .attr("class", "income-label")
@@ -254,11 +266,11 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("y", 0)
             .attr("rx", "5px")
             .attr("ry", "5px")
-            .attr("width", 220)
+            .attr("width", 240)
             .attr("height", 110);
 
         intersection_point_label_container.append("svg:foreignObject")
-            .attr("width", 220)
+            .attr("width", 240)
             .attr("height", 110)
             .html("<span class='intersection-label'>You will be able to safely live off passive income in <span class='bold'>" + date.getFullYear() + "</span>, when you have total assets of <b class='bold'>$" + numberWithCommas(asset_need) + "</b>.</span>");
 

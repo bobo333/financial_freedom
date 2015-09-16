@@ -1,39 +1,46 @@
 .intro-content {
-	margin-top: 120px;
-	padding: 0px 20px;
+	width: 100vw;
+	height: 100vh;
+	background: $dark_green;
+	padding: 35% 5%;
+	text-align: center;
+	position: relative;
 	
 	@include min-screen($screen_sm_min) {
-		margin-top: 200px;
+		padding: 15% 5%;
 	}
 }
 
 .primary-tagline {
-	font-size: 2em;
+	font-size: 3em;
 	color: white;
 	font-weight: $base_font_weight_semi_bold;
 	text-align: center;
 	text-shadow: 0px 0px 3px rgba(0,0,0,1);
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 15px;
 
 	@include min-screen($screen_sm_min) {
-		font-size: 3em;	
+		font-size: 5em;	
 	}
 }
 
 .secondary-tagline {
 	color: white;
-	opacity: 0.7;
-	margin-top: 20px;
+	opacity: 0.8;
+	margin-top: 10px;
 	font-size: 1em;
 	font-weight: $base_font_weight_light;
 	text-align: center;
-	line-height: 1.2em;
+	line-height: 1.4em;
+	max-width: 550px;
+	margin-right: auto;
+	margin-left: auto;
 
 	@include min-screen($screen_sm_min) {
-		font-size: 1.4em;
-		line-height: 1.3em;
-	}
-	@include min-screen($screen_lg_min) {
-		padding: 0px 100px;
+		font-size: 1.7em;
+		line-height: 1.4em;
 	}
 }
 
@@ -48,7 +55,7 @@
 	border: white solid 2px;
 	color: white;
 	background: black;
-	margin: 110px auto auto auto;
+	margin: 55px auto auto auto;
 	text-align: center;
 	display: block;
 	background: $dark_green;
@@ -62,12 +69,10 @@
 }
 
 #intro-graphic {
-	display: block;
+	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
-	width: 170px;
-	@include min-screen($screen_lg_min) {
-		width: 260px;
-	}
+	width: 30%;
+	max-width: 160px;
 }

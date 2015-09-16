@@ -12,6 +12,7 @@
 @import "partials/animations";
 @import "partials/intro";
 @import "partials/account_modals";
+@import "partials/footer";
 
 html,body
 {
@@ -28,8 +29,4 @@ body {
 
 * {
     @include selection(#7DD193, #fff);
-}
-
-.indexpage {
-	background: $dark_green;
 }
