@@ -1,7 +1,6 @@
 FinancialFreedom.service('modalService', ['$modal', 
 	function ($modal) {
 
-
 		var modalDefaults = {
             backdrop: true,
             modalFade: true,
@@ -13,12 +12,11 @@ FinancialFreedom.service('modalService', ['$modal',
         var modalOptions = {
             closeButtonText: 'Close',
             actionButtonText: 'OK',
-            headerText: 'Proceed?',
+            headerText: 'Sign in',
             bodyText: 'Perform this action?'
         };
 
 		var LoginModalInstanceCtrl = function($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, UserDataCache) {    
-
 
 			$scope.modalOptions = tempModalOptions;
 
@@ -82,8 +80,18 @@ FinancialFreedom.service('modalService', ['$modal',
 
 		};
 		
-        this.showModal = function (customModalDefaults, customModalOptions) {
+        this.showModal = function (customModalDefaults, customModalType) {
             if (!customModalDefaults) customModalDefaults = {};
+
+            var customModalOptions = {
+            	showSignUp: true
+            };
+
+            if (customModalType == 'loginModalOptions') {
+
+            	customModalOptions.showSignUp = false;
+            }
+
             return this.show(customModalDefaults, customModalOptions);
         };
 

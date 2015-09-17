@@ -65,10 +65,10 @@
                         </div>
                         <div collapse="isCollapsed">
                             <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, false)">Sign in</a></li>
+                                <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal(large, true)">Sign up</a></li>
+                                <li><a class="nav-item-custom" ng-click="openSignUpModal()">Sign up</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
@@ -99,7 +99,7 @@
                                 <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign up</a></li>
+                                <li><a class="nav-item-custom" ng-click="openSignUpModal()" ng-if="!data.currentUser">Sign up</a></li>
                             </ul>
                         </div>
                     </div>

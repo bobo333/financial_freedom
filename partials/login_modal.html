@@ -5,7 +5,8 @@
     <div class="modal-header row">
 
         <div class="modal-title-container">
-            <h2 class="modal-title">{{ modalOptions.headerText }}</h2>
+            <h2 class="modal-title" ng-if="!showSignUp">Sign in</h2>
+            <h2 class="modal-title" ng-if="showSignUp">Sign up</h2>
         </div>
 
         <div class="signup-side" ng-click="showSignUp = !showSignUp">

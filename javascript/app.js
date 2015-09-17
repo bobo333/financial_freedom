@@ -198,12 +198,12 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
     $scope.openLoginModal = function() {
 
-        var modalOptions = {
-            headerText: "Sign up",
-            showSignUp: true
-        };
+        modalService.showModal({}, 'loginModalOptions').then(function (result) {});
+    };
 
-        modalService.showModal({}, modalOptions).then(function (result) {
+    $scope.openSignUpModal = function() {
+
+        modalService.showModal({}, 'signUpModalOptions').then(function (result) {
             
         });
     };
@@ -400,7 +400,7 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, Retir
 
     $scope.openLoginModal = function() {
 
-        modalService.showModal({}, modalOptions).then(function (result) {
+        modalService.showModal({}, 'signUpModalOptions').then(function (result) {
 
         });
     };
