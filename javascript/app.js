@@ -230,7 +230,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
 });
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $location, $timeout, AuthService, Session, UserDataCache) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $location, $timeout, AuthService, Session, UserDataCache, $modalInstance) {    
 
     $scope.loginFailureMessage = '';
     $scope.signUpFailureMessage = '';
