@@ -12,20 +12,22 @@ FinancialFreedom.service('modalService', ['$modal',
         var modalOptions = {
             closeButtonText: 'Close',
             actionButtonText: 'OK',
-            headerText: 'Sign in',
+            headerText: 'Default header text',
             bodyText: 'Perform this action?'
         };
 
+
         this.showModal = function (customModalDefaults, customModalType) {
+
+            var customModalOptions = {};
+        
             if (!customModalDefaults) customModalDefaults = {};
 
-            var customModalOptions = {
-            	showSignUp: true
-            };
+            this.showSignUp = true;
 
             if (customModalType == 'loginModalOptions') {
-
-            	customModalOptions.showSignUp = false;
+            	
+            	this.showSignUp = false;
             }
 
             return this.show(customModalDefaults, customModalOptions);
