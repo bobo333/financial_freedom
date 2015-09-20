@@ -198,24 +198,18 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
 
     $scope.openLoginModal = function() {
 
-        modalService.showModal({}, 'loginModalOptions').then(function (result) {});
+        modalService.showModal({}, 'loginModalOptions');
     };
 
     $scope.openSignUpModal = function() {
 
-        modalService.showModal({}, 'signUpModalOptions').then(function (result) {
-            
-        });
+        modalService.showModal({}, 'signUpModalOptions');
     };
 
-    $scope.openAccountModal = function(size) {
+    $scope.openAccountModal = function() {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/account_modal.html',
-            controller: 'AccountModalInstanceCtrl',
-            size: size,
-            backdrop: true
-        });
+        modalService.showModal({}, 'accountModalOptions');
+
     };
 
     $scope.toggled = function(open) {
@@ -402,9 +396,7 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, Retir
 
     $scope.openLoginModal = function() {
 
-        modalService.showModal({}, 'signUpModalOptions').then(function (result) {
-
-        });
+        modalService.showModal({}, 'signUpModalOptions').then(function (result) {});
     };
 
     $scope.incrementOutputValue = function(output_value, increment) {
