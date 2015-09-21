@@ -1,5 +1,5 @@
 <div class="calc-view-wrapper">
-	<form name="assetsForm" ng-submit="submitForm()" novalidate>
+	<form name="assetsForm" ng-submit="submitAssetsForm()" novalidate>
 		<div class="row">
 		    <div class="dollars-to-time-wrapper input-wrapper">
 			    <div class="input-title">Assets</div>
@@ -16,7 +16,7 @@
 			        	max="999999999"
 			        	placeholder="50,000" 
 			        	class="steps" 
-			        	ng-model="assets" />
+			        	ng-model="inputVal.assets" />
 				    </div>
 			</div>
 		</div>

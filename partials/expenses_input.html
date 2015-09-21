@@ -1,5 +1,5 @@
 <div class="calc-view-wrapper">
-    <form name="expensesForm" ng-submit="submitForm()" novalidate>
+    <form name="expensesForm" ng-submit="submitExpensesForm()" novalidate>
         <div class="row">
             <div class="dollars-to-time-wrapper input-wrapper">
                 <div class="input-title">Expenses</div>
@@ -16,7 +16,7 @@
                     class="steps"
                     min="0"
                     max="99999"
-                    ng-model="expenses" />
+                    ng-model="inputVal.expenses" />
                     <span class="after-input-text">per month</span>
                 </div>
             </div>
