@@ -649,6 +649,11 @@ input:focus {
   box-shadow: none !important;
 }
 
+/* line 106, ../../sass/partials/_input.scss */
+.input-type-active {
+  font-weight: 700;
+}
+
 /* line 6, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
@@ -1809,8 +1814,12 @@ input[type="text"].form-control {
   margin-right: auto;
   text-align: center;
 }
+/* line 763, ../../sass/partials/_time_to_retirement.scss */
+.calc-output-subtext:hover {
+  cursor: pointer;
+}
 
-/* line 764, ../../sass/partials/_time_to_retirement.scss */
+/* line 768, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-inactive {
   opacity: 0.3;
 }

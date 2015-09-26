@@ -5,14 +5,25 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var MAX_YEARS = 100;
     var MAX_MONTHS = MAX_YEARS * 12;
 
-
-
     var getUserData = function() {
         return UserDataCache.userData.getUserData();
     };
 
-    this.initialRetirementData = function() {
+    this.initialRetirementData = function(customData) {
+        
         var userData = getUserData();
+
+        var initialVals = {
+            total_assets: userData.total_assets,
+            monthly_income: userData.monthly_income,
+            monthly_expenses: userData.monthly_expenses
+        };
+
+        if (customData) {
+            initialVals.total_assets = customData.total_assets;
+            initialVals.monthly_income = customData.monthly_income;
+            initialVals.monthly_expenses = customData.monthly_expenses;
+        }
 
         var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
         var monthly_growth_rate = InterestService.calculatePeriodInterestRate(userData.growth_rate, 12);
@@ -21,9 +32,9 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
         return {
             months: 0,
             graph_points: [],
-            total_assets: userData.total_assets,
-            monthly_income: userData.monthly_income,
-            monthly_expenses: userData.monthly_expenses,
+            total_assets: initialVals.total_assets,
+            monthly_income: initialVals.monthly_income,
+            monthly_expenses: initialVals.monthly_expenses,
             can_retire: false,
             monthly_inflation_rate: monthly_inflation_rate,
             monthly_growth_rate: monthly_growth_rate,

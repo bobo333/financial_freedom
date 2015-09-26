@@ -3,7 +3,9 @@
 	<div class="dollars-to-time-wrapper">
 
 		<div class="supporting-section-title calc-title">Convert money to time</div>
-		<div class="calc-output-subtext">Find the impact that changes in your financial situation would have on your time until financial independence.</div>
+		<span class="calc-output-subtext" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median American</span>
+		<span class="calc-output-subtext"> | </span>
+		<span class="calc-output-subtext" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="switchInputVals('you')">You</span>
 
 		<div class="calc-container">
 			<div class="row">
@@ -57,7 +59,7 @@
 					</div>
 
 					<div class="calc-output-subtext">
-						<span>{{ cashflowLabel }} </span>your time until financial independence.
+						<span>{{ cashflowLabel }} </span> time until financial independence.
 					</div>
 
 				</div>

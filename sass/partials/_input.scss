@@ -102,3 +102,7 @@ input:focus {
 	outline: none;
   	@include box-shadow(none !important);
 }
+
+.input-type-active {
+    font-weight: $brand_font_weight_bold;
+}

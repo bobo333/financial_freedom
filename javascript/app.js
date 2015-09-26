@@ -89,14 +89,27 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
     };
 
     $scope.calc_values = {
-        amount: null,
+        amount: 0,
         expense: true,
-        recurring: false
+        recurring: false,
+        useCustomVals: true
     };
+
+    $scope.switchInputVals = function(sourceElement) {
+        if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals == true)) {
+            $scope.calc_values.useCustomVals = false;
+        }
+
+        if ((sourceElement == 'american') && ($scope.calc_values.useCustomVals == false)) {
+            $scope.calc_values.useCustomVals = true;
+        }
+    };
+
+    var customVals = null;
 
     $scope.$watch('calc_values', function(new_value, old_value) {
 
-        $scope.cashflowLabel = $scope.calc_values.expense ? 'Reduced from' : 'Added to';
+        $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
 
         var amount = parseInt($scope.calc_values.amount);
 
@@ -104,7 +117,23 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             amount = 0;
         }
 
-        dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring);
+        if ($scope.calc_values.useCustomVals) {
+
+            customVals = { // Median American values
+                monthly_income: 4328.25,
+                total_assets: 0,
+                monthly_expenses: 4111.84
+            };  
+        }
+
+        else {
+            customVals = null;
+        }
+
+        console.log($scope.calc_values.useCustomVals);
+        console.log(customVals);
+
+        dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
 
         if (dates.difference) {
             $scope.dates.years = dates.difference.years;
@@ -152,14 +181,14 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     };
 
     $scope.converterLink = function() {
+            $location.path('/dollars-to-time'); 
+            // if (UserDataCache.userData.monthly_expenses) {
+                
+            // }
 
-            if (UserDataCache.userData.monthly_expenses) {
-                $location.path('/dollars-to-time');
-            }
-
-            else {
-                $location.path('/income');
-            }
+            // else {
+            //     $location.path('/income');
+            // }
         };
 
     $scope.logoLink = function() {
