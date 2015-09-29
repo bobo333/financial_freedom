@@ -3,9 +3,11 @@
 	<div class="dollars-to-time-wrapper">
 
 		<div class="supporting-section-title calc-title">Convert money to time</div>
-		<span class="calc-output-subtext" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median American</span>
-		<span class="calc-output-subtext"> | </span>
-		<span class="calc-output-subtext" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="switchInputVals('you')">You</span>
+
+		<div class="input-type-wrapper">
+			<div class="calc-output-subtext" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median American</div>
+			<div class="calc-output-subtext" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="switchInputVals('you')">You</div>
+		</div>
 
 		<div class="calc-container">
 			<div class="row">
@@ -24,18 +26,21 @@
 					        <label class="btn btn-secondary calc-toggle" ng-model="calc_values.expense" btn-radio="false">Income</label>
 					    </div>
 					</div>
-					<div class="input-field-wrapper calc-input">
-						<span class="leading-dollar">$</span>
-						<input class="steps" type="text"
-					        min="0"
-					        max="9999999999"
-					        ng-currency
-					        autofocus
-					        ng-model="calc_values.amount" 
-					        placeholder="500"
-					    />
-					</div>
-					<button type="button" class="btn btn-default btn-primary convert-button" ng-click="convert()">Convert</button>
+					<form name="converterForm">
+						<div class="input-field-wrapper calc-input">
+							<span class="leading-dollar">$</span>
+							<input class="steps" type="text"
+						        min="0"
+						        max="9999999999"
+						        ng-currency
+						        autofocus
+						        required
+						        ng-model="calc_values.amount" 
+						        placeholder="500"
+						    />
+						</div>
+					</form>
+					<button type="button" class="btn btn-default btn-primary convert-button" ng-click="convert()" ng-disabled="converterForm.$invalid">Convert</button>
 				</div>
 				<div class="col-sm-2">
 					<div class="calc-equal" ng-class="{ 'calc-output-inactive': preconvert}">=</div>

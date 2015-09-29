@@ -650,16 +650,19 @@ input:focus {
 }
 
 /* line 106, ../../sass/partials/_input.scss */
-.input-type-active {
-  font-weight: 700;
-}
-
-/* line 110, ../../sass/partials/_input.scss */
 .convert-button {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 115, ../../sass/partials/_input.scss */
+.input-type-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 /* line 6, ../../sass/partials/_next_button.scss */
@@ -1812,24 +1815,31 @@ input[type="text"].form-control {
 }
 
 /* line 753, ../../sass/partials/_time_to_retirement.scss */
+.input-type-active {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #0d412e;
+}
+
+/* line 759, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-subtext {
   font-size: 1.1em;
   margin-top: 20px;
   opacity: 0.6;
   line-height: 1.2em;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-/* line 763, ../../sass/partials/_time_to_retirement.scss */
+/* line 768, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-subtext:hover {
   cursor: pointer;
 }
 
-/* line 768, ../../sass/partials/_time_to_retirement.scss */
-.calc-output-inactive {
-  opacity: 0.3;
+/* line 773, ../../sass/partials/_time_to_retirement.scss */
+.calc-output-subtext.calc-output-inactive {
+  opacity: 0.2;
+  text-decoration: none;
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
