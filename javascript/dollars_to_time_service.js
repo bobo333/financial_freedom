@@ -33,4 +33,6 @@ FinancialFreedom.service('DollarsToTimeService', function(RetirementCalculatorSe
         return data;
     };
 
+    this.redirectToConverter = false;
+
 });

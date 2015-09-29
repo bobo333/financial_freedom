@@ -19,8 +19,7 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         controller: 'TimeToRetirementController'
     })
     .when('/about', {
-        templateUrl: 'partials/about.html',
-        controller: ''
+        templateUrl: 'partials/about.html'
     })
     .when('/privacy', {
         templateUrl: 'partials/legal/privacy_policy.html'
@@ -138,6 +137,16 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
         }
     };
 
+    $scope.showYou = function() {
+        if (!UserDataCache.userData.monthly_expenses) {
+            $location.path('/income');
+            DollarsToTimeService.redirectToConverter = true;
+        }
+        else {
+            $scope.switchInputVals('you');
+        }
+    };
+
     $scope.switchInputVals = function(sourceElement) {
         if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals == true)) {
             $scope.calc_values.useCustomVals = false;
@@ -164,7 +173,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
 
 });
 
-FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, AuthService, Session, UserDataCache, modalService) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, AuthService, Session, UserDataCache, modalService, DollarsToTimeService) {
 
     $scope.isCollapsed = true;
 
@@ -191,7 +200,17 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
         }
 
         else if (route == '/time-to-retirement' && UserDataCache.userData.monthly_expenses) {
-            $location.path(route);
+
+            console.log(DollarsToTimeService.redirectToConverter);
+            console.log('hi');
+
+            if (DollarsToTimeService.redirectToConverter) {
+                $location.path('/dollars-to-time');
+            }
+
+            else {
+                $location.path(route);
+            }
         }
 
         else {
@@ -212,20 +231,6 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
         else {
             $location.path('/income');
         }
-    };
-
-    $scope.tabsAreVisible = function() {
-
-        non_visible_pages = [
-            '/dollars-to-time',
-            '/about',
-            '/privacy',
-            '/terms-of-service',
-            '/time-to-retirement',
-            '/'
-        ];
-
-        return non_visible_pages.indexOf($location.path() ) == -1;
     };
 
     $scope.openLoginModal = function() {
@@ -653,11 +658,19 @@ function compareTo () {
 function aboundFooter () {
     return {
         restrict: 'E',
-        templateUrl: "partials/footer.html"
+        templateUrl: 'partials/footer.html'
+    };
+}
+
+function stepHeader () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/step_header.html'
     };
 }
 
 FinancialFreedom.directive("aboundFooter", aboundFooter);
 FinancialFreedom.directive("compareTo", compareTo);
+FinancialFreedom.directive("stepHeader", stepHeader);
 FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);
 FinancialFreedom.factory("UserDataCache",UserDataCache);

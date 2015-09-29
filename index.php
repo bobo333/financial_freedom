@@ -105,20 +105,6 @@
                     </div>
                 </nav>
             </div>
-
-            <div class="tabs-wrapper" ng-if="tabsAreVisible()">
-                <div class="header-tabs">
-                    <div class="tab income-tab" ng-class="{'active': isActive('/income')}" ng-click="setupStep('/income')">
-                        <div class="tab-text">1</div>
-                    </div>
-                    <div class="tab assets-tab" ng-class="{'active': isActive('/assets')}" ng-click="setupStep('/assets')">
-                        <div class="tab-text">2</div>
-                    </div>
-                    <div class="tab expenses-tab" ng-class="{'active': isActive('/expenses')}" ng-click="setupStep('/expenses')">
-                        <div class="tab-text">3</div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div ng-view class="view-animate"></div>
