@@ -10,24 +10,15 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     };
 
     this.initialRetirementData = function(customData) {
-        
+
         var userData = getUserData();
-
-        var initialVals = {
-            total_assets: userData.total_assets,
-            monthly_income: userData.monthly_income,
-            monthly_expenses: userData.monthly_expenses
-        };
-
-        if (customData) {
-            initialVals.total_assets = customData.total_assets;
-            initialVals.monthly_income = customData.monthly_income;
-            initialVals.monthly_expenses = customData.monthly_expenses;
-        }
+        var initialVals = angular.extend({}, userData);
+        
+        if (customData) { initialVals = angular.extend(initialVals, customData); }
 
         var monthly_inflation_rate = InterestService.calculatePeriodInterestRate(inflation_rate, 12);
-        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(userData.growth_rate, 12);
-        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(userData.expenses_increase_rate, 12);
+        var monthly_growth_rate = InterestService.calculatePeriodInterestRate(initialVals.growth_rate, 12);
+        var monthly_expenses_increase_rate = InterestService.calculatePeriodInterestRate(initialVals.expenses_increase_rate, 12);
         
         return {
             months: 0,
@@ -39,9 +30,9 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
             monthly_inflation_rate: monthly_inflation_rate,
             monthly_growth_rate: monthly_growth_rate,
             monthly_expenses_increase_rate: monthly_expenses_increase_rate,
-            income_increase_rate: userData.income_increase_rate,
-            expenses_increase_rate: userData.expenses_increase_rate,
-            growth_rate: userData.growth_rate
+            income_increase_rate: initialVals.income_increase_rate,
+            expenses_increase_rate: initialVals.expenses_increase_rate,
+            growth_rate: initialVals.growth_rate
         };
     };
 

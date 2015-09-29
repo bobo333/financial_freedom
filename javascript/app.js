@@ -118,7 +118,10 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             customVals = { // Median American values
                 monthly_income: 4328.25,
                 total_assets: 0,
-                monthly_expenses: 4111.84
+                monthly_expenses: 4111.84,
+                income_increase_rate: 0.03,
+                growth_rate: 0.08,
+                expenses_increase_rate: 0.03
             };  
         }
 
@@ -195,17 +198,6 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
             return;
         }
     };
-
-    $scope.converterLink = function() {
-            $location.path('/dollars-to-time'); 
-            // if (UserDataCache.userData.monthly_expenses) {
-                
-            // }
-
-            // else {
-            //     $location.path('/income');
-            // }
-        };
 
     $scope.logoLink = function() {
 

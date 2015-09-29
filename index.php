@@ -93,7 +93,7 @@
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
+                                <li><a class="nav-item-custom" ng-href="#/dollars-to-time">Money-to-time converter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</a></li>

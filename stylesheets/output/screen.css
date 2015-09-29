@@ -1837,9 +1837,8 @@ input[type="text"].form-control {
 }
 
 /* line 773, ../../sass/partials/_time_to_retirement.scss */
-.calc-output-subtext.calc-output-inactive {
+.calc-output-inactive {
   opacity: 0.2;
-  text-decoration: none;
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
