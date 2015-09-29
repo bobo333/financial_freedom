@@ -185,39 +185,6 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
         $location.path(route);
     };
 
-    $scope.setupStep = function(route) {
-        
-        if (route == '/income') {
-            $location.path(route);
-        }
-
-        else if (route == '/assets' && UserDataCache.userData.monthly_income) {
-            $location.path(route);
-        }
-
-        else if (route == '/expenses' && UserDataCache.userData.total_assets) {
-            $location.path(route);
-        }
-
-        else if (route == '/time-to-retirement' && UserDataCache.userData.monthly_expenses) {
-
-            console.log(DollarsToTimeService.redirectToConverter);
-            console.log('hi');
-
-            if (DollarsToTimeService.redirectToConverter) {
-                $location.path('/dollars-to-time');
-            }
-
-            else {
-                $location.path(route);
-            }
-        }
-
-        else {
-            return;
-        }
-    };
-
     $scope.logoLink = function() {
 
         if (UserDataCache.userData.monthly_expenses) {
@@ -365,7 +332,7 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
 });
 
-FinancialFreedom.controller('InputController', function($scope, $location, UserDataCache) {
+FinancialFreedom.controller('InputController', function($scope, $location, UserDataCache, DollarsToTimeService) {
 
     $scope.inputVal = {};
     
@@ -379,19 +346,38 @@ FinancialFreedom.controller('InputController', function($scope, $location, UserD
         UserDataCache.userData.monthly_expenses = new_values[2];
     });
     
-    $scope.submitIncomeForm = function() {
-        $location.path('/assets');
-    };
+    $scope.setupStep = function(route) {
+        
+        if (route == '/income') {
+            $location.path(route);
+        }
 
-    $scope.submitAssetsForm = function() {
-        $location.path('/expenses');
-    };
+        else if (route == '/assets' && UserDataCache.userData.monthly_income) {
+            $location.path(route);
+        }
 
-    $scope.submitExpensesForm = function() {
-        $location.path('/time-to-retirement');
-    };
+        else if (route == '/expenses' && UserDataCache.userData.total_assets) {
+            $location.path(route);
+        }
 
-    
+        else if (route == '/end-flow' && UserDataCache.userData.monthly_expenses) {
+
+            console.log(DollarsToTimeService.redirectToConverter);
+            console.log('hi');
+
+            if (DollarsToTimeService.redirectToConverter) {
+                $location.path('/dollars-to-time');
+            }
+
+            else {
+                $location.path('/time-to-retirement');
+            }
+        }
+
+        else {
+            return;
+        }
+    };    
 
 });
 
