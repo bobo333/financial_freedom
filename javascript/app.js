@@ -78,38 +78,34 @@ FinancialFreedom.controller('IntroController', function($scope, $location) {
 
 });
 
-FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, DollarsToTimeService) {
+FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, DollarsToTimeService, UserDataCache) {
 
     var dates = DollarsToTimeService.calculateDollarsToTime(0, false, false);
 
     $scope.dates = {
-        years: 0,
-        months: 0,
-        days: 0
+        years: '-',
+        months: '-',
+        days: '-'
     };
 
     $scope.calc_values = {
-        amount: 0,
+        amount: null,
         expense: true,
-        recurring: false,
+        recurring: true,
         useCustomVals: true
     };
 
-    $scope.switchInputVals = function(sourceElement) {
-        if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals == true)) {
-            $scope.calc_values.useCustomVals = false;
-        }
+    $scope.preconvert = true;
 
-        if ((sourceElement == 'american') && ($scope.calc_values.useCustomVals == false)) {
-            $scope.calc_values.useCustomVals = true;
-        }
-    };
+    if (UserDataCache.userData.monthly_expenses) {
+        $scope.calc_values.useCustomVals = false;
+    }
 
     var customVals = null;
 
-    $scope.$watch('calc_values', function(new_value, old_value) {
+    $scope.convert = function() {
 
-        $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
+        $scope.preconvert = false;
 
         var amount = parseInt($scope.calc_values.amount);
 
@@ -130,9 +126,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             customVals = null;
         }
 
-        console.log($scope.calc_values.useCustomVals);
-        console.log(customVals);
-
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
 
         if (dates.difference) {
@@ -140,6 +133,29 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             $scope.dates.months = dates.difference.months;
             $scope.dates.days = dates.difference.days;
         }
+    };
+
+    $scope.switchInputVals = function(sourceElement) {
+        if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals == true)) {
+            $scope.calc_values.useCustomVals = false;
+        }
+
+        if ((sourceElement == 'american') && ($scope.calc_values.useCustomVals == false)) {
+            $scope.calc_values.useCustomVals = true;
+        }
+    };
+
+    $scope.$watch('calc_values', function(new_value, old_value) {
+
+        $scope.preconvert = true;
+
+        $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
+
+        $scope.dates = {
+            years: '-',
+            months: '-',
+            days: '-'
+        };
             
     }, true);
 

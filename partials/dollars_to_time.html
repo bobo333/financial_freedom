@@ -35,11 +35,12 @@
 					        placeholder="500"
 					    />
 					</div>
+					<button type="button" class="btn btn-default btn-primary convert-button" ng-click="convert()">Convert</button>
 				</div>
 				<div class="col-sm-2">
-					<div class="calc-equal" ng-class="{ 'calc-output-inactive': !calc_values.amount}">=</div>
+					<div class="calc-equal" ng-class="{ 'calc-output-inactive': preconvert}">=</div>
 				</div>
-				<div class="col-sm-5 col calc-output-wrapper" ng-class="{ 'calc-output-inactive': !calc_values.amount}">
+				<div class="col-sm-5 col calc-output-wrapper" ng-class="{ 'calc-output-inactive': preconvert}">
 
 					<div class="calc-output-digit-wrapper">
 						<div class="calc-time-wrapper">

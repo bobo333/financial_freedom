@@ -654,6 +654,14 @@ input:focus {
   font-weight: 700;
 }
 
+/* line 110, ../../sass/partials/_input.scss */
+.convert-button {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 /* line 6, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
