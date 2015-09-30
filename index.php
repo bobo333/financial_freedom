@@ -14,12 +14,12 @@
         
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
         <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
         
@@ -42,7 +42,7 @@
     
     <body ng-controller="bodyController">
         <abound-header></abound-header>
-        <div ng-view class="view-animate"></div>
+        <div ui-view class="view-animate"></div>
         <abound-footer></abound-footer>
     </body>
 </html>

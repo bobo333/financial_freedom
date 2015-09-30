@@ -1,44 +1,54 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate','ui.bootstrap']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ng-currency','ngAnimate','ui.bootstrap', 'ui.router']);
 
-FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+FinancialFreedom.config(function($stateProvider, $urlRouterProvider) {
 
-    $routeProvider.when('/income', {
-        templateUrl: 'partials/income_input.html',
-        controller: 'InputController'
-    })
-    .when('/assets', {
-        templateUrl: 'partials/assets_input.html',
-        controller: 'InputController'
-    })
-    .when('/expenses', {
-        templateUrl: 'partials/expenses_input.html',
-        controller: 'InputController'
-    })
-    .when('/time-to-retirement', {
-        templateUrl: 'partials/time_to_retirement.html',
-        controller: 'TimeToRetirementController'
-    })
-    .when('/about', {
-        templateUrl: 'partials/about.html'
-    })
-    .when('/privacy', {
-        templateUrl: 'partials/legal/privacy_policy.html'
-    })
-    .when('/terms-of-service', {
-        templateUrl: 'partials/legal/terms_of_service.html'
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('intro', {
+            url: '/',
+            templateUrl: 'partials/intro.html'
         })
-    .when('/', {
-        templateUrl: 'partials/intro.html',
-        controller: 'IntroController'
-    })
-    .when('/dollars-to-time/:amount?/:expense?/:recurring?/:useCustomVals?', {
-        templateUrl: 'partials/dollars_to_time.html',
-        controller: 'DollarsToTimeController'
-    })
-    .otherwise({
-        redirectTo: '/'
-    });
-}]);
+        .state('income', {
+            url: '/income',
+            templateUrl: 'partials/income_input.html',
+            controller: 'InputController'
+        })
+        .state('assets', {
+            url: '/assets',
+            templateUrl: 'partials/assets_input.html',
+            controller: 'InputController'
+        })
+        .state('expenses', {
+            url: '/expenses',
+            templateUrl: 'partials/expenses_input.html',
+            controller: 'InputController'
+        })
+        .state('time-to-retirement', {
+            url: '/time-to-retirement',
+            templateUrl: 'partials/time_to_retirement.html',
+            controller: 'TimeToRetirementController'
+        })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'partials/about.html'
+        })
+        .state('privacy', {
+            url: '/privacy',
+            templateUrl: 'partials/legal/privacy_policy.html'
+        })
+        .state('terms-of-service', {
+            url: '/terms-of-service',
+            templateUrl: 'partials/legal/terms_of_service.html'
+            })
+        .state('dollars-to-time', {
+            url: '/dollars-to-time',
+            templateUrl: 'partials/dollars_to_time.html',
+            controller: 'DollarsToTimeController'
+        });
+});
+
+///:amount?/:expense?/:recurring?/:useCustomVals?
 
 FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   return {
@@ -66,14 +76,6 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
     if ($rootScope.currentUser) {
         UserDataCache.userData.fetchUserData();
     }
-
-});
-
-FinancialFreedom.controller('IntroController', function($scope, $location) {
-
-    $scope.submitForm = function() {
-        $location.path('/income');
-    };
 
 });
 
