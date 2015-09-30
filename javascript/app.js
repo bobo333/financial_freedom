@@ -31,7 +31,7 @@ FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeP
         templateUrl: 'partials/intro.html',
         controller: 'IntroController'
     })
-    .when('/dollars-to-time', {
+    .when('/dollars-to-time/:amount?/:expense?/:recurring?/:useCustomVals?', {
         templateUrl: 'partials/dollars_to_time.html',
         controller: 'DollarsToTimeController'
     })
@@ -77,40 +77,79 @@ FinancialFreedom.controller('IntroController', function($scope, $location) {
 
 });
 
-FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, DollarsToTimeService, UserDataCache) {
+FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, $route, $routeParams, DollarsToTimeService, UserDataCache) {
 
-    var dates = DollarsToTimeService.calculateDollarsToTime(0, false, false);
+    var dates;
+
+    var params = $routeParams;
 
     $scope.dates = {
         years: '-',
         months: '-',
         days: '-'
     };
+    $scope.preconvert = true;
 
-    $scope.calc_values = {
+
+    function processParams(params) {
+
+        var processedParams = {};
+
+        var newVal;
+
+        angular.forEach(params, function(value, key) {
+
+            if (key == 'amount') {
+
+                if  (value == 'null') {
+                    processedParams[key] = null;
+                }
+
+                else {
+                    processedParams[key] = value;
+                }
+            }
+
+            else {
+                newVal = (value === "true");
+                
+                processedParams[key] = newVal;
+            }
+
+        });
+
+        return processedParams;
+    }
+
+    var processedParams = processParams(params);
+
+
+    var default_calc_values = {
         amount: null,
         expense: true,
         recurring: true,
         useCustomVals: true
     };
 
-    $scope.preconvert = true;
-
     if (UserDataCache.userData.monthly_expenses) {
-        $scope.calc_values.useCustomVals = false;
+        default_calc_values.useCustomVals = false;
     }
 
+    $scope.calc_values = angular.extend({}, default_calc_values, processedParams);
+    
     var customVals = null;
 
     $scope.convert = function() {
 
-        $scope.preconvert = false;
 
         var amount = parseInt($scope.calc_values.amount);
 
         if ($scope.calc_values.amount === '' || $scope.calc_values.amount === NaN || isNaN(amount)) {
             amount = 0;
+            return;
         }
+        
+        $scope.preconvert = false;
 
         if ($scope.calc_values.useCustomVals) {
 
@@ -128,6 +167,19 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             customVals = null;
         }
 
+        $route.updateParams({
+            amount: amount,
+            expense: $scope.calc_values.expense,
+            recurring: $scope.calc_values.recurring,
+            useCustomVals: $scope.calc_values.useCustomVals
+        });
+
+        outputDate(amount, customVals);
+
+    };
+
+    function outputDate(amount, customVals) {
+        
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
 
         if (dates.difference) {
@@ -135,7 +187,8 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             $scope.dates.months = dates.difference.months;
             $scope.dates.days = dates.difference.days;
         }
-    };
+
+    }
 
     $scope.showYou = function() {
         if (!UserDataCache.userData.monthly_expenses) {
@@ -361,9 +414,6 @@ FinancialFreedom.controller('InputController', function($scope, $location, UserD
         }
 
         else if (route == '/end-flow' && UserDataCache.userData.monthly_expenses) {
-
-            console.log(DollarsToTimeService.redirectToConverter);
-            console.log('hi');
 
             if (DollarsToTimeService.redirectToConverter) {
                 $location.path('/dollars-to-time');
