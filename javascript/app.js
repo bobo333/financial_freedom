@@ -698,6 +698,13 @@ function aboundFooter () {
     };
 }
 
+function aboundHeader () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/header.html'
+    };
+}
+
 function stepHeader () {
     return {
         restrict: 'E',
@@ -706,6 +713,7 @@ function stepHeader () {
 }
 
 FinancialFreedom.directive("aboundFooter", aboundFooter);
+FinancialFreedom.directive("aboundHeader", aboundHeader);
 FinancialFreedom.directive("compareTo", compareTo);
 FinancialFreedom.directive("stepHeader", stepHeader);
 FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);
