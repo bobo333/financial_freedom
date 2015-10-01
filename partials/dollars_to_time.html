@@ -27,22 +27,18 @@
 					        <label class="btn btn-secondary calc-toggle" ng-model="calc_values.expense" btn-radio="false">Income</label>
 					    </div>
 					</div>
-					<form name="converterForm" ng-submit="convert()">
-						<div class="input-field-wrapper calc-input">
-							<span class="leading-dollar">$</span>
-							<input class="steps" type="text"
-						        min="0"
-						        max="9999999999"
-						        ng-currency
-						        autofocus
-						        required
-						        ng-model="calc_values.amount" 
-						        placeholder="500"
-						        ng-blur="convert()"
-						    />
-						</div>
-						<input type="submit" value="Convert" class="btn btn-default btn-primary convert-button" ng-disabled="converterForm.$invalid" />
-					</form>
+					<div class="input-field-wrapper calc-input">
+						<span class="leading-dollar">$</span>
+						<input class="steps" type="text"
+					        min="0"
+					        max="9999999999"
+					        ng-currency
+					        autofocus
+					        required
+					        ng-model="calc_values.amount" 
+					        placeholder="500"
+					    />
+					</div>
 				</div>
 				<div class="col-sm-2">
 					<div class="calc-equal" ng-class="{ 'calc-output-inactive': preconvert}">=</div>
@@ -67,10 +63,9 @@
 					</div>
 
 					<div class="calc-output-subtext output-explain">
-						<span>{{ cashflowLabel }} </span> 
-						time until financial independence<span ng-if="calc_values.expense">,
+						<span ng-if="calc_values.expense">added to time until financial independence,
 							changing the countdown from {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months to {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months.
-						</span><span ng-if="!calc_values.expense">,
+						</span><span ng-if="!calc_values.expense">reduced from time until financial independence,
 							changing the countdown from {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months to {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months.
 						</span>
 					</div>

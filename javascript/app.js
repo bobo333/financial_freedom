@@ -154,6 +154,12 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         if ($scope.calc_values.amount === '' || $scope.calc_values.amount === NaN || isNaN(amount)) {
             amount = 0;
             $scope.preconvert = true;
+
+            angular.forEach($scope.dates, function(value, key) {
+                value = '-';
+                $scope.dates[key] = value;
+            });
+
             return;
         }
         
@@ -231,20 +237,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
     };
 
     $scope.$watch('calc_values', function(new_value, old_value) {
-
         $scope.convert();
-
-        $scope.cashflowLabel = $scope.calc_values.expense ? 'added to' : 'reduced from';
-
-        if (new_value !== old_value) {
-
-            angular.forEach($scope.dates, function(value, key) {
-                value = '-';
-                $scope.dates[key] = value;
-            });
-
-            $scope.preconvert = true;
-        }
     }, true);
 });
 
