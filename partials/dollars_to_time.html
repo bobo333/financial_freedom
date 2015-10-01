@@ -68,12 +68,10 @@
 
 					<div class="calc-output-subtext output-explain">
 						<span>{{ cashflowLabel }} </span> 
-						time until financial independence
-						<span ng-if="calc_values.expense">
-							from {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months to {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months.
-						</span>
-						<span ng-if="!calc_values.expense">
-							from {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months to {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months.
+						time until financial independence<span ng-if="calc_values.expense">,
+							changing the countdown from {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months to {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months.
+						</span><span ng-if="!calc_values.expense">,
+							changing the countdown from {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months to {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months.
 						</span>
 					</div>
 

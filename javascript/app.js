@@ -234,7 +234,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
 
         $scope.convert();
 
-        $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
+        $scope.cashflowLabel = $scope.calc_values.expense ? 'added to' : 'reduced from';
 
         if (new_value !== old_value) {
 
