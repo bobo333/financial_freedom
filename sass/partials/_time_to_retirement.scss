@@ -708,7 +708,7 @@ input[type="text"].form-control {
     padding-top: 30%;
 
     @include min-screen($screen_sm_min) {
-        padding-top: 8%;
+        padding-top: 10%;
     }
 }
 

@@ -115,10 +115,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
                 }
             }
 
-            else if (value === undefined) {
-
-            }
-
             else {
                 newVal = (value === "true");
                 

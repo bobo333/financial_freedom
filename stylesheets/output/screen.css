@@ -1768,7 +1768,7 @@ input[type="text"].form-control {
 @media screen and (min-width: 768px) {
   /* line 704, ../../sass/partials/_time_to_retirement.scss */
   .calc-view-wrapper {
-    padding-top: 8%;
+    padding-top: 10%;
   }
 }
 
