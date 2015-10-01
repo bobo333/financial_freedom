@@ -3,10 +3,11 @@
 	<div class="dollars-to-time-wrapper">
 
 		<div class="supporting-section-title calc-title">Convert money to time</div>
+		<div class="calc-output-subtext">See how changes in expenses or income affect the time until financial independence.</div>
 
 		<div class="input-type-wrapper">
-			<div class="calc-output-subtext" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median American</div>
-			<div class="calc-output-subtext" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="showUsersValues()">You</div>
+			<div class="calc-val-type-control" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median American<i class="fa fa-question-circle output-info-icon converter-info-icon" popover="5% savings rate, starting from $0 in net worth." popover-animation="true" popover-trigger="mouseenter" popover-placement="bottom" ></i></div>
+			<div class="calc-val-type-control" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="showUsersValues()">You</div>
 		</div>
 
 		<div class="calc-container">
@@ -65,8 +66,15 @@
 						</div>
 					</div>
 
-					<div class="calc-output-subtext">
-						<span>{{ cashflowLabel }} </span> time until financial independence.
+					<div class="calc-output-subtext output-explain">
+						<span>{{ cashflowLabel }} </span> 
+						time until financial independence
+						<span ng-if="calc_values.expense">
+							from {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months to {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months.
+						</span>
+						<span ng-if="!calc_values.expense">
+							from {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months to {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months.
+						</span>
 					</div>
 
 				</div>

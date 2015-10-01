@@ -22,8 +22,25 @@ FinancialFreedom.service('DollarsToTimeService', function(RetirementCalculatorSe
             }
         }
 
-        RetirementCalculatorService.calculateRetirementInfo(spendy_data);
-        RetirementCalculatorService.calculateRetirementInfo(thrifty_data);
+        var spendy_retirement_data = RetirementCalculatorService.calculateRetirementInfo(spendy_data);
+        var thrifty_retirement_data = RetirementCalculatorService.calculateRetirementInfo(thrifty_data);
+
+        var spendy_months_to_retirement = spendy_retirement_data.months;
+        var thrifty_months_to_retirement = thrifty_retirement_data.months;
+
+        if (spendy_months_to_retirement > thrifty_months_to_retirement) {
+            data.more_years_to_retirement = Math.floor(spendy_months_to_retirement / 12);
+            data.more_months_to_retirement = spendy_months_to_retirement % 12;
+            data.fewer_years_to_retirement = Math.floor(thrifty_months_to_retirement / 12);
+            data.fewer_months_to_retirement = thrifty_months_to_retirement % 12;
+        }
+
+        else {
+            data.fewer_months_to_retirement = Math.floor(spendy_months_to_retirement / 12);
+            data.fewer_months_to_retirement = spendy_months_to_retirement % 12;
+            data.more_months_to_retirement = Math.floor(thrifty_months_to_retirement / 12);
+            data.more_months_to_retirement = thrifty_months_to_retirement % 12;
+        }
 
         if (spendy_data.can_retire && thrifty_data.can_retire) {
             difference = DateService.calculateDateDifference(thrifty_data.intersection_point.x, spendy_data.intersection_point.x);

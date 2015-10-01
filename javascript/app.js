@@ -113,9 +113,13 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
                     processedParams[key] = value;
                 }
             }
+            else if ((key === 'useCustomVals') && (value === 'false')) {
+                if (!UserDataCache.userData.monthly_expenses) {
+                    processedParams[key] = true;
+                }
+            }
             else {
                 newVal = (value === "true");
-                
                 processedParams[key] = newVal;
             }
 
@@ -135,12 +139,21 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         default_calc_values.useCustomVals = false;
     }
 
+    if (params.expense !== undefined) {
+        var processedParams = processParams(params);
+        $scope.calc_values = processedParams;
+    }
+    else {
+        $scope.calc_values = default_calc_values;
+    }
+
     $scope.convert = function() {
 
         var amount = parseInt($scope.calc_values.amount);
 
         if ($scope.calc_values.amount === '' || $scope.calc_values.amount === NaN || isNaN(amount)) {
             amount = 0;
+            $scope.preconvert = true;
             return;
         }
         
@@ -148,12 +161,12 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
 
         if ($scope.calc_values.useCustomVals) {
 
-            customVals = { // Median American values
+            customVals = {
                 monthly_income: 4328.25,
                 total_assets: 0,
                 monthly_expenses: 4111.84,
                 income_increase_rate: 0.03,
-                growth_rate: 0.08,
+                growth_rate: 0.085,
                 expenses_increase_rate: 0.03
             };  
         }
@@ -180,24 +193,21 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         updateTimeOutput(amount, customVals, newParams);
     };
 
-    if (params.expense !== undefined) {
-        var processedParams = processParams(params);
-        $scope.calc_values = processedParams;
-    }
-
-    else {
-        $scope.calc_values = default_calc_values;
-    }
-
     function updateTimeOutput(amount, customVals, newParams) {
         
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
+
+        $scope.dates.more_years_to_retirement = dates.more_years_to_retirement;
+        $scope.dates.fewer_years_to_retirement = dates.fewer_years_to_retirement;
+
+        $scope.dates.more_months_to_retirement = dates.more_months_to_retirement;
+        $scope.dates.fewer_months_to_retirement = dates.fewer_months_to_retirement;
 
         if (dates.difference) {
             $scope.dates.years = dates.difference.years;
             $scope.dates.months = dates.difference.months;
             $scope.dates.days = dates.difference.days;
-        }
+        }  
     }
 
     $scope.showUsersValues = function() {
@@ -227,40 +237,37 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
 
         if (new_value !== old_value) {
-            $scope.dates = {
-                years: '-',
-                months: '-',
-                days: '-'
-            };
+
+            angular.forEach($scope.dates, function(value, key) {
+                value = '-';
+                $scope.dates[key] = value;
+            });
+
             $scope.preconvert = true;
         }
     }, true);
 });
 
-FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, AuthService, Session, UserDataCache, modalService, DollarsToTimeService) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $state, $location, AuthService, Session, UserDataCache, modalService, DollarsToTimeService) {
 
     $scope.isCollapsed = true;
 
     $scope.isActive = function(route) {
         return route == $location.path();
     };
-    
-    $scope.goToRoute = function(route) {
-        $location.path(route);
-    };
 
     $scope.logoLink = function() {
 
         if (UserDataCache.userData.monthly_expenses) {
-            $location.path('/time-to-retirement');
+            $state.go('time-to-retirement', {} );
         }
 
         else if (!UserDataCache.userData.monthly_income) {
-            $location.path('/');
+            $state.go('intro', {} );
         }
 
         else {
-            $location.path('/income');
+            $state.go('income', {} );
         }
     };
 
@@ -277,7 +284,6 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     $scope.openAccountModal = function() {
 
         modalService.showModal({}, 'accountModalOptions');
-
     };
 
     $scope.toggled = function(open) {
@@ -287,7 +293,7 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     $scope.logout = function() {
 
         AuthService.data.logout();
-        $scope.goToRoute('/');
+        $state.go('intro', {} );
     };
 
 });
