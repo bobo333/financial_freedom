@@ -1,5 +1,12 @@
 var FinancialFreedom = angular.module('FinancialFreedom', ['ng-currency','ngAnimate','ui.bootstrap', 'ui.router']);
 
+FinancialFreedom.run(function($rootScope, $state, $stateParams) {
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+
+});
+
 FinancialFreedom.config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
@@ -42,13 +49,11 @@ FinancialFreedom.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partials/legal/terms_of_service.html'
             })
         .state('dollars-to-time', {
-            url: '/dollars-to-time',
+            url: '/dollars-to-time?:amount&:expense&:recurring&:useCustomVals',
             templateUrl: 'partials/dollars_to_time.html',
             controller: 'DollarsToTimeController'
         });
 });
-
-///:amount?/:expense?/:recurring?/:useCustomVals?
 
 FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   return {
@@ -62,8 +67,6 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
 }]);
 
 FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, UserDataCache) {
-    
-    $location.path("/");
 
     $scope.isActive = function(route) {
         return route == $location.path();
@@ -79,37 +82,41 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
 
 });
 
-FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, $route, $routeParams, DollarsToTimeService, UserDataCache) {
+FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootScope, $location, $state, $stateParams, DollarsToTimeService, UserDataCache) {
 
     var dates;
 
-    var params = $routeParams;
+    var params = $stateParams;
+
+    var customVals = null;
 
     $scope.dates = {
         years: '-',
         months: '-',
         days: '-'
     };
-    $scope.preconvert = true;
-
-
+    
     function processParams(params) {
 
         var processedParams = {};
 
-        var newVal;
-
         angular.forEach(params, function(value, key) {
+
+            var newVal;
 
             if (key == 'amount') {
 
-                if  (value == 'null') {
+                if  (value === undefined) {
                     processedParams[key] = null;
                 }
 
                 else {
                     processedParams[key] = value;
                 }
+            }
+
+            else if (value === undefined) {
+
             }
 
             else {
@@ -123,9 +130,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
         return processedParams;
     }
 
-    var processedParams = processParams(params);
-
-
     var default_calc_values = {
         amount: null,
         expense: true,
@@ -137,12 +141,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
         default_calc_values.useCustomVals = false;
     }
 
-    $scope.calc_values = angular.extend({}, default_calc_values, processedParams);
-    
-    var customVals = null;
-
     $scope.convert = function() {
-
 
         var amount = parseInt($scope.calc_values.amount);
 
@@ -169,18 +168,35 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             customVals = null;
         }
 
-        $route.updateParams({
+        var newParams = {
             amount: amount,
             expense: $scope.calc_values.expense,
             recurring: $scope.calc_values.recurring,
             useCustomVals: $scope.calc_values.useCustomVals
-        });
+        };
 
-        outputDate(amount, customVals);
+        var stateOptions = { 
+            location: true, 
+            inherit: true, 
+            relative: $state.$current, 
+            notify: false 
+        };
 
+        $state.transitionTo('dollars-to-time', newParams, stateOptions);  
+
+        outputDate(amount, customVals, newParams);
     };
 
-    function outputDate(amount, customVals) {
+    if (params.expense !== undefined) {
+        var processedParams = processParams(params);
+        $scope.calc_values = processedParams;
+    }
+
+    else {
+        $scope.calc_values = default_calc_values;
+    }
+
+    function outputDate(amount, customVals, newParams) {
         
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
 
@@ -189,7 +205,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             $scope.dates.months = dates.difference.months;
             $scope.dates.days = dates.difference.days;
         }
-
     }
 
     $scope.showYou = function() {
@@ -203,26 +218,33 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
     };
 
     $scope.switchInputVals = function(sourceElement) {
-        if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals == true)) {
+        if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals === true)) {
             $scope.calc_values.useCustomVals = false;
         }
 
-        if ((sourceElement == 'american') && ($scope.calc_values.useCustomVals == false)) {
+        if ((sourceElement == 'american') && ($scope.calc_values.useCustomVals === false)) {
             $scope.calc_values.useCustomVals = true;
         }
     };
 
     $scope.$watch('calc_values', function(new_value, old_value) {
 
-        $scope.preconvert = true;
+        $scope.convert();
 
         $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
 
-        $scope.dates = {
-            years: '-',
-            months: '-',
-            days: '-'
-        };
+        if (new_value !== old_value) {
+
+            $scope.dates = {
+                years: '-',
+                months: '-',
+                days: '-'
+            };
+
+            $scope.preconvert = true;
+
+        }
+
             
     }, true);
 

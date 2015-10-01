@@ -26,7 +26,7 @@
 					        <label class="btn btn-secondary calc-toggle" ng-model="calc_values.expense" btn-radio="false">Income</label>
 					    </div>
 					</div>
-					<form name="converterForm">
+					<form name="converterForm" ng-submit="convert()">
 						<div class="input-field-wrapper calc-input">
 							<span class="leading-dollar">$</span>
 							<input class="steps" type="text"
@@ -40,8 +40,8 @@
 						        ng-blur="convert()"
 						    />
 						</div>
+						<input type="submit" value="Convert" class="btn btn-default btn-primary convert-button" ng-disabled="converterForm.$invalid" />
 					</form>
-					<button type="button" class="btn btn-default btn-primary convert-button" ng-click="convert()" ng-disabled="converterForm.$invalid">Convert</button>
 				</div>
 				<div class="col-sm-2">
 					<div class="calc-equal" ng-class="{ 'calc-output-inactive': preconvert}">=</div>
