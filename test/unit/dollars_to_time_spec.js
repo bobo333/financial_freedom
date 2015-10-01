@@ -1,6 +1,6 @@
 describe('Unit: DollarsToTimeService', function() {
     var DollarsToTimeService;
-    var userData;
+    var userData = {};
 
     beforeEach(module('FinancialFreedom', function($provide) {
 
@@ -147,7 +147,7 @@ describe('Unit: DollarsToTimeService', function() {
 
         expect(result.difference.years).toBe(3);
         expect(result.difference.months).toBe(4);
-        expect(result.difference.days).toBe(9);
+        expect(result.difference.days).toBe(12);
     });
 
     it('should return 2 years, 0 months, and 23 days for 100,000 single income', function() {

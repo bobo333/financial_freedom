@@ -104,17 +104,15 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
 
             var newVal;
 
-            if (key == 'amount') {
+            if (key === 'amount') {
 
                 if  (value === undefined) {
                     processedParams[key] = null;
                 }
-
                 else {
                     processedParams[key] = value;
                 }
             }
-
             else {
                 newVal = (value === "true");
                 
@@ -159,7 +157,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
                 expenses_increase_rate: 0.03
             };  
         }
-
         else {
             customVals = null;
         }
@@ -180,7 +177,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
 
         $state.transitionTo('dollars-to-time', newParams, stateOptions);  
 
-        outputDate(amount, customVals, newParams);
+        updateTimeOutput(amount, customVals, newParams);
     };
 
     if (params.expense !== undefined) {
@@ -192,7 +189,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         $scope.calc_values = default_calc_values;
     }
 
-    function outputDate(amount, customVals, newParams) {
+    function updateTimeOutput(amount, customVals, newParams) {
         
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
 
@@ -203,7 +200,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         }
     }
 
-    $scope.showYou = function() {
+    $scope.showUsersValues = function() {
         if (!UserDataCache.userData.monthly_expenses) {
             $location.path('/income');
             DollarsToTimeService.redirectToConverter = true;
@@ -214,11 +211,11 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
     };
 
     $scope.switchInputVals = function(sourceElement) {
-        if ((sourceElement == 'you') && ($scope.calc_values.useCustomVals === true)) {
+        if ((sourceElement === 'you') && ($scope.calc_values.useCustomVals === true)) {
             $scope.calc_values.useCustomVals = false;
         }
 
-        if ((sourceElement == 'american') && ($scope.calc_values.useCustomVals === false)) {
+        if ((sourceElement === 'american') && ($scope.calc_values.useCustomVals === false)) {
             $scope.calc_values.useCustomVals = true;
         }
     };
@@ -230,20 +227,14 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootSco
         $scope.cashflowLabel = $scope.calc_values.expense ? 'Added to' : 'Reduced from';
 
         if (new_value !== old_value) {
-
             $scope.dates = {
                 years: '-',
                 months: '-',
                 days: '-'
             };
-
             $scope.preconvert = true;
-
         }
-
-            
     }, true);
-
 });
 
 FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, AuthService, Session, UserDataCache, modalService, DollarsToTimeService) {
@@ -421,19 +412,19 @@ FinancialFreedom.controller('InputController', function($scope, $location, UserD
     
     $scope.setupStep = function(route) {
         
-        if (route == '/income') {
+        if (route === '/income') {
             $location.path(route);
         }
 
-        else if (route == '/assets' && UserDataCache.userData.monthly_income) {
+        else if (route === '/assets' && UserDataCache.userData.monthly_income) {
             $location.path(route);
         }
 
-        else if (route == '/expenses' && UserDataCache.userData.total_assets) {
+        else if (route === '/expenses' && UserDataCache.userData.total_assets) {
             $location.path(route);
         }
 
-        else if (route == '/end-flow' && UserDataCache.userData.monthly_expenses) {
+        else if (route === '/end-flow' && UserDataCache.userData.monthly_expenses) {
 
             if (DollarsToTimeService.redirectToConverter) {
                 $location.path('/dollars-to-time');

@@ -22,19 +22,16 @@ FinancialFreedom.service('modalService', ['$modal',
             var customModalOptions = {};
         
             if (!customModalDefaults) customModalDefaults = {};
-
             this.showSignUp = true;
 
-            if (customModalType == 'loginModalOptions') {
+            if (customModalType === 'loginModalOptions') {
 
             	this.showSignUp = false;
             }
-
-            else if (customModalType == 'accountModalOptions') {
+            else if (customModalType === 'accountModalOptions') {
 
             	customModalDefaults.templateUrl = 'partials/account_modal.html';
             	customModalDefaults.controller = 'AccountModalInstanceCtrl';
-
             }
 
             return this.show(customModalDefaults, customModalOptions);
