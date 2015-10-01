@@ -3,7 +3,17 @@
 	<div class="dollars-to-time-wrapper">
 
 		<div class="supporting-section-title calc-title">Convert money to time</div>
-		<div class="calc-output-subtext">Find the impact that changes in your financial situation would have on your time until financial independence.</div>
+		<div class="calc-output-subtext">See how changes in expenses or income affect the time until financial independence.</div>
+
+		<div class="input-type-wrapper">
+			<div class="calc-val-type-control-wrapper">
+				<div class="calc-val-type-control" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median US citizen</div>
+				<i class="fa fa-question-circle output-info-icon converter-info-icon" popover="5% savings rate, starting from $0 in net worth." popover-animation="true" popover-trigger="mouseenter" popover-placement="bottom" ></i>
+			</div>
+			<div class="calc-val-type-control-wrapper">
+				<div class="calc-val-type-control" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="showUsersValues()">You</div>
+			</div>
+		</div>
 
 		<div class="calc-container">
 			<div class="row">
@@ -29,15 +39,16 @@
 					        max="9999999999"
 					        ng-currency
 					        autofocus
+					        required
 					        ng-model="calc_values.amount" 
 					        placeholder="500"
 					    />
 					</div>
 				</div>
 				<div class="col-sm-2">
-					<div class="calc-equal" ng-class="{ 'calc-output-inactive': !calc_values.amount}">=</div>
+					<div class="calc-equal" ng-class="{ 'calc-output-inactive': preconvert}">=</div>
 				</div>
-				<div class="col-sm-5 col calc-output-wrapper" ng-class="{ 'calc-output-inactive': !calc_values.amount}">
+				<div class="col-sm-5 col calc-output-wrapper" ng-class="{ 'calc-output-inactive': preconvert}">
 
 					<div class="calc-output-digit-wrapper">
 						<div class="calc-time-wrapper">
@@ -56,8 +67,12 @@
 						</div>
 					</div>
 
-					<div class="calc-output-subtext">
-						<span>{{ cashflowLabel }} </span>your time until financial independence.
+					<div class="calc-output-subtext output-explain">
+						<span ng-if="calc_values.expense">added to time until financial independence,
+							changing the countdown from {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months to {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months.
+						</span><span ng-if="!calc_values.expense">reduced from time until financial independence,
+							changing the countdown from {{ dates.more_years_to_retirement }} years {{ dates.more_months_to_retirement }} months to {{ dates.fewer_years_to_retirement }} years {{ dates.fewer_months_to_retirement }} months.
+						</span>
 					</div>
 
 				</div>

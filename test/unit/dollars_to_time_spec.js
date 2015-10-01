@@ -118,7 +118,7 @@ describe('Unit: DollarsToTimeService', function() {
         expect(expense_time).toBeGreaterThan(income_time);
     });
 
-    it('should return 1 year, 1 month, and 29 days for 500 recurring income', function() {
+    it('should return 1 year, 1 month, and 28 days for 500 recurring income', function() {
         userData.total_assets = 95000;
         userData.monthly_income = 5500;
         userData.monthly_expenses = 2500;
@@ -131,10 +131,10 @@ describe('Unit: DollarsToTimeService', function() {
 
         expect(result.difference.years).toBe(1);
         expect(result.difference.months).toBe(1);
-        expect(result.difference.days).toBe(29);
+        expect(result.difference.days).toBe(28);
     });
 
-    it('should return 3 years, 4 months, and 12 days for 500 recurring expense', function() {
+    it('should return 3 years, 4 months, and 9 days for 500 recurring expense', function() {
         userData.total_assets = 95000;
         userData.monthly_income = 5500;
         userData.monthly_expenses = 2500;
@@ -147,10 +147,10 @@ describe('Unit: DollarsToTimeService', function() {
 
         expect(result.difference.years).toBe(3);
         expect(result.difference.months).toBe(4);
-        expect(result.difference.days).toBe(12);
+        expect(result.difference.days).toBe(9);
     });
 
-    it('should return 2 years, 0 months, and 24 days for 100,000 single income', function() {
+    it('should return 2 years, 0 months, and 23 days for 100,000 single income', function() {
         userData.total_assets = 95000;
         userData.monthly_income = 5500;
         userData.monthly_expenses = 2500;
@@ -163,7 +163,7 @@ describe('Unit: DollarsToTimeService', function() {
 
         expect(result.difference.years).toBe(2);
         expect(result.difference.months).toBe(0);
-        expect(result.difference.days).toBe(24);
+        expect(result.difference.days).toBe(23);
     });
 
     it('should return 2 years, 2 months, and 0 days for 100,000 single expense', function() {

@@ -1,45 +1,59 @@
-var FinancialFreedom = angular.module('FinancialFreedom', ['ngRoute', 'ng-currency','ngAnimate','ui.bootstrap']);
+var FinancialFreedom = angular.module('FinancialFreedom', ['ng-currency','ngAnimate','ui.bootstrap', 'ui.router']);
 
-FinancialFreedom.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+FinancialFreedom.run(function($rootScope, $state, $stateParams) {
 
-    $routeProvider.when('/income', {
-        templateUrl: 'partials/income_input.html',
-        controller: 'InputController'
-    })
-    .when('/assets', {
-        templateUrl: 'partials/assets_input.html',
-        controller: 'InputController'
-    })
-    .when('/expenses', {
-        templateUrl: 'partials/expenses_input.html',
-        controller: 'InputController'
-    })
-    .when('/time-to-retirement', {
-        templateUrl: 'partials/time_to_retirement.html',
-        controller: 'TimeToRetirementController'
-    })
-    .when('/about', {
-        templateUrl: 'partials/about.html',
-        controller: ''
-    })
-    .when('/privacy', {
-        templateUrl: 'partials/legal/privacy_policy.html'
-    })
-    .when('/terms-of-service', {
-        templateUrl: 'partials/legal/terms_of_service.html'
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+
+});
+
+FinancialFreedom.config(function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('intro', {
+            url: '/',
+            templateUrl: 'partials/intro.html'
         })
-    .when('/', {
-        templateUrl: 'partials/intro.html',
-        controller: 'IntroController'
-    })
-    .when('/dollars-to-time', {
-        templateUrl: 'partials/dollars_to_time.html',
-        controller: 'DollarsToTimeController'
-    })
-    .otherwise({
-        redirectTo: '/'
-    });
-}]);
+        .state('income', {
+            url: '/income',
+            templateUrl: 'partials/income_input.html',
+            controller: 'InputController'
+        })
+        .state('assets', {
+            url: '/assets',
+            templateUrl: 'partials/assets_input.html',
+            controller: 'InputController'
+        })
+        .state('expenses', {
+            url: '/expenses',
+            templateUrl: 'partials/expenses_input.html',
+            controller: 'InputController'
+        })
+        .state('time-to-retirement', {
+            url: '/time-to-retirement',
+            templateUrl: 'partials/time_to_retirement.html',
+            controller: 'TimeToRetirementController'
+        })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'partials/about.html'
+        })
+        .state('privacy', {
+            url: '/privacy',
+            templateUrl: 'partials/legal/privacy_policy.html'
+        })
+        .state('terms-of-service', {
+            url: '/terms-of-service',
+            templateUrl: 'partials/legal/terms_of_service.html'
+            })
+        .state('dollars-to-time', {
+            url: '/dollars-to-time?:amount&:expense&:recurring&:useCustomVals',
+            templateUrl: 'partials/dollars_to_time.html',
+            controller: 'DollarsToTimeController'
+        });
+});
 
 FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
   return {
@@ -53,8 +67,6 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
 }]);
 
 FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, UserDataCache) {
-    
-    $location.path("/");
 
     $scope.isActive = function(route) {
         return route == $location.path();
@@ -70,150 +82,201 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
 
 });
 
-FinancialFreedom.controller('IntroController', function($scope, $location) {
+FinancialFreedom.controller('DollarsToTimeController', function($scope, $rootScope, $location, $state, $stateParams, DollarsToTimeService, UserDataCache) {
 
-    $scope.submitForm = function() {
-        $location.path('/income');
-    };
+    var dates;
 
-});
+    var params = $stateParams;
 
-FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, DollarsToTimeService) {
-
-    var dates = DollarsToTimeService.calculateDollarsToTime(0, false, false);
+    var customVals = null;
 
     $scope.dates = {
-        years: 0,
-        months: 0,
-        days: 0
+        years: '-',
+        months: '-',
+        days: '-'
     };
+    
+    function processParams(params) {
 
-    $scope.calc_values = {
+        var processedParams = {};
+
+        angular.forEach(params, function(value, key) {
+
+            var newVal;
+
+            if (key === 'amount') {
+
+                if  (value === undefined) {
+                    processedParams[key] = null;
+                }
+                else {
+                    processedParams[key] = value;
+                }
+            }
+            else if ((key === 'useCustomVals') && (value === 'false')) {
+                if (!UserDataCache.userData.monthly_expenses) {
+                    processedParams[key] = true;
+                }
+            }
+            else {
+                newVal = (value === "true");
+                processedParams[key] = newVal;
+            }
+
+        });
+
+        return processedParams;
+    }
+
+    var default_calc_values = {
         amount: null,
         expense: true,
-        recurring: false
+        recurring: true,
+        useCustomVals: true
     };
 
-    $scope.$watch('calc_values', function(new_value, old_value) {
+    if (UserDataCache.userData.monthly_expenses) {
+        default_calc_values.useCustomVals = false;
+    }
 
-        $scope.cashflowLabel = $scope.calc_values.expense ? 'Reduced from' : 'Added to';
+    if (params.expense !== undefined) {
+        var processedParams = processParams(params);
+        $scope.calc_values = processedParams;
+    }
+    else {
+        $scope.calc_values = default_calc_values;
+    }
+
+    $scope.convert = function() {
 
         var amount = parseInt($scope.calc_values.amount);
 
         if ($scope.calc_values.amount === '' || $scope.calc_values.amount === NaN || isNaN(amount)) {
             amount = 0;
+            $scope.preconvert = true;
+
+            angular.forEach($scope.dates, function(value, key) {
+                value = '-';
+                $scope.dates[key] = value;
+            });
+
+            return;
+        }
+        
+        $scope.preconvert = false;
+
+        if ($scope.calc_values.useCustomVals) {
+
+            customVals = {
+                monthly_income: 4328.25,
+                total_assets: 0,
+                monthly_expenses: 4111.84,
+                income_increase_rate: 0.03,
+                growth_rate: 0.085,
+                expenses_increase_rate: 0.03
+            };  
+        }
+        else {
+            customVals = null;
         }
 
-        dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring);
+        var newParams = {
+            amount: amount,
+            expense: $scope.calc_values.expense,
+            recurring: $scope.calc_values.recurring,
+            useCustomVals: $scope.calc_values.useCustomVals
+        };
+
+        var stateOptions = { 
+            location: true, 
+            inherit: true, 
+            relative: $state.$current, 
+            notify: false 
+        };
+
+        $state.transitionTo('dollars-to-time', newParams, stateOptions);  
+
+        updateTimeOutput(amount, customVals, newParams);
+    };
+
+    function updateTimeOutput(amount, customVals, newParams) {
+        
+        dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
+
+        $scope.dates.more_years_to_retirement = dates.more_years_to_retirement;
+        $scope.dates.fewer_years_to_retirement = dates.fewer_years_to_retirement;
+
+        $scope.dates.more_months_to_retirement = dates.more_months_to_retirement;
+        $scope.dates.fewer_months_to_retirement = dates.fewer_months_to_retirement;
 
         if (dates.difference) {
             $scope.dates.years = dates.difference.years;
             $scope.dates.months = dates.difference.months;
             $scope.dates.days = dates.difference.days;
-        }
-            
-    }, true);
+        }  
+    }
 
+    $scope.showUsersValues = function() {
+        if (!UserDataCache.userData.monthly_expenses) {
+            $location.path('/income');
+            DollarsToTimeService.redirectToConverter = true;
+        }
+        else {
+            $scope.switchInputVals('you');
+        }
+    };
+
+    $scope.switchInputVals = function(sourceElement) {
+        if ((sourceElement === 'you') && ($scope.calc_values.useCustomVals === true)) {
+            $scope.calc_values.useCustomVals = false;
+        }
+
+        if ((sourceElement === 'american') && ($scope.calc_values.useCustomVals === false)) {
+            $scope.calc_values.useCustomVals = true;
+        }
+    };
+
+    $scope.$watch('calc_values', function(new_value, old_value) {
+        $scope.convert();
+    }, true);
 });
 
-FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $location, $modal, AuthService, Session, UserDataCache) {
+FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $state, $location, AuthService, Session, UserDataCache, modalService, DollarsToTimeService) {
 
     $scope.isCollapsed = true;
 
     $scope.isActive = function(route) {
         return route == $location.path();
     };
-    
-    $scope.goToRoute = function(route) {
-        $location.path(route);
-    };
-
-    $scope.setupStep = function(route) {
-        
-        if (route == '/income') {
-            $location.path(route);
-        }
-
-        else if (route == '/assets' && UserDataCache.userData.monthly_income) {
-            $location.path(route);
-        }
-
-        else if (route == '/expenses' && UserDataCache.userData.total_assets) {
-            $location.path(route);
-        }
-
-        else if (route == '/time-to-retirement' && UserDataCache.userData.monthly_expenses) {
-            $location.path(route);
-        }
-
-        else {
-            return;
-        }
-    };
-
-    $scope.converterLink = function() {
-
-            if (UserDataCache.userData.monthly_expenses) {
-                $location.path('/dollars-to-time');
-            }
-
-            else {
-                $location.path('/income');
-            }
-        };
 
     $scope.logoLink = function() {
 
         if (UserDataCache.userData.monthly_expenses) {
-            $location.path('/time-to-retirement');
+            $state.go('time-to-retirement', {} );
         }
 
         else if (!UserDataCache.userData.monthly_income) {
-            $location.path('/');
+            $state.go('intro', {} );
         }
 
         else {
-            $location.path('/income');
+            $state.go('income', {} );
         }
     };
 
-    $scope.tabsAreVisible = function() {
+    $scope.openLoginModal = function() {
 
-        non_visible_pages = [
-            '/dollars-to-time',
-            '/about',
-            '/privacy',
-            '/terms-of-service',
-            '/time-to-retirement',
-            '/'
-        ];
-
-        return non_visible_pages.indexOf($location.path() ) == -1;
+        modalService.showModal({}, 'loginModalOptions');
     };
 
-    $scope.openLoginModal = function(size, showSignUp) {
+    $scope.openSignUpModal = function() {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/login_modal.html',
-            controller: 'LoginModalInstanceCtrl',
-            size: size,
-            backdrop: true,
-            resolve: {
-                showSignUp: function() {
-                    return showSignUp;
-                }
-            }
-        });
+        modalService.showModal({}, 'signUpModalOptions');
     };
 
-    $scope.openAccountModal = function(size) {
+    $scope.openAccountModal = function() {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/account_modal.html',
-            controller: 'AccountModalInstanceCtrl',
-            size: size,
-            backdrop: true,
-        });
+        modalService.showModal({}, 'accountModalOptions');
     };
 
     $scope.toggled = function(open) {
@@ -223,12 +286,14 @@ FinancialFreedom.controller('HeaderController', function($scope, $rootScope, $lo
     $scope.logout = function() {
 
         AuthService.data.logout();
-        $scope.goToRoute('/');
+        $state.go('intro', {} );
     };
 
 });
 
-FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $location, $timeout, AuthService, Session, UserDataCache, showSignUp) {    
+FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootScope, $location, $timeout, AuthService, Session, UserDataCache, $modalInstance, modalService) {    
+
+    $scope.showSignUp = modalService.showSignUp;
 
     $scope.loginFailureMessage = '';
     $scope.signUpFailureMessage = '';
@@ -288,8 +353,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.showSignUp = showSignUp;
-
 });
 
 FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache, AuthService) {    
@@ -332,7 +395,7 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
 
 });
 
-FinancialFreedom.controller('InputController', function($scope, $location, UserDataCache) {
+FinancialFreedom.controller('InputController', function($scope, $location, UserDataCache, DollarsToTimeService) {
 
     $scope.inputVal = {};
     
@@ -346,19 +409,35 @@ FinancialFreedom.controller('InputController', function($scope, $location, UserD
         UserDataCache.userData.monthly_expenses = new_values[2];
     });
     
-    $scope.submitIncomeForm = function() {
-        $location.path('/assets');
-    };
+    $scope.setupStep = function(route) {
+        
+        if (route === '/income') {
+            $location.path(route);
+        }
 
-    $scope.submitAssetsForm = function() {
-        $location.path('/expenses');
-    };
+        else if (route === '/assets' && UserDataCache.userData.monthly_income) {
+            $location.path(route);
+        }
 
-    $scope.submitExpensesForm = function() {
-        $location.path('/time-to-retirement');
-    };
+        else if (route === '/expenses' && UserDataCache.userData.total_assets) {
+            $location.path(route);
+        }
 
-    
+        else if (route === '/end-flow' && UserDataCache.userData.monthly_expenses) {
+
+            if (DollarsToTimeService.redirectToConverter) {
+                $location.path('/dollars-to-time');
+            }
+
+            else {
+                $location.path('/time-to-retirement');
+            }
+        }
+
+        else {
+            return;
+        }
+    };    
 
 });
 
@@ -377,26 +456,16 @@ FinancialFreedom.controller('AboutController', ['$scope', function($scope) {
 }]);
 
 
-FinancialFreedom.controller('TimeToRetirementController', function($scope, $modal, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserDataCache) {
+FinancialFreedom.controller('TimeToRetirementController', function($scope, RetirementCalculatorService, CreateRetirementGraphService, AuthService, UserDataCache, modalService) {
 
     var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
 
     $scope.showSteps = false;
     $scope.editCollapsed = true;
 
-    $scope.openLoginModal = function(size, showSignUp) {
+    $scope.openLoginModal = function() {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/login_modal.html',
-            controller: 'LoginModalInstanceCtrl',
-            size: size,
-            backdrop: true,
-            resolve: {
-                showSignUp: function() {
-                    return showSignUp;
-                }
-            }
-        });
+        modalService.showModal({}, 'signUpModalOptions').then(function (result) {});
     };
 
     $scope.incrementOutputValue = function(output_value, increment) {
@@ -635,11 +704,27 @@ function compareTo () {
 function aboundFooter () {
     return {
         restrict: 'E',
-        templateUrl: "partials/footer.html"
+        templateUrl: 'partials/footer.html'
+    };
+}
+
+function aboundHeader () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/header.html'
+    };
+}
+
+function stepHeader () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/step_header.html'
     };
 }
 
 FinancialFreedom.directive("aboundFooter", aboundFooter);
+FinancialFreedom.directive("aboundHeader", aboundHeader);
 FinancialFreedom.directive("compareTo", compareTo);
+FinancialFreedom.directive("stepHeader", stepHeader);
 FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);
 FinancialFreedom.factory("UserDataCache",UserDataCache);

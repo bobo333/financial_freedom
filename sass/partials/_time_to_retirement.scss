@@ -205,6 +205,7 @@ $signup_button_hover_color: #C58C01;
     font-size: $base_font_size * 1.5;
     @include hover-animation(all);
     width: 20px;
+    text-decoration: none;
 
     &:hover {
         color: rgba($dark_green,0.8);
@@ -212,7 +213,11 @@ $signup_button_hover_color: #C58C01;
 }
 
 .popover {
-    @include box-shadow(rgba(#000,0.1) 0px 2px 2px)
+    @include box-shadow(rgba(#000,0.1) 0px 2px 2px);
+}
+
+.popover-inner {
+    opacity: 1;
 }
 
 #explain-text {
@@ -705,15 +710,20 @@ input[type="text"].form-control {
     height: 100vh;
     width: 100vw;
     background: $light_bg_green;
-    padding-top: 30%;
+    padding-top: 10%;
 
     @include min-screen($screen_sm_min) {
-        padding-top: 15%;
+        padding-top: 10%;
     }
 }
 
 .calc-title {
     text-align: center;
+    font-size: 2rem;
+    @include min-screen($screen_sm_min) {
+        font-size: 4rem;
+    }
+
 }
 
 .calc-time-label {
@@ -750,17 +760,47 @@ input[type="text"].form-control {
     margin-right: auto;
 }
 
+.input-type-active {
+    font-weight: $brand_font_weight_bold;
+    text-decoration: underline;
+    color: $dark_green;
+}
+
 .calc-output-subtext {
     font-size: 1.1em;
-    margin-top: 20px;
+    margin-top: 0px;
     opacity: 0.6;
     line-height: 1.2em;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    width: 100%;
     text-align: center;
 }
 
-.calc-output-inactive{
-    opacity: 0.3;
+.calc-val-type-control-wrapper {
+    width: 100%;
+}
+
+.calc-val-type-control {
+    @extend .calc-output-subtext;
+    text-align: left;
+    margin-left: 15px;
+    width: auto;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.calc-output-inactive {
+    opacity: 0.25;
+}
+
+.output-explain {
+    margin-top: 20px;
+}
+
+.converter-info-icon {
+    display: inline-block;
+    margin-top: 1px;
+    margin-left: 5px;
 }

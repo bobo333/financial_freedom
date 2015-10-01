@@ -19,7 +19,7 @@
             	<i class="fa fa-remove icon-answer"></i>
             </div>
      	</div>
-        <div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a href="#/income">Try calculating your countdown with a lower expense rate or higher income.</a>
+        <div class="col-xs-12 no-retire-message">With your current cash flow trajectory, your future passive income will never safely exceed your expenses. <a ui-sref="income">Try calculating your countdown with a lower expense rate or higher income.</a>
         </div>
     </div>
     <div class="row cannot-retire col-xs-12 col-sm-8 col-sm-offset-2" ng-show="retirement.already_retired_shown">
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="col-md-8 col-xs-12 assumptions-section">
-                <div id="explain-text">Financial independence is based on <a href="#/about">the 4% Safe Withdrawal Rate</a>
+                <div id="explain-text">Financial independence is based on <a ui-sref="about">the 4% Safe Withdrawal Rate</a>
                     <span class="assumptions-title-wrapper">
                         <button type="button" class="btn btn-default assumptions-toggle" ng-click="editCollapsed = !editCollapsed"><span ng-show="editCollapsed">Show</span><span ng-show="!editCollapsed">Hide</span> assumptions</button>
                     </span>
@@ -166,7 +166,7 @@
 	    					</div>
 	    				</div>
 	    			</a>
-	    			<a href="http://www.amazon.com/gp/product/0547884591/" target="_blank">
+	    			<a href="http://www.amazon.com/gp/product/0547884591/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0547884591&linkCode=as2&tag=lifmadeff-20&linkId=YC3RXPD7FNH7QQP2" target="_blank">
 	    				<div class="action-card-container expenses-card col-md-3" id="cooking">
 	    					<div class="action-card">
 	    						<img src="img/austrian_breakfast.jpg">
@@ -176,7 +176,7 @@
 	    					</div>
 	    				</div>
 	    			</a>
-	    			<a href="http://www.amazon.com/gp/product/B00DR0PDNE/" target="_blank">
+	    			<a href="http://www.amazon.com/gp/product/B00DR0PDNE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00DR0PDNE&linkCode=as2&tag=lifmadeff-20&linkId=VFC4UMA2NRMGIA4Y" target="_blank">
 	    				<div class="action-card-container expenses-card col-md-3">
 	    					<div class="action-card">
 	    						<img src="img/chromecast.jpeg">
@@ -186,7 +186,7 @@
 	    					</div>
 	    				</div>
 	    			</a>
-	    			<a href="http://www.amazon.com/gp/product/1589235673/" target="_blank">
+	    			<a href="http://www.amazon.com/gp/product/1589235673/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1589235673&linkCode=as2&tag=lifmadeff-20&linkId=MMD44DWIRQEVPO7N" target="_blank">
 	    				<div class="action-card-container expenses-card col-md-3">
 	    					<div class="action-card">
 	    						<img src="img/hammering.jpeg">
@@ -208,7 +208,7 @@
     					<div class="action-title">Grow assets</div>
     					<div ng-show="retirement.graph_shown" class="suggested-amount-content">Invest <span class="suggested-amount-value">${{contributionAmount}}/month</span> to reach your target <i class="fa fa-question-circle actions-help-icon" popover="Your time until financial independence depends on you investing your remaining cash after expenses are substracted from income" popover-trigger="mouseenter" popover-placement="bottom" Popover-animation="true"></i></div>
     				</div>
-    				<a href="https://www.betterment.com/" target="_blank">
+    				<a href="http://betterment.evyy.net/c/143546/96536/2299" target="_blank">
 	    				<div class="action-card-container assets-card col-md-6" id="roboadvisor">
 	    					<div class="action-card">
 		    					<img src="img/betterment.png">
@@ -244,11 +244,11 @@
 	    				</div>
 	    			</a>
     			</div>
-    			<div class="actions-container debts-actions-container col-xs-12 col-md-3" target="_blank">
+    			<div class="actions-container debts-actions-container col-xs-12 col-md-3">
     				<div class="actions-container-title col-xs-12">
     					<div class="action-title" ng-class="{ 'add-title-margin': retirement.graph_shown}">Reduce debt</div>
     				</div>
-    				<a href="http://unbury.me/">
+    				<a href="http://unbury.me/" target="_blank">
 	    				<div class="action-card-container debts-card col-md-12" id="which-loans">
 	    					<div class="action-card">
 		    					<img src="img/creditcards.jpeg">
