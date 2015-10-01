@@ -6,8 +6,13 @@
 		<div class="calc-output-subtext">See how changes in expenses or income affect the time until financial independence.</div>
 
 		<div class="input-type-wrapper">
-			<div class="calc-val-type-control" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median American<i class="fa fa-question-circle output-info-icon converter-info-icon" popover="5% savings rate, starting from $0 in net worth." popover-animation="true" popover-trigger="mouseenter" popover-placement="bottom" ></i></div>
-			<div class="calc-val-type-control" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="showUsersValues()">You</div>
+			<div class="calc-val-type-control-wrapper">
+				<div class="calc-val-type-control" ng-class="{ 'input-type-active': calc_values.useCustomVals}" ng-click="switchInputVals('american')">Median US citizen</div>
+				<i class="fa fa-question-circle output-info-icon converter-info-icon" popover="5% savings rate, starting from $0 in net worth." popover-animation="true" popover-trigger="mouseenter" popover-placement="bottom" ></i>
+			</div>
+			<div class="calc-val-type-control-wrapper">
+				<div class="calc-val-type-control" ng-class="{ 'input-type-active': !calc_values.useCustomVals}" ng-click="showUsersValues()">You</div>
+			</div>
 		</div>
 
 		<div class="calc-container">
