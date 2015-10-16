@@ -502,7 +502,8 @@ FinancialFreedom.controller('TimeToRetirementController', function($scope, Retir
     };
     
     $(window).resize(function() {
-        CreateRetirementGraphService.createRetirementGraph(retirement_data);
+        var retirement_data = RetirementCalculatorService.calculateRetirementInfo();
+        $scope.refreshOutput(retirement_data);
     });
 
     $scope.loadData = function() {

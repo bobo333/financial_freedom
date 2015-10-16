@@ -2,6 +2,17 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
+        if (!retirement_data.can_retire) {
+            d3.select("svg").attr("style","opacity:0.2");
+            d3.select(".tooltip").remove();
+            d3.select(".cannot_retire_message").remove();
+
+            var cannot_retire_message = d3.select('#retirement-graph').append("rect")
+                .attr("class", "cannot_retire_message")
+                .text('graph will show here if you can retire');
+            return;
+        }
+
         var graph_points = retirement_data.graph_points;
         var intersection_point = retirement_data.intersection_point;
         var show_tooltip = false;
@@ -13,7 +24,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         pixels_per_axis_label = 75;
 
         if ($(".tooltip").length > 0) {
-            $( ".tooltip" ).remove();
+            $(".tooltip" ).remove();
         }
 
         var margin = {top: 20, right: 10, bottom: 30, left: 75},
@@ -168,12 +179,20 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
     };
     
     function addToolTipText(retirement_data) {
-        var date = retirement_data.intersection_point.x;
-        var expenses = retirement_data.intersection_point.y;
-        var asset_need = 25 * expenses * 12;
-        asset_need = Math.round(asset_need);
 
-        return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
+        if (retirement_data.intersection_point) {
+            var date = retirement_data.intersection_point.x;
+            var expenses = retirement_data.intersection_point.y;
+            var asset_need = 25 * expenses * 12;
+            asset_need = Math.round(asset_need);
+
+            return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
+
+        }
+
+        else {
+            return "You will not be able to retire given your current situation.";
+        }
         
     }
 
