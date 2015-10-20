@@ -50,8 +50,8 @@
 }
 
 .lp-button {
-	@include hover-animation(all);
-	@include border-radius(10px);
+	//@include hover-animation(all);
+	border-radius: 10px;
 	border: white solid 2px;
 	color: white;
 	background: black;

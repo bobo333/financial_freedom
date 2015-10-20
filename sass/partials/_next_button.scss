@@ -10,25 +10,25 @@ $next-button-icon-color: $next-button-border-color;
     background: $light_brown_bg;
     text-align: center;
     color: $next-button-icon-color;
-    @include hover-animation(all);
+    //@include hover-animation(all);
     border: $next-button-border-color solid 2px;
     display: block;
     margin: 60px auto auto auto;
-    @include border-radius(50%);
+    border-radius: 50%;
     position: relative;
 
     &.ng-valid {
         opacity: 1;
         cursor: pointer;
-        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
+        box-shadow: 0px 0px 2px rgba(0,0,0,0.12);
     }
 
     &:hover {
-        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
+        box-shadow: 0px 0px 2px rgba(0,0,0,0.12);
     }
 
     &:click {
-        @include box-shadow(#fff, 0px);
+        box-shadow: 0px #fff;
     }
     
     &[type=submit] {
@@ -41,7 +41,7 @@ $next-button-icon-color: $next-button-border-color;
 .next-button.ng-valid {
     opacity: 1;
     cursor: pointer;
-    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.12);
 }
 
 .next-button-wrapper {

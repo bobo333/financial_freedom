@@ -407,6 +407,7 @@ FinancialFreedom.controller('InputController', function($scope, $location, UserD
         UserDataCache.userData.monthly_income = new_values[0];
         UserDataCache.userData.total_assets = new_values[1];
         UserDataCache.userData.monthly_expenses = new_values[2];
+        console.log(UserDataCache.userData.total_assets);
     });
     
     $scope.setupStep = function(route) {

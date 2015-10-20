@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	  	sass: {     
 			dist: {   
 		    	files: {
-		      	'./css/main.css': './compass/stylesheets/main.scss'
+		      	'./stylesheets/output/screen.css': './sass/screen.scss'
 		      }
 		    }
 	    },
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		      livereload: true,
 		  },
 		  styles: {
-		    files: ['./compass/sass/*'],
+		    files: ['./sass/*'],
 		    tasks: ['sass']
 		  },
 		  html: {

@@ -1,12 +1,5 @@
-// Use Compass ('cause it rocks!)
-@import "compass/css3";
-@import "compass/reset";
-@import "compass/utilities";
-@import "compass/css3/selection";
-@import "compass/css3/transform";
-
 // Sass media queries
-@import "../bower_components/sass-mediaqueries/media-queries";
+@import "../../bower_components/sass-mediaqueries/media-queries";
 
 // Breakpoints
 $screen_sm_min: 768px;
@@ -77,11 +70,11 @@ $body_text_color: #404040;
   transform: translateY(-50%);
 }
 
-@mixin hover-animation($property) {
-    @include transition-property($property);
-    @include transition-timing-function(ease);
-    @include transition-duration(0.3s);
-}
+// @mixin hover-animation($property) {
+//     @include transition-property($property);
+//     @include transition-timing-function(ease);
+//     @include transition-duration(0.3s);
+// }
 
 // Borders
 
@@ -93,6 +86,30 @@ $section-bottom-border: 1px solid rgba($primary_green,0.12);
   label {
     font-size: 1.5em;
     margin-bottom: 5px;
+  }
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
   }
 }
 
@@ -117,7 +134,3 @@ $section-bottom-border: 1px solid rgba($primary_green,0.12);
 }
 
 // Links
-
-
-
-//@import "../modules/*";

@@ -1,44 +1,44 @@
 
-.view-animate.ng-enter { 
-	@include transition-property(all);
-  	@include transition-duration(0.4s);
-  	@include transition-timing-function(linear);
-	opacity: 0;
-}
+// .view-animate.ng-enter { 
+// 	@include transition-property(all);
+//   	@include transition-duration(0.4s);
+//   	@include transition-timing-function(linear);
+// 	opacity: 0;
+// }
 
-.view-animate.ng-enter-active {
-	@include transition-property(all);
-  	@include transition-duration(0.4s);
-  	@include transition-timing-function(linear);
-  	opacity: 1;
-}
+// .view-animate.ng-enter-active {
+// 	@include transition-property(all);
+//   	@include transition-duration(0.4s);
+//   	@include transition-timing-function(linear);
+//   	opacity: 1;
+// }
 
-.hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
+// .hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
 
-    @include transition-property(all);
-    @include transition-duration(0.4s);
-    @include transition-timing-function(linear);
-    display:block!important;
-}
-.hide-fade.ng-hide-add.ng-hide-add-active,
-.hide-fade.ng-hide-remove {
-    opacity:0;
-}
-.hide-fade.ng-hide-add,
-.hide-fade.ng-hide-remove.ng-hide-remove-active {
-    opacity:1;
-}
+//     @include transition-property(all);
+//     @include transition-duration(0.4s);
+//     @include transition-timing-function(linear);
+//     display:block!important;
+// }
+// .hide-fade.ng-hide-add.ng-hide-add-active,
+// .hide-fade.ng-hide-remove {
+//     opacity:0;
+// }
+// .hide-fade.ng-hide-add,
+// .hide-fade.ng-hide-remove.ng-hide-remove-active {
+//     opacity:1;
+// }
 
-.text-fade-in.ng-enter {
-    @include transition-property(all);
-    @include transition-duration(0.4s);
-    @include transition-timing-function(linear);
-    opacity: 0;
-}
+// .text-fade-in.ng-enter {
+//     @include transition-property(all);
+//     @include transition-duration(0.4s);
+//     @include transition-timing-function(linear);
+//     opacity: 0;
+// }
 
-.text-fade-in.ng-enter-active {
-    @include transition-property(all);
-    @include transition-duration(0.4s);
-    @include transition-timing-function(linear);
-    opacity: 1;
-}
+// .text-fade-in.ng-enter-active {
+//     @include transition-property(all);
+//     @include transition-duration(0.4s);
+//     @include transition-timing-function(linear);
+//     opacity: 1;
+// }

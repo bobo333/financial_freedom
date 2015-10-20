@@ -187,13 +187,11 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             asset_need = Math.round(asset_need);
 
             return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
-
         }
 
         else {
             return "You will not be able to retire given your current situation.";
         }
-        
     }
 
     function drawExpensesLabel(chart, label_x, expenses_label_y) {
