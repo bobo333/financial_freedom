@@ -121,7 +121,7 @@ $signup_button_hover_color: #C58C01;
     background: $primary_green;
     width: $main_bubble_diameter;
     height: $main_bubble_diameter;
-    border-radius: 50%;
+    @include border-radius(50%);
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -203,7 +203,7 @@ $signup_button_hover_color: #C58C01;
     display: block;
     margin: 10px auto auto auto;
     font-size: $base_font_size * 1.5;
-    //@include hover-animation(all);
+    @include hover-animation(all);
     width: 20px;
     text-decoration: none;
 
@@ -213,7 +213,7 @@ $signup_button_hover_color: #C58C01;
 }
 
 .popover {
-    box-shadow: 0px 2px 2px rgba(#000,0.1);
+    @include box-shadow(rgba(#000,0.1) 0px 2px 2px);
 }
 
 #explain-text {
@@ -226,12 +226,12 @@ $signup_button_hover_color: #C58C01;
 
 input[type="text"].form-control {
     text-align: center;
-    box-shadow: 0px 0px 0px #fff;
+    @include box-shadow(#fff 0px 0px 0px);
     height: 50px;
     font-size: $base_font_size * 2;
     margin: auto auto;
     display: inline-block;
-    border-radius: 5px;
+    @include border-radius(5px);
     border: 1px solid rgba($dark_green,0.2);
 }
 
@@ -278,8 +278,8 @@ input[type="text"].form-control {
     outline: none !important;
     background: $control-button-background;
     color: $dark_green;
-    box-shadow: none !important;
-    //@include hover-animation(all);
+    @include box-shadow(none !important);
+    @include hover-animation(all);
     border: $control-button-border;
 
     &:focus, &:visited {
@@ -371,7 +371,7 @@ input[type="text"].form-control {
     color: $dark_green;
     display: block;
     border: $control-button-border;
-    //@include hover-animation(all);
+    @include hover-animation(all);
 
     &:focus, &:visited {
         background: $control-button-background;
@@ -413,8 +413,7 @@ input[type="text"].form-control {
 }
 
 .expenses-actions-container {
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    @include border-top-radius(5px);
     border-bottom: $actions-border;
 }
 
@@ -425,24 +424,23 @@ input[type="text"].form-control {
 }
 
 .assets-actions-container {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    @include border-bottom-left-radius(0px);
     border-top: none;
     
     @include min-screen($screen_sm_min) {
         border-right: none;
-        border-bottom-left-radius: 5px;
+        @include border-bottom-left-radius(5px);
     }
 }
 
 .debts-actions-container {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    @include border-bottom-right-radius(5px);
+    @include border-bottom-left-radius(5px);
     border-top: none;
     
     @include min-screen($screen_sm_min) {
         border-left: none;
-        border-bottom-left-radius: 0px;
+        @include border-bottom-left-radius(0px);
     }
 }
 
@@ -465,12 +463,12 @@ input[type="text"].form-control {
     background: #000;
     color: #fff;
     position: relative;
-    border-radius: 5px;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12);
-    //@include hover-animation(all);
+    @include border-radius(5px);
+    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px);
+    @include hover-animation(all);
 
     &:hover {
-            transform: translateY(-5px);
+            @include transform(translateY(-5px));
         }
 }
 
@@ -485,16 +483,15 @@ input[type="text"].form-control {
         height: 40px;
         margin: auto auto;
         font-size: 1.1em;
-        border-radius: 0px;
-        border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px;
+        @include border-radius(0px);
+        @include border-bottom-radius(5px);
     }
 
     img {
         display: block;
         width: 100%;
         height: 100%;
-        border-radius: 5px;
+        @include border-radius(5px);
     }
 }
 
@@ -544,7 +541,7 @@ input[type="text"].form-control {
     color: rgba($dark_green,0.4);
     margin: auto auto auto 5px;
     font-size: 1.2em;
-    //@include hover-animation(all);
+    @include hover-animation(all);
     width: 20px;
 
     &:hover {
@@ -584,7 +581,7 @@ input[type="text"].form-control {
 
 .no-graph-message-wrapper {
     background: rgba(#fff,0.7);
-    border-radius: 10px;
+    @include border-radius(10px);
     padding: 20px 20px 20px 20px;
     margin: 0px auto;
     position: absolute;
@@ -630,8 +627,8 @@ input[type="text"].form-control {
 
 .sign-up-container {
     display: inline-block;
-    border-radius: 10px;
-    transform: translateY(-50%);
+    @include border-radius(10px);
+    @include translateY(-50%);
     border: 1px solid $secondary_brown;
     background: $light_brown_bg;
     margin-left: auto;
@@ -649,7 +646,7 @@ input[type="text"].form-control {
     color: white;
     border: none;
     font-weight: $brand_font_weight_bold;
-    //@include hover-animation(all);
+    @include hover-animation(all);
     
     &:hover, &:focus, &:active, &:visited {
         background: $secondary_brown;

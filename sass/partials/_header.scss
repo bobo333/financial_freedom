@@ -25,7 +25,7 @@ $nav-border-radius: 25px;
     font-family: $base_font_family;
     color: rgba($primary_green, 0.7);
     padding: 15px 40px;
-    //@include hover-animation(color);
+    @include hover-animation(color);
     display: block;
 
 	a, a:hover {
@@ -57,7 +57,7 @@ $nav-border-radius: 25px;
 	font-weight: $brand_font_weight_bold;
     color: $nav-font-color;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
-    //@include hover-animation(color);
+    @include hover-animation(color);
     a, a:hover {
         text-decoration: none;
     }
@@ -94,8 +94,7 @@ $nav-border-radius: 25px;
     @include min-screen($screen_sm_min) {
         top: 10px;
         width: 50%;
-        border-bottom-right-radius: $nav-border-radius; 
-        border-bottom-left-radius: $nav-border-radius; 
+        @include border-bottom-radius($nav-border-radius);
     }
 }
 
@@ -122,12 +121,12 @@ $nav-border-radius: 25px;
         font-size: $base_font_size * 1.5;
         margin-right: -4px; // correcting some random margin
         border-right: 1px solid rgba($dark_green,0.3);
-        //@include hover-animation(all);
+        @include hover-animation(all);
 
         &:first-child {
 
             @include min-screen($screen_sm_min) {
-                border-bottom-left-radius: $nav-border-radius;
+                @include border-bottom-left-radius($nav-border-radius);
             }     
         }
         
@@ -136,7 +135,7 @@ $nav-border-radius: 25px;
             
 
             @include min-screen($screen_sm_min) {
-                border-bottom-right-radius: $nav-border-radius;
+                @include border-bottom-right-radius($nav-border-radius);
             }
 
             border-right: 0px solid #000;
@@ -178,7 +177,7 @@ $nav-border-radius: 25px;
     li {
         .nav-item-custom {
             cursor: pointer;
-            //@include hover-animation(all);
+            @include hover-animation(all);
             color: rgba($nav-font-color, 0.7);
             font-size: 1.2em;
 

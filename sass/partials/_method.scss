@@ -57,7 +57,8 @@ $method-section-border-radius: 15px;
 	background: #fff; 
 	width: 100%;
 	border: transparent;
-	border-radius: 0px;
+	
+	@include border-radius(0px);
 
 }
 
@@ -81,7 +82,7 @@ $method-section-border-radius: 15px;
 	font-size: 0.6em;
 	color: $primary_green;
 	opacity: 0.7;
-	//@include hover-animation(opacity);
+	@include hover-animation(opacity);
 
 	&:hover {
         cursor: pointer;

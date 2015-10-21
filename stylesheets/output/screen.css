@@ -1,80 +1,214 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 41, ../../sass/partials/_base.scss */
 h2 {
   font-size: 3em;
-  font-weight: 600; }
+  font-weight: 600;
+}
 
+/* line 46, ../../sass/partials/_base.scss */
 h3 {
   font-size: 2em;
-  font-weight: 400; }
+  font-weight: 400;
+}
 
+/* line 93, ../../sass/partials/_base.scss */
 .form-group label {
   font-size: 1.5em;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+}
 
+/* line 101, ../../sass/partials/_base.scss */
 .btn-primary {
-  background: #2B8E69; }
-  .btn-primary[disabled] {
-    background: #2B8E69; }
-  .btn-primary:hover {
-    background: #0D412E; }
+  background: #2b8e69;
+}
+/* line 104, ../../sass/partials/_base.scss */
+.btn-primary[disabled] {
+  background: #2b8e69;
+}
+/* line 108, ../../sass/partials/_base.scss */
+.btn-primary:hover {
+  background: #0d412e;
+}
 
+/* line 113, ../../sass/partials/_base.scss */
 .btn-secondary {
   background: white;
-  border: 2px solid #2B8E69;
-  color: #2B8E69; }
+  border: 2px solid #2b8e69;
+  color: #2b8e69;
+}
 
+/* line 14, ../../sass/partials/_header.scss */
 .header {
   height: 80px;
   position: relative;
-  margin-top: 20px 0px 20px 0px; }
+  margin-top: 20px 0px 20px 0px;
+}
 
+/* line 20, ../../sass/partials/_header.scss */
 .nav {
-  margin-top: 3px; }
+  margin-top: 3px;
+}
 
+/* line 24, ../../sass/partials/_header.scss */
 .navbar-custom {
   font-family: "Source Sans Pro", sans-serif;
   color: rgba(43, 142, 105, 0.7);
   padding: 15px 40px;
-  display: block; }
-  .navbar-custom a, .navbar-custom a:hover {
-    color: #25A793;
-    text-decoration: none; }
-  .navbar-custom:hover {
-    color: #25A793; }
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  display: block;
+}
+/* line 31, ../../sass/partials/_header.scss */
+.navbar-custom a, .navbar-custom a:hover {
+  color: #25a793;
+  text-decoration: none;
+}
+/* line 36, ../../sass/partials/_header.scss */
+.navbar-custom:hover {
+  color: #25a793;
+}
 
+/* line 42, ../../sass/partials/_header.scss */
 .logo-name-wrapper {
   height: 100%;
   position: relative;
   display: inline-block;
   vertical-align: top;
-  margin-top: -1px; }
-  @media screen and (min-width: 768px) {
-    .logo-name-wrapper {
-      margin-top: 3px; } }
+  margin-top: -1px;
+}
+@media screen and (min-width: 768px) {
+  /* line 42, ../../sass/partials/_header.scss */
+  .logo-name-wrapper {
+    margin-top: 3px;
+  }
+}
 
+/* line 54, ../../sass/partials/_header.scss */
 .logo-name {
   font-family: "Oxygen", sans-serif;
   font-size: 1.5em;
   font-weight: 700;
   color: white;
-  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1); }
-  .logo-name a, .logo-name a:hover {
-    text-decoration: none; }
-  .logo-name:hover {
-    color: white;
-    cursor: pointer; }
-  @media screen and (min-width: 768px) {
-    .logo-name {
-      font-size: 2em; } }
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 61, ../../sass/partials/_header.scss */
+.logo-name a, .logo-name a:hover {
+  text-decoration: none;
+}
+/* line 65, ../../sass/partials/_header.scss */
+.logo-name:hover {
+  color: white;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  /* line 54, ../../sass/partials/_header.scss */
+  .logo-name {
+    font-size: 2em;
+  }
+}
 
+/* line 75, ../../sass/partials/_header.scss */
 .navbar {
   border: none;
   margin-bottom: 0px !important;
   background: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   border-bottom-style: solid;
-  border-bottom-color: #2B8E69;
-  border-bottom-width: 3px; }
+  border-bottom-color: #2b8e69;
+  border-bottom-width: 3px;
+}
 
+/* line 85, ../../sass/partials/_header.scss */
 .tabs-wrapper {
   position: fixed;
   top: 0px;
@@ -82,26 +216,40 @@ h3 {
   right: 0px;
   background: rgba(13, 65, 46, 0.2);
   height: 50px;
-  margin: 82px auto auto auto; }
-  @media screen and (min-width: 768px) {
-    .tabs-wrapper {
-      top: 10px;
-      width: 50%;
-      border-bottom-right-radius: 25px;
-      border-bottom-left-radius: 25px; } }
+  margin: 82px auto auto auto;
+}
+@media screen and (min-width: 768px) {
+  /* line 85, ../../sass/partials/_header.scss */
+  .tabs-wrapper {
+    top: 10px;
+    width: 50%;
+    -moz-border-radius-bottomleft: 25px;
+    -webkit-border-bottom-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    -moz-border-radius-bottomright: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+}
 
+/* line 101, ../../sass/partials/_header.scss */
 .tab-text {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+}
 
 @media screen and (min-width: 768px) {
+  /* line 105, ../../sass/partials/_header.scss */
   .header-tabs {
     width: 100%;
     margin: auto auto;
-    height: 98px; } }
+    height: 98px;
+  }
+}
+/* line 113, ../../sass/partials/_header.scss */
 .header-tabs .tab {
   font-family: 'Oxygen', sans-serif;
   display: inline-block;
@@ -109,101 +257,193 @@ h3 {
   width: 33.3%;
   text-align: center;
   background: none;
-  color: #0D412E;
-  font-size: 30px;
+  color: #0d412e;
+  font-size: 19.5px;
   margin-right: -4px;
-  border-right: 1px solid rgba(13, 65, 46, 0.3); }
-  @media screen and (min-width: 768px) {
-    .header-tabs .tab:first-child {
-      border-bottom-left-radius: 25px; } }
+  border-right: 1px solid rgba(13, 65, 46, 0.3);
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+@media screen and (min-width: 768px) {
+  /* line 126, ../../sass/partials/_header.scss */
+  .header-tabs .tab:first-child {
+    -moz-border-radius-bottomleft: 25px;
+    -webkit-border-bottom-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+}
+/* line 133, ../../sass/partials/_header.scss */
+.header-tabs .tab:last-child {
+  width: 33.4%;
+  border-right: 0px solid #000;
+}
+@media screen and (min-width: 768px) {
+  /* line 133, ../../sass/partials/_header.scss */
   .header-tabs .tab:last-child {
-    width: 33.4%;
-    border-right: 0px solid #000; }
-    @media screen and (min-width: 768px) {
-      .header-tabs .tab:last-child {
-        border-bottom-right-radius: 25px; } }
-  .header-tabs .tab.active {
-    font-weight: bold;
-    background: rgba(13, 65, 46, 0.6);
-    color: white; }
-    .header-tabs .tab.active:hover {
-      background: rgba(13, 65, 46, 0.6); }
-  .header-tabs .tab:hover {
-    cursor: pointer;
-    background: rgba(13, 65, 46, 0.1); }
+    -moz-border-radius-bottomright: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+}
+/* line 144, ../../sass/partials/_header.scss */
+.header-tabs .tab.active {
+  font-weight: bold;
+  background: rgba(13, 65, 46, 0.6);
+  color: white;
+}
+/* line 149, ../../sass/partials/_header.scss */
+.header-tabs .tab.active:hover {
+  background: rgba(13, 65, 46, 0.6);
+}
+/* line 154, ../../sass/partials/_header.scss */
+.header-tabs .tab:hover {
+  cursor: pointer;
+  background: rgba(13, 65, 46, 0.1);
+}
 
 @media screen and (min-width: 768px) {
+  /* line 164, ../../sass/partials/_header.scss */
   .navbar-right li {
-    margin-right: 25px; }
+    margin-right: 25px;
+  }
+  /* line 169, ../../sass/partials/_header.scss */
   .navbar-right .dropdown-menu li {
-    margin-right: 0px; } }
+    margin-right: 0px;
+  }
+}
+/* line 178, ../../sass/partials/_header.scss */
 .nav li .nav-item-custom {
   cursor: pointer;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.2em; }
-  .nav li .nav-item-custom:hover {
-    background: white; }
+  font-size: 1.2em;
+}
+/* line 184, ../../sass/partials/_header.scss */
+.nav li .nav-item-custom:hover {
+  background: white;
+}
 
+/* line 191, ../../sass/partials/_header.scss */
 #brand-logo {
   width: 45px;
   display: inline-block;
   cursor: pointer;
   vertical-align: top;
   margin-right: 10px;
-  margin-top: -2px; }
-  @media screen and (min-width: 768px) {
-    #brand-logo {
-      width: 65px; } }
+  margin-top: -2px;
+}
+@media screen and (min-width: 768px) {
+  /* line 191, ../../sass/partials/_header.scss */
+  #brand-logo {
+    width: 65px;
+  }
+}
 
+/* line 204, ../../sass/partials/_header.scss */
 .navbar-default {
   color: white;
-  background: #2B8E69; }
+  background: #2b8e69;
+}
 
+/* line 209, ../../sass/partials/_header.scss */
 .navbar-default .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.8); }
-  .navbar-default .navbar-nav > li > a:hover {
-    color: white; }
+  color: rgba(255, 255, 255, 0.8);
+}
+/* line 211, ../../sass/partials/_header.scss */
+.navbar-default .navbar-nav > li > a:hover {
+  color: white;
+}
 
+/* line 216, ../../sass/partials/_header.scss */
 .navbar-brand {
-  height: 45px; }
-  @media screen and (min-width: 768px) {
-    .navbar-brand {
-      height: 60px; } }
+  height: 45px;
+}
+@media screen and (min-width: 768px) {
+  /* line 216, ../../sass/partials/_header.scss */
+  .navbar-brand {
+    height: 60px;
+  }
+}
 
+/* line 223, ../../sass/partials/_header.scss */
 #header-brand-wrapper {
-  height: 100%; }
+  height: 100%;
+}
 
+/* line 227, ../../sass/partials/_header.scss */
 .expanded-nav {
-  display: none; }
-  @media screen and (min-width: 768px) {
-    .expanded-nav {
-      display: block; } }
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 227, ../../sass/partials/_header.scss */
+  .expanded-nav {
+    display: block;
+  }
+}
 
+/* line 237, ../../sass/partials/_header.scss */
 #navbar-toggle-custom:hover, #navbar-toggle-custom:active, #navbar-toggle-custom:visited {
   background-color: rgba(255, 255, 255, 0.3);
-  border-color: white; }
+  border-color: white;
+}
+/* line 242, ../../sass/partials/_header.scss */
 #navbar-toggle-custom:focus {
   background-color: rgba(255, 255, 255, 0);
-  border-color: white; }
+  border-color: white;
+}
 
+/* line 248, ../../sass/partials/_header.scss */
 .icon-bar {
-  background-color: white !important; }
+  background-color: white !important;
+}
 
+/* line 252, ../../sass/partials/_header.scss */
 .settings-cog {
   margin-right: 5px;
   font-size: 1.3em;
-  vertical-align: top; }
+  vertical-align: top;
+}
 
+/* line 258, ../../sass/partials/_header.scss */
 .dropdown-menu {
   min-width: 120px;
-  padding: 0px 0px; }
-  .dropdown-menu li a {
-    padding: 10px 10px; }
-  .dropdown-menu a {
-    font-size: 1.3em; }
-  .dropdown-menu a:hover {
-    cursor: pointer; }
+  padding: 0px 0px;
+}
+/* line 264, ../../sass/partials/_header.scss */
+.dropdown-menu li a {
+  padding: 10px 10px;
+}
+/* line 269, ../../sass/partials/_header.scss */
+.dropdown-menu a {
+  font-size: 1.3em;
+}
+/* line 273, ../../sass/partials/_header.scss */
+.dropdown-menu a:hover {
+  cursor: pointer;
+}
 
+/* line 278, ../../sass/partials/_header.scss */
 .auth-alert {
   position: absolute;
   margin-left: auto;
@@ -212,21 +452,31 @@ h3 {
   left: 0;
   right: 0;
   max-width: 500px;
-  z-index: 1040; }
+  z-index: 1040;
+}
 
+/* line 289, ../../sass/partials/_header.scss */
 .nav-content-wrapper {
-  max-width: 960px; }
+  max-width: 960px;
+}
 
+/* line 3, ../../sass/partials/_input.scss */
 .view-content {
-  padding: 0px; }
+  padding: 0px;
+}
 
+/* line 7, ../../sass/partials/_input.scss */
 .dollars-to-time-wrapper.input-wrapper {
   max-width: 615px;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 12, ../../sass/partials/_input.scss */
 .leading-dollar {
-  margin-left: 25px; }
+  margin-left: 25px;
+}
 
+/* line 16, ../../sass/partials/_input.scss */
 input[type="text"].steps {
   width: 150px;
   height: 60px;
@@ -235,433 +485,692 @@ input[type="text"].steps {
   border: none;
   border-bottom-style: solid;
   border-bottom-color: #404040;
-  border-bottom-width: 1px; }
-  @media screen and (min-width: 768px) {
-    input[type="text"].steps {
-      width: 300px;
-      line-height: 1;
-      height: 80px; } }
-  input[type="text"].steps::-webkit-input-placeholder {
-    font-family: 300;
-    font-size: 40px;
-    color: rgba(119, 119, 119, 0.22);
-    font-style: italic;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
-    @media screen and (min-width: 768px) {
-      input[type="text"].steps::-webkit-input-placeholder {
-        font-size: 60px;
-        line-height: 1; } }
+  border-bottom-width: 1px;
+}
+@media screen and (min-width: 768px) {
+  /* line 16, ../../sass/partials/_input.scss */
+  input[type="text"].steps {
+    width: 300px;
+    line-height: 1;
+    height: 80px;
+  }
+}
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"].steps:-moz-placeholder {
+  font-family: 300;
+  font-size: 26px;
+  color: rgba(119, 119, 119, 0.22);
+  font-style: italic;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 768px) {
+  /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps:-moz-placeholder {
-    font-family: 300;
-    font-size: 40px;
-    color: rgba(119, 119, 119, 0.22);
-    font-style: italic;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
-    @media screen and (min-width: 768px) {
-      input[type="text"].steps:-moz-placeholder {
-        font-size: 60px;
-        line-height: 1; } }
+    font-size: 39px;
+    line-height: 1;
+  }
+}
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"].steps::-moz-placeholder {
+  font-family: 300;
+  font-size: 26px;
+  color: rgba(119, 119, 119, 0.22);
+  font-style: italic;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 768px) {
+  /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps::-moz-placeholder {
-    font-family: 300;
-    font-size: 40px;
-    color: rgba(119, 119, 119, 0.22);
-    font-style: italic;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
-    @media screen and (min-width: 768px) {
-      input[type="text"].steps::-moz-placeholder {
-        font-size: 60px;
-        line-height: 1; } }
+    font-size: 39px;
+    line-height: 1;
+  }
+}
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"].steps:-ms-input-placeholder {
+  font-family: 300;
+  font-size: 26px;
+  color: rgba(119, 119, 119, 0.22);
+  font-style: italic;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 768px) {
+  /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps:-ms-input-placeholder {
-    font-family: 300;
-    font-size: 40px;
-    color: rgba(119, 119, 119, 0.22);
-    font-style: italic;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
-    @media screen and (min-width: 768px) {
-      input[type="text"].steps:-ms-input-placeholder {
-        font-size: 60px;
-        line-height: 1; } }
+    font-size: 39px;
+    line-height: 1;
+  }
+}
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"].steps::-webkit-input-placeholder {
+  font-family: 300;
+  font-size: 26px;
+  color: rgba(119, 119, 119, 0.22);
+  font-style: italic;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 768px) {
+  /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  input[type="text"].steps::-webkit-input-placeholder {
+    font-size: 39px;
+    line-height: 1;
+  }
+}
 
+/* line 47, ../../sass/partials/_input.scss */
 .input-title {
   font-size: 3em;
   color: #404040;
   line-height: 70px;
   font-weight: 600;
   text-transform: uppercase;
-  margin-top: 2%; }
-  @media screen and (min-width: 768px) {
-    .input-title {
-      font-size: 5em; } }
+  margin-top: 2%;
+}
+@media screen and (min-width: 768px) {
+  /* line 47, ../../sass/partials/_input.scss */
+  .input-title {
+    font-size: 5em;
+  }
+}
 
+/* line 60, ../../sass/partials/_input.scss */
 .input-title, .step-subheader, .until-fi, .input-field-wrapper {
-  text-align: center; }
-  @media screen and (min-width: 992px) {
-    .input-title, .step-subheader, .until-fi, .input-field-wrapper {
-      text-align: inherit; } }
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  /* line 60, ../../sass/partials/_input.scss */
+  .input-title, .step-subheader, .until-fi, .input-field-wrapper {
+    text-align: inherit;
+  }
+}
 
+/* line 68, ../../sass/partials/_input.scss */
 .step-subheader, .until-fi {
   font-size: 1em;
   margin-top: 5px;
   color: #404040;
-  font-weight: 400; }
-  @media screen and (min-width: 768px) {
-    .step-subheader, .until-fi {
-      font-size: 1.5em;
-      line-height: 1; } }
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  /* line 68, ../../sass/partials/_input.scss */
+  .step-subheader, .until-fi {
+    font-size: 1.5em;
+    line-height: 1;
+  }
+}
 
+/* line 79, ../../sass/partials/_input.scss */
 .input-field-wrapper {
-  font-size: 40px;
+  font-size: 26px;
   font-weight: 300;
   line-height: normal;
-  margin-top: 20px; }
-  @media screen and (min-width: 768px) {
-    .input-field-wrapper {
-      font-size: 60px;
-      margin-top: 20px; } }
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  /* line 79, ../../sass/partials/_input.scss */
+  .input-field-wrapper {
+    font-size: 39px;
+    margin-top: 20px;
+  }
+}
+/* line 90, ../../sass/partials/_input.scss */
+.input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
+  font-size: 13px;
+  margin-left: 20px;
+}
+@media screen and (min-width: 768px) {
+  /* line 90, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
-    font-size: 20px;
-    margin-left: 20px; }
-    @media screen and (min-width: 768px) {
-      .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
-        font-size: 40px;
-        vertical-align: middle; } }
+    font-size: 26px;
+    vertical-align: middle;
+  }
+}
 
+/* line 101, ../../sass/partials/_input.scss */
 input:focus {
   outline: none;
-  box-shadow: none !important; }
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
 
+/* line 106, ../../sass/partials/_input.scss */
 .convert-button {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
+/* line 115, ../../sass/partials/_input.scss */
 .input-type-wrapper {
   display: flex;
   justify-content: center;
   width: 40%;
   margin-top: 5%;
-  margin-left: 7%; }
+  margin-left: 7%;
+}
 
+/* line 6, ../../sass/partials/_next_button.scss */
 .next-button {
   font-family: 'Oxygen', sans-serif;
   width: 80px;
   height: 80px;
-  background: #FCF5EC;
+  background: #fcf5ec;
   text-align: center;
-  color: #DA9B03;
-  border: #DA9B03 solid 2px;
+  color: #da9b03;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  border: #da9b03 solid 2px;
   display: block;
   margin: 60px auto auto auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
-  position: relative; }
-  .next-button.ng-valid {
-    opacity: 1;
-    cursor: pointer;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12); }
-  .next-button:hover {
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12); }
-  .next-button:click {
-    box-shadow: 0px #fff; }
-  .next-button[type=submit] {
-    font-size: 60px;
-    padding: 0;
-    font-family: FontAwesome; }
-
+  position: relative;
+}
+/* line 20, ../../sass/partials/_next_button.scss */
 .next-button.ng-valid {
   opacity: 1;
   cursor: pointer;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12); }
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+}
+/* line 26, ../../sass/partials/_next_button.scss */
+.next-button:hover {
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
+}
+/* line 30, ../../sass/partials/_next_button.scss */
+.next-button:click {
+  -moz-box-shadow: white, 0px;
+  -webkit-box-shadow: white, 0px;
+  box-shadow: white, 0px;
+}
+/* line 34, ../../sass/partials/_next_button.scss */
+.next-button[type=submit] {
+  font-size: 39px;
+  padding: 0;
+  font-family: FontAwesome;
+}
 
+/* line 41, ../../sass/partials/_next_button.scss */
+.next-button.ng-valid {
+  opacity: 1;
+  cursor: pointer;
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+}
+
+/* line 47, ../../sass/partials/_next_button.scss */
 .next-button-wrapper {
   padding: 0;
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 3, ../../sass/partials/_method.scss */
 .supporting-content {
   color: #404040;
   position: relative;
   padding-left: 0px;
   padding-bottom: 50px;
   font-weight: 300;
-  font-size: 24px; }
-  @media screen and (min-width: 992px) {
-    .supporting-content {
-      font-size: 24px; } }
-  @media screen and (min-width: 1200px) {
-    .supporting-content {
-      font-size: 30px; } }
+  font-size: 15.6px;
+}
+@media screen and (min-width: 992px) {
+  /* line 3, ../../sass/partials/_method.scss */
+  .supporting-content {
+    font-size: 15.6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 3, ../../sass/partials/_method.scss */
+  .supporting-content {
+    font-size: 19.5px;
+  }
+}
 
+/* line 21, ../../sass/partials/_method.scss */
 .method-section {
   margin: 0px auto 0px auto;
   color: #404040;
   margin-top: 80px;
   border-bottom: 1px solid rgba(48, 142, 127, 0.12);
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 29, ../../sass/partials/_method.scss */
 .supporting-section-title, .actions-section-title {
   font-weight: 600;
-  font-size: 60px;
+  font-size: 39px;
   margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
+/* line 36, ../../sass/partials/_method.scss */
 .supporting-section-body, .cannot-retire {
   line-height: 1.3;
   padding: 0px auto 0px auto;
   margin-top: 30px;
-  max-width: 720px; }
-  .supporting-section-body li, .cannot-retire li {
-    list-style-type: circle; }
-  @media screen and (min-width: 768px) {
-    .supporting-section-body, .cannot-retire {
-      font-size: 30px; } }
+  max-width: 720px;
+}
+/* line 43, ../../sass/partials/_method.scss */
+.supporting-section-body li, .cannot-retire li {
+  list-style-type: circle;
+}
+@media screen and (min-width: 768px) {
+  /* line 36, ../../sass/partials/_method.scss */
+  .supporting-section-body, .cannot-retire {
+    font-size: 19.5px;
+  }
+}
 
+/* line 51, ../../sass/partials/_method.scss */
 .subsection-header {
   margin: 40px auto 40px auto;
-  font-weight: 600; }
+  font-weight: 600;
+}
 
+/* line 56, ../../sass/partials/_method.scss */
 .about-section {
   background: #fff;
   width: 100%;
   border: transparent;
-  border-radius: 0px; }
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
 
+/* line 65, ../../sass/partials/_method.scss */
 .about-text {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+}
 
+/* line 69, ../../sass/partials/_method.scss */
 .footer-nav-wrapper {
   max-width: 500px;
   padding: 20px 0px;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.5em;
-  border-top: 1px solid rgba(48, 142, 127, 0.12); }
+  border-top: 1px solid rgba(48, 142, 127, 0.12);
+}
 
+/* line 78, ../../sass/partials/_method.scss */
 .footer-nav-item {
   width: 50%;
   text-align: center;
   display: inline-block;
   font-size: 0.6em;
-  color: #2B8E69;
-  opacity: 0.7; }
-  .footer-nav-item:hover {
-    cursor: pointer;
-    opacity: 1; }
+  color: #2b8e69;
+  opacity: 0.7;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 87, ../../sass/partials/_method.scss */
+.footer-nav-item:hover {
+  cursor: pointer;
+  opacity: 1;
+}
 
+/* line 93, ../../sass/partials/_method.scss */
 .footer-nav-item-active {
   font-weight: 600;
-  opacity: 1; }
+  opacity: 1;
+}
 
+/* line 98, ../../sass/partials/_method.scss */
 .legal-category {
-  font-weight: 600; }
+  font-weight: 600;
+}
 
+/* line 102, ../../sass/partials/_method.scss */
 .legal-section {
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 106, ../../sass/partials/_method.scss */
 .supporting-content-wrapper {
   max-width: 700px;
   padding: 20px 35px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
+/* line 22, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper .intersection-label-container {
   position: absolute;
-  z-index: 1; }
+  z-index: 1;
+}
+/* line 27, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph {
-  font-size: 16px; }
-  #graph-wrapper #retirement-graph .graph-svg {
-    overflow: visible; }
-  #graph-wrapper #retirement-graph .expense-line, #graph-wrapper #retirement-graph .withdraw-line {
-    stroke-width: 2;
-    fill: none;
-    shapeRendering: crispEdges; }
-  #graph-wrapper #retirement-graph .expense-line {
-    stroke: #DA9B03; }
-  #graph-wrapper #retirement-graph .expense-label {
-    fill: #DA9B03; }
-  #graph-wrapper #retirement-graph .withdraw-line {
-    stroke: #2B8E69; }
-  #graph-wrapper #retirement-graph .withdraw-label {
-    fill: #2B8E69; }
-  #graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
-    fill: none;
-    stroke: #000000;
-    shapeRendering: crispEdges; }
-  #graph-wrapper #retirement-graph .intersection-point {
-    fill: #0D412E;
-    stroke: #0D412E; }
-  #graph-wrapper #retirement-graph .expenses-label {
-    fill: rgba(218, 155, 3, 0.8); }
-  #graph-wrapper #retirement-graph .income-label {
-    fill: rgba(43, 142, 105, 0.8); }
-  #graph-wrapper #retirement-graph .curve-label {
-    font-weight: 600;
-    max-width: 100px; }
+  font-size: 16px;
+}
+/* line 30, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .graph-svg {
+  overflow: visible;
+}
+/* line 34, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .expense-line, #graph-wrapper #retirement-graph .withdraw-line {
+  stroke-width: 2;
+  fill: none;
+  shapeRendering: crispEdges;
+}
+/* line 40, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .expense-line {
+  stroke: #da9b03;
+}
+/* line 44, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .expense-label {
+  fill: #da9b03;
+}
+/* line 48, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .withdraw-line {
+  stroke: #2b8e69;
+}
+/* line 52, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .withdraw-label {
+  fill: #2b8e69;
+}
+/* line 56, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
+  fill: none;
+  stroke: #000000;
+  shapeRendering: crispEdges;
+}
+/* line 62, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .intersection-point {
+  fill: #0d412e;
+  stroke: #0d412e;
+}
+/* line 67, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .expenses-label {
+  fill: rgba(218, 155, 3, 0.8);
+}
+/* line 71, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .income-label {
+  fill: rgba(43, 142, 105, 0.8);
+}
+/* line 75, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .curve-label {
+  font-weight: 600;
+  max-width: 100px;
+}
 
+/* line 83, ../../sass/partials/_time_to_retirement.scss */
 .retirement-main-output {
   margin-top: 0px;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 88, ../../sass/partials/_time_to_retirement.scss */
 .retirement-time-units {
   text-align: center;
   text-transform: uppercase;
-  font-size: 30px;
-  color: #fff; }
+  font-size: 19.5px;
+  color: white;
+}
 
+/* line 96, ../../sass/partials/_time_to_retirement.scss */
 .retirement-years {
   font-weight: 600;
   font-size: 5em;
   margin-top: 50px;
-  color: #fff; }
+  color: white;
+}
 
+/* line 103, ../../sass/partials/_time_to_retirement.scss */
 .months-line {
   color: rgba(255, 255, 255, 0.25);
   margin-top: 5px;
   border-top: 0px solid black;
-  font-size: 20px; }
+  font-size: 13px;
+}
 
+/* line 114, ../../sass/partials/_time_to_retirement.scss */
 .until-fi {
   margin-top: 15px;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 120, ../../sass/partials/_time_to_retirement.scss */
 .big-number-bg {
-  background: #2B8E69;
+  background: #2b8e69;
   width: 150px;
   height: 150px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
   margin-right: auto;
   margin-left: auto;
-  position: relative; }
+  position: relative;
+}
 
+/* line 130, ../../sass/partials/_time_to_retirement.scss */
 .big-number-wrapper {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+}
 
+/* line 134, ../../sass/partials/_time_to_retirement.scss */
 .input-control {
   text-align: center;
-  margin-bottom: 30px; }
-  .input-control:last-child {
-    margin-bottom: 0px; }
+  margin-bottom: 30px;
+}
+/* line 138, ../../sass/partials/_time_to_retirement.scss */
+.input-control:last-child {
+  margin-bottom: 0px;
+}
 
+/* line 144, ../../sass/partials/_time_to_retirement.scss */
 .primary-control .control-label {
-  font-size: 1em; }
+  font-size: 1em;
+}
 
+/* line 150, ../../sass/partials/_time_to_retirement.scss */
 .control-label {
   text-align: center;
   margin-top: 10px;
-  font-size: 1em; }
-  @media screen and (min-width: 768px) {
-    .control-label {
-      font-size: 0.7em; } }
+  font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  /* line 150, ../../sass/partials/_time_to_retirement.scss */
+  .control-label {
+    font-size: 0.7em;
+  }
+}
 
+/* line 160, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper {
-  margin-top: 70px; }
-  @media screen and (min-width: 768px) {
-    .assumptions-controls-wrapper {
-      margin-top: 20px; } }
+  margin-top: 70px;
+}
+@media screen and (min-width: 768px) {
+  /* line 160, ../../sass/partials/_time_to_retirement.scss */
+  .assumptions-controls-wrapper {
+    margin-top: 20px;
+  }
+}
 
+/* line 170, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper .form-control {
-  max-width: 200px; }
+  max-width: 200px;
+}
 
+/* line 175, ../../sass/partials/_time_to_retirement.scss */
 .controls-row {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
+/* line 179, ../../sass/partials/_time_to_retirement.scss */
 .output-top-section {
   margin-top: 90px;
   padding-bottom: 50px;
-  border-bottom: 1px solid rgba(43, 142, 105, 0.12); }
+  border-bottom: 1px solid rgba(43, 142, 105, 0.12);
+}
 
+/* line 185, ../../sass/partials/_time_to_retirement.scss */
 .graph-section {
   margin: 0px auto 0px auto;
   background: rgba(43, 142, 105, 0.05);
-  padding-bottom: 0px; }
+  padding-bottom: 0px;
+}
 
+/* line 191, ../../sass/partials/_time_to_retirement.scss */
 .output-control-container {
   line-height: 1.3;
-  font-size: 20px; }
-  @media screen and (min-width: 768px) {
-    .output-control-container {
-      font-size: 30px; } }
+  font-size: 13px;
+}
+@media screen and (min-width: 768px) {
+  /* line 191, ../../sass/partials/_time_to_retirement.scss */
+  .output-control-container {
+    font-size: 19.5px;
+  }
+}
 
+/* line 201, ../../sass/partials/_time_to_retirement.scss */
 .output-info-icon {
   color: rgba(13, 65, 46, 0.4);
   display: block;
   margin: 10px auto auto auto;
-  font-size: 30px;
+  font-size: 19.5px;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   width: 20px;
-  text-decoration: none; }
-  .output-info-icon:hover {
-    color: rgba(13, 65, 46, 0.8); }
+  text-decoration: none;
+}
+/* line 210, ../../sass/partials/_time_to_retirement.scss */
+.output-info-icon:hover {
+  color: rgba(13, 65, 46, 0.8);
+}
 
+/* line 215, ../../sass/partials/_time_to_retirement.scss */
 .popover {
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1); }
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
 
+/* line 219, ../../sass/partials/_time_to_retirement.scss */
 #explain-text {
-  font-size: 0.7em; }
-  @media screen and (min-width: 768px) {
-    #explain-text {
-      margin-left: 75px; } }
+  font-size: 0.7em;
+}
+@media screen and (min-width: 768px) {
+  /* line 219, ../../sass/partials/_time_to_retirement.scss */
+  #explain-text {
+    margin-left: 75px;
+  }
+}
 
+/* line 227, ../../sass/partials/_time_to_retirement.scss */
 input[type="text"].form-control {
   text-align: center;
-  box-shadow: 0px 0px 0px #fff;
+  -moz-box-shadow: white 0px 0px 0px;
+  -webkit-box-shadow: white 0px 0px 0px;
+  box-shadow: white 0px 0px 0px;
   height: 50px;
-  font-size: 40px;
+  font-size: 26px;
   margin: auto auto;
   display: inline-block;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid rgba(13, 65, 46, 0.2); }
+  border: 1px solid rgba(13, 65, 46, 0.2);
+}
 
+/* line 238, ../../sass/partials/_time_to_retirement.scss */
 .icon-answer {
   text-align: center;
   display: block;
   font-size: 5em;
-  color: #fff; }
+  color: #fff;
+}
 
+/* line 245, ../../sass/partials/_time_to_retirement.scss */
 .dollar-label, .dollar-ouput-label-exp, .dollar-ouput-label {
   position: absolute;
   font-size: 1.2em;
-  display: inline-block; }
+  display: inline-block;
+}
 
+/* line 251, ../../sass/partials/_time_to_retirement.scss */
 .dollar-ouput-label-exp {
   left: -15px;
   top: 60px;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+}
 
+/* line 258, ../../sass/partials/_time_to_retirement.scss */
 .dollar-ouput-label {
   left: -7.5px;
-  top: 40px; }
+  top: 40px;
+}
 
+/* line 264, ../../sass/partials/_time_to_retirement.scss */
 #expenses-field {
   height: 60px;
   width: 100%;
-  font-size: 40px;
-  display: inline-block; }
+  font-size: 26px;
+  display: inline-block;
+}
 
+/* line 271, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button {
   display: block;
   margin: auto auto;
@@ -671,155 +1180,284 @@ input[type="text"].form-control {
   padding: 0 0;
   outline: none !important;
   background: rgba(84, 168, 136, 0.09);
-  color: #0D412E;
+  color: #0d412e;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid rgba(13, 65, 46, 0.1); }
-  .control-change-button:focus, .control-change-button:visited {
-    background: rgba(84, 168, 136, 0.09);
-    outline: none !important;
-    border: 1px solid rgba(13, 65, 46, 0.1); }
-  .control-change-button:hover {
-    background: rgba(84, 168, 136, 0.18); }
-  @media screen and (min-width: 768px) {
-    .control-change-button {
-      height: 45px;
-      width: 135px; } }
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  border: 1px solid rgba(13, 65, 46, 0.1);
+}
+/* line 285, ../../sass/partials/_time_to_retirement.scss */
+.control-change-button:focus, .control-change-button:visited {
+  background: rgba(84, 168, 136, 0.09);
+  outline: none !important;
+  border: 1px solid rgba(13, 65, 46, 0.1);
+}
+/* line 291, ../../sass/partials/_time_to_retirement.scss */
+.control-change-button:hover {
+  background: rgba(84, 168, 136, 0.18);
+}
+@media screen and (min-width: 768px) {
+  /* line 271, ../../sass/partials/_time_to_retirement.scss */
+  .control-change-button {
+    height: 45px;
+    width: 135px;
+  }
+}
 
+/* line 301, ../../sass/partials/_time_to_retirement.scss */
 .control-increase-button {
   border-radius: 50% / 100%;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: none; }
-  .control-increase-button:hover {
-    border: 1px solid rgba(13, 65, 46, 0.1);
-    border-bottom: none; }
+  border-bottom: none;
+}
+/* line 307, ../../sass/partials/_time_to_retirement.scss */
+.control-increase-button:hover {
+  border: 1px solid rgba(13, 65, 46, 0.1);
+  border-bottom: none;
+}
 
+/* line 313, ../../sass/partials/_time_to_retirement.scss */
 .control-decrease-button {
   border-radius: 50% / 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-top: none; }
-  .control-decrease-button:hover {
-    border: 1px solid rgba(13, 65, 46, 0.1);
-    border-top: none; }
+  border-top: none;
+}
+/* line 319, ../../sass/partials/_time_to_retirement.scss */
+.control-decrease-button:hover {
+  border: 1px solid rgba(13, 65, 46, 0.1);
+  border-top: none;
+}
 
+/* line 326, ../../sass/partials/_time_to_retirement.scss */
 .controls-row .control-change-button {
   display: block;
   margin: auto auto;
   height: 31.5px;
   width: 90px;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+}
 
+/* line 335, ../../sass/partials/_time_to_retirement.scss */
 #assumptions-border-top {
   border-top: 1px solid rgba(43, 142, 105, 0.3);
   position: absolute;
   left: 15%;
-  right: 15%; }
+  right: 15%;
+}
 
+/* line 342, ../../sass/partials/_time_to_retirement.scss */
 .edit-link {
   display: inline-block;
   margin-left: 10px;
-  color: #0D412E;
+  color: #0d412e;
   font-weight: 600;
-  font-size: 0.9em; }
-  .edit-link:hover {
-    cursor: pointer; }
+  font-size: 0.9em;
+}
+/* line 349, ../../sass/partials/_time_to_retirement.scss */
+.edit-link:hover {
+  cursor: pointer;
+}
 
+/* line 354, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-section {
   margin: 20px auto;
-  position: relative; }
+  position: relative;
+}
 
+/* line 359, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-title-wrapper {
   margin-top: 20px;
-  font-size: 1.2em; }
-  @media screen and (min-width: 768px) {
-    .assumptions-title-wrapper {
-      font-size: 0.8em; } }
+  font-size: 1.2em;
+}
+@media screen and (min-width: 768px) {
+  /* line 359, ../../sass/partials/_time_to_retirement.scss */
+  .assumptions-title-wrapper {
+    font-size: 0.8em;
+  }
+}
 
+/* line 368, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-toggle {
   margin: 20px auto auto 0px;
   background: rgba(84, 168, 136, 0.09);
-  color: #0D412E;
+  color: #0d412e;
   display: block;
-  border: 1px solid rgba(13, 65, 46, 0.1); }
-  .assumptions-toggle:focus, .assumptions-toggle:visited {
-    background: rgba(84, 168, 136, 0.09);
-    outline: none !important;
-    border: 1px solid rgba(13, 65, 46, 0.1); }
-  .assumptions-toggle:hover {
-    background: rgba(84, 168, 136, 0.18);
-    border: 1px solid rgba(13, 65, 46, 0.1); }
-  @media screen and (min-width: 768px) {
-    .assumptions-toggle {
-      display: inline-block;
-      margin: 0px auto auto 20px; } }
+  border: 1px solid rgba(13, 65, 46, 0.1);
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 376, ../../sass/partials/_time_to_retirement.scss */
+.assumptions-toggle:focus, .assumptions-toggle:visited {
+  background: rgba(84, 168, 136, 0.09);
+  outline: none !important;
+  border: 1px solid rgba(13, 65, 46, 0.1);
+}
+/* line 382, ../../sass/partials/_time_to_retirement.scss */
+.assumptions-toggle:hover {
+  background: rgba(84, 168, 136, 0.18);
+  border: 1px solid rgba(13, 65, 46, 0.1);
+}
+@media screen and (min-width: 768px) {
+  /* line 368, ../../sass/partials/_time_to_retirement.scss */
+  .assumptions-toggle {
+    display: inline-block;
+    margin: 0px auto auto 20px;
+  }
+}
 
+/* line 392, ../../sass/partials/_time_to_retirement.scss */
 .no-retire-message {
   margin-top: 20px;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 397, ../../sass/partials/_time_to_retirement.scss */
 .leading-dollar-control {
-  z-index: 99; }
+  z-index: 99;
+}
 
+/* line 403, ../../sass/partials/_time_to_retirement.scss */
 .actions-section {
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+}
 
+/* line 407, ../../sass/partials/_time_to_retirement.scss */
 .actions-container {
   padding-left: 0px;
   padding-right: 0px;
-  border: 1px solid #0D412E;
+  border: 1px solid #0d412e;
   background: rgba(43, 142, 105, 0.05);
-  position: relative; }
+  position: relative;
+}
 
+/* line 415, ../../sass/partials/_time_to_retirement.scss */
 .expenses-actions-container {
-  border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
   border-top-left-radius: 5px;
-  border-bottom: 1px solid #0D412E; }
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #0d412e;
+}
 
+/* line 420, ../../sass/partials/_time_to_retirement.scss */
 .income-actions-container {
   border-top: none;
-  border-right: 1px solid #0D412E;
-  border-left: 1px solid #0D412E; }
+  border-right: 1px solid #0d412e;
+  border-left: 1px solid #0d412e;
+}
 
+/* line 426, ../../sass/partials/_time_to_retirement.scss */
 .assets-actions-container {
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-top: none; }
-  @media screen and (min-width: 768px) {
-    .assets-actions-container {
-      border-right: none;
-      border-bottom-left-radius: 5px; } }
+  border-top: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 426, ../../sass/partials/_time_to_retirement.scss */
+  .assets-actions-container {
+    border-right: none;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
 
+/* line 436, ../../sass/partials/_time_to_retirement.scss */
 .debts-actions-container {
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-top: none; }
-  @media screen and (min-width: 768px) {
-    .debts-actions-container {
-      border-left: none;
-      border-bottom-left-radius: 0px; } }
+  border-top: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 436, ../../sass/partials/_time_to_retirement.scss */
+  .debts-actions-container {
+    border-left: none;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}
 
+/* line 447, ../../sass/partials/_time_to_retirement.scss */
 .actions-section-title {
   background: #fff;
   color: #404040;
   text-align: center;
-  margin: 35px auto 35px auto; }
+  margin: 35px auto 35px auto;
+}
 
+/* line 455, ../../sass/partials/_time_to_retirement.scss */
 .action-card-container {
   display: inline-block;
-  padding: 0px 20px 20px 20px; }
+  padding: 0px 20px 20px 20px;
+}
 
+/* line 460, ../../sass/partials/_time_to_retirement.scss */
 .action-card {
   width: 100%;
   height: 150px;
   background: #000;
   color: #fff;
   position: relative;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12); }
-  .action-card:hover {
-    transform: translateY(-5px); }
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 470, ../../sass/partials/_time_to_retirement.scss */
+.action-card:hover {
+  -moz-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
 
+/* line 476, ../../sass/partials/_time_to_retirement.scss */
 .action-card .action-label-wrapper {
   position: absolute;
   bottom: 0;
@@ -830,82 +1468,143 @@ input[type="text"].form-control {
   height: 40px;
   margin: auto auto;
   font-size: 1.1em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
   border-radius: 0px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px; }
+}
+/* line 490, ../../sass/partials/_time_to_retirement.scss */
 .action-card img {
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 5px; }
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
 
+/* line 498, ../../sass/partials/_time_to_retirement.scss */
 .action-title {
   padding: 20px 20px 20px 0px;
   font-size: 1.6em;
-  color: #0D412E;
-  font-weight: 300; }
+  color: #0d412e;
+  font-weight: 300;
+}
 
+/* line 505, ../../sass/partials/_time_to_retirement.scss */
 .action-label {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
+/* line 509, ../../sass/partials/_time_to_retirement.scss */
 .output-controls-section {
-  border-bottom: 1px solid rgba(43, 142, 105, 0.12); }
+  border-bottom: 1px solid rgba(43, 142, 105, 0.12);
+}
 
+/* line 513, ../../sass/partials/_time_to_retirement.scss */
 .actions-container-title {
-  padding-left: 20px; }
+  padding-left: 20px;
+}
 
+/* line 517, ../../sass/partials/_time_to_retirement.scss */
 .actions-container-border {
   border-top: 1px solid rgba(218, 155, 3, 0.3);
   position: absolute;
   left: 15%;
-  right: 15%; }
+  right: 15%;
+}
 
+/* line 524, ../../sass/partials/_time_to_retirement.scss */
 .suggested-amount-content {
   font-size: 1.1em;
   padding-bottom: 27px;
-  font-weight: 300; }
+  font-weight: 300;
+}
 
+/* line 530, ../../sass/partials/_time_to_retirement.scss */
 .suggested-amount-value {
-  font-weight: 600; }
+  font-weight: 600;
+}
 
 @media screen and (min-width: 992px) {
+  /* line 534, ../../sass/partials/_time_to_retirement.scss */
   .add-title-margin {
-    margin-bottom: 48px; } }
+    margin-bottom: 48px;
+  }
+}
 
+/* line 540, ../../sass/partials/_time_to_retirement.scss */
 .actions-help-icon {
   color: rgba(13, 65, 46, 0.4);
   margin: auto auto auto 5px;
   font-size: 1.2em;
-  width: 20px; }
-  .actions-help-icon:hover {
-    color: rgba(13, 65, 46, 0.8); }
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  width: 20px;
+}
+/* line 547, ../../sass/partials/_time_to_retirement.scss */
+.actions-help-icon:hover {
+  color: rgba(13, 65, 46, 0.8);
+}
 
+/* line 552, ../../sass/partials/_time_to_retirement.scss */
 #actions-disclaimer {
   font-size: 0.8em;
-  opacity: 0.6; }
+  opacity: 0.6;
+}
 
+/* line 558, ../../sass/partials/_time_to_retirement.scss */
 #privacy-link:hover {
-  opacity: 1; }
+  opacity: 1;
+}
 
+/* line 563, ../../sass/partials/_time_to_retirement.scss */
 .xaxis-label {
   font-weight: 600;
   font-size: 1em;
-  display: none; }
-  @media screen and (min-width: 768px) {
-    .xaxis-label {
-      font-size: 1.8em;
-      display: block; } }
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 563, ../../sass/partials/_time_to_retirement.scss */
+  .xaxis-label {
+    font-size: 1.8em;
+    display: block;
+  }
+}
 
+/* line 573, ../../sass/partials/_time_to_retirement.scss */
 .label-under {
   text-align: center;
   width: 100%;
-  display: block; }
-  @media screen and (min-width: 768px) {
-    .label-under {
-      display: none; } }
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  /* line 573, ../../sass/partials/_time_to_retirement.scss */
+  .label-under {
+    display: none;
+  }
+}
 
+/* line 582, ../../sass/partials/_time_to_retirement.scss */
 .no-graph-message-wrapper {
   background: rgba(255, 255, 255, 0.7);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   border-radius: 10px;
   padding: 20px 20px 20px 20px;
   margin: 0px auto;
@@ -913,22 +1612,35 @@ input[type="text"].form-control {
   top: 100px;
   left: 0;
   right: 0;
-  max-width: 300px; }
-  @media screen and (min-width: 992px) {
-    .no-graph-message-wrapper {
-      max-width: 400px; } }
-  @media screen and (min-width: 768px) {
-    .no-graph-message-wrapper {
-      padding: 50px 50px 50px 50px;
-      max-width: 700px; } }
+  max-width: 300px;
+}
+@media screen and (min-width: 992px) {
+  /* line 582, ../../sass/partials/_time_to_retirement.scss */
+  .no-graph-message-wrapper {
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 582, ../../sass/partials/_time_to_retirement.scss */
+  .no-graph-message-wrapper {
+    padding: 50px 50px 50px 50px;
+    max-width: 700px;
+  }
+}
 
+/* line 602, ../../sass/partials/_time_to_retirement.scss */
 .no-graph-message {
   text-align: center;
-  font-size: 0.6em; }
-  @media screen and (min-width: 768px) {
-    .no-graph-message {
-      font-size: 0.8em; } }
+  font-size: 0.6em;
+}
+@media screen and (min-width: 768px) {
+  /* line 602, ../../sass/partials/_time_to_retirement.scss */
+  .no-graph-message {
+    font-size: 0.8em;
+  }
+}
 
+/* line 610, ../../sass/partials/_time_to_retirement.scss */
 .intersection-label {
   color: white;
   padding: 16px 15px;
@@ -936,43 +1648,78 @@ input[type="text"].form-control {
   line-height: 1.1;
   z-index: 1;
   font-weight: 400;
-  font-size: 1.1em; }
-  .intersection-label .bold {
-    font-weight: 600; }
+  font-size: 1.1em;
+}
+/* line 619, ../../sass/partials/_time_to_retirement.scss */
+.intersection-label .bold {
+  font-weight: 600;
+}
 
+/* line 624, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-wrapper {
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 628, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-container {
   display: inline-block;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   border-radius: 10px;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  border: 1px solid #DA9B03;
-  background: #FCF5EC;
+  border: 1px solid #da9b03;
+  background: #fcf5ec;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
+/* line 639, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-caption {
   margin-right: 10px;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+}
 
+/* line 644, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button {
-  background: #DA9B03;
+  background: #da9b03;
   color: white;
   border: none;
-  font-weight: 700; }
-  .sign-up-button:hover, .sign-up-button:focus, .sign-up-button:active, .sign-up-button:visited {
-    background: #DA9B03;
-    border: none;
-    color: white !important;
-    outline: none !important; }
-  .sign-up-button:hover {
-    background: #C58C01;
-    color: white; }
+  font-weight: 700;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 651, ../../sass/partials/_time_to_retirement.scss */
+.sign-up-button:hover, .sign-up-button:focus, .sign-up-button:active, .sign-up-button:visited {
+  background: #da9b03;
+  border: none;
+  color: white !important;
+  outline: none !important;
+}
+/* line 658, ../../sass/partials/_time_to_retirement.scss */
+.sign-up-button:hover {
+  background: #c58c01;
+  color: white;
+}
 
+/* line 664, ../../sass/partials/_time_to_retirement.scss */
 #expenses-control {
-  margin-top: 30px; }
+  margin-top: 30px;
+}
 
+/* line 668, ../../sass/partials/_time_to_retirement.scss */
 .dollars-to-time-wrapper {
   border: 1px solid rgba(43, 142, 105, 0.12);
   max-width: 960px;
@@ -981,73 +1728,111 @@ input[type="text"].form-control {
   background: white;
   margin-top: 30px;
   padding: 15px 35px 30px 35px;
-  border-radius: 4px; }
+  border-radius: 4px;
+}
 
+/* line 679, ../../sass/partials/_time_to_retirement.scss */
 .calc-time-wrapper {
   display: inline-block;
   text-align: center;
-  margin-right: 25px; }
+  margin-right: 25px;
+}
 
+/* line 685, ../../sass/partials/_time_to_retirement.scss */
 .calc-control {
   margin-top: 10px;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 690, ../../sass/partials/_time_to_retirement.scss */
 .calc-time-number {
   font-size: 5em;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
+/* line 695, ../../sass/partials/_time_to_retirement.scss */
 .calc-container {
-  margin-top: 3%; }
+  margin-top: 3%;
+}
 
+/* line 699, ../../sass/partials/_time_to_retirement.scss */
 .calc-equal {
   font-size: 6em;
   text-align: center;
-  padding-top: 30px; }
+  padding-top: 30px;
+}
 
+/* line 705, ../../sass/partials/_time_to_retirement.scss */
 .calc-view-wrapper {
   height: 100vh;
   width: 100vw;
   background: rgba(43, 142, 105, 0.05);
-  padding-top: 10%; }
-  @media screen and (min-width: 768px) {
-    .calc-view-wrapper {
-      padding-top: 10%; } }
+  padding-top: 10%;
+}
+@media screen and (min-width: 768px) {
+  /* line 705, ../../sass/partials/_time_to_retirement.scss */
+  .calc-view-wrapper {
+    padding-top: 10%;
+  }
+}
 
+/* line 716, ../../sass/partials/_time_to_retirement.scss */
 .calc-title {
   text-align: center;
-  font-size: 2rem; }
-  @media screen and (min-width: 768px) {
-    .calc-title {
-      font-size: 4rem; } }
+  font-size: 2rem;
+}
+@media screen and (min-width: 768px) {
+  /* line 716, ../../sass/partials/_time_to_retirement.scss */
+  .calc-title {
+    font-size: 4rem;
+  }
+}
 
+/* line 725, ../../sass/partials/_time_to_retirement.scss */
 .calc-time-label {
   font-size: 1.5em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
+/* line 730, ../../sass/partials/_time_to_retirement.scss */
 .calc-input {
-  margin-top: 0px; }
-  .calc-input .leading-dollar {
-    margin-left: 0px; }
+  margin-top: 0px;
+}
+/* line 733, ../../sass/partials/_time_to_retirement.scss */
+.calc-input .leading-dollar {
+  margin-left: 0px;
+}
 
+/* line 738, ../../sass/partials/_time_to_retirement.scss */
 .calc-toggle {
-  width: 100px; }
+  width: 100px;
+}
 
+/* line 742, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-wrapper {
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 747, ../../sass/partials/_time_to_retirement.scss */
 .calc-control .btn.active {
   font-weight: 700;
-  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1); }
+  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1);
+}
 
+/* line 754, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-digit-wrapper {
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
+/* line 759, ../../sass/partials/_time_to_retirement.scss */
 .input-type-active {
   font-weight: 700;
   text-decoration: underline;
-  color: #0D412E; }
+  color: #0d412e;
+}
 
+/* line 765, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-subtext, .calc-val-type-control {
   font-size: 1.1em;
   margin-top: 0px;
@@ -1055,40 +1840,156 @@ input[type="text"].form-control {
   line-height: 1.2em;
   display: inline-block;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 775, ../../sass/partials/_time_to_retirement.scss */
 .calc-val-type-control-wrapper {
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 779, ../../sass/partials/_time_to_retirement.scss */
 .calc-val-type-control {
   text-align: left;
   margin-left: 15px;
-  width: auto; }
-  .calc-val-type-control:hover {
-    cursor: pointer; }
+  width: auto;
+}
+/* line 785, ../../sass/partials/_time_to_retirement.scss */
+.calc-val-type-control:hover {
+  cursor: pointer;
+}
 
+/* line 790, ../../sass/partials/_time_to_retirement.scss */
 .calc-output-inactive {
-  opacity: 0.25; }
+  opacity: 0.25;
+}
 
+/* line 794, ../../sass/partials/_time_to_retirement.scss */
 .output-explain {
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
+/* line 798, ../../sass/partials/_time_to_retirement.scss */
 .converter-info-icon {
   display: inline-block;
   margin-top: 1px;
-  margin-left: 5px; }
+  margin-left: 5px;
+}
 
+/* line 2, ../../sass/partials/_animations.scss */
+.view-animate.ng-enter {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  opacity: 0;
+}
+
+/* line 9, ../../sass/partials/_animations.scss */
+.view-animate.ng-enter-active {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  opacity: 1;
+}
+
+/* line 16, ../../sass/partials/_animations.scss */
+.hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  display: block !important;
+}
+
+/* line 23, ../../sass/partials/_animations.scss */
+.hide-fade.ng-hide-add.ng-hide-add-active,
+.hide-fade.ng-hide-remove {
+  opacity: 0;
+}
+
+/* line 27, ../../sass/partials/_animations.scss */
+.hide-fade.ng-hide-add,
+.hide-fade.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+
+/* line 32, ../../sass/partials/_animations.scss */
+.text-fade-in.ng-enter {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  opacity: 0;
+}
+
+/* line 39, ../../sass/partials/_animations.scss */
+.text-fade-in.ng-enter-active {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  opacity: 1;
+}
+
+/* line 1, ../../sass/partials/_intro.scss */
 .intro-content {
   width: 100vw;
   height: 100vh;
-  background: #0D412E;
+  background: #0d412e;
   padding: 35% 5%;
   text-align: center;
-  position: relative; }
-  @media screen and (min-width: 768px) {
-    .intro-content {
-      padding: 15% 5%; } }
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  /* line 1, ../../sass/partials/_intro.scss */
+  .intro-content {
+    padding: 15% 5%;
+  }
+}
 
+/* line 14, ../../sass/partials/_intro.scss */
 .primary-tagline {
   font-size: 3em;
   color: white;
@@ -1097,11 +1998,16 @@ input[type="text"].form-control {
   text-shadow: 0px 0px 3px black;
   display: inline-block;
   vertical-align: top;
-  margin-left: 15px; }
-  @media screen and (min-width: 768px) {
-    .primary-tagline {
-      font-size: 5em; } }
+  margin-left: 15px;
+}
+@media screen and (min-width: 768px) {
+  /* line 14, ../../sass/partials/_intro.scss */
+  .primary-tagline {
+    font-size: 5em;
+  }
+}
 
+/* line 29, ../../sass/partials/_intro.scss */
 .secondary-tagline {
   color: white;
   opacity: 0.8;
@@ -1112,17 +2018,38 @@ input[type="text"].form-control {
   line-height: 1.4em;
   max-width: 550px;
   margin-right: auto;
-  margin-left: auto; }
-  @media screen and (min-width: 768px) {
-    .secondary-tagline {
-      font-size: 1.7em;
-      line-height: 1.4em; } }
+  margin-left: auto;
+}
+@media screen and (min-width: 768px) {
+  /* line 29, ../../sass/partials/_intro.scss */
+  .secondary-tagline {
+    font-size: 1.7em;
+    line-height: 1.4em;
+  }
+}
 
+/* line 47, ../../sass/partials/_intro.scss */
 .lp-button-wrapper {
   padding: 0;
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 52, ../../sass/partials/_intro.scss */
 .lp-button {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   border-radius: 10px;
   border: white solid 2px;
   color: white;
@@ -1130,123 +2057,189 @@ input[type="text"].form-control {
   margin: 55px auto auto auto;
   text-align: center;
   display: block;
-  background: #0D412E;
+  background: #0d412e;
   padding: 20px 30px;
   font-size: 1.5em;
-  cursor: pointer; }
-  .lp-button:hover {
-    background: rgba(255, 255, 255, 0.25); }
+  cursor: pointer;
+}
+/* line 66, ../../sass/partials/_intro.scss */
+.lp-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
 
+/* line 71, ../../sass/partials/_intro.scss */
 #intro-graphic {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   width: 30%;
-  max-width: 160px; }
+  max-width: 160px;
+}
 
+/* line 1, ../../sass/partials/_account_modals.scss */
 .login-modal, .account-modal {
-  position: relative; }
+  position: relative;
+}
 
+/* line 5, ../../sass/partials/_account_modals.scss */
 .modal-icon-close {
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 2em;
-  color: gray; }
-  .modal-icon-close:hover {
-    cursor: pointer; }
+  color: gray;
+}
+/* line 12, ../../sass/partials/_account_modals.scss */
+.modal-icon-close:hover {
+  cursor: pointer;
+}
 
+/* line 17, ../../sass/partials/_account_modals.scss */
 .modal-header {
   background-color: rgba(43, 142, 105, 0.05);
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
   border-top-left-radius: 6px;
-  border-top-right-radius: 6px; }
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
 
+/* line 22, ../../sass/partials/_account_modals.scss */
 .modal-content {
+  -moz-border-radius-topleft: 7px;
+  -webkit-border-top-left-radius: 7px;
   border-top-left-radius: 7px;
-  border-top-right-radius: 7px; }
+  -moz-border-radius-topright: 7px;
+  -webkit-border-top-right-radius: 7px;
+  border-top-right-radius: 7px;
+}
 
+/* line 26, ../../sass/partials/_account_modals.scss */
 .modal-title {
   color: #404040;
-  letter-spacing: -0.02em; }
+  letter-spacing: -0.02em;
+}
 
+/* line 31, ../../sass/partials/_account_modals.scss */
 .modal-backdrop {
   background-color: black;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
+/* line 37, ../../sass/partials/_account_modals.scss */
 .signin-side, .signup-side {
-  margin-top: 10px; }
-  .signin-side a:hover, .signup-side a:hover {
-    cursor: pointer; }
+  margin-top: 10px;
+}
+/* line 39, ../../sass/partials/_account_modals.scss */
+.signin-side a:hover, .signup-side a:hover {
+  cursor: pointer;
+}
 
+/* line 44, ../../sass/partials/_account_modals.scss */
 .modal-footer {
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 48, ../../sass/partials/_account_modals.scss */
 .signup-side, .signin-side {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+}
 
+/* line 52, ../../sass/partials/_account_modals.scss */
 .login-form-controls-wrapper {
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 56, ../../sass/partials/_account_modals.scss */
 .forgot-password-link {
   display: inline-block;
   float: right;
   position: inline-block;
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
+/* line 64, ../../sass/partials/_account_modals.scss */
 .remember-me-link {
-  display: inline-block; }
+  display: inline-block;
+}
 
+/* line 68, ../../sass/partials/_account_modals.scss */
 .modal-secondary-button {
-  margin-left: 10px; }
+  margin-left: 10px;
+}
 
+/* line 72, ../../sass/partials/_account_modals.scss */
 .modal-dialog {
-  width: 450px; }
+  width: 450px;
+}
 
+/* line 76, ../../sass/partials/_account_modals.scss */
 .form-control.ng-invalid.ng-touched {
-  border-color: red; }
+  border-color: red;
+}
 
+/* line 80, ../../sass/partials/_account_modals.scss */
 .field-error {
   margin-top: 5px;
-  color: red; }
+  color: red;
+}
 
+/* line 85, ../../sass/partials/_account_modals.scss */
 .checkbox.login-checkbox {
-  margin-top: 25px; }
+  margin-top: 25px;
+}
 
+/* line 1, ../../sass/partials/_footer.scss */
 .footer-container {
   position: relative;
   width: 100%;
   background: rgba(43, 142, 105, 0.05);
-  border-top: 1px solid rgba(43, 142, 105, 0.12); }
+  border-top: 1px solid rgba(43, 142, 105, 0.12);
+}
 
+/* line 8, ../../sass/partials/_footer.scss */
 .footer-content-wrapper {
   max-width: 500px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding: 25px 0px; }
-  .footer-content-wrapper a {
-    width: 150px;
-    margin: auto; }
+  padding: 25px 0px;
+}
+/* line 15, ../../sass/partials/_footer.scss */
+.footer-content-wrapper a {
+  width: 150px;
+  margin: auto;
+}
 
+/* line 17, ../../sass/screen.scss */
 html, body {
   width: 100%;
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
+/* line 26, ../../sass/screen.scss */
 body {
-  font-family: "Source Sans Pro", sans-serif; }
+  font-family: "Source Sans Pro", sans-serif;
+}
 
-* ::selection {
-  color: #7DD193;
-  background: #fff; }
-
-/*# sourceMappingURL=screen.css.map */
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
+*::-moz-selection {
+  color: white;
+  background-color: #7dd193;
+}
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
+*::selection {
+  color: white;
+  background-color: #7dd193;
+}

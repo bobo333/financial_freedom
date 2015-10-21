@@ -16,13 +16,11 @@
 
 .modal-header {
 	background-color: $light_bg_green;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	@include border-top-radius(6px);
 }
 
 .modal-content {
-	border-top-left-radius: 7px;
-	border-top-right-radius: 7px;
+	@include border-top-radius(7px);
 }
 
 .modal-title {

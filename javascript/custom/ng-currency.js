@@ -84,14 +84,14 @@ angular.module('ng-currency', [])
                 }
 
                 scope.$watch(function () {
-                    return ngModel.$modelValue;
+                    return ngModel.$modelValue
                 }, function (newValue, oldValue) {
-                    runValidations(newValue);
+                    runValidations(newValue)
                 })
 
                 function runValidations(cVal) {
                     if (!scope.ngRequired && isNaN(cVal)) {
-                        return;
+                        return
                     }
                     if (scope.min) {
                         var min = parseFloat(scope.min)
@@ -103,6 +103,6 @@ angular.module('ng-currency', [])
                     }
                 }
             }
-        };
+        }
     }]);
 
