@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -87,22 +87,22 @@ h3 {
 
 /* line 101, ../../sass/partials/_base.scss */
 .btn-primary {
-  background: #2b8e69;
+  background: #2B8E69;
 }
 /* line 104, ../../sass/partials/_base.scss */
 .btn-primary[disabled] {
-  background: #2b8e69;
+  background: #2B8E69;
 }
 /* line 108, ../../sass/partials/_base.scss */
 .btn-primary:hover {
-  background: #0d412e;
+  background: #0D412E;
 }
 
 /* line 113, ../../sass/partials/_base.scss */
 .btn-secondary {
   background: white;
-  border: 2px solid #2b8e69;
-  color: #2b8e69;
+  border: 2px solid #2B8E69;
+  color: #2B8E69;
 }
 
 /* line 14, ../../sass/partials/_header.scss */
@@ -138,12 +138,12 @@ h3 {
 }
 /* line 31, ../../sass/partials/_header.scss */
 .navbar-custom a, .navbar-custom a:hover {
-  color: #25a793;
+  color: #25A793;
   text-decoration: none;
 }
 /* line 36, ../../sass/partials/_header.scss */
 .navbar-custom:hover {
-  color: #25a793;
+  color: #25A793;
 }
 
 /* line 42, ../../sass/partials/_header.scss */
@@ -204,7 +204,7 @@ h3 {
   background: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   border-bottom-style: solid;
-  border-bottom-color: #2b8e69;
+  border-bottom-color: #2B8E69;
   border-bottom-width: 3px;
 }
 
@@ -257,8 +257,8 @@ h3 {
   width: 33.3%;
   text-align: center;
   background: none;
-  color: #0d412e;
-  font-size: 19.5px;
+  color: #0D412E;
+  font-size: 24px;
   margin-right: -4px;
   border-right: 1px solid rgba(13, 65, 46, 0.3);
   -moz-transition-property: all;
@@ -363,7 +363,7 @@ h3 {
 /* line 204, ../../sass/partials/_header.scss */
 .navbar-default {
   color: white;
-  background: #2b8e69;
+  background: #2B8E69;
 }
 
 /* line 209, ../../sass/partials/_header.scss */
@@ -495,10 +495,10 @@ input[type="text"].steps {
     height: 80px;
   }
 }
-/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"].steps:-moz-placeholder {
   font-family: 300;
-  font-size: 26px;
+  font-size: 32px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   position: relative;
@@ -508,16 +508,16 @@ input[type="text"].steps:-moz-placeholder {
   transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
-  /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps:-moz-placeholder {
-    font-size: 39px;
+    font-size: 48px;
     line-height: 1;
   }
 }
-/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"].steps::-moz-placeholder {
   font-family: 300;
-  font-size: 26px;
+  font-size: 32px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   position: relative;
@@ -527,16 +527,16 @@ input[type="text"].steps::-moz-placeholder {
   transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
-  /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps::-moz-placeholder {
-    font-size: 39px;
+    font-size: 48px;
     line-height: 1;
   }
 }
-/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"].steps:-ms-input-placeholder {
   font-family: 300;
-  font-size: 26px;
+  font-size: 32px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   position: relative;
@@ -546,16 +546,16 @@ input[type="text"].steps:-ms-input-placeholder {
   transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
-  /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps:-ms-input-placeholder {
-    font-size: 39px;
+    font-size: 48px;
     line-height: 1;
   }
 }
-/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 input[type="text"].steps::-webkit-input-placeholder {
   font-family: 300;
-  font-size: 26px;
+  font-size: 32px;
   color: rgba(119, 119, 119, 0.22);
   font-style: italic;
   position: relative;
@@ -565,9 +565,9 @@ input[type="text"].steps::-webkit-input-placeholder {
   transform: translateY(-50%);
 }
 @media screen and (min-width: 768px) {
-  /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+  /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
   input[type="text"].steps::-webkit-input-placeholder {
-    font-size: 39px;
+    font-size: 48px;
     line-height: 1;
   }
 }
@@ -616,7 +616,7 @@ input[type="text"].steps::-webkit-input-placeholder {
 
 /* line 79, ../../sass/partials/_input.scss */
 .input-field-wrapper {
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 300;
   line-height: normal;
   margin-top: 20px;
@@ -624,19 +624,19 @@ input[type="text"].steps::-webkit-input-placeholder {
 @media screen and (min-width: 768px) {
   /* line 79, ../../sass/partials/_input.scss */
   .input-field-wrapper {
-    font-size: 39px;
+    font-size: 48px;
     margin-top: 20px;
   }
 }
 /* line 90, ../../sass/partials/_input.scss */
 .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
-  font-size: 13px;
+  font-size: 16px;
   margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
   /* line 90, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
-    font-size: 26px;
+    font-size: 32px;
     vertical-align: middle;
   }
 }
@@ -673,9 +673,9 @@ input:focus {
   font-family: 'Oxygen', sans-serif;
   width: 80px;
   height: 80px;
-  background: #fcf5ec;
+  background: #FCF5EC;
   text-align: center;
-  color: #da9b03;
+  color: #DA9B03;
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -688,7 +688,7 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border: #da9b03 solid 2px;
+  border: #DA9B03 solid 2px;
   display: block;
   margin: 60px auto auto auto;
   -moz-border-radius: 50%;
@@ -712,13 +712,13 @@ input:focus {
 }
 /* line 30, ../../sass/partials/_next_button.scss */
 .next-button:click {
-  -moz-box-shadow: white, 0px;
-  -webkit-box-shadow: white, 0px;
-  box-shadow: white, 0px;
+  -moz-box-shadow: #fff, 0px;
+  -webkit-box-shadow: #fff, 0px;
+  box-shadow: #fff, 0px;
 }
 /* line 34, ../../sass/partials/_next_button.scss */
 .next-button[type=submit] {
-  font-size: 39px;
+  font-size: 48px;
   padding: 0;
   font-family: FontAwesome;
 }
@@ -745,18 +745,18 @@ input:focus {
   padding-left: 0px;
   padding-bottom: 50px;
   font-weight: 300;
-  font-size: 15.6px;
+  font-size: 19.2px;
 }
 @media screen and (min-width: 992px) {
   /* line 3, ../../sass/partials/_method.scss */
   .supporting-content {
-    font-size: 15.6px;
+    font-size: 19.2px;
   }
 }
 @media screen and (min-width: 1200px) {
   /* line 3, ../../sass/partials/_method.scss */
   .supporting-content {
-    font-size: 19.5px;
+    font-size: 24px;
   }
 }
 
@@ -772,7 +772,7 @@ input:focus {
 /* line 29, ../../sass/partials/_method.scss */
 .supporting-section-title, .actions-section-title {
   font-weight: 600;
-  font-size: 39px;
+  font-size: 48px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -791,7 +791,7 @@ input:focus {
 @media screen and (min-width: 768px) {
   /* line 36, ../../sass/partials/_method.scss */
   .supporting-section-body, .cannot-retire {
-    font-size: 19.5px;
+    font-size: 24px;
   }
 }
 
@@ -836,7 +836,7 @@ input:focus {
   text-align: center;
   display: inline-block;
   font-size: 0.6em;
-  color: #2b8e69;
+  color: #2B8E69;
   opacity: 0.7;
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
@@ -902,19 +902,19 @@ input:focus {
 }
 /* line 40, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-line {
-  stroke: #da9b03;
+  stroke: #DA9B03;
 }
 /* line 44, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-label {
-  fill: #da9b03;
+  fill: #DA9B03;
 }
 /* line 48, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-line {
-  stroke: #2b8e69;
+  stroke: #2B8E69;
 }
 /* line 52, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-label {
-  fill: #2b8e69;
+  fill: #2B8E69;
 }
 /* line 56, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
@@ -924,8 +924,8 @@ input:focus {
 }
 /* line 62, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .intersection-point {
-  fill: #0d412e;
-  stroke: #0d412e;
+  fill: #0D412E;
+  stroke: #0D412E;
 }
 /* line 67, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expenses-label {
@@ -951,8 +951,8 @@ input:focus {
 .retirement-time-units {
   text-align: center;
   text-transform: uppercase;
-  font-size: 19.5px;
-  color: white;
+  font-size: 24px;
+  color: #fff;
 }
 
 /* line 96, ../../sass/partials/_time_to_retirement.scss */
@@ -960,7 +960,7 @@ input:focus {
   font-weight: 600;
   font-size: 5em;
   margin-top: 50px;
-  color: white;
+  color: #fff;
 }
 
 /* line 103, ../../sass/partials/_time_to_retirement.scss */
@@ -968,7 +968,7 @@ input:focus {
   color: rgba(255, 255, 255, 0.25);
   margin-top: 5px;
   border-top: 0px solid black;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 /* line 114, ../../sass/partials/_time_to_retirement.scss */
@@ -979,7 +979,7 @@ input:focus {
 
 /* line 120, ../../sass/partials/_time_to_retirement.scss */
 .big-number-bg {
-  background: #2b8e69;
+  background: #2B8E69;
   width: 150px;
   height: 150px;
   -moz-border-radius: 50%;
@@ -1065,12 +1065,12 @@ input:focus {
 /* line 191, ../../sass/partials/_time_to_retirement.scss */
 .output-control-container {
   line-height: 1.3;
-  font-size: 13px;
+  font-size: 16px;
 }
 @media screen and (min-width: 768px) {
   /* line 191, ../../sass/partials/_time_to_retirement.scss */
   .output-control-container {
-    font-size: 19.5px;
+    font-size: 24px;
   }
 }
 
@@ -1079,7 +1079,7 @@ input:focus {
   color: rgba(13, 65, 46, 0.4);
   display: block;
   margin: 10px auto auto auto;
-  font-size: 19.5px;
+  font-size: 24px;
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -1121,11 +1121,11 @@ input:focus {
 /* line 227, ../../sass/partials/_time_to_retirement.scss */
 input[type="text"].form-control {
   text-align: center;
-  -moz-box-shadow: white 0px 0px 0px;
-  -webkit-box-shadow: white 0px 0px 0px;
-  box-shadow: white 0px 0px 0px;
+  -moz-box-shadow: #fff 0px 0px 0px;
+  -webkit-box-shadow: #fff 0px 0px 0px;
+  box-shadow: #fff 0px 0px 0px;
   height: 50px;
-  font-size: 26px;
+  font-size: 32px;
   margin: auto auto;
   display: inline-block;
   -moz-border-radius: 5px;
@@ -1166,7 +1166,7 @@ input[type="text"].form-control {
 #expenses-field {
   height: 60px;
   width: 100%;
-  font-size: 26px;
+  font-size: 32px;
   display: inline-block;
 }
 
@@ -1180,7 +1180,7 @@ input[type="text"].form-control {
   padding: 0 0;
   outline: none !important;
   background: rgba(84, 168, 136, 0.09);
-  color: #0d412e;
+  color: #0D412E;
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
@@ -1263,7 +1263,7 @@ input[type="text"].form-control {
 .edit-link {
   display: inline-block;
   margin-left: 10px;
-  color: #0d412e;
+  color: #0D412E;
   font-weight: 600;
   font-size: 0.9em;
 }
@@ -1294,7 +1294,7 @@ input[type="text"].form-control {
 .assumptions-toggle {
   margin: 20px auto auto 0px;
   background: rgba(84, 168, 136, 0.09);
-  color: #0d412e;
+  color: #0D412E;
   display: block;
   border: 1px solid rgba(13, 65, 46, 0.1);
   -moz-transition-property: all;
@@ -1349,7 +1349,7 @@ input[type="text"].form-control {
 .actions-container {
   padding-left: 0px;
   padding-right: 0px;
-  border: 1px solid #0d412e;
+  border: 1px solid #0D412E;
   background: rgba(43, 142, 105, 0.05);
   position: relative;
 }
@@ -1362,14 +1362,14 @@ input[type="text"].form-control {
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom: 1px solid #0d412e;
+  border-bottom: 1px solid #0D412E;
 }
 
 /* line 420, ../../sass/partials/_time_to_retirement.scss */
 .income-actions-container {
   border-top: none;
-  border-right: 1px solid #0d412e;
-  border-left: 1px solid #0d412e;
+  border-right: 1px solid #0D412E;
+  border-left: 1px solid #0D412E;
 }
 
 /* line 426, ../../sass/partials/_time_to_retirement.scss */
@@ -1492,7 +1492,7 @@ input[type="text"].form-control {
 .action-title {
   padding: 20px 20px 20px 0px;
   font-size: 1.6em;
-  color: #0d412e;
+  color: #0D412E;
   font-weight: 300;
 }
 
@@ -1670,8 +1670,8 @@ input[type="text"].form-control {
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  border: 1px solid #da9b03;
-  background: #fcf5ec;
+  border: 1px solid #DA9B03;
+  background: #FCF5EC;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1684,7 +1684,7 @@ input[type="text"].form-control {
 
 /* line 644, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button {
-  background: #da9b03;
+  background: #DA9B03;
   color: white;
   border: none;
   font-weight: 700;
@@ -1703,14 +1703,14 @@ input[type="text"].form-control {
 }
 /* line 651, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button:hover, .sign-up-button:focus, .sign-up-button:active, .sign-up-button:visited {
-  background: #da9b03;
+  background: #DA9B03;
   border: none;
   color: white !important;
   outline: none !important;
 }
 /* line 658, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button:hover {
-  background: #c58c01;
+  background: #C58C01;
   color: white;
 }
 
@@ -1829,7 +1829,7 @@ input[type="text"].form-control {
 .input-type-active {
   font-weight: 700;
   text-decoration: underline;
-  color: #0d412e;
+  color: #0D412E;
 }
 
 /* line 765, ../../sass/partials/_time_to_retirement.scss */
@@ -1977,7 +1977,7 @@ input[type="text"].form-control {
 .intro-content {
   width: 100vw;
   height: 100vh;
-  background: #0d412e;
+  background: #0D412E;
   padding: 35% 5%;
   text-align: center;
   position: relative;
@@ -2057,7 +2057,7 @@ input[type="text"].form-control {
   margin: 55px auto auto auto;
   text-align: center;
   display: block;
-  background: #0d412e;
+  background: #0D412E;
   padding: 20px 30px;
   font-size: 1.5em;
   cursor: pointer;
@@ -2219,7 +2219,7 @@ input[type="text"].form-control {
   margin: auto;
 }
 
-/* line 17, ../../sass/screen.scss */
+/* line 19, ../../sass/screen.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -2228,18 +2228,18 @@ html, body {
   overflow-x: hidden;
 }
 
-/* line 26, ../../sass/screen.scss */
+/* line 28, ../../sass/screen.scss */
 body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_selection.scss */
 *::-moz-selection {
-  color: white;
-  background-color: #7dd193;
+  color: #fff;
+  background-color: #7DD193;
 }
-/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_selection.scss */
 *::selection {
-  color: white;
-  background-color: #7dd193;
+  color: #fff;
+  background-color: #7DD193;
 }

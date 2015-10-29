@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,iBAAkB;EACd,KAAK,EAAE,GAAG;;AAGd,6BAA8B;EAC1B,YAAY,EAAE,CAAC;EACf,IAAI,EAAE,IAAI;EACV,cAAc,EAAE,UAAU;;AAG9B,aAAc;EACV,MAAM,EAAE,GAAG;;AAGf,cAAe;EACX,MAAM,EAAE,KAAK;;AAGjB,sBAAuB;EACnB,IAAI,EAAE,IAAI;EACV,MAAM,EAAE,OAAO;EACf,cAAc,EAAE,UAAU",
-"sources": ["../compass/sass/custom.scss"],
-"names": [],
-"file": "main.css"
-}
