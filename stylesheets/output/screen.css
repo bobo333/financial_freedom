@@ -79,30 +79,30 @@ h3 {
   font-weight: 400;
 }
 
-/* line 94, ../../sass/partials/_base.scss */
+/* line 92, ../../sass/partials/_base.scss */
 .form-group label {
   font-size: 1.5em;
   margin-bottom: 5px;
 }
 
-/* line 102, ../../sass/partials/_base.scss */
+/* line 100, ../../sass/partials/_base.scss */
 .btn-primary {
-  background: red;
+  background: #2B8E69;
 }
-/* line 105, ../../sass/partials/_base.scss */
+/* line 103, ../../sass/partials/_base.scss */
 .btn-primary[disabled] {
-  background: red;
+  background: #2B8E69;
 }
-/* line 109, ../../sass/partials/_base.scss */
+/* line 107, ../../sass/partials/_base.scss */
 .btn-primary:hover {
   background: #0D412E;
 }
 
-/* line 114, ../../sass/partials/_base.scss */
+/* line 112, ../../sass/partials/_base.scss */
 .btn-secondary {
   background: white;
-  border: 2px solid red;
-  color: red;
+  border: 2px solid #2B8E69;
+  color: #2B8E69;
 }
 
 /* line 14, ../../sass/partials/_header.scss */
@@ -120,7 +120,7 @@ h3 {
 /* line 24, ../../sass/partials/_header.scss */
 .navbar-custom {
   font-family: "Source Sans Pro", sans-serif;
-  color: rgba(255, 0, 0, 0.7);
+  color: rgba(43, 142, 105, 0.7);
   padding: 15px 40px;
   -moz-transition-property: color;
   -o-transition-property: color;
@@ -204,7 +204,7 @@ h3 {
   background: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   border-bottom-style: solid;
-  border-bottom-color: red;
+  border-bottom-color: #2B8E69;
   border-bottom-width: 3px;
 }
 
@@ -363,7 +363,7 @@ h3 {
 /* line 204, ../../sass/partials/_header.scss */
 .navbar-default {
   color: white;
-  background: red;
+  background: #2B8E69;
 }
 
 /* line 209, ../../sass/partials/_header.scss */
@@ -836,7 +836,7 @@ input:focus {
   text-align: center;
   display: inline-block;
   font-size: 0.6em;
-  color: red;
+  color: #2B8E69;
   opacity: 0.7;
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
@@ -910,11 +910,11 @@ input:focus {
 }
 /* line 48, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-line {
-  stroke: red;
+  stroke: #2B8E69;
 }
 /* line 52, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-label {
-  fill: red;
+  fill: #2B8E69;
 }
 /* line 56, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
@@ -933,7 +933,7 @@ input:focus {
 }
 /* line 71, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .income-label {
-  fill: rgba(255, 0, 0, 0.8);
+  fill: rgba(43, 142, 105, 0.8);
 }
 /* line 75, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .curve-label {
@@ -979,7 +979,7 @@ input:focus {
 
 /* line 120, ../../sass/partials/_time_to_retirement.scss */
 .big-number-bg {
-  background: red;
+  background: #2B8E69;
   width: 150px;
   height: 150px;
   -moz-border-radius: 50%;
@@ -1052,13 +1052,13 @@ input:focus {
 .output-top-section {
   margin-top: 90px;
   padding-bottom: 50px;
-  border-bottom: 1px solid rgba(255, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(43, 142, 105, 0.12);
 }
 
 /* line 185, ../../sass/partials/_time_to_retirement.scss */
 .graph-section {
   margin: 0px auto 0px auto;
-  background: rgba(255, 0, 0, 0.05);
+  background: rgba(43, 142, 105, 0.05);
   padding-bottom: 0px;
 }
 
@@ -1253,7 +1253,7 @@ input[type="text"].form-control {
 
 /* line 335, ../../sass/partials/_time_to_retirement.scss */
 #assumptions-border-top {
-  border-top: 1px solid rgba(255, 0, 0, 0.3);
+  border-top: 1px solid rgba(43, 142, 105, 0.3);
   position: absolute;
   left: 15%;
   right: 15%;
@@ -1350,7 +1350,7 @@ input[type="text"].form-control {
   padding-left: 0px;
   padding-right: 0px;
   border: 1px solid #0D412E;
-  background: rgba(255, 0, 0, 0.05);
+  background: rgba(43, 142, 105, 0.05);
   position: relative;
 }
 
@@ -1503,7 +1503,7 @@ input[type="text"].form-control {
 
 /* line 509, ../../sass/partials/_time_to_retirement.scss */
 .output-controls-section {
-  border-bottom: 1px solid rgba(255, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(43, 142, 105, 0.12);
 }
 
 /* line 513, ../../sass/partials/_time_to_retirement.scss */
@@ -1721,7 +1721,7 @@ input[type="text"].form-control {
 
 /* line 668, ../../sass/partials/_time_to_retirement.scss */
 .dollars-to-time-wrapper {
-  border: 1px solid rgba(255, 0, 0, 0.12);
+  border: 1px solid rgba(43, 142, 105, 0.12);
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
@@ -1766,7 +1766,7 @@ input[type="text"].form-control {
 .calc-view-wrapper {
   height: 100vh;
   width: 100vw;
-  background: rgba(255, 0, 0, 0.05);
+  background: rgba(43, 142, 105, 0.05);
   padding-top: 10%;
 }
 @media screen and (min-width: 768px) {
@@ -2097,7 +2097,7 @@ input[type="text"].form-control {
 
 /* line 17, ../../sass/partials/_account_modals.scss */
 .modal-header {
-  background-color: rgba(255, 0, 0, 0.05);
+  background-color: rgba(43, 142, 105, 0.05);
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
   border-top-left-radius: 6px;
@@ -2201,8 +2201,8 @@ input[type="text"].form-control {
 .footer-container {
   position: relative;
   width: 100%;
-  background: rgba(255, 0, 0, 0.05);
-  border-top: 1px solid rgba(255, 0, 0, 0.12);
+  background: rgba(43, 142, 105, 0.05);
+  border-top: 1px solid rgba(43, 142, 105, 0.12);
 }
 
 /* line 8, ../../sass/partials/_footer.scss */
