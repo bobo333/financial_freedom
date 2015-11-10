@@ -1876,6 +1876,19 @@ input[type="text"].form-control {
   margin-left: 5px;
 }
 
+/* line 804, ../../sass/partials/_time_to_retirement.scss */
+.cannot-retire-message {
+  display: block;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  max-width: 350px;
+  font-size: 22.4px;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #404040;
+}
+
 /* line 2, ../../sass/partials/_animations.scss */
 .view-animate.ng-enter {
   -moz-transition-property: all;

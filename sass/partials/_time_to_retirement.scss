@@ -800,3 +800,16 @@ input[type="text"].form-control {
     margin-top: 1px;
     margin-left: 5px;
 }
+
+.cannot-retire-message {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    max-width: 350px;
+    font-size: $base_font_size*1.4;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #404040;
+}
+
