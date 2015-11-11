@@ -82,7 +82,7 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
 
 });
 
-FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, $stateParams, DollarsToTimeService, UserDataCache) {
+FinancialFreedom.controller('DollarsToTimeController', function($scope, $location, $state, $stateParams, DollarsToTimeService, UserDataCache) {
     var dates;
     var params = $stateParams;
     var customVals = null;

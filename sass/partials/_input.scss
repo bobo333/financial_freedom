@@ -1,4 +1,4 @@
-$input_field_width: 300px;
+$input_field_width: 250px;
 
 .view-content {
 	padding: 0px;
@@ -7,21 +7,24 @@ $input_field_width: 300px;
 .dollars-to-time-wrapper.input-wrapper {
 	max-width: 615px;
 	text-align: center;
+	padding-bottom: 8%;
+	@include min-screen($screen_sm_min) {
+		padding-bottom: 3%;
+	}
 }
 
 input[type="text"].steps {
 
-  width: $input_field_width / 2;
+  max-width: $input_field_width / 2;
   height: 60px;
   padding-left: $input_field_width * 0.04;
-  margin-left: 20px;
   border: none;
   border-bottom-style: solid;
   border-bottom-color: $body_text_color;
   border-bottom-width: 1px;
 
   @include min-screen($screen_sm_min) {
-	width: $input_field_width;
+	max-width: $input_field_width;
 	line-height: $base_line_height;
 	height: 80px;
   }
@@ -111,26 +114,31 @@ input:focus {
 .input-type-wrapper {
 	display: flex;
 	justify-content: center;
-	width: 40%;
-	margin-top: 5%;
-	margin-left: 7%;
+	margin: 5% auto 10% auto;
 }
 
 .dollars-to-time-wrapper {
     border: $section-bottom-border;
+	border-top: none;
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     background: white;
-    margin-top: 30px;
-    padding: 15px 35px 30px 35px;
+    padding: 1% 5% 3% 5%;
     border-radius: 4px;
+	@include min-screen($screen_sm_min) {
+		padding: 1% 2% 3% 2%;
+		border: $section-bottom-border;
+	}
 }
 
 .calc-time-wrapper {
     display: inline-block;
     text-align: center;
-    margin-right: 25px;
+    margin-right: 5%;
+	&:last-child {
+		margin-right: 0%;
+	}
 }
 
 .calc-control {
@@ -145,22 +153,27 @@ input:focus {
 
 .calc-container {
     margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .calc-equal {
     font-size: 6em;
     text-align: center;
-    padding-top: 30px;
+	padding-top: 3%;
+	@include min-screen($screen_sm_min) {
+		padding-top: 50%;
+	}
+
 }
 
 .calc-view-wrapper {
-    height: 100vh;
+    min-height: 95vh;
     width: 100vw;
     background: $light_bg_green;
-    padding-top: 10%;
+    padding-top: 0%;
 
     @include min-screen($screen_sm_min) {
-        padding-top: 10%;
+        padding-top: 5%;
     }
 }
 
@@ -179,7 +192,7 @@ input:focus {
 }
 
 .calc-input {
-    margin-top: 0px;
+    margin-top: 5%;
 
     .leading-dollar {
         margin-left: 0px;
@@ -192,6 +205,7 @@ input:focus {
 
 .calc-output-wrapper {
     text-align: center;
+	margin-top: 5%;
 }
 
 .calc-control {
@@ -207,12 +221,6 @@ input:focus {
     margin-right: auto;
 }
 
-.input-type-active {
-    font-weight: $brand_font_weight_bold;
-    text-decoration: underline;
-    color: $dark_green;
-}
-
 .calc-output-subtext {
     font-size: 1.1em;
     margin-top: 0px;
@@ -224,22 +232,29 @@ input:focus {
 }
 
 .calc-val-type-control-wrapper {
-    width: 100%;
+	display: inline-block;
+	margin: auto 5%;
+	@include min-screen($screen_md_min) {
+		margin: auto 7%;
+	}
 }
 
 .calc-val-type-control {
-    @extend .calc-output-subtext;
-    text-align: left;
-    margin-left: 15px;
-    width: auto;
+	display: inline;
+	font-size: 1.3rem;
+	opacity: 0.3;
 
     &:hover {
         cursor: pointer;
+		opacity: 1;
+		@include hover-animation(opacity);
     }
-}
 
-.calc-output-inactive {
-    opacity: 0.25;
+	&.input-type-active {
+	    font-weight: $brand_font_weight_bold;
+	    color: $dark_green;
+		opacity: 1;
+	}
 }
 
 .green {
