@@ -44,7 +44,7 @@
 					        placeholder="500"
 					    />
 					</div>
-					<span ng-if="can_not_retire_message">{{ can_not_retire_message }}
+					<span ng-if="input_error_message.messageCopy" ng-class="{green: input_error_message.alreadyRetired, red: !input_error_message.alreadyRetired}">{{ input_error_message.messageCopy }}
 					</span>
 				</div>
 				<div class="col-sm-2">

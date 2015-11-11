@@ -178,6 +178,4 @@ FinancialFreedom.service('RetirementCalculatorService', function(InterestService
     var newYear = function(months) {
         return months % 12 === 0;
     };
-
-
 });

@@ -87,8 +87,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, 
     var dates;
     var params = $stateParams;
     var customVals = null;
-
-    $scope.can_not_retire_message = null;
+    $scope.input_error_message = {};
 
     $scope.dates = {
         years: '-',
@@ -151,7 +150,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, 
         var amount = parseInt($scope.calc_values.amount);
 
         if ($scope.calc_values.amount === '' || isNaN($scope.calc_values.amount) || isNaN(amount)) {
-
             clearOutput();
             return;
         }
@@ -210,9 +208,6 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, 
         $scope.dates.more_months_to_retirement = dates.more_months_to_retirement ? dates.more_months_to_retirement : 0;
         $scope.dates.fewer_months_to_retirement = dates.fewer_months_to_retirement ? dates.fewer_months_to_retirement : 0;
 
-        console.log(dates.more_years_to_retirement);
-        console.log(dates.fewer_years_to_retirement);
-
         if (dates.difference) {
             $scope.dates.years = dates.difference.years;
             $scope.dates.months = dates.difference.months;
@@ -221,10 +216,21 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, 
 
         if (dates.more_years_to_retirement >= 100) {
             clearOutput();
-            $scope.can_not_retire_message = "Oops-the number you entered resulted in never reaching financial independence. Lower it to get a realistic estimate.";
+            $scope.input_error_message = {
+                    alreadyRetired: false,
+                    messageCopy: "The number you entered results in never reaching financial independence. Lower it to get a conversion."
+            };
+        }
+
+        else if (dates.fewer_years_to_retirement === 0 && dates.fewer_months_to_retirement <= 1){
+            clearOutput();
+            $scope.input_error_message = {
+                    alreadyRetired: true,
+                    messageCopy: "The number you entered results means that financial independence has already been reached."
+            };
         }
         else {
-            $scope.can_not_retire_message = null;
+            $scope.input_error_message = {};
         }
     }
 

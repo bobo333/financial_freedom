@@ -14,7 +14,7 @@ $input_field_width: 300px;
 }
 
 input[type="text"].steps {
-  
+
   width: $input_field_width / 2;
   height: 60px;
   padding-left: $input_field_width * 0.04;
@@ -36,7 +36,7 @@ input[type="text"].steps {
 	color: rgba(119,119,119,0.22);
     font-style: italic;
     @include vertical-align;
-    
+
     @include min-screen($screen_sm_min) {
 		font-size: $base_font_size * 3;
 		line-height: $base_line_height;
@@ -51,7 +51,7 @@ input[type="text"].steps {
 	font-weight: $base_font_weight_semi_bold;
 	text-transform: uppercase;
 	margin-top: 2%;
-    
+
 	@include min-screen($screen_sm_min) {
 		font-size: 5em;
 	}
@@ -59,7 +59,7 @@ input[type="text"].steps {
 
 .input-title, .step-subheader, .input-field-wrapper {
 	text-align: center;
-    
+
 	@include min-screen($screen_md_min) {
 		text-align: inherit;
 	}
@@ -71,7 +71,7 @@ input[type="text"].steps {
 	color: $body_text_color;
 	font-weight: $base_font_weight_normal;
 	@include min-screen($screen_sm_min) {
-		font-size: 1.5em;		
+		font-size: 1.5em;
 		line-height: $base-line-height;
 	}
 }
@@ -90,7 +90,7 @@ input[type="text"].steps {
 	.after-input-text {
 		font-size: $base_font_size ;
 		margin-left: 20px;
-        
+
 		@include min-screen($screen_sm_min) {
 			font-size: $base_font_size * 2;
 			vertical-align: middle;
@@ -118,4 +118,138 @@ input:focus {
 	width: 40%;
 	margin-top: 5%;
 	margin-left: 7%;
+}
+
+.dollars-to-time-wrapper {
+    border: $section-bottom-border;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    margin-top: 30px;
+    padding: 15px 35px 30px 35px;
+    border-radius: 4px;
+}
+
+.calc-time-wrapper {
+    display: inline-block;
+    text-align: center;
+    margin-right: 25px;
+}
+
+.calc-control {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.calc-time-number {
+    font-size: 5em;
+    font-weight: $brand_font_weight_bold;
+}
+
+.calc-container {
+    margin-top: 3%;
+}
+
+.calc-equal {
+    font-size: 6em;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.calc-view-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: $light_bg_green;
+    padding-top: 10%;
+
+    @include min-screen($screen_sm_min) {
+        padding-top: 10%;
+    }
+}
+
+.calc-title {
+    text-align: center;
+    font-size: 2rem;
+    @include min-screen($screen_sm_min) {
+        font-size: 4rem;
+    }
+
+}
+
+.calc-time-label {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.calc-input {
+    margin-top: 0px;
+
+    .leading-dollar {
+        margin-left: 0px;
+    }
+}
+
+.calc-toggle {
+    width: 100px;
+}
+
+.calc-output-wrapper {
+    text-align: center;
+}
+
+.calc-control {
+    .btn.active {
+        font-weight: $brand_font_weight_bold;
+        box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1),
+                    inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1)
+    }
+}
+
+.calc-output-digit-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-type-active {
+    font-weight: $brand_font_weight_bold;
+    text-decoration: underline;
+    color: $dark_green;
+}
+
+.calc-output-subtext {
+    font-size: 1.1em;
+    margin-top: 0px;
+    opacity: 0.6;
+    line-height: 1.2em;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.calc-val-type-control-wrapper {
+    width: 100%;
+}
+
+.calc-val-type-control {
+    @extend .calc-output-subtext;
+    text-align: left;
+    margin-left: 15px;
+    width: auto;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.calc-output-inactive {
+    opacity: 0.25;
+}
+
+.green {
+	color: $primary_green;
+}
+
+.red {
+	color: red;
 }
