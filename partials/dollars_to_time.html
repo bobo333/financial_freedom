@@ -1,4 +1,4 @@
-<div class="calc-view-wrapper">
+<section class="calc-view-wrapper">
 
 	<div class="dollars-to-time-wrapper">
 
@@ -18,7 +18,7 @@
 		<div class="calc-container">
 			<div class="row">
 				<div class="col-sm-5">
-					
+
 					<div class="calc-control calc-recurrence-control">
 						<div class="btn-group">
 					        <label class="btn btn-secondary calc-toggle" ng-model="calc_values.recurring" btn-radio="false">One-time</label>
@@ -40,10 +40,12 @@
 					        ng-currency
 					        autofocus
 					        required
-					        ng-model="calc_values.amount" 
+					        ng-model="calc_values.amount"
 					        placeholder="500"
 					    />
 					</div>
+					<span ng-if="can_not_retire_message">{{ can_not_retire_message }}
+					</span>
 				</div>
 				<div class="col-sm-2">
 					<div class="calc-equal" ng-class="{ 'calc-output-inactive': preconvert}">=</div>
@@ -55,12 +57,12 @@
 							<div class="calc-time-number">{{ dates.years }}</div>
 							<div class="calc-time-label">Years</div>
 						</div>
-	
+
 						<div class="calc-time-wrapper">
 							<div class="calc-time-number">{{ dates.months }}</div>
 							<div class="calc-time-label">Months</div>
 						</div>
-	
+
 						<div class="calc-time-wrapper">
 							<div class="calc-time-number">{{ dates.days }}</div>
 							<div class="calc-time-label">Days</div>
@@ -80,4 +82,4 @@
 		</div>
 
 	</div>
-</div>
+</section>
