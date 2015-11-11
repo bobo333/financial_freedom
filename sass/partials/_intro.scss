@@ -1,11 +1,11 @@
 .intro-content {
 	width: 100vw;
-	height: 100vh;
+	min-height: 95vh;
 	background: $dark_green;
-	padding: 35% 5%;
+	padding: 15% 5%;
 	text-align: center;
 	position: relative;
-	
+
 	@include min-screen($screen_sm_min) {
 		padding: 15% 5%;
 	}
@@ -22,7 +22,7 @@
 	margin-left: 15px;
 
 	@include min-screen($screen_sm_min) {
-		font-size: 5em;	
+		font-size: 5em;
 	}
 }
 

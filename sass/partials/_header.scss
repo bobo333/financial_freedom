@@ -58,6 +58,7 @@ $nav-border-radius: 25px;
 	font-weight: $brand_font_weight_bold;
     color: $nav-font-color;
     text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
+	
     @include hover-animation(color);
     a, a:hover {
         text-decoration: none;
@@ -297,8 +298,17 @@ $nav-border-radius: 25px;
 
 .nav-content-wrapper {
 	max-width: 100%;
-	padding: 0 2%;
+	padding: 0 5%;
+	@include min-screen($screen_sm_min) {
+		padding: 0 2%;
+	}
+
 	@include min-screen($screen_md_min) {
 	    max-width: 960px;
     }
+}
+
+.header-dummy {
+	height: 83px;
+	width: 100%;
 }
