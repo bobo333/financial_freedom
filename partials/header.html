@@ -25,6 +25,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
                         <li><a class="nav-item-custom" ng-click="openSignUpModal()">Sign up</a></li>
+                    </ul>showCountdownNavItem
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="nav-item-custom" ng-click="goToCountdown()">Countdown</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</a></li>
@@ -50,6 +53,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="nav-item-custom" ng-click="goToCountdown()">Countdown</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</a></li>
