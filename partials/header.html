@@ -1,6 +1,6 @@
 <div class="header-wrapper" ng-controller="HeaderController">
     <div class="navbar-wrapper">
-        <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-custom" role="navigation">
             <div class="container-fluid nav-content-wrapper">
                 <div class="navbar-header">
                     <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
@@ -19,13 +19,13 @@
                         </div>
                     </a>
                 </div>
-                <div collapse="isCollapsed">
+                <div collapse="isCollapsed" ng-click="isCollapsed = !isCollapsed">
                     <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
                         <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign in</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
                         <li><a class="nav-item-custom" ng-click="openSignUpModal()">Sign up</a></li>
-                    </ul>showCountdownNavItem
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-item-custom" ng-click="goToCountdown()">Countdown</a></li>
                     </ul>

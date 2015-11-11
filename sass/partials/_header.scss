@@ -24,7 +24,7 @@ $nav-border-radius: 25px;
 .navbar-custom {
     font-family: $base_font_family;
     color: rgba($primary_green, 0.7);
-    padding: 15px 40px;
+    padding: 15px 0;
     @include hover-animation(color);
     display: block;
 
@@ -45,9 +45,10 @@ $nav-border-radius: 25px;
     display: inline-block;
     vertical-align: top;
     margin-top: -1px;
+	font-size: 0.8rem;
 
     @include min-screen($screen_sm_min) {
-        margin-top: 3px;    
+        margin-top: 3px;
     }
 }
 
@@ -68,7 +69,7 @@ $nav-border-radius: 25px;
     }
 
     @include min-screen($screen_sm_min) {
-        font-size: 2em; 
+        font-size: 2em;
     }
 }
 
@@ -127,12 +128,12 @@ $nav-border-radius: 25px;
 
             @include min-screen($screen_sm_min) {
                 @include border-bottom-left-radius($nav-border-radius);
-            }     
+            }
         }
-        
+
         &:last-child {
             width: 33.4%; // to fix the .1% offset it was showing
-            
+
 
             @include min-screen($screen_sm_min) {
                 @include border-bottom-right-radius($nav-border-radius);
@@ -140,7 +141,7 @@ $nav-border-radius: 25px;
 
             border-right: 0px solid #000;
         }
-        
+
         &.active {
             font-weight: bold;
             background: $active_tab_color;
@@ -150,7 +151,7 @@ $nav-border-radius: 25px;
                 background: $active_tab_color;
             }
         }
-        
+
         &:hover {
             cursor: pointer;
             background: rgba($dark_green,0.1);
@@ -179,11 +180,15 @@ $nav-border-radius: 25px;
             cursor: pointer;
             @include hover-animation(all);
             color: rgba($nav-font-color, 0.7);
-            font-size: 1.2em;
+            font-size: 1rem;
 
             &:hover {
                 background: rgba($nav-font-color, 1);
             }
+
+			@include min-screen($screen_md_min) {
+		        font-size: 1.2rem;
+		    }
         }
     }
 }
@@ -197,6 +202,10 @@ $nav-border-radius: 25px;
     margin-top: -2px;
 
     @include min-screen($screen_sm_min) {
+        width: 55px;
+    }
+
+	@include min-screen($screen_md_min) {
         width: 65px;
     }
 }
@@ -233,7 +242,7 @@ $nav-border-radius: 25px;
 }
 
 #navbar-toggle-custom {
-    
+
     &:hover, &:active, &:visited {
         background-color: rgba(white, 0.3);
         border-color: white;
@@ -287,5 +296,9 @@ $nav-border-radius: 25px;
 }
 
 .nav-content-wrapper {
-    max-width: 960px;
+	max-width: 100%;
+	padding: 0 2%;
+	@include min-screen($screen_md_min) {
+	    max-width: 960px;
+    }
 }
