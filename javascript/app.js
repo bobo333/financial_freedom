@@ -205,10 +205,13 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, 
 
         dates = DollarsToTimeService.calculateDollarsToTime(amount, $scope.calc_values.expense, $scope.calc_values.recurring, customVals);
 
-        $scope.dates.more_years_to_retirement = dates.more_years_to_retirement;
-        $scope.dates.fewer_years_to_retirement = dates.fewer_years_to_retirement;
-        $scope.dates.more_months_to_retirement = dates.more_months_to_retirement;
-        $scope.dates.fewer_months_to_retirement = dates.fewer_months_to_retirement;
+        $scope.dates.more_years_to_retirement = dates.more_years_to_retirement ? dates.more_years_to_retirement : 0;
+        $scope.dates.fewer_years_to_retirement = dates.fewer_years_to_retirement ? dates.fewer_years_to_retirement : 0;
+        $scope.dates.more_months_to_retirement = dates.more_months_to_retirement ? dates.more_months_to_retirement : 0;
+        $scope.dates.fewer_months_to_retirement = dates.fewer_months_to_retirement ? dates.fewer_months_to_retirement : 0;
+
+        console.log(dates.more_years_to_retirement);
+        console.log(dates.fewer_years_to_retirement);
 
         if (dates.difference) {
             $scope.dates.years = dates.difference.years;
@@ -218,7 +221,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $state, 
 
         if (dates.more_years_to_retirement >= 100) {
             clearOutput();
-            $scope.can_not_retire_message = "Oops-the number you entered resulted in never reaching financial independence. Try lowering it to get a realist estimate.";
+            $scope.can_not_retire_message = "Oops-the number you entered resulted in never reaching financial independence. Lower it to get a realistic estimate.";
         }
         else {
             $scope.can_not_retire_message = null;
