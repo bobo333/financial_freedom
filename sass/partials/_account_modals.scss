@@ -70,7 +70,10 @@
 }
 
 .modal-dialog {
-	width: 450px;
+	width: auto;
+	@include min-screen($screen_md_min) {
+		min-width: 450px;
+	}
 }
 
 .form-control.ng-invalid.ng-touched {

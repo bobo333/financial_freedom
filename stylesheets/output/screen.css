@@ -969,7 +969,7 @@ input:focus {
   color: #404040;
   position: relative;
   padding-left: 0px;
-  padding-bottom: 50px;
+  padding-bottom: 2%;
   font-weight: 300;
   font-size: 19.2px;
 }
@@ -990,7 +990,7 @@ input:focus {
 .method-section {
   margin: 0px auto 0px auto;
   color: #404040;
-  margin-top: 80px;
+  margin-top: 1%;
   border-bottom: 1px solid rgba(48, 142, 127, 0.12);
   width: 100%;
 }
@@ -2277,21 +2277,27 @@ input:focus {
 
 /* line 72, ../../sass/partials/_account_modals.scss */
 .modal-dialog {
-  width: 450px;
+  width: auto;
+}
+@media screen and (min-width: 992px) {
+  /* line 72, ../../sass/partials/_account_modals.scss */
+  .modal-dialog {
+    min-width: 450px;
+  }
 }
 
-/* line 76, ../../sass/partials/_account_modals.scss */
+/* line 79, ../../sass/partials/_account_modals.scss */
 .form-control.ng-invalid.ng-touched {
   border-color: red;
 }
 
-/* line 80, ../../sass/partials/_account_modals.scss */
+/* line 83, ../../sass/partials/_account_modals.scss */
 .field-error {
   margin-top: 5px;
   color: red;
 }
 
-/* line 85, ../../sass/partials/_account_modals.scss */
+/* line 88, ../../sass/partials/_account_modals.scss */
 .checkbox.login-checkbox {
   margin-top: 25px;
 }
