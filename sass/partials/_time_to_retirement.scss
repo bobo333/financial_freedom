@@ -223,12 +223,12 @@ $signup_button_hover_color: #C58C01;
     }
 }
 
-input[type="text"].form-control {
+.form-control.secondary-output-field {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
-    height: 50px;
     font-size: $base_font_size * 2;
     margin: auto auto;
+    min-height: 50px;
     display: inline-block;
     @include border-radius(5px);
     border: 1px solid rgba($dark_green,0.2);
@@ -327,7 +327,7 @@ input[type="text"].form-control {
         margin: auto auto;
         height: $control-button-height * 0.7;
         width: $control-button-height * 2;
-        font-size: 1.2em;
+        font-size: 1em;
     }
 }
 

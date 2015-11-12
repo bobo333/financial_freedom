@@ -43,6 +43,7 @@
     <body ng-controller="bodyController">
         <abound-header></abound-header>
         <div ui-view class="view-animate"></div>
+        <feedback-box></feedback-box>
         <abound-footer></abound-footer>
     </body>
 </html>

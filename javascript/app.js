@@ -66,7 +66,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
     };
 }]);
 
-FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, UserDataCache) {
+FinancialFreedom.controller('bodyController', function($scope, $rootScope, $location, $window, GoogleAnalyticsService, AuthService, Session, UserDataCache, modalService) {
 
     $scope.isActive = function(route) {
         return route == $location.path();
@@ -79,6 +79,10 @@ FinancialFreedom.controller('bodyController', function($scope, $rootScope, $loca
     if ($rootScope.currentUser) {
         UserDataCache.userData.fetchUserData();
     }
+
+    $scope.openFeedbackModal = function() {
+        modalService.showModal({}, 'feedbackModalOptions');
+    };
 
 });
 
@@ -225,7 +229,7 @@ FinancialFreedom.controller('DollarsToTimeController', function($scope, $locatio
             clearOutput();
             $scope.input_error_message = {
                     alreadyRetired: true,
-                    messageCopy: "The number you entered results means that financial independence has already been reached."
+                    messageCopy: "The number you entered results in financial independence already being reached."
             };
         }
         else {
@@ -350,7 +354,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
         AuthService.data.login(credentials).then(function (user)  {
 
             if (this.data.success) {
-
                 Session.data.create(credentials.email);
                 UserDataCache.userData.fetchUserData();
                 $modalInstance.close();
@@ -376,7 +379,6 @@ FinancialFreedom.controller('LoginModalInstanceCtrl', function ($scope, $rootSco
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-
 });
 
 FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modalInstance, UserDataCache, AuthService) {
@@ -390,7 +392,6 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
     };
 
     $scope.passwordResetFormCollapsed = true;
-
     $scope.userEmail = UserDataCache.userData.email;
     $scope.userCreatedAt = UserDataCache.userData.created_at;
 
@@ -399,7 +400,6 @@ FinancialFreedom.controller('AccountModalInstanceCtrl', function ($scope, $modal
         AuthService.data.resetPassword(credentials).then(function ()  {
 
             if (!this.data.success) {
-
                 $scope.resetPasswordFailureMessage = "Your attempt to reset your password failed.";
 
                 return angular.forEach(this.data.errors, function(key, value) {
@@ -581,8 +581,14 @@ FinancialFreedom.directive("percent", function($filter){
     };
 });
 
-var INITIAL_CALCULATOR_CONSTANTS = {
+FinancialFreedom.controller('FeedbackCtrl', function ($scope, $window, modalService, $modalInstance) {
+    
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});
 
+var INITIAL_CALCULATOR_CONSTANTS = {
         "withdrawal_rate" : 0.04,
         "inflation_rate" : 0.035,
         "income_increase_rate" : 0.05,
@@ -693,9 +699,7 @@ function UserDataCache(INITIAL_CALCULATOR_CONSTANTS, UserDataService) {
         var new_growth_rate = {
             'investment_growth_rate' : growth_rate
         };
-
         UserDataService.data.updateUserData(new_growth_rate);
-
     };
 
     return {
@@ -703,6 +707,8 @@ function UserDataCache(INITIAL_CALCULATOR_CONSTANTS, UserDataService) {
     };
 
 }
+
+
 
 function compareTo () {
     return {
@@ -744,8 +750,16 @@ function stepHeader () {
     };
 }
 
+function feedbackBox () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/feedback_box.html'
+    };
+}
+
 FinancialFreedom.directive("aboundFooter", aboundFooter);
 FinancialFreedom.directive("aboundHeader", aboundHeader);
+FinancialFreedom.directive("feedbackBox", feedbackBox);
 FinancialFreedom.directive("compareTo", compareTo);
 FinancialFreedom.directive("stepHeader", stepHeader);
 FinancialFreedom.constant('INITIAL_CALCULATOR_CONSTANTS',INITIAL_CALCULATOR_CONSTANTS);
