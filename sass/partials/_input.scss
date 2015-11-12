@@ -127,7 +127,7 @@ input:focus {
     padding: 1% 5% 3% 5%;
     border-radius: 4px;
 	@include min-screen($screen_sm_min) {
-		padding: 1% 2% 3% 2%;
+		padding: 1% 2% 1% 2%;
 		border: $section-bottom-border;
 	}
 }
@@ -160,10 +160,10 @@ input:focus {
     font-size: 6em;
     text-align: center;
 	padding-top: 3%;
-	@include min-screen($screen_sm_min) {
-		padding-top: 50%;
-	}
+}
 
+.calc-input-error {
+	margin-top: 5%;
 }
 
 .calc-view-wrapper {
@@ -205,7 +205,6 @@ input:focus {
 
 .calc-output-wrapper {
     text-align: center;
-	margin-top: 5%;
 }
 
 .calc-control {
@@ -255,6 +254,11 @@ input:focus {
 	    color: $dark_green;
 		opacity: 1;
 	}
+}
+
+.calc-wrapper {
+	display: flex;
+	align-items: center;
 }
 
 .green {

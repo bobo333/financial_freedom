@@ -720,7 +720,7 @@ input:focus {
 @media screen and (min-width: 768px) {
   /* line 120, ../../sass/partials/_input.scss */
   .dollars-to-time-wrapper {
-    padding: 1% 2% 3% 2%;
+    padding: 1% 2% 1% 2%;
     border: 1px solid rgba(43, 142, 105, 0.12);
   }
 }
@@ -760,11 +760,10 @@ input:focus {
   text-align: center;
   padding-top: 3%;
 }
-@media screen and (min-width: 768px) {
-  /* line 159, ../../sass/partials/_input.scss */
-  .calc-equal {
-    padding-top: 50%;
-  }
+
+/* line 165, ../../sass/partials/_input.scss */
+.calc-input-error {
+  margin-top: 5%;
 }
 
 /* line 169, ../../sass/partials/_input.scss */
@@ -816,22 +815,21 @@ input:focus {
 /* line 206, ../../sass/partials/_input.scss */
 .calc-output-wrapper {
   text-align: center;
-  margin-top: 5%;
 }
 
-/* line 212, ../../sass/partials/_input.scss */
+/* line 211, ../../sass/partials/_input.scss */
 .calc-control .btn.active {
   font-weight: 700;
   box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* line 219, ../../sass/partials/_input.scss */
+/* line 218, ../../sass/partials/_input.scss */
 .calc-output-digit-wrapper {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 224, ../../sass/partials/_input.scss */
+/* line 223, ../../sass/partials/_input.scss */
 .calc-output-subtext {
   font-size: 1.1em;
   margin-top: 0px;
@@ -842,25 +840,25 @@ input:focus {
   text-align: center;
 }
 
-/* line 234, ../../sass/partials/_input.scss */
+/* line 233, ../../sass/partials/_input.scss */
 .calc-val-type-control-wrapper {
   display: inline-block;
   margin: auto 5%;
 }
 @media screen and (min-width: 992px) {
-  /* line 234, ../../sass/partials/_input.scss */
+  /* line 233, ../../sass/partials/_input.scss */
   .calc-val-type-control-wrapper {
     margin: auto 7%;
   }
 }
 
-/* line 242, ../../sass/partials/_input.scss */
+/* line 241, ../../sass/partials/_input.scss */
 .calc-val-type-control {
   display: inline;
   font-size: 1.3rem;
   opacity: 0.3;
 }
-/* line 247, ../../sass/partials/_input.scss */
+/* line 246, ../../sass/partials/_input.scss */
 .calc-val-type-control:hover {
   cursor: pointer;
   opacity: 1;
@@ -877,19 +875,25 @@ input:focus {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 253, ../../sass/partials/_input.scss */
+/* line 252, ../../sass/partials/_input.scss */
 .calc-val-type-control.input-type-active {
   font-weight: 700;
   color: #0D412E;
   opacity: 1;
 }
 
-/* line 260, ../../sass/partials/_input.scss */
+/* line 259, ../../sass/partials/_input.scss */
+.calc-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* line 264, ../../sass/partials/_input.scss */
 .green {
   color: #2B8E69;
 }
 
-/* line 264, ../../sass/partials/_input.scss */
+/* line 268, ../../sass/partials/_input.scss */
 .red {
   color: red;
 }
