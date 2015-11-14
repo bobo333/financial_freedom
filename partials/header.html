@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" ng-click="logoLink()">
+                    <a class="navbar-brand" ui-sref="intro">
                         <div id="header-brand-wrapper">
                             <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
                             <div class="logo-name-wrapper">
@@ -27,7 +27,7 @@
                         <li><a class="nav-item-custom" ng-click="openSignUpModal()">Sign up</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-item-custom" ng-click="goToCountdown()">Countdown</a></li>
+                        <li><a class="nav-item-custom" ui-sref="time-to-retirement">Countdown</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</a></li>
@@ -55,7 +55,7 @@
                         <li><a class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-item-custom" ng-click="goToCountdown()">Countdown</a></li>
+                        <li><a class="nav-item-custom" ui-sref="time-to-retirement">Countdown</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</a></li>
