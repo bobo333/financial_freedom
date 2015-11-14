@@ -2282,22 +2282,23 @@ input:focus {
 @media screen and (min-width: 992px) {
   /* line 72, ../../sass/partials/_account_modals.scss */
   .modal-dialog {
-    min-width: 450px;
+    min-width: 400px;
+    max-width: 450px;
   }
 }
 
-/* line 79, ../../sass/partials/_account_modals.scss */
+/* line 80, ../../sass/partials/_account_modals.scss */
 .form-control.ng-invalid.ng-touched {
   border-color: red;
 }
 
-/* line 83, ../../sass/partials/_account_modals.scss */
+/* line 84, ../../sass/partials/_account_modals.scss */
 .field-error {
   margin-top: 5px;
   color: red;
 }
 
-/* line 88, ../../sass/partials/_account_modals.scss */
+/* line 89, ../../sass/partials/_account_modals.scss */
 .checkbox.login-checkbox {
   margin-top: 25px;
 }

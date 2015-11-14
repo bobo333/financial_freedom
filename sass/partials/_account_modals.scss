@@ -72,7 +72,8 @@
 .modal-dialog {
 	width: auto;
 	@include min-screen($screen_md_min) {
-		min-width: 450px;
+		min-width: 400px;
+		max-width: 450px;
 	}
 }
 
