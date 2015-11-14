@@ -2177,24 +2177,25 @@ input:focus {
 }
 
 /* line 1, ../../sass/partials/_account_modals.scss */
-.login-modal, .account-modal {
+.login-modal,
+.account-modal {
   position: relative;
 }
 
-/* line 5, ../../sass/partials/_account_modals.scss */
+/* line 6, ../../sass/partials/_account_modals.scss */
 .modal-icon-close {
+  color: gray;
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 2em;
-  color: gray;
 }
-/* line 12, ../../sass/partials/_account_modals.scss */
+/* line 13, ../../sass/partials/_account_modals.scss */
 .modal-icon-close:hover {
   cursor: pointer;
 }
 
-/* line 17, ../../sass/partials/_account_modals.scss */
+/* line 18, ../../sass/partials/_account_modals.scss */
 .modal-header {
   background-color: rgba(43, 142, 105, 0.05);
   -moz-border-radius-topleft: 6px;
@@ -2205,7 +2206,7 @@ input:focus {
   border-top-right-radius: 6px;
 }
 
-/* line 22, ../../sass/partials/_account_modals.scss */
+/* line 23, ../../sass/partials/_account_modals.scss */
 .modal-content {
   -moz-border-radius-topleft: 7px;
   -webkit-border-top-left-radius: 7px;
@@ -2215,34 +2216,34 @@ input:focus {
   border-top-right-radius: 7px;
 }
 
-/* line 26, ../../sass/partials/_account_modals.scss */
+/* line 27, ../../sass/partials/_account_modals.scss */
 .modal-title {
   color: #404040;
   letter-spacing: -0.02em;
 }
 
-/* line 31, ../../sass/partials/_account_modals.scss */
+/* line 32, ../../sass/partials/_account_modals.scss */
 .modal-backdrop {
   background-color: black;
   width: 100%;
   height: 100%;
 }
 
-/* line 37, ../../sass/partials/_account_modals.scss */
+/* line 38, ../../sass/partials/_account_modals.scss */
 .signin-side, .signup-side {
   margin-top: 10px;
 }
-/* line 39, ../../sass/partials/_account_modals.scss */
+/* line 40, ../../sass/partials/_account_modals.scss */
 .signin-side a:hover, .signup-side a:hover {
   cursor: pointer;
 }
 
-/* line 44, ../../sass/partials/_account_modals.scss */
+/* line 45, ../../sass/partials/_account_modals.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 48, ../../sass/partials/_account_modals.scss */
+/* line 49, ../../sass/partials/_account_modals.scss */
 .signup-side, .signin-side {
   position: relative;
   top: 50%;
@@ -2251,12 +2252,12 @@ input:focus {
   transform: translateY(-50%);
 }
 
-/* line 52, ../../sass/partials/_account_modals.scss */
+/* line 53, ../../sass/partials/_account_modals.scss */
 .login-form-controls-wrapper {
   width: 100%;
 }
 
-/* line 56, ../../sass/partials/_account_modals.scss */
+/* line 57, ../../sass/partials/_account_modals.scss */
 .forgot-password-link {
   display: inline-block;
   float: right;
@@ -2265,40 +2266,40 @@ input:focus {
   margin-bottom: 10px;
 }
 
-/* line 64, ../../sass/partials/_account_modals.scss */
+/* line 65, ../../sass/partials/_account_modals.scss */
 .remember-me-link {
   display: inline-block;
 }
 
-/* line 68, ../../sass/partials/_account_modals.scss */
+/* line 69, ../../sass/partials/_account_modals.scss */
 .modal-secondary-button {
   margin-left: 10px;
 }
 
-/* line 72, ../../sass/partials/_account_modals.scss */
+/* line 73, ../../sass/partials/_account_modals.scss */
 .modal-dialog {
   width: auto;
 }
 @media screen and (min-width: 992px) {
-  /* line 72, ../../sass/partials/_account_modals.scss */
+  /* line 73, ../../sass/partials/_account_modals.scss */
   .modal-dialog {
     min-width: 400px;
     max-width: 450px;
   }
 }
 
-/* line 80, ../../sass/partials/_account_modals.scss */
+/* line 81, ../../sass/partials/_account_modals.scss */
 .form-control.ng-invalid.ng-touched {
   border-color: red;
 }
 
-/* line 84, ../../sass/partials/_account_modals.scss */
+/* line 85, ../../sass/partials/_account_modals.scss */
 .field-error {
   margin-top: 5px;
   color: red;
 }
 
-/* line 89, ../../sass/partials/_account_modals.scss */
+/* line 90, ../../sass/partials/_account_modals.scss */
 .checkbox.login-checkbox {
   margin-top: 25px;
 }

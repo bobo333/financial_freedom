@@ -1,13 +1,14 @@
-.login-modal, .account-modal {
-	position: relative;
+.login-modal,
+.account-modal {
+    position: relative;
 }
 
 .modal-icon-close {
-	position: absolute;
+    color: hsla(0, 0%, 50%, 1);
+    position: absolute;
 	top: 15px;
 	right: 15px;
 	font-size: 2em;
-	color: hsla(0, 0%, 50%, 1);
 
 	&:hover {
 		cursor: pointer;
