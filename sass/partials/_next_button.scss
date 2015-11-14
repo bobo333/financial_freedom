@@ -1,13 +1,13 @@
 $next-button-height-min-sm: 80px;
 $next-button-height: 80px;
-$next-button-border-color: $secondary_brown;
+$next-button-border-color: $secondary-brown;
 $next-button-icon-color: $next-button-border-color;
 
 .next-button {
     @include basic-font;
     width: $next-button-height;
     height: $next-button-height;
-    background: $light_brown_bg;
+    background: $light-brown-bg;
     text-align: center;
     color: $next-button-icon-color;
     @include hover-animation(all);

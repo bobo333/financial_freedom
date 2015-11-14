@@ -1,57 +1,56 @@
-$input_field_width: 250px;
-
 .view-content {
-	padding: 0px;
+	padding: 0;
 }
 
 .dollars-to-time-wrapper.input-wrapper {
 	max-width: 615px;
-	text-align: center;
 	padding-bottom: 8%;
-	@include min-screen($screen_sm_min) {
+	text-align: center;
+
+	@include min-screen($screen-sm-min) {
 		padding-bottom: 3%;
 	}
 }
 
-input[type="text"].steps {
+.steps {
 
-  max-width: $input_field_width / 2;
+  max-width: $input-field-width / 2;
   height: 60px;
-  padding-left: $input_field_width * 0.04;
+  padding-left: $input-field-width * .04;
   border: none;
   border-bottom-style: solid;
-  border-bottom-color: $body_text_color;
+  border-bottom-color: $body-text-color;
   border-bottom-width: 1px;
 
-  @include min-screen($screen_sm_min) {
-	max-width: $input_field_width;
-	line-height: $base_line_height;
+  @include min-screen($screen-sm-min) {
+	max-width: $input-field-width;
+	line-height: $base-line-height;
 	height: 80px;
   }
 
   @include input-placeholder {
-    font-family: $base_font_weight_light;
-	font-size: $base_font_size * 2;
+    font-family: $base-font-weight-light;
+	font-size: $base-font-size * 2;
 	color: rgba(119,119,119,0.22);
     font-style: italic;
     @include vertical-align;
 
-    @include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 3;
-		line-height: $base_line_height;
+    @include min-screen($screen-sm-min) {
+		font-size: $base-font-size * 3;
+		line-height: $base-line-height;
 	}
   }
 }
 
 .input-title {
 	font-size: 3em;
-	color: $body_text_color;
+	color: $body-text-color;
 	line-height: 70px;
-	font-weight: $base_font_weight_semi_bold;
+	font-weight: $base-font-weight-semi-bold;
 	text-transform: uppercase;
 	margin-top: 2%;
 
-	@include min-screen($screen_sm_min) {
+	@include min-screen($screen-sm-min) {
 		font-size: 5em;
 	}
 }
@@ -59,7 +58,7 @@ input[type="text"].steps {
 .input-title, .step-subheader, .input-field-wrapper {
 	text-align: center;
 
-	@include min-screen($screen_md_min) {
+	@include min-screen($screen-md-min) {
 		text-align: inherit;
 	}
 }
@@ -67,66 +66,64 @@ input[type="text"].steps {
 .step-subheader {
     font-size: 1em;
 	margin-top: 5px;
-	color: $body_text_color;
-	font-weight: $base_font_weight_normal;
-	@include min-screen($screen_sm_min) {
+	color: $body-text-color;
+	font-weight: $base-font-weight-normal;
+	@include min-screen($screen-sm-min) {
 		font-size: 1.5em;
 		line-height: $base-line-height;
 	}
 }
 
 .input-field-wrapper {
-	font-size: $base_font_size * 2;
-	font-weight: $base_font_weight_light;
+	font-size: $base-font-size * 2;
+	font-weight: $base-font-weight-light;
 	line-height: normal;
 	margin-top: 20px;
 
-	@include min-screen($screen_sm_min) {
-		font-size: $base_font_size * 3;
+	@include min-screen($screen-sm-min) {
+		font-size: $base-font-size * 3;
 		margin-top: 20px;
 	}
 
 	.after-input-text {
-		font-size: $base_font_size ;
+		font-size: $base-font-size;
 		margin-left: 20px;
 
-		@include min-screen($screen_sm_min) {
-			font-size: $base_font_size * 2;
+		@include min-screen($screen-sm-min) {
+			font-size: $base-font-size * 2;
 			vertical-align: middle;
 		}
 	}
 }
 
 input:focus {
+  	@include box-shadow(none);
 	outline: none;
-  	@include box-shadow(none !important);
 }
 
 .convert-button {
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 }
 
 .input-type-wrapper {
 	display: flex;
 	justify-content: center;
-	margin: 5% auto 10% auto;
+	margin: 5% auto 10%;
 }
 
 .dollars-to-time-wrapper {
     border: $section-bottom-border;
-	border-top: none;
+	border-top: 0;
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     background: white;
     padding: 1% 5% 3% 5%;
     border-radius: 4px;
-	@include min-screen($screen_sm_min) {
+	@include min-screen($screen-sm-min) {
 		padding: 1% 2% 3% 2%;
 		border: $section-bottom-border;
 	}
@@ -148,7 +145,7 @@ input:focus {
 
 .calc-time-number {
     font-size: 5em;
-    font-weight: $brand_font_weight_bold;
+    font-weight: $brand-font-weight-bold;
 }
 
 .calc-container {
@@ -160,7 +157,7 @@ input:focus {
     font-size: 6em;
     text-align: center;
 	padding-top: 3%;
-	@include min-screen($screen_sm_min) {
+	@include min-screen($screen-sm-min) {
 		padding-top: 50%;
 	}
 
@@ -169,10 +166,10 @@ input:focus {
 .calc-view-wrapper {
     min-height: 95vh;
     width: 100vw;
-    background: $light_bg_green;
+    background: $light-bg-green;
     padding-top: 0%;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         padding-top: 5%;
     }
 }
@@ -180,7 +177,7 @@ input:focus {
 .calc-title {
     text-align: center;
     font-size: 2rem;
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         font-size: 4rem;
     }
 
@@ -210,7 +207,7 @@ input:focus {
 
 .calc-control {
     .btn.active {
-        font-weight: $brand_font_weight_bold;
+        font-weight: $brand-font-weight-bold;
         box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1),
                     inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1)
     }
@@ -234,7 +231,7 @@ input:focus {
 .calc-val-type-control-wrapper {
 	display: inline-block;
 	margin: auto 5%;
-	@include min-screen($screen_md_min) {
+	@include min-screen($screen-md-min) {
 		margin: auto 7%;
 	}
 }
@@ -251,14 +248,14 @@ input:focus {
     }
 
 	&.input-type-active {
-	    font-weight: $brand_font_weight_bold;
-	    color: $dark_green;
+	    font-weight: $brand-font-weight-bold;
+	    color: $dark-green;
 		opacity: 1;
 	}
 }
 
 .green {
-	color: $primary_green;
+	color: $primary-green;
 }
 
 .red {

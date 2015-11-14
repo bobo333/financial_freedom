@@ -4,7 +4,7 @@
 }
 
 .modal-icon-close {
-    color: hsla(0, 0%, 50%, 1);
+    color: $modal-close-icon-color;
     font-size: 2em;
     position: absolute;
     right: 15px;
@@ -17,7 +17,7 @@
 
 .modal-header {
     @include border-top-radius(6px);
-	background-color: $light_bg_green;
+	background-color: $light-bg-green;
 }
 
 .modal-content {
@@ -25,12 +25,12 @@
 }
 
 .modal-title {
-	color: $body_text_color;
+	color: $body-text-color;
 	letter-spacing: -.02em;
 }
 
 .modal-backdrop {
-	background-color: black;
+	background-color: $modal-backdrop-color;
 	height: 100%;
 	width: 100%;
 }
@@ -76,19 +76,18 @@
 .modal-dialog {
     width: auto;
 
-	@include min-screen($screen_md_min) {
+	@include min-screen($screen-md-min) {
 		max-width: 450px;
 		min-width: 400px;
 	}
-
 }
 
 .form-control.ng-invalid.ng-touched {
-    border-color: red;
+    border-color: $error-text-color;
  }
 
  .field-error {
- 	color: red;
+ 	color: $error-text-color;
  	margin-top: 5px;
  }
 

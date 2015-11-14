@@ -1,20 +1,19 @@
 .footer-container {
+	background: $light-bg-green;
+	border-top: $section-bottom-border;
 	position: relative;
 	width: 100%;
-	background: $light_bg_green;
-	border-top: $section-bottom-border;
 }
 
 .footer-content-wrapper {
-	max-width: 500px;
 	display: flex;
 	justify-content: center;
 	margin: 0 auto;
-	padding: 25px 0px;
+	max-width: 500px;
+	padding: 25px 0;
 
 	a {
-		width: 150px;
 		margin: auto;
+		width: 150px;
 	}
 }
-

@@ -1,66 +1,69 @@
 // Use Compass ('cause it rocks!)
-@import "compass/css3";
-@import "compass/reset";
-@import "compass/utilities";
-@import "compass/css3/selection";
-@import "compass/css3/transform";
+@import 'compass/css3';
+@import 'compass/reset';
+@import 'compass/utilities';
+@import 'compass/css3/selection';
+@import 'compass/css3/transform';
 
 // Sass media queries
-@import "../bower_components/sass-mediaqueries/media-queries";
+@import '../bower_components/sass-mediaqueries/media-queries';
 
 // Breakpoints
-$screen_sm_min: 768px;
-$screen_md_min: 992px;
-$screen_lg_min: 1200px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
 
 // Brand Name Font
-$brand_font_family: 'Oxygen', sans-serif;
-$brand_font_weight_light: 300;
-$brand_font_weight_bold: 700;
+$brand-font-family: 'Oxygen', sans-serif;
+$brand-font-weight-light: 300;
+$brand-font-weight-bold: 700;
 
 // Base Font
-$base_font_family: 'Source Sans Pro', sans-serif;
-$base_font_size: 16px;
-$base_line_height: 1;
-$base_font_weight_light: 300;
-$base_font_weight_normal: 400;
-$base_font_weight_semi_bold: 600;
-$base_font_weight: $base_font_weight_normal;
+$base-font-family: 'Source Sans Pro', sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1;
+$base-font-weight-light: 300;
+$base-font-weight-normal: 400;
+$base-font-weight-semi-bold: 600;
 
-@include min-screen($screen_sm_min) {
-	$base_font_size: 13px;
+@include min-screen($screen-sm-min) {
+	$base-font-size: 13px;
 }
-
-// Fixed Font
-$fixed_font_family: monospace;
-$fixed_font_size: 85%;
-$fixed_line_height: $base_line_height;
 
 // Headings
 
 h2 {
     font-size: 3em;
-    font-weight: $base_font_weight_semi_bold;
+    font-weight: $base-font-weight-semi-bold;
 }
 
 h3 {
     font-size: 2em;
-    font-weight: $base_font_weight_normal;
+    font-weight: $base-font-weight-normal;
 }
 
 // Colors
-$primary_green: #2B8E69;
-$dark_green: #0D412E;
-$light_bg_green: rgba($primary_green, 0.05);
-
-$secondary_brown: #DA9B03;
-$secondary_brown_dark: #5B4612;
-
-$tertiary_purple: #86399B;
-
-$light_brown_bg: #FCF5EC;
-
-$body_text_color: #404040;
+$primary-green: #2b8e69;
+$dark-green: #0d412e;
+$light-bg-green: rgba($primary-green, .05);
+$secondary-brown: #da9b03;
+$light-brown-bg: #fcf5ec;
+$body-text-color: #404040;
+$btn-secondary-bg: #fff;
+$modal-close-icon-color: hsla(0, 0%, 50%, 1);
+$modal-backdrop-color: #000;
+$error-text-color: hsla(7, 60%, 43%, 1);
+$nav-hover-color: #25a793;
+$font-color-dark-bg: #fff;
+$active-tab-color: rgba($dark-green, .6);
+$nav-height: 50px;
+$nav-border-radius: 25px;
+$primary-shadow-color: rgba(0, 0, 0, .1);
+$tabs-wrapper-bg: rgba($dark-green, .2);
+$nav-item-color: rgba($font-color-dark-bg, .7);
+$nav-toggle-border-color: #fff;
+$nav-toggle-bg: rgba(#fff, .3);
+$lp-button-color: #fff;
 
 // Custom Fonts
 @mixin basic-font {
@@ -68,25 +71,27 @@ $body_text_color: #404040;
 }
 
 // Alignment
+
+
 @mixin vertical-align {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 @mixin hover-animation($property) {
     @include transition-property($property);
     @include transition-timing-function(ease);
-    @include transition-duration(0.3s);
+    @include transition-duration(.3s);
 }
 
 // Borders
 
-$section-bottom-border: 1px solid rgba($primary_green,0.12);
+$section-bottom-border: 1px solid rgba($primary-green, .12);
 
 // Forms
+
+$input-field-width: 250px;
 
 .form-group {
   label {
@@ -98,25 +103,32 @@ $section-bottom-border: 1px solid rgba($primary_green,0.12);
 // Buttons
 
 .btn-primary {
-    background: $primary_green;
+    background: $primary-green;
 
     &[disabled] {
-        background: $primary_green;
+        background: $primary-green;
     }
 
     &:hover {
-        background: $dark_green;
+        background: $dark-green;
     }
 }
 
 .btn-secondary {
-  background: white;
-  border: 2px solid $primary_green;
-  color: $primary_green;
+  background: $btn-secondary-bg;
+  border: 2px solid $primary-green;
+  color: $primary-green;
 }
 
-// Links
+html,
+body {
 
+    @include selection($primary-green, $btn-secondary-bg);
 
-
-//@import "../modules/*";
+    font-family: $base-font-family;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+    width: 100%;
+}

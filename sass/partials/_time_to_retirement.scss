@@ -2,19 +2,19 @@
 
 // set variables
 
-$expense_color: $secondary_brown;
-$withdraw_color: $primary_green;
-$intersection_color: $dark_green;
-$tooltip_bg: rgba($primary_green,0.80);
+$expense_color: $secondary-brown;
+$withdraw_color: $primary-green;
+$intersection_color: $dark-green;
+$tooltip_bg: rgba($primary-green,0.80);
 $main_bubble_color: #fff;
 $main_bubble_diameter: 150px;
 $control-button-height: 45px;
 $expenses-field-height: 60px;
 $form-control-height: 50px;
-$control-button-border: 1px solid rgba($dark_green,0.1);
+$control-button-border: 1px solid rgba($dark-green,0.1);
 $control-button-hover: rgba(84, 168, 136, 0.18);
 $control-button-background: rgba(84, 168, 136, 0.09);
-$actions-border: 1px solid $dark_green;
+$actions-border: 1px solid $dark-green;
 $signup_button_hover_color: #C58C01;
 
 #graph-wrapper {
@@ -73,7 +73,7 @@ $signup_button_hover_color: #C58C01;
         }
 
         .curve-label {
-            font-weight: $base_font_weight_semi_bold;
+            font-weight: $base-font-weight-semi-bold;
             max-width: 100px;
         }
 
@@ -89,12 +89,12 @@ $signup_button_hover_color: #C58C01;
     @extend .after-input-text;
     text-align: center;
     text-transform: uppercase;
-    font-size: $base_font_size * 1.5;
+    font-size: $base-font-size * 1.5;
     color: $main_bubble_color;
 }
 
 .retirement-years {
-    font-weight: $base_font_weight_semi_bold;
+    font-weight: $base-font-weight-semi-bold;
     font-size: 5em;
     margin-top: 50px;
     color: $main_bubble_color;
@@ -104,7 +104,7 @@ $signup_button_hover_color: #C58C01;
     color: rgba(255,255,255,0.25);
     margin-top: 5px;
     border-top: 0px solid black;
-    font-size: $base_font_size;
+    font-size: $base-font-size;
 }
 
 .cannot-retire {
@@ -118,7 +118,7 @@ $signup_button_hover_color: #C58C01;
 }
 
 .big-number-bg {
-    background: $primary_green;
+    background: $primary-green;
     width: $main_bubble_diameter;
     height: $main_bubble_diameter;
     @include border-radius(50%);
@@ -152,7 +152,7 @@ $signup_button_hover_color: #C58C01;
     margin-top: 10px;
     font-size: 1em;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         font-size: 0.7em;
     }
 }
@@ -161,7 +161,7 @@ $signup_button_hover_color: #C58C01;
 
     margin-top: 70px;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         margin-top: 20px;
     }
 }
@@ -183,31 +183,31 @@ $signup_button_hover_color: #C58C01;
 
 .graph-section {
     margin: 0px auto 0px auto;
-    background: $light_bg_green;
+    background: $light-bg-green;
     padding-bottom: 0px;
 }
 
 .output-control-container {
 
-    line-height: $base_line_height * 1.3;
-    font-size: $base_font_size;
+    line-height: $base-line-height * 1.3;
+    font-size: $base-font-size;
 
-    @include min-screen($screen_sm_min) {
-        font-size: $base_font_size * 1.5;
+    @include min-screen($screen-sm-min) {
+        font-size: $base-font-size * 1.5;
     }
 }
 
 .output-info-icon {
-    color: rgba($dark_green,0.4);
+    color: rgba($dark-green,0.4);
     display: block;
     margin: 10px auto auto auto;
-    font-size: $base_font_size * 1.5;
+    font-size: $base-font-size * 1.5;
     @include hover-animation(all);
     width: 20px;
     text-decoration: none;
 
     &:hover {
-        color: rgba($dark_green,0.8);
+        color: rgba($dark-green,0.8);
     }
 }
 
@@ -218,7 +218,7 @@ $signup_button_hover_color: #C58C01;
 #explain-text {
     font-size: 0.7em;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         margin-left: 75px;
     }
 }
@@ -226,12 +226,12 @@ $signup_button_hover_color: #C58C01;
 .form-control.secondary-output-field {
     text-align: center;
     @include box-shadow(#fff 0px 0px 0px);
-    font-size: $base_font_size * 2;
+    font-size: $base-font-size * 2;
     margin: auto auto;
     min-height: 50px;
     display: inline-block;
     @include border-radius(5px);
-    border: 1px solid rgba($dark_green,0.2);
+    border: 1px solid rgba($dark-green,0.2);
 }
 
 .icon-answer {
@@ -263,7 +263,7 @@ $signup_button_hover_color: #C58C01;
 #expenses-field {
     height: $expenses-field-height;
     width: 100%;
-    font-size: $base_font_size * 2;
+    font-size: $base-font-size * 2;
     display: inline-block;
 }
 
@@ -276,7 +276,7 @@ $signup_button_hover_color: #C58C01;
     padding: 0 0;
     outline: none !important;
     background: $control-button-background;
-    color: $dark_green;
+    color: $dark-green;
     @include box-shadow(none !important);
     @include hover-animation(all);
     border: $control-button-border;
@@ -291,7 +291,7 @@ $signup_button_hover_color: #C58C01;
         background: $control-button-hover;
     }
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         height: $control-button-height;
         width: $control-button-height * 3;
     }
@@ -332,7 +332,7 @@ $signup_button_hover_color: #C58C01;
 }
 
 #assumptions-border-top {
-    border-top: 1px solid rgba($primary_green,0.3);
+    border-top: 1px solid rgba($primary-green,0.3);
     position: absolute;
     left: 15%;
     right: 15%;
@@ -341,8 +341,8 @@ $signup_button_hover_color: #C58C01;
 .edit-link {
     display: inline-block;
     margin-left: 10px;
-    color: $dark_green;
-    font-weight: $base_font_weight_semi_bold;
+    color: $dark-green;
+    font-weight: $base-font-weight-semi-bold;
     font-size: 0.9em;
 
     &:hover {
@@ -359,7 +359,7 @@ $signup_button_hover_color: #C58C01;
     margin-top: 20px;
     font-size: 1.2em;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         font-size: 0.8em;
     }
 }
@@ -367,7 +367,7 @@ $signup_button_hover_color: #C58C01;
 .assumptions-toggle {
     margin: 20px auto auto 0px;
     background: $control-button-background;
-    color: $dark_green;
+    color: $dark-green;
     display: block;
     border: $control-button-border;
     @include hover-animation(all);
@@ -382,7 +382,7 @@ $signup_button_hover_color: #C58C01;
         background: $control-button-hover;
         border: $control-button-border;
     }
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         display: inline-block;
         margin: 0px auto auto 20px;
     }
@@ -407,7 +407,7 @@ $signup_button_hover_color: #C58C01;
     padding-left: 0px;
     padding-right: 0px;
     border: $actions-border;
-    background: $light_bg_green;
+    background: $light-bg-green;
     position: relative;
 }
 
@@ -426,7 +426,7 @@ $signup_button_hover_color: #C58C01;
     @include border-bottom-left-radius(0px);
     border-top: none;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         border-right: none;
         @include border-bottom-left-radius(5px);
     }
@@ -437,7 +437,7 @@ $signup_button_hover_color: #C58C01;
     @include border-bottom-left-radius(5px);
     border-top: none;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         border-left: none;
         @include border-bottom-left-radius(0px);
     }
@@ -498,7 +498,7 @@ $signup_button_hover_color: #C58C01;
     padding: 20px 20px 20px 0px;
     font-size: 1.6em;
     color: $dark-green;
-    font-weight: $base_font_weight_light;
+    font-weight: $base-font-weight-light;
 }
 
 .action-label {
@@ -514,7 +514,7 @@ $signup_button_hover_color: #C58C01;
 }
 
 .actions-container-border {
-    border-top: 1px solid rgba($secondary_brown,0.3);
+    border-top: 1px solid rgba($secondary-brown,0.3);
     position: absolute;
     left: 15%;
     right: 15%;
@@ -523,28 +523,28 @@ $signup_button_hover_color: #C58C01;
 .suggested-amount-content {
     font-size: 1.1em;
     padding-bottom: 27px;
-    font-weight: $base_font_weight_light;
+    font-weight: $base-font-weight-light;
 }
 
 .suggested-amount-value {
-    font-weight: $base_font_weight_semi_bold;
+    font-weight: $base-font-weight-semi-bold;
 }
 
 .add-title-margin {
-    @include min-screen($screen_md_min) {
+    @include min-screen($screen-md-min) {
         margin-bottom: 48px;
     }
 }
 
 .actions-help-icon {
-    color: rgba($dark_green,0.4);
+    color: rgba($dark-green,0.4);
     margin: auto auto auto 5px;
     font-size: 1.2em;
     @include hover-animation(all);
     width: 20px;
 
     &:hover {
-        color: rgba($dark_green,0.8);
+        color: rgba($dark-green,0.8);
     }
 }
 
@@ -560,10 +560,10 @@ $signup_button_hover_color: #C58C01;
 }
 
 .xaxis-label {
-    font-weight: $base_font_weight_semi_bold;
+    font-weight: $base-font-weight-semi-bold;
     font-size: 1em;
     display: none;
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         font-size: 1.8em;
         display: block;
     }
@@ -573,7 +573,7 @@ $signup_button_hover_color: #C58C01;
     text-align: center;
     width: 100%;
     display: block;
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         display: none;
     }
 }
@@ -589,10 +589,10 @@ $signup_button_hover_color: #C58C01;
     right: 0;
     max-width: 300px;
 
-    @include min-screen($screen_md_min) {
+    @include min-screen($screen-md-min) {
         max-width: 400px;
     }
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         padding: 50px 50px 50px 50px;
         max-width: 700px;
     }
@@ -601,7 +601,7 @@ $signup_button_hover_color: #C58C01;
 .no-graph-message {
     text-align: center;
     font-size: 0.6em;
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         font-size: 0.8em;
     }
 }
@@ -610,13 +610,13 @@ $signup_button_hover_color: #C58C01;
     color: white;
     padding: 16px 15px;
     display: inline-block;
-    line-height: $base_line_height * 1.1;
+    line-height: $base-line-height * 1.1;
     z-index: 1;
-    font-weight: $base_font_weight_normal;
+    font-weight: $base-font-weight-normal;
     font-size: 1.1em;
 
     .bold {
-        font-weight: $base_font_weight_semi_bold;
+        font-weight: $base-font-weight-semi-bold;
     }
 }
 
@@ -628,8 +628,8 @@ $signup_button_hover_color: #C58C01;
     display: inline-block;
     @include border-radius(10px);
     @include translateY(-50%);
-    border: 1px solid $secondary_brown;
-    background: $light_brown_bg;
+    border: 1px solid $secondary-brown;
+    background: $light-brown-bg;
     margin-left: auto;
     margin-right: auto;
 
@@ -641,14 +641,14 @@ $signup_button_hover_color: #C58C01;
 }
 
 .sign-up-button {
-    background: $secondary_brown;
+    background: $secondary-brown;
     color: white;
     border: none;
-    font-weight: $brand_font_weight_bold;
+    font-weight: $brand-font-weight-bold;
     @include hover-animation(all);
 
     &:hover, &:focus, &:active, &:visited {
-        background: $secondary_brown;
+        background: $secondary-brown;
         border: none;
         color: white !important;
         outline: none !important;
@@ -680,7 +680,7 @@ $signup_button_hover_color: #C58C01;
     top: 40%;
     left: 40%;
     max-width: 350px;
-    font-size: $base_font_size*1.4;
+    font-size: $base-font-size*1.4;
     border-radius: 5px;
     padding: 10px;
     border: 1px solid #404040;
