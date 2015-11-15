@@ -26,7 +26,6 @@ FinancialFreedom.service('modalService', ['$modal',
             if (customModalType === 'loginModalOptions') {
             	this.showSignUp = false;
             }
-
             else if (customModalType === 'accountModalOptions') {
             	customModalDefaults.templateUrl = 'partials/account_modal.html';
             	customModalDefaults.controller = 'AccountModalInstanceCtrl';
@@ -62,7 +61,7 @@ FinancialFreedom.service('modalService', ['$modal',
         };
 
 		this.close = function() {
-				$modalInstance.dismiss('cancel');
+			$modalInstance.dismiss('cancel');
 		};
 
 	}]);

@@ -694,6 +694,12 @@ input:focus {
 }
 
 /* line 109, ../../sass/partials/_input.scss */
+.calc-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* line 114, ../../sass/partials/_input.scss */
 .dollars-to-time-wrapper {
   background: #fff;
   border: 1px solid rgba(43, 142, 105, 0.12);
@@ -705,68 +711,66 @@ input:focus {
   padding: 1% 5% 3%;
 }
 @media screen and (min-width: 768px) {
-  /* line 109, ../../sass/partials/_input.scss */
+  /* line 114, ../../sass/partials/_input.scss */
   .dollars-to-time-wrapper {
     border: 1px solid rgba(43, 142, 105, 0.12);
     padding: 1% 2% 3%;
   }
 }
-/* line 124, ../../sass/partials/_input.scss */
+/* line 129, ../../sass/partials/_input.scss */
 .dollars-to-time-wrapper.input-wrapper {
   max-width: 615px;
   padding-bottom: 8%;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
-  /* line 124, ../../sass/partials/_input.scss */
+  /* line 129, ../../sass/partials/_input.scss */
   .dollars-to-time-wrapper.input-wrapper {
     padding-bottom: 3%;
   }
 }
 
-/* line 135, ../../sass/partials/_input.scss */
+/* line 140, ../../sass/partials/_input.scss */
 .calc-time-wrapper {
   display: inline-block;
   margin-right: 5%;
   text-align: center;
 }
-/* line 140, ../../sass/partials/_input.scss */
+/* line 145, ../../sass/partials/_input.scss */
 .calc-time-wrapper:last-child {
   margin-right: 0;
 }
 
-/* line 145, ../../sass/partials/_input.scss */
+/* line 150, ../../sass/partials/_input.scss */
 .calc-control {
   margin-top: 10px;
   text-align: center;
 }
 
-/* line 150, ../../sass/partials/_input.scss */
+/* line 155, ../../sass/partials/_input.scss */
 .calc-time-number {
   font-size: 5em;
   font-weight: 700;
 }
 
-/* line 155, ../../sass/partials/_input.scss */
+/* line 160, ../../sass/partials/_input.scss */
 .calc-container {
   margin-bottom: 3%;
   margin-top: 3%;
 }
 
-/* line 160, ../../sass/partials/_input.scss */
+/* line 165, ../../sass/partials/_input.scss */
 .calc-equal {
   font-size: 6em;
   padding-top: 3%;
-  text-align: center;
-}
-@media screen and (min-width: 768px) {
-  /* line 160, ../../sass/partials/_input.scss */
-  .calc-equal {
-    padding-top: 50%;
-  }
 }
 
-/* line 171, ../../sass/partials/_input.scss */
+/* line 170, ../../sass/partials/_input.scss */
+.calc-input-error {
+  margin-top: 5%;
+}
+
+/* line 174, ../../sass/partials/_input.scss */
 .calc-view-wrapper {
   background: rgba(43, 142, 105, 0.05);
   min-height: 95vh;
@@ -774,62 +778,62 @@ input:focus {
   width: 100vw;
 }
 @media screen and (min-width: 768px) {
-  /* line 171, ../../sass/partials/_input.scss */
+  /* line 174, ../../sass/partials/_input.scss */
   .calc-view-wrapper {
     padding-top: 5%;
   }
 }
 
-/* line 182, ../../sass/partials/_input.scss */
+/* line 185, ../../sass/partials/_input.scss */
 .calc-title {
   font-size: 2rem;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
-  /* line 182, ../../sass/partials/_input.scss */
+  /* line 185, ../../sass/partials/_input.scss */
   .calc-title {
     font-size: 4rem;
   }
 }
 
-/* line 192, ../../sass/partials/_input.scss */
+/* line 195, ../../sass/partials/_input.scss */
 .calc-time-label {
   font-size: 1.5em;
   text-transform: uppercase;
 }
 
-/* line 197, ../../sass/partials/_input.scss */
+/* line 200, ../../sass/partials/_input.scss */
 .calc-input {
   margin-top: 5%;
 }
-/* line 200, ../../sass/partials/_input.scss */
+/* line 203, ../../sass/partials/_input.scss */
 .calc-input .leading-dollar {
   margin-left: 0;
 }
 
-/* line 205, ../../sass/partials/_input.scss */
+/* line 208, ../../sass/partials/_input.scss */
 .calc-toggle {
   width: 100px;
 }
-/* line 208, ../../sass/partials/_input.scss */
+/* line 211, ../../sass/partials/_input.scss */
 .calc-toggle.active {
   box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.12), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.12);
   font-weight: 700;
 }
 
-/* line 216, ../../sass/partials/_input.scss */
+/* line 218, ../../sass/partials/_input.scss */
 .calc-output-wrapper {
   margin-top: 5%;
   text-align: center;
 }
 
-/* line 221, ../../sass/partials/_input.scss */
+/* line 223, ../../sass/partials/_input.scss */
 .calc-output-digit-wrapper {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 226, ../../sass/partials/_input.scss */
+/* line 228, ../../sass/partials/_input.scss */
 .calc-output-subtext {
   display: inline-block;
   font-size: 1.1em;
@@ -840,25 +844,25 @@ input:focus {
   width: 100%;
 }
 
-/* line 236, ../../sass/partials/_input.scss */
+/* line 238, ../../sass/partials/_input.scss */
 .calc-val-type-control-wrapper {
   display: inline-block;
   margin: auto 5%;
 }
 @media screen and (min-width: 992px) {
-  /* line 236, ../../sass/partials/_input.scss */
+  /* line 238, ../../sass/partials/_input.scss */
   .calc-val-type-control-wrapper {
     margin: auto 7%;
   }
 }
 
-/* line 245, ../../sass/partials/_input.scss */
+/* line 247, ../../sass/partials/_input.scss */
 .calc-val-type-control {
   display: inline;
   font-size: 1.3rem;
   opacity: .3;
 }
-/* line 250, ../../sass/partials/_input.scss */
+/* line 252, ../../sass/partials/_input.scss */
 .calc-val-type-control:hover {
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
@@ -875,24 +879,24 @@ input:focus {
   cursor: pointer;
   opacity: 1;
 }
-/* line 256, ../../sass/partials/_input.scss */
+/* line 258, ../../sass/partials/_input.scss */
 .calc-val-type-control.input-type-active {
   color: #0d412e;
   font-weight: 700;
   opacity: 1;
 }
 
-/* line 263, ../../sass/partials/_input.scss */
+/* line 265, ../../sass/partials/_input.scss */
 .warning-green {
   color: #2b8e69;
 }
 
-/* line 267, ../../sass/partials/_input.scss */
+/* line 269, ../../sass/partials/_input.scss */
 .warning-red {
   color: #d61f1f;
 }
 
-/* line 271, ../../sass/partials/_input.scss */
+/* line 273, ../../sass/partials/_input.scss */
 .converter-error-message {
   display: block;
   margin-top: 3%;

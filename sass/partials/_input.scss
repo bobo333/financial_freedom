@@ -106,6 +106,11 @@ input:focus {
 	margin: 5% auto 10%;
 }
 
+.calc-wrapper {
+	display: flex;
+	align-items: center;
+}
+
 .dollars-to-time-wrapper {
     background: $section-alternate-color-bg;
     border: $section-border;
@@ -160,12 +165,10 @@ input:focus {
 .calc-equal {
     font-size: 6em;
 	padding-top: 3%;
-    text-align: center;
+}
 
-	@include min-screen($screen-sm-min) {
-		padding-top: 50%;
-	}
-
+.calc-input-error {
+	margin-top: 5%;
 }
 
 .calc-view-wrapper {
