@@ -740,38 +740,33 @@ input:focus {
   margin-top: 10px;
   text-align: center;
 }
-/* line 149, ../../sass/partials/_input.scss */
-.calc-control.btn.active {
-  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.12), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.12);
-  font-weight: 700;
-}
 
-/* line 157, ../../sass/partials/_input.scss */
+/* line 150, ../../sass/partials/_input.scss */
 .calc-time-number {
   font-size: 5em;
   font-weight: 700;
 }
 
-/* line 162, ../../sass/partials/_input.scss */
+/* line 155, ../../sass/partials/_input.scss */
 .calc-container {
   margin-bottom: 3%;
   margin-top: 3%;
 }
 
-/* line 167, ../../sass/partials/_input.scss */
+/* line 160, ../../sass/partials/_input.scss */
 .calc-equal {
   font-size: 6em;
   padding-top: 3%;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
-  /* line 167, ../../sass/partials/_input.scss */
+  /* line 160, ../../sass/partials/_input.scss */
   .calc-equal {
     padding-top: 50%;
   }
 }
 
-/* line 178, ../../sass/partials/_input.scss */
+/* line 171, ../../sass/partials/_input.scss */
 .calc-view-wrapper {
   background: rgba(43, 142, 105, 0.05);
   min-height: 95vh;
@@ -779,42 +774,47 @@ input:focus {
   width: 100vw;
 }
 @media screen and (min-width: 768px) {
-  /* line 178, ../../sass/partials/_input.scss */
+  /* line 171, ../../sass/partials/_input.scss */
   .calc-view-wrapper {
     padding-top: 5%;
   }
 }
 
-/* line 189, ../../sass/partials/_input.scss */
+/* line 182, ../../sass/partials/_input.scss */
 .calc-title {
   font-size: 2rem;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
-  /* line 189, ../../sass/partials/_input.scss */
+  /* line 182, ../../sass/partials/_input.scss */
   .calc-title {
     font-size: 4rem;
   }
 }
 
-/* line 199, ../../sass/partials/_input.scss */
+/* line 192, ../../sass/partials/_input.scss */
 .calc-time-label {
   font-size: 1.5em;
   text-transform: uppercase;
 }
 
-/* line 204, ../../sass/partials/_input.scss */
+/* line 197, ../../sass/partials/_input.scss */
 .calc-input {
   margin-top: 5%;
 }
-/* line 207, ../../sass/partials/_input.scss */
+/* line 200, ../../sass/partials/_input.scss */
 .calc-input .leading-dollar {
   margin-left: 0;
 }
 
-/* line 212, ../../sass/partials/_input.scss */
+/* line 205, ../../sass/partials/_input.scss */
 .calc-toggle {
   width: 100px;
+}
+/* line 208, ../../sass/partials/_input.scss */
+.calc-toggle.active {
+  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.12), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.12);
+  font-weight: 700;
 }
 
 /* line 216, ../../sass/partials/_input.scss */
@@ -889,7 +889,13 @@ input:focus {
 
 /* line 267, ../../sass/partials/_input.scss */
 .warning-red {
-  color: #af3b2c;
+  color: #d61f1f;
+}
+
+/* line 271, ../../sass/partials/_input.scss */
+.converter-error-message {
+  display: block;
+  margin-top: 3%;
 }
 
 /* line 1, ../../sass/partials/_next_button.scss */
@@ -2197,12 +2203,12 @@ input:focus {
 
 /* line 85, ../../sass/partials/_account_modals.scss */
 .form-control.ng-invalid.ng-touched {
-  border-color: #af3b2c;
+  border-color: #d61f1f;
 }
 
 /* line 89, ../../sass/partials/_account_modals.scss */
 .field-error {
-  color: #af3b2c;
+  color: #d61f1f;
   margin-top: 5px;
 }
 

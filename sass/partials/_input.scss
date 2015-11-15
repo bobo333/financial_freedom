@@ -145,13 +145,6 @@ input:focus {
 .calc-control {
     margin-top: 10px;
     text-align: center;
-
-	&.btn.active {
-	        box-shadow: inset -3px 3px 10px 3px $button-hover-shadow-1,
-	                    inset 3px -3px 10px 3px $button-hover-shadow-1;
-	        font-weight: $brand-font-weight-bold;
-	    }
-
 }
 
 .calc-time-number {
@@ -211,6 +204,12 @@ input:focus {
 
 .calc-toggle {
     width: 100px;
+
+	&.active {
+			box-shadow: inset -3px 3px 10px 3px $button-hover-shadow-1,
+						inset 3px -3px 10px 3px $button-hover-shadow-1;
+			font-weight: $brand-font-weight-bold;
+		}
 }
 
 .calc-output-wrapper {
@@ -266,4 +265,9 @@ input:focus {
 
 .warning-red {
 	color: $error-text-color;
+}
+
+.converter-error-message {
+	display: block;
+	margin-top: 3%;
 }
