@@ -27,7 +27,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         pixels_per_axis_label = 75;
 
         if ($(".tooltip").length > 0) {
-            $(".tooltip" ).remove();
+            $(".tooltip").remove();
         }
 
         var margin = {top: 20, right: 10, bottom: 30, left: 75},
@@ -189,7 +189,9 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             var asset_need = 25 * expenses * 12;
             asset_need = Math.round(asset_need);
 
-            return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
+            return "You will be able to safely <br>live off passive income in <br> <span class='bold'>"
+            + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$"
+            + numberWithCommas(asset_need) + "</span>.";
 
         }
 
