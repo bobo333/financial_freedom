@@ -290,26 +290,23 @@
 }
 
 .control-increase-button {
-    border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-radius: 50% / 100%;
-
-    &:hover {
-        border: $control-button-border;
-        border-bottom: 0;
-    }
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
 }
 
 .control-decrease-button {
-    border-radius: 50% / 100%;
-    border-top: 0;
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
 
+.control-increase-button,
+.control-decrease-button {
     &:hover {
         border: $control-button-border;
-        border-top: 0;
     }
 }
 
