@@ -43,14 +43,14 @@
                         <button type="button" class="btn btn-default btn-lg sign-up-button" ng-click="openLoginModal(large,true)"><span>Sign up to track your progress</span></button>
                     </div>
                 </div>
-                <div id="expenses-control" class="input-control primary-control col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
+                <div class="input-control primary-control expenses-control col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
                     <div>
                     	<div>
 				        	<button class="btn btn-default glyphicon-plus control-increase-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', 100)"></button>
 				        </div>
 				        <div>
 				        	<span class="dollar-ouput-label-exp">$</span>
-                        	<input ng-currency type="text" id="expenses-field" class="form-control secondary-output-field" ng-model="userData.expenses" ng-model-options="{ debounce: 700 }"/>
+                        	<input ng-currency type="text" class="form-control secondary-output-field expenses-input-field" ng-model="userData.expenses" ng-model-options="{ debounce: 700 }"/>
                         </div>
                         <div>
                         	<button class="btn btn-default glyphicon-minus control-decrease-button control-change-button" type="button" ng-click="incrementOutputValue('expenses', -100)"></button>
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="col-md-8 col-xs-12 assumptions-section">
-                <div id="explain-text">Financial independence is based on <a ui-sref="about">the 4% Safe Withdrawal Rate</a>
+                <div class="explain-text">Financial independence is based on <a ui-sref="about">the 4% Safe Withdrawal Rate</a>
                     <span class="assumptions-title-wrapper">
                         <button type="button" class="btn btn-default assumptions-toggle" ng-click="editCollapsed = !editCollapsed"><span ng-show="editCollapsed">Show</span><span ng-show="!editCollapsed">Hide</span> assumptions</button>
                     </span>

@@ -1,22 +1,3 @@
-// Time to retirement
-
-// set variables
-
-$expense_color: $secondary-brown;
-$withdraw_color: $primary-green;
-$intersection_color: $dark-green;
-$tooltip_bg: rgba($primary-green,0.80);
-$main_bubble_color: #fff;
-$main_bubble_diameter: 150px;
-$control-button-height: 45px;
-$expenses-field-height: 60px;
-$form-control-height: 50px;
-$control-button-border: 1px solid rgba($dark-green,0.1);
-$control-button-hover: rgba(84, 168, 136, 0.18);
-$control-button-background: rgba(84, 168, 136, 0.09);
-$actions-border: 1px solid $dark-green;
-$signup_button_hover_color: #C58C01;
-
 #graph-wrapper {
 
     .intersection-label-container {
@@ -31,80 +12,83 @@ $signup_button_hover_color: #C58C01;
             overflow: visible;
         }
 
-        .expense-line, .withdraw-line {
-            stroke-width: 2;
+        .expense-line,
+        .withdraw-line {
             fill: none;
             shapeRendering: crispEdges;
+            stroke-width: 2;
         }
 
         .expense-line {
-            stroke: $expense_color;
+            stroke: $secondary-brown;
         }
 
         .expense-label {
-            fill: $expense_color;
+            fill: $secondary-brown;
         }
 
         .withdraw-line {
-            stroke: $withdraw_color;
+            stroke: $primary-green;
         }
 
         .withdraw-label {
-            fill: $withdraw_color;
+            fill: $primary-green;
         }
 
-        .axis line, .axis path {
+        .axis line,
+        .axis path {
             fill: none;
-            stroke: #000000;
             shapeRendering: crispEdges;
+            stroke: $body-text-color;
         }
 
         .intersection-point {
-            fill: $intersection_color;
-            stroke: $intersection_color;
+            fill: $dark-green;
+            stroke: $dark-green;
         }
 
         .expenses-label {
-            fill: rgba($expense_color,0.8);
+            fill: $secondary-brown;
+            opacity: .8;
         }
 
         .income-label {
-            fill: rgba($withdraw_color,0.8);
+            fill: $primary-green;
+            opacity: .8;
         }
 
         .curve-label {
             font-weight: $base-font-weight-semi-bold;
             max-width: 100px;
         }
-
     }
 }
 
 .retirement-main-output {
-    margin-top: 0px;
+    margin-top: 0;
     text-align: center;
 }
 
 .retirement-time-units {
     @extend .after-input-text;
+    color: $font-color-dark-bg;
+    font-size: $base-font-size * 1.5;
     text-align: center;
     text-transform: uppercase;
-    font-size: $base-font-size * 1.5;
-    color: $main_bubble_color;
 }
 
 .retirement-years {
-    font-weight: $base-font-weight-semi-bold;
+    color: $font-color-dark-bg;
     font-size: 5em;
+    font-weight: $base-font-weight-semi-bold;
     margin-top: 50px;
-    color: $main_bubble_color;
 }
 
 .months-line {
-    color: rgba(255,255,255,0.25);
-    margin-top: 5px;
-    border-top: 0px solid black;
+    border-top: 0;
+    color: $font-color-text-dark-bg;
     font-size: $base-font-size;
+    margin-top: 5px;
 }
 
 .cannot-retire {
@@ -118,13 +102,14 @@ $signup_button_hover_color: #C58C01;
 }
 
 .big-number-bg {
-    background: $primary-green;
-    width: $main_bubble_diameter;
-    height: $main_bubble_diameter;
     @include border-radius(50%);
-    margin-right: auto;
+
+    background: $primary-green;
+    height: $main-bubble-diameter;
     margin-left: auto;
+    margin-right: auto;
     position: relative;
+    width: $main-bubble-diameter;
 }
 
 .big-number-wrapper {
@@ -132,11 +117,11 @@ $signup_button_hover_color: #C58C01;
 }
 
 .input-control {
-    text-align: center;
     margin-bottom: 30px;
+    text-align: center;
 
     &:last-child {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 }
 
@@ -146,14 +131,13 @@ $signup_button_hover_color: #C58C01;
     }
 }
 
-
 .control-label {
-    text-align: center;
-    margin-top: 10px;
     font-size: 1em;
+    margin-top: 10px;
+    text-align: center;
 
     @include min-screen($screen-sm-min) {
-        font-size: 0.7em;
+        font-size: .7em;
     }
 }
 
@@ -164,9 +148,7 @@ $signup_button_hover_color: #C58C01;
     @include min-screen($screen-sm-min) {
         margin-top: 20px;
     }
-}
 
-.assumptions-controls-wrapper {
     .form-control {
         max-width: 200px;
     }
@@ -174,23 +156,31 @@ $signup_button_hover_color: #C58C01;
 
 .controls-row {
     margin-top: 10px;
+
+    .control-change-button {
+        display: block;
+        font-size: 1em;
+        height: $control-button-height * .7;
+        margin: auto;
+        width: $control-button-height * 2;
+    }
 }
 
 .output-top-section {
+    border-bottom: $section-border;
     padding-bottom: 3%;
-    border-bottom: $section-bottom-border;
 }
 
 .graph-section {
-    margin: 0px auto 0px auto;
     background: $light-bg-green;
-    padding-bottom: 0px;
+    margin: 0 auto;
+    padding-bottom: 0;
 }
 
 .output-control-container {
 
-    line-height: $base-line-height * 1.3;
     font-size: $base-font-size;
+    line-height: $base-line-height * 1.3;
 
     @include min-screen($screen-sm-min) {
         font-size: $base-font-size * 1.5;
@@ -198,25 +188,25 @@ $signup_button_hover_color: #C58C01;
 }
 
 .output-info-icon {
-    color: rgba($dark-green,0.4);
+    @include hover-animation(color);
+    color: $help-icon-color;
     display: block;
-    margin: 10px auto auto auto;
     font-size: $base-font-size * 1.5;
-    @include hover-animation(all);
-    width: 20px;
+    margin: 10px auto auto;
     text-decoration: none;
+    width: 20px;
 
     &:hover {
-        color: rgba($dark-green,0.8);
+        color: $help-icon-color-hover;
     }
 }
 
 .popover {
-    @include box-shadow(rgba(#000,0.1) 0px 2px 2px);
+    @include box-shadow($primary-shadow-color 0 2px 2px);
 }
 
-#explain-text {
-    font-size: 0.7em;
+.explain-text {
+    font-size: .7em;
 
     @include min-screen($screen-sm-min) {
         margin-left: 75px;
@@ -224,34 +214,34 @@ $signup_button_hover_color: #C58C01;
 }
 
 .form-control.secondary-output-field {
-    text-align: center;
-    @include box-shadow(#fff 0px 0px 0px);
-    font-size: $base-font-size * 2;
-    margin: auto auto;
-    min-height: 50px;
-    display: inline-block;
+    @include box-shadow(0);
     @include border-radius(5px);
-    border: 1px solid rgba($dark-green,0.2);
+    border: 1px solid rgba($dark-green, .2);
+    display: inline-block;
+    font-size: $base-font-size * 2;
+    margin: auto;
+    min-height: 50px;
+    text-align: center;
 }
 
 .icon-answer {
-    text-align: center;
+    color: $font-color-dark-bg;
     display: block;
     font-size: 5em;
-    color: #fff;
+    text-align: center;
 }
 
 .dollar-label {
-    position: absolute;
-    font-size: 1.2em;
     display: inline-block;
+    font-size: 1.2em;
+    position: absolute;
 }
 
 .dollar-ouput-label-exp {
     @extend .dollar-label;
+    font-size: 1.5em;
     left: -$expenses-field-height / 4;
     top: $expenses-field-height;
-    font-size: 1.5em;
 }
 
 .dollar-ouput-label {
@@ -260,90 +250,75 @@ $signup_button_hover_color: #C58C01;
     top: $control-button-height - 5px;
 }
 
-#expenses-field {
+.expenses-input-field {
+    display: inline-block;
+    font-size: $base-font-size * 2;
     height: $expenses-field-height;
     width: 100%;
-    font-size: $base-font-size * 2;
-    display: inline-block;
 }
 
 .control-change-button {
-    display: block;
-    margin: auto auto;
-    height: $control-button-height;
-    width: $control-button-height * 2.25;
-    font-size: 1.2em;
-    padding: 0 0;
-    outline: none !important;
-    background: $control-button-background;
-    color: $dark-green;
-    @include box-shadow(none !important);
-    @include hover-animation(all);
-    border: $control-button-border;
+    @include box-shadow(0);
+    @include hover-animation(background);
+    @include min-screen($screen-sm-min) {
+        height: $control-button-height;
+        width: $control-button-height * 3;
+    }
 
-    &:focus, &:visited {
+    background: $control-button-background;
+    border: $control-button-border;
+    color: $dark-green;
+    display: block;
+    font-size: 1.2em;
+    height: $control-button-height;
+    margin: auto;
+    outline: none;
+    padding: 0;
+    width: $control-button-height * 2.25;
+
+    &:focus,
+    &:visited {
         background: $control-button-background;
-        outline: none !important;
         border: $control-button-border;
+        outline: none;
     }
 
     &:hover {
         background: $control-button-hover;
     }
 
-    @include min-screen($screen-sm-min) {
-        height: $control-button-height;
-        width: $control-button-height * 3;
-    }
 }
 
 .control-increase-button {
-    border-radius: 50% / 100%;
+    border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-bottom: none;
+    border-radius: 50% / 100%;
 
     &:hover {
         border: $control-button-border;
-        border-bottom: none;
+        border-bottom: 0;
     }
 }
 
 .control-decrease-button {
     border-radius: 50% / 100%;
+    border-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-top: none;
 
     &:hover {
         border: $control-button-border;
-        border-top: none;
+        border-top: 0;
     }
-}
-
-.controls-row {
-    .control-change-button {
-        display: block;
-        margin: auto auto;
-        height: $control-button-height * 0.7;
-        width: $control-button-height * 2;
-        font-size: 1em;
-    }
-}
-
-#assumptions-border-top {
-    border-top: 1px solid rgba($primary-green,0.3);
-    position: absolute;
-    left: 15%;
-    right: 15%;
 }
 
 .edit-link {
-    display: inline-block;
-    margin-left: 10px;
     color: $dark-green;
+    display: inline-block;
     font-weight: $base-font-weight-semi-bold;
-    font-size: 0.9em;
+    font-size: .9em;
+    margin-left: 10px;
 
     &:hover {
         cursor: pointer;
@@ -356,36 +331,39 @@ $signup_button_hover_color: #C58C01;
 }
 
 .assumptions-title-wrapper {
-    margin-top: 20px;
     font-size: 1.2em;
+    margin-top: 20px;
 
     @include min-screen($screen-sm-min) {
-        font-size: 0.8em;
+        font-size: .8em;
     }
 }
 
 .assumptions-toggle {
-    margin: 20px auto auto 0px;
+    @include hover-animation(background);
+    @include min-screen($screen-sm-min) {
+        display: inline-block;
+        margin: 0 auto auto 20px;
+    }
+
     background: $control-button-background;
+    border: $control-button-border;
     color: $dark-green;
     display: block;
-    border: $control-button-border;
-    @include hover-animation(all);
+    margin: 20px auto auto 0;
 
-    &:focus, &:visited {
+    &:focus,
+    &:visited {
         background: $control-button-background;
-        outline: none !important;
         border: $control-button-border;
+        outline: none;
     }
 
     &:hover {
         background: $control-button-hover;
         border: $control-button-border;
     }
-    @include min-screen($screen-sm-min) {
-        display: inline-block;
-        margin: 0px auto auto 20px;
-    }
+
 }
 
 .no-retire-message {
@@ -397,17 +375,15 @@ $signup_button_hover_color: #C58C01;
     z-index: 99;
 }
 
-// Actions Section
-
 .actions-section {
     margin-bottom: 50px;
 }
 
 .actions-container {
-    padding-left: 0px;
-    padding-right: 0px;
-    border: $actions-border;
     background: $light-bg-green;
+    border: $actions-border;
+    padding-left: 0;
+    padding-right: 0;
     position: relative;
 }
 
@@ -417,88 +393,86 @@ $signup_button_hover_color: #C58C01;
 }
 
 .income-actions-container {
-    border-top: none;
-    border-right: $actions-border;
     border-left: $actions-border;
+    border-right: $actions-border;
+    border-top: 0;
 }
 
 .assets-actions-container {
-    @include border-bottom-left-radius(0px);
-    border-top: none;
+    @include border-bottom-left-radius(0);
+    border-top: 0;
 
     @include min-screen($screen-sm-min) {
-        border-right: none;
         @include border-bottom-left-radius(5px);
+        border-right: 0;
     }
 }
 
 .debts-actions-container {
     @include border-bottom-right-radius(5px);
     @include border-bottom-left-radius(5px);
-    border-top: none;
+    border-top: 0;
 
     @include min-screen($screen-sm-min) {
-        border-left: none;
-        @include border-bottom-left-radius(0px);
+        @include border-bottom-left-radius(0);
+        border-left: 0;
     }
 }
 
 .actions-section-title {
-    background: #fff;
-    color: #404040;
-    text-align: center;
-    margin: 35px auto 35px auto;
     @extend .supporting-section-title;
+    background: $section-alternate-color-bg;
+    color: $body-text-color;
+    margin: 35px auto;
+    text-align: center;
 }
 
 .action-card-container {
     display: inline-block;
-    padding: 0px 20px 20px 20px;
+    padding: 0 20px 20px;
 }
 
 .action-card {
-    width: 100%;
-    height: 150px;
-    background: #000;
-    color: #fff;
-    position: relative;
     @include border-radius(5px);
-    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px);
-    @include hover-animation(all);
+    @include box-shadow($button-hover-shadow-1 0 0 2px 0);
+    @include hover-animation(transform);
+    background: $modal-backdrop-color;
+    color: $font-color-dark-bg;
+    height: 150px;
+    position: relative;
+    width: 100%;
 
     &:hover {
             @include transform(translateY(-5px));
         }
-}
 
-.action-card {
     .action-label-wrapper {
-        position: absolute;
+        @include border-radius(0);
+        @include border-bottom-radius(5px);
+        background: $action-label-background;
         bottom: 0;
+        color: $font-color-dark-bg;
+        font-size: 1.1em;
+        height: 40px;
+        margin: auto;
+        position: absolute;
         text-align: center;
         width: 100%;
-        background: rgba(black, 0.4);
-        color: #fff;
-        height: 40px;
-        margin: auto auto;
-        font-size: 1.1em;
-        @include border-radius(0px);
-        @include border-bottom-radius(5px);
     }
 
     img {
-        display: block;
-        width: 100%;
-        height: 100%;
         @include border-radius(5px);
+        display: block;
+        height: 100%;
+        width: 100%;
     }
 }
 
 .action-title {
-    padding: 20px 20px 20px 0px;
-    font-size: 1.6em;
     color: $dark-green;
+    font-size: 1.6em;
     font-weight: $base-font-weight-light;
+    padding: 20px 20px 20px 0;
 }
 
 .action-label {
@@ -506,7 +480,7 @@ $signup_button_hover_color: #C58C01;
 }
 
 .output-controls-section {
-    border-bottom: $section-bottom-border;
+    border-bottom: $section-border;
 }
 
 .actions-container-title {
@@ -514,16 +488,16 @@ $signup_button_hover_color: #C58C01;
 }
 
 .actions-container-border {
-    border-top: 1px solid rgba($secondary-brown,0.3);
-    position: absolute;
+    border-top: $action-container-border;
     left: 15%;
+    position: absolute;
     right: 15%;
 }
 
 .suggested-amount-content {
     font-size: 1.1em;
-    padding-bottom: 27px;
     font-weight: $base-font-weight-light;
+    padding-bottom: 27px;
 }
 
 .suggested-amount-value {
@@ -537,83 +511,76 @@ $signup_button_hover_color: #C58C01;
 }
 
 .actions-help-icon {
-    color: rgba($dark-green,0.4);
-    margin: auto auto auto 5px;
+    @include hover-animation(color);
+    color: $help-icon-color;
     font-size: 1.2em;
-    @include hover-animation(all);
+    margin: auto auto auto 5px;
     width: 20px;
 
     &:hover {
-        color: rgba($dark-green,0.8);
-    }
-}
-
-#actions-disclaimer {
-    font-size: 0.8em;
-    opacity: 0.6;
-}
-
-#privacy-link {
-    &:hover {
-        opacity: 1;
+        color: $help-icon-color-hover;
     }
 }
 
 .xaxis-label {
-    font-weight: $base-font-weight-semi-bold;
-    font-size: 1em;
     display: none;
+    font-size: 1em;
+    font-weight: $base-font-weight-semi-bold;
+
     @include min-screen($screen-sm-min) {
-        font-size: 1.8em;
         display: block;
+        font-size: 1.8em;
     }
 }
 
 .label-under {
+    display: block;
     text-align: center;
     width: 100%;
-    display: block;
+
     @include min-screen($screen-sm-min) {
         display: none;
     }
 }
 
 .no-graph-message-wrapper {
-    background: rgba(#fff,0.7);
     @include border-radius(10px);
-    padding: 20px 20px 20px 20px;
-    margin: 0px auto;
-    position: absolute;
-    top: 100px;
+    background: $font-color-text-dark-bg;
     left: 0;
-    right: 0;
+    margin: 0 auto;
     max-width: 300px;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 100px;
 
     @include min-screen($screen-md-min) {
         max-width: 400px;
     }
+
     @include min-screen($screen-sm-min) {
-        padding: 50px 50px 50px 50px;
         max-width: 700px;
+        padding: 50px;
     }
 }
 
 .no-graph-message {
-    text-align: center;
-    font-size: 0.6em;
     @include min-screen($screen-sm-min) {
-        font-size: 0.8em;
+        font-size: .8em;
     }
+
+    font-size: .6em;
+    text-align: center;
 }
 
 .intersection-label {
-    color: white;
-    padding: 16px 15px;
+    color: $font-color-dark-bg;
     display: inline-block;
-    line-height: $base-line-height * 1.1;
-    z-index: 1;
-    font-weight: $base-font-weight-normal;
     font-size: 1.1em;
+    font-weight: $base-font-weight-normal;
+    line-height: $base-line-height * 1.1;
+    padding: 16px 15px;
+    z-index: 1;
 
     .bold {
         font-weight: $base-font-weight-semi-bold;
@@ -625,42 +592,44 @@ $signup_button_hover_color: #C58C01;
 }
 
 .sign-up-container {
-    display: inline-block;
     @include border-radius(10px);
     @include translateY(-50%);
-    border: 1px solid $secondary-brown;
     background: $light-brown-bg;
+    border: 1px solid $secondary-brown;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
 
 }
 
 .sign-up-caption {
+    font-size: .9em;
     margin-right: 10px;
-    font-size: 0.9em;
 }
 
 .sign-up-button {
     background: $secondary-brown;
-    color: white;
-    border: none;
+    border: 0;
+    color: $font-color-dark-bg;
     font-weight: $brand-font-weight-bold;
-    @include hover-animation(all);
 
-    &:hover, &:focus, &:active, &:visited {
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
         background: $secondary-brown;
-        border: none;
-        color: white !important;
-        outline: none !important;
+        border: 0;
+        color: $font-color-dark-bg;
+        outline: none;
     }
 
     &:hover {
-        background: $signup_button_hover_color;
-        color: white;
+        background: $secondary-brown-hover-color;
+        color: $font-color-dark-bg;
     }
 }
 
-#expenses-control {
+.expenses-control {
     margin-top: 30px;
 }
 
@@ -670,18 +639,18 @@ $signup_button_hover_color: #C58C01;
 
 .converter-info-icon {
     display: inline-block;
-    margin-top: 1px;
     margin-left: 5px;
+    margin-top: 1px;
 }
 
 .cannot-retire-message {
+    border: $control-button-border;
+    border-radius: 5px;
     display: block;
-    position: absolute;
-    top: 40%;
+    font-size: $base-font-size * 1.4;
     left: 40%;
     max-width: 350px;
-    font-size: $base-font-size*1.4;
-    border-radius: 5px;
     padding: 10px;
-    border: 1px solid #404040;
+    position: absolute;
+    top: 40%;
 }

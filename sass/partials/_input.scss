@@ -2,38 +2,27 @@
 	padding: 0;
 }
 
-.dollars-to-time-wrapper.input-wrapper {
-	max-width: 615px;
-	padding-bottom: 8%;
-	text-align: center;
-
-	@include min-screen($screen-sm-min) {
-		padding-bottom: 3%;
-	}
-}
-
 .steps {
-
-  max-width: $input-field-width / 2;
-  height: 60px;
-  padding-left: $input-field-width * .04;
-  border: none;
-  border-bottom-style: solid;
+  border: 0;
   border-bottom-color: $body-text-color;
+  border-bottom-style: solid;
   border-bottom-width: 1px;
+  height: 60px;
+  max-width: $input-field-width / 2;
+  padding-left: $input-field-width * .04;
 
   @include min-screen($screen-sm-min) {
-	max-width: $input-field-width;
-	line-height: $base-line-height;
 	height: 80px;
+	line-height: $base-line-height;
+	max-width: $input-field-width;
   }
 
   @include input-placeholder {
+    @include vertical-align;
+	color: $placeholder-color;
     font-family: $base-font-weight-light;
 	font-size: $base-font-size * 2;
-	color: rgba(119,119,119,0.22);
     font-style: italic;
-    @include vertical-align;
 
     @include min-screen($screen-sm-min) {
 		font-size: $base-font-size * 3;
@@ -43,19 +32,21 @@
 }
 
 .input-title {
-	font-size: 3em;
 	color: $body-text-color;
-	line-height: 70px;
+	font-size: 3em;
 	font-weight: $base-font-weight-semi-bold;
-	text-transform: uppercase;
+	line-height: 70px;
 	margin-top: 2%;
+	text-transform: uppercase;
 
 	@include min-screen($screen-sm-min) {
 		font-size: 5em;
 	}
 }
 
-.input-title, .step-subheader, .input-field-wrapper {
+.input-title,
+.step-subheader,
+.input-field-wrapper {
 	text-align: center;
 
 	@include min-screen($screen-md-min) {
@@ -64,10 +55,11 @@
 }
 
 .step-subheader {
-    font-size: 1em;
-	margin-top: 5px;
 	color: $body-text-color;
+    font-size: 1em;
 	font-weight: $base-font-weight-normal;
+	margin-top: 5px;
+
 	@include min-screen($screen-sm-min) {
 		font-size: 1.5em;
 		line-height: $base-line-height;
@@ -115,32 +107,51 @@ input:focus {
 }
 
 .dollars-to-time-wrapper {
-    border: $section-bottom-border;
+    background: $section-alternate-color-bg;
+    border: $section-border;
+    border-radius: 4px;
 	border-top: 0;
-    max-width: 960px;
     margin-left: auto;
     margin-right: auto;
-    background: white;
-    padding: 1% 5% 3% 5%;
-    border-radius: 4px;
+    max-width: 960px;
+    padding: 1% 5% 3%;
+
 	@include min-screen($screen-sm-min) {
-		padding: 1% 2% 3% 2%;
-		border: $section-bottom-border;
+		border: $section-border;
+		padding: 1% 2% 3%;
+	}
+
+	&.input-wrapper {
+		max-width: 615px;
+		padding-bottom: 8%;
+		text-align: center;
+
+		@include min-screen($screen-sm-min) {
+			padding-bottom: 3%;
+		}
 	}
 }
 
 .calc-time-wrapper {
     display: inline-block;
-    text-align: center;
     margin-right: 5%;
+    text-align: center;
+
 	&:last-child {
-		margin-right: 0%;
+		margin-right: 0;
 	}
 }
 
 .calc-control {
     margin-top: 10px;
     text-align: center;
+
+	&.btn.active {
+	        box-shadow: inset -3px 3px 10px 3px $button-hover-shadow-1,
+	                    inset 3px -3px 10px 3px $button-hover-shadow-1;
+	        font-weight: $brand-font-weight-bold;
+	    }
+
 }
 
 .calc-time-number {
@@ -149,14 +160,15 @@ input:focus {
 }
 
 .calc-container {
-    margin-top: 3%;
     margin-bottom: 3%;
+    margin-top: 3%;
 }
 
 .calc-equal {
     font-size: 6em;
-    text-align: center;
 	padding-top: 3%;
+    text-align: center;
+
 	@include min-screen($screen-sm-min) {
 		padding-top: 50%;
 	}
@@ -164,10 +176,10 @@ input:focus {
 }
 
 .calc-view-wrapper {
-    min-height: 95vh;
-    width: 100vw;
     background: $light-bg-green;
+    min-height: 95vh;
     padding-top: 0%;
+    width: 100vw;
 
     @include min-screen($screen-sm-min) {
         padding-top: 5%;
@@ -175,8 +187,9 @@ input:focus {
 }
 
 .calc-title {
-    text-align: center;
     font-size: 2rem;
+    text-align: center;
+
     @include min-screen($screen-sm-min) {
         font-size: 4rem;
     }
@@ -192,7 +205,7 @@ input:focus {
     margin-top: 5%;
 
     .leading-dollar {
-        margin-left: 0px;
+        margin-left: 0;
     }
 }
 
@@ -201,16 +214,8 @@ input:focus {
 }
 
 .calc-output-wrapper {
-    text-align: center;
 	margin-top: 5%;
-}
-
-.calc-control {
-    .btn.active {
-        font-weight: $brand-font-weight-bold;
-        box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1),
-                    inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1)
-    }
+    text-align: center;
 }
 
 .calc-output-digit-wrapper {
@@ -219,18 +224,19 @@ input:focus {
 }
 
 .calc-output-subtext {
-    font-size: 1.1em;
-    margin-top: 0px;
-    opacity: 0.6;
-    line-height: 1.2em;
     display: inline-block;
-    width: 100%;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    margin-top: 0;
+    opacity: .6;
     text-align: center;
+    width: 100%;
 }
 
 .calc-val-type-control-wrapper {
 	display: inline-block;
 	margin: auto 5%;
+
 	@include min-screen($screen-md-min) {
 		margin: auto 7%;
 	}
@@ -239,25 +245,25 @@ input:focus {
 .calc-val-type-control {
 	display: inline;
 	font-size: 1.3rem;
-	opacity: 0.3;
+	opacity: .3;
 
     &:hover {
+		@include hover-animation(opacity);
         cursor: pointer;
 		opacity: 1;
-		@include hover-animation(opacity);
     }
 
 	&.input-type-active {
-	    font-weight: $brand-font-weight-bold;
 	    color: $dark-green;
+	    font-weight: $brand-font-weight-bold;
 		opacity: 1;
 	}
 }
 
-.green {
+.warning-green {
 	color: $primary-green;
 }
 
-.red {
-	color: red;
+.warning-red {
+	color: $error-text-color;
 }

@@ -47,6 +47,7 @@ $primary-green: #2b8e69;
 $dark-green: #0d412e;
 $light-bg-green: rgba($primary-green, .05);
 $secondary-brown: #da9b03;
+$secondary-brown-hover-color: #c58c01;
 $light-brown-bg: #fcf5ec;
 $body-text-color: #404040;
 $btn-secondary-bg: #fff;
@@ -64,6 +65,14 @@ $nav-item-color: rgba($font-color-dark-bg, .7);
 $nav-toggle-border-color: #fff;
 $nav-toggle-bg: rgba(#fff, .3);
 $lp-button-color: #fff;
+$section-alternate-color-bg: #fff;
+$placeholder-color: rgba(119, 119, 119, .22);
+$control-button-hover: rgba(84, 168, 136, .18);
+$control-button-background: rgba(84, 168, 136, .09);
+$font-color-text-dark-bg: rgba(255, 255, 255, .25);
+$help-icon-color: rgba($dark-green, .4);
+$help-icon-color-hover: rgba($dark-green, .8);
+$action-label-background: rgba(#000, .4);
 
 // Custom Fonts
 @mixin basic-font {
@@ -71,7 +80,6 @@ $lp-button-color: #fff;
 }
 
 // Alignment
-
 
 @mixin vertical-align {
   position: relative;
@@ -85,9 +93,21 @@ $lp-button-color: #fff;
     @include transition-duration(.3s);
 }
 
+// Spacing
+$next-button-height-min-sm: 80px;
+$next-button-height: 80px;
+$main-bubble-diameter: 150px;
+$control-button-height: 45px;
+$expenses-field-height: 60px;
+$form-control-height: 50px;
+
+
 // Borders
 
-$section-bottom-border: 1px solid rgba($primary-green, .12);
+$section-border: 1px solid rgba($primary-green, .12);
+$control-button-border: 1px solid rgba($dark-green, .1);
+$actions-border: 1px solid $dark-green;
+$action-container-border: 1px solid rgba($secondary-brown, .3);
 
 // Forms
 
@@ -119,6 +139,9 @@ $input-field-width: 250px;
   border: 2px solid $primary-green;
   color: $primary-green;
 }
+
+$button-hover-shadow-1: rgba(0, 0, 0, .12);
+$button-hover-shadow-2: rgba(0, 0, 0, .24);
 
 html,
 body {
