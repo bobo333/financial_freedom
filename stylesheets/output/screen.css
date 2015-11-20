@@ -1,8 +1,4 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,104 +20,119 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
-/* line 41, ../../sass/partials/_base.scss */
+/* line 35, ../../sass/partials/_base.scss */
 h2 {
   font-size: 3em;
   font-weight: 600;
 }
 
-/* line 46, ../../sass/partials/_base.scss */
+/* line 40, ../../sass/partials/_base.scss */
 h3 {
   font-size: 2em;
   font-weight: 400;
 }
 
-/* line 93, ../../sass/partials/_base.scss */
+/* line 117, ../../sass/partials/_base.scss */
 .form-group label {
   font-size: 1.5em;
   margin-bottom: 5px;
 }
 
-/* line 101, ../../sass/partials/_base.scss */
+/* line 125, ../../sass/partials/_base.scss */
 .btn-primary {
   background: #2b8e69;
 }
-/* line 104, ../../sass/partials/_base.scss */
+/* line 128, ../../sass/partials/_base.scss */
 .btn-primary[disabled] {
   background: #2b8e69;
 }
-/* line 108, ../../sass/partials/_base.scss */
+/* line 132, ../../sass/partials/_base.scss */
 .btn-primary:hover {
   background: #0d412e;
 }
 
-/* line 113, ../../sass/partials/_base.scss */
+/* line 137, ../../sass/partials/_base.scss */
 .btn-secondary {
-  background: white;
+  background: #fff;
   border: 2px solid #2b8e69;
   color: #2b8e69;
 }
 
-/* line 14, ../../sass/partials/_header.scss */
+/* line 146, ../../sass/partials/_base.scss */
+html,
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+}
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_selection.scss */
+html::-moz-selection,
+body::-moz-selection {
+  color: #fff;
+  background-color: #2b8e69;
+}
+/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_selection.scss */
+html::selection,
+body::selection {
+  color: #fff;
+  background-color: #2b8e69;
+}
+
+/* line 1, ../../sass/partials/_header.scss */
 .header {
   height: 80px;
+  margin-top: 20px 0 20px 0;
   position: relative;
-  margin-top: 20px 0px 20px 0px;
 }
 
-/* line 20, ../../sass/partials/_header.scss */
-.nav {
-  margin-top: 3px;
-}
-
-/* line 24, ../../sass/partials/_header.scss */
+/* line 7, ../../sass/partials/_header.scss */
 .navbar-custom {
-  font-family: "Source Sans Pro", sans-serif;
-  color: rgba(43, 142, 105, 0.7);
-  padding: 15px 40px;
   -moz-transition-property: color;
   -o-transition-property: color;
   -webkit-transition-property: color;
@@ -134,40 +145,35 @@ h3 {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  color: rgba(43, 142, 105, 0.7);
   display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 15px 0;
 }
-/* line 31, ../../sass/partials/_header.scss */
-.navbar-custom a, .navbar-custom a:hover {
-  color: #25a793;
+/* line 16, ../../sass/partials/_header.scss */
+.navbar-custom a,
+.navbar-custom a:hover {
   text-decoration: none;
 }
-/* line 36, ../../sass/partials/_header.scss */
-.navbar-custom:hover {
-  color: #25a793;
-}
 
-/* line 42, ../../sass/partials/_header.scss */
+/* line 22, ../../sass/partials/_header.scss */
 .logo-name-wrapper {
-  height: 100%;
-  position: relative;
   display: inline-block;
-  vertical-align: top;
+  font-size: .8rem;
+  height: 100%;
   margin-top: -1px;
+  position: relative;
+  vertical-align: top;
 }
 @media screen and (min-width: 768px) {
-  /* line 42, ../../sass/partials/_header.scss */
+  /* line 22, ../../sass/partials/_header.scss */
   .logo-name-wrapper {
     margin-top: 3px;
   }
 }
 
-/* line 54, ../../sass/partials/_header.scss */
+/* line 35, ../../sass/partials/_header.scss */
 .logo-name {
-  font-family: "Oxygen", sans-serif;
-  font-size: 1.5em;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   -moz-transition-property: color;
   -o-transition-property: color;
   -webkit-transition-property: color;
@@ -180,154 +186,140 @@ h3 {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-}
-/* line 61, ../../sass/partials/_header.scss */
-.logo-name a, .logo-name a:hover {
-  text-decoration: none;
-}
-/* line 65, ../../sass/partials/_header.scss */
-.logo-name:hover {
-  color: white;
-  cursor: pointer;
+  color: #fff;
+  font-family: "Oxygen", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 @media screen and (min-width: 768px) {
-  /* line 54, ../../sass/partials/_header.scss */
+  /* line 35, ../../sass/partials/_header.scss */
   .logo-name {
     font-size: 2em;
   }
 }
-
-/* line 75, ../../sass/partials/_header.scss */
-.navbar {
-  border: none;
-  margin-bottom: 0px !important;
-  background: white;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-  border-bottom-style: solid;
-  border-bottom-color: #2b8e69;
-  border-bottom-width: 3px;
+/* line 49, ../../sass/partials/_header.scss */
+.logo-name a,
+.logo-name a:hover {
+  text-decoration: none;
+}
+/* line 55, ../../sass/partials/_header.scss */
+.logo-name:hover {
+  color: #fff;
+  cursor: pointer;
 }
 
-/* line 85, ../../sass/partials/_header.scss */
+/* line 62, ../../sass/partials/_header.scss */
+.navbar {
+  border: 0;
+  border-bottom-color: #2b8e69;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0;
+}
+
+/* line 71, ../../sass/partials/_header.scss */
 .tabs-wrapper {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
   background: rgba(13, 65, 46, 0.2);
   height: 50px;
-  margin: 82px auto auto auto;
+  left: 0;
+  margin: 82px auto auto;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 85, ../../sass/partials/_header.scss */
+  /* line 71, ../../sass/partials/_header.scss */
   .tabs-wrapper {
-    top: 10px;
-    width: 50%;
     -moz-border-radius-bottomleft: 25px;
     -webkit-border-bottom-left-radius: 25px;
     border-bottom-left-radius: 25px;
     -moz-border-radius-bottomright: 25px;
     -webkit-border-bottom-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    top: 10px;
+    width: 50%;
   }
 }
 
-/* line 101, ../../sass/partials/_header.scss */
+/* line 89, ../../sass/partials/_header.scss */
 .tab-text {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 @media screen and (min-width: 768px) {
-  /* line 105, ../../sass/partials/_header.scss */
+  /* line 93, ../../sass/partials/_header.scss */
   .header-tabs {
-    width: 100%;
-    margin: auto auto;
     height: 98px;
+    margin: auto;
+    width: 100%;
   }
 }
-/* line 113, ../../sass/partials/_header.scss */
+/* line 101, ../../sass/partials/_header.scss */
 .header-tabs .tab {
   font-family: 'Oxygen', sans-serif;
-  display: inline-block;
-  height: 50px;
-  width: 33.3%;
-  text-align: center;
   background: none;
+  border-right: 1px solid rgba(13, 65, 46, 0.2);
   color: #0d412e;
-  font-size: 19.5px;
+  display: inline-block;
+  font-size: 24px;
+  height: 50px;
   margin-right: -4px;
-  border-right: 1px solid rgba(13, 65, 46, 0.3);
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  text-align: center;
+  width: 33.3%;
 }
 @media screen and (min-width: 768px) {
-  /* line 126, ../../sass/partials/_header.scss */
+  /* line 114, ../../sass/partials/_header.scss */
   .header-tabs .tab:first-child {
     -moz-border-radius-bottomleft: 25px;
     -webkit-border-bottom-left-radius: 25px;
     border-bottom-left-radius: 25px;
   }
 }
-/* line 133, ../../sass/partials/_header.scss */
+/* line 121, ../../sass/partials/_header.scss */
 .header-tabs .tab:last-child {
+  border-right: 0;
   width: 33.4%;
-  border-right: 0px solid #000;
 }
 @media screen and (min-width: 768px) {
-  /* line 133, ../../sass/partials/_header.scss */
+  /* line 121, ../../sass/partials/_header.scss */
   .header-tabs .tab:last-child {
     -moz-border-radius-bottomright: 25px;
     -webkit-border-bottom-right-radius: 25px;
     border-bottom-right-radius: 25px;
   }
 }
-/* line 144, ../../sass/partials/_header.scss */
+/* line 132, ../../sass/partials/_header.scss */
 .header-tabs .tab.active {
+  background: rgba(13, 65, 46, 0.6);
+  color: #fff;
   font-weight: bold;
-  background: rgba(13, 65, 46, 0.6);
-  color: white;
 }
-/* line 149, ../../sass/partials/_header.scss */
-.header-tabs .tab.active:hover {
-  background: rgba(13, 65, 46, 0.6);
-}
-/* line 154, ../../sass/partials/_header.scss */
+/* line 138, ../../sass/partials/_header.scss */
 .header-tabs .tab:hover {
+  background: rgba(13, 65, 46, 0.2);
   cursor: pointer;
-  background: rgba(13, 65, 46, 0.1);
 }
 
-@media screen and (min-width: 768px) {
-  /* line 164, ../../sass/partials/_header.scss */
-  .navbar-right li {
-    margin-right: 25px;
-  }
-  /* line 169, ../../sass/partials/_header.scss */
-  .navbar-right .dropdown-menu li {
-    margin-right: 0px;
-  }
+/* line 145, ../../sass/partials/_header.scss */
+.nav {
+  margin-top: 2%;
 }
-/* line 178, ../../sass/partials/_header.scss */
-.nav li .nav-item-custom {
-  cursor: pointer;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+
+/* line 149, ../../sass/partials/_header.scss */
+.nav-list-wrapper {
+  width: 70%;
+}
+
+/* line 153, ../../sass/partials/_header.scss */
+.nav-item-custom {
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   -webkit-transition-timing-function: ease;
@@ -337,102 +329,127 @@ h3 {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.2em;
+  font-size: 1rem;
+  margin-left: 5%;
+  margin-right: 7%;
+  margin-top: 5%;
 }
-/* line 184, ../../sass/partials/_header.scss */
-.nav li .nav-item-custom:hover {
-  background: white;
+@media screen and (min-width: 992px) {
+  /* line 153, ../../sass/partials/_header.scss */
+  .nav-item-custom {
+    font-size: 1.2rem;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+/* line 169, ../../sass/partials/_header.scss */
+.nav-item-custom:hover {
+  color: #fff;
+  cursor: pointer;
 }
 
-/* line 191, ../../sass/partials/_header.scss */
-#brand-logo {
-  width: 45px;
-  display: inline-block;
+/* line 175, ../../sass/partials/_header.scss */
+.brand-logo {
   cursor: pointer;
-  vertical-align: top;
+  display: inline-block;
   margin-right: 10px;
   margin-top: -2px;
+  vertical-align: top;
+  width: 45px;
 }
 @media screen and (min-width: 768px) {
-  /* line 191, ../../sass/partials/_header.scss */
-  #brand-logo {
+  /* line 175, ../../sass/partials/_header.scss */
+  .brand-logo {
+    width: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 175, ../../sass/partials/_header.scss */
+  .brand-logo {
     width: 65px;
   }
 }
 
-/* line 204, ../../sass/partials/_header.scss */
+/* line 192, ../../sass/partials/_header.scss */
 .navbar-default {
-  color: white;
   background: #2b8e69;
+  color: #fff;
 }
 
-/* line 209, ../../sass/partials/_header.scss */
-.navbar-default .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.8);
+/* line 197, ../../sass/partials/_header.scss */
+.navbar-nav > li > a {
+  color: rgba(255, 255, 255, 0.7);
 }
-/* line 211, ../../sass/partials/_header.scss */
-.navbar-default .navbar-nav > li > a:hover {
+/* line 200, ../../sass/partials/_header.scss */
+.navbar-nav > li > a:hover {
   color: white;
 }
 
-/* line 216, ../../sass/partials/_header.scss */
+/* line 205, ../../sass/partials/_header.scss */
 .navbar-brand {
   height: 45px;
 }
 @media screen and (min-width: 768px) {
-  /* line 216, ../../sass/partials/_header.scss */
+  /* line 205, ../../sass/partials/_header.scss */
   .navbar-brand {
     height: 60px;
   }
 }
 
-/* line 223, ../../sass/partials/_header.scss */
-#header-brand-wrapper {
+/* line 213, ../../sass/partials/_header.scss */
+.header-brand-wrapper {
   height: 100%;
 }
 
-/* line 227, ../../sass/partials/_header.scss */
+/* line 217, ../../sass/partials/_header.scss */
 .expanded-nav {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  /* line 227, ../../sass/partials/_header.scss */
+  /* line 217, ../../sass/partials/_header.scss */
   .expanded-nav {
     display: block;
   }
 }
 
-/* line 237, ../../sass/partials/_header.scss */
-#navbar-toggle-custom:hover, #navbar-toggle-custom:active, #navbar-toggle-custom:visited {
+/* line 227, ../../sass/partials/_header.scss */
+.navbar-header .navbar-toggle-custom {
+  border-color: #fff;
+}
+@media screen and (min-width: 992px) {
+  /* line 227, ../../sass/partials/_header.scss */
+  .navbar-header .navbar-toggle-custom {
+    display: none;
+  }
+}
+/* line 236, ../../sass/partials/_header.scss */
+.navbar-header .navbar-toggle-custom:hover {
   background-color: rgba(255, 255, 255, 0.3);
-  border-color: white;
 }
-/* line 242, ../../sass/partials/_header.scss */
-#navbar-toggle-custom:focus {
-  background-color: rgba(255, 255, 255, 0);
-  border-color: white;
+/* line 240, ../../sass/partials/_header.scss */
+.navbar-header .navbar-toggle-custom:active, .navbar-header .navbar-toggle-custom:focus, .navbar-header .navbar-toggle-custom:visited {
+  background-color: #2b8e69;
 }
-
-/* line 248, ../../sass/partials/_header.scss */
-.icon-bar {
-  background-color: white !important;
+/* line 246, ../../sass/partials/_header.scss */
+.navbar-header .navbar-toggle-custom .icon-bar {
+  background-color: #fff;
 }
 
 /* line 252, ../../sass/partials/_header.scss */
 .settings-cog {
-  margin-right: 5px;
   font-size: 1.3em;
+  margin-right: 5px;
   vertical-align: top;
 }
 
 /* line 258, ../../sass/partials/_header.scss */
 .dropdown-menu {
   min-width: 120px;
-  padding: 0px 0px;
+  padding: 0;
 }
 /* line 264, ../../sass/partials/_header.scss */
 .dropdown-menu li a {
-  padding: 10px 10px;
+  padding: 10px;
 }
 /* line 269, ../../sass/partials/_header.scss */
 .dropdown-menu a {
@@ -445,399 +462,408 @@ h3 {
 
 /* line 278, ../../sass/partials/_header.scss */
 .auth-alert {
-  position: absolute;
+  left: 0;
   margin-left: auto;
   margin-right: auto;
-  top: 20px;
-  left: 0;
-  right: 0;
   max-width: 500px;
+  position: absolute;
+  right: 0;
+  top: 20px;
   z-index: 1040;
 }
 
 /* line 289, ../../sass/partials/_header.scss */
 .nav-content-wrapper {
-  max-width: 960px;
+  max-width: 100%;
+  padding: 0 5%;
+}
+@media screen and (min-width: 768px) {
+  /* line 289, ../../sass/partials/_header.scss */
+  .nav-content-wrapper {
+    padding: 0 2%;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 289, ../../sass/partials/_header.scss */
+  .nav-content-wrapper {
+    max-width: 960px;
+  }
 }
 
-/* line 3, ../../sass/partials/_input.scss */
+/* line 302, ../../sass/partials/_header.scss */
+.header-dummy {
+  height: 78px;
+  width: 100%;
+}
+
+/* line 307, ../../sass/partials/_header.scss */
+.tabs-wrapper-dummy {
+  background-color: rgba(43, 142, 105, 0.05);
+  height: 50px;
+  width: 100%;
+}
+
+/* line 1, ../../sass/partials/_input.scss */
 .view-content {
-  padding: 0px;
+  padding: 0;
 }
 
-/* line 7, ../../sass/partials/_input.scss */
-.dollars-to-time-wrapper.input-wrapper {
-  max-width: 615px;
-  text-align: center;
-}
-
-/* line 12, ../../sass/partials/_input.scss */
-.leading-dollar {
-  margin-left: 25px;
-}
-
-/* line 16, ../../sass/partials/_input.scss */
-input[type="text"].steps {
-  width: 150px;
-  height: 60px;
-  padding-left: 12px;
-  margin-left: 20px;
-  border: none;
-  border-bottom-style: solid;
+/* line 5, ../../sass/partials/_input.scss */
+.steps {
+  border: 0;
   border-bottom-color: #404040;
+  border-bottom-style: solid;
   border-bottom-width: 1px;
+  height: 60px;
+  max-width: 125px;
+  padding-left: 10px;
 }
 @media screen and (min-width: 768px) {
-  /* line 16, ../../sass/partials/_input.scss */
-  input[type="text"].steps {
-    width: 300px;
-    line-height: 1;
+  /* line 5, ../../sass/partials/_input.scss */
+  .steps {
     height: 80px;
+    line-height: 1;
+    max-width: 250px;
   }
 }
-/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"].steps:-moz-placeholder {
-  font-family: 300;
-  font-size: 26px;
-  color: rgba(119, 119, 119, 0.22);
-  font-style: italic;
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+.steps:-moz-placeholder {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  color: rgba(119, 119, 119, 0.22);
+  font-family: 300;
+  font-size: 32px;
+  font-style: italic;
 }
 @media screen and (min-width: 768px) {
-  /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-  input[type="text"].steps:-moz-placeholder {
-    font-size: 39px;
+  /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+  .steps:-moz-placeholder {
+    font-size: 48px;
     line-height: 1;
   }
 }
-/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"].steps::-moz-placeholder {
-  font-family: 300;
-  font-size: 26px;
-  color: rgba(119, 119, 119, 0.22);
-  font-style: italic;
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+.steps::-moz-placeholder {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  color: rgba(119, 119, 119, 0.22);
+  font-family: 300;
+  font-size: 32px;
+  font-style: italic;
 }
 @media screen and (min-width: 768px) {
-  /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-  input[type="text"].steps::-moz-placeholder {
-    font-size: 39px;
+  /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+  .steps::-moz-placeholder {
+    font-size: 48px;
     line-height: 1;
   }
 }
-/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"].steps:-ms-input-placeholder {
-  font-family: 300;
-  font-size: 26px;
-  color: rgba(119, 119, 119, 0.22);
-  font-style: italic;
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+.steps:-ms-input-placeholder {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  color: rgba(119, 119, 119, 0.22);
+  font-family: 300;
+  font-size: 32px;
+  font-style: italic;
 }
 @media screen and (min-width: 768px) {
-  /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-  input[type="text"].steps:-ms-input-placeholder {
-    font-size: 39px;
+  /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+  .steps:-ms-input-placeholder {
+    font-size: 48px;
     line-height: 1;
   }
 }
-/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"].steps::-webkit-input-placeholder {
-  font-family: 300;
-  font-size: 26px;
-  color: rgba(119, 119, 119, 0.22);
-  font-style: italic;
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+.steps::-webkit-input-placeholder {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  color: rgba(119, 119, 119, 0.22);
+  font-family: 300;
+  font-size: 32px;
+  font-style: italic;
 }
 @media screen and (min-width: 768px) {
-  /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
-  input[type="text"].steps::-webkit-input-placeholder {
-    font-size: 39px;
+  /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+  .steps::-webkit-input-placeholder {
+    font-size: 48px;
     line-height: 1;
   }
 }
 
-/* line 47, ../../sass/partials/_input.scss */
+/* line 34, ../../sass/partials/_input.scss */
 .input-title {
-  font-size: 3em;
   color: #404040;
-  line-height: 70px;
+  font-size: 3em;
   font-weight: 600;
-  text-transform: uppercase;
+  line-height: 70px;
   margin-top: 2%;
+  text-transform: uppercase;
 }
 @media screen and (min-width: 768px) {
-  /* line 47, ../../sass/partials/_input.scss */
+  /* line 34, ../../sass/partials/_input.scss */
   .input-title {
     font-size: 5em;
   }
 }
 
-/* line 60, ../../sass/partials/_input.scss */
-.input-title, .step-subheader, .until-fi, .input-field-wrapper {
+/* line 47, ../../sass/partials/_input.scss */
+.input-title,
+.step-subheader,
+.until-fi,
+.input-field-wrapper {
   text-align: center;
 }
 @media screen and (min-width: 992px) {
-  /* line 60, ../../sass/partials/_input.scss */
-  .input-title, .step-subheader, .until-fi, .input-field-wrapper {
+  /* line 47, ../../sass/partials/_input.scss */
+  .input-title,
+  .step-subheader,
+  .until-fi,
+  .input-field-wrapper {
     text-align: inherit;
   }
 }
 
-/* line 68, ../../sass/partials/_input.scss */
+/* line 57, ../../sass/partials/_input.scss */
 .step-subheader, .until-fi {
-  font-size: 1em;
-  margin-top: 5px;
   color: #404040;
+  font-size: 1em;
   font-weight: 400;
+  margin-top: 5px;
 }
 @media screen and (min-width: 768px) {
-  /* line 68, ../../sass/partials/_input.scss */
+  /* line 57, ../../sass/partials/_input.scss */
   .step-subheader, .until-fi {
     font-size: 1.5em;
     line-height: 1;
   }
 }
 
-/* line 79, ../../sass/partials/_input.scss */
+/* line 69, ../../sass/partials/_input.scss */
 .input-field-wrapper {
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 300;
   line-height: normal;
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 79, ../../sass/partials/_input.scss */
+  /* line 69, ../../sass/partials/_input.scss */
   .input-field-wrapper {
-    font-size: 39px;
+    font-size: 48px;
     margin-top: 20px;
   }
 }
-/* line 90, ../../sass/partials/_input.scss */
+/* line 80, ../../sass/partials/_input.scss */
 .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
-  font-size: 13px;
+  font-size: 16px;
   margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 90, ../../sass/partials/_input.scss */
+  /* line 80, ../../sass/partials/_input.scss */
   .input-field-wrapper .after-input-text, .input-field-wrapper .retirement-time-units {
-    font-size: 26px;
+    font-size: 32px;
     vertical-align: middle;
   }
 }
 
-/* line 101, ../../sass/partials/_input.scss */
+/* line 91, ../../sass/partials/_input.scss */
 input:focus {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   outline: none;
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
 }
 
-/* line 106, ../../sass/partials/_input.scss */
+/* line 96, ../../sass/partials/_input.scss */
 .convert-button {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 }
 
-/* line 115, ../../sass/partials/_input.scss */
+/* line 103, ../../sass/partials/_input.scss */
 .input-type-wrapper {
   display: flex;
   justify-content: center;
-  width: 40%;
-  margin-top: 5%;
-  margin-left: 7%;
+  margin: 5% auto 10%;
 }
 
-/* line 6, ../../sass/partials/_next_button.scss */
-.next-button {
-  font-family: 'Oxygen', sans-serif;
-  width: 80px;
-  height: 80px;
-  background: #fcf5ec;
-  text-align: center;
-  color: #da9b03;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  border: #da9b03 solid 2px;
-  display: block;
-  margin: 60px auto auto auto;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  position: relative;
-}
-/* line 20, ../../sass/partials/_next_button.scss */
-.next-button.ng-valid {
-  opacity: 1;
-  cursor: pointer;
-  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-}
-/* line 26, ../../sass/partials/_next_button.scss */
-.next-button:hover {
-  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px, rgba(0, 0, 0, 0.24) 0px 8px 8px 0px;
-}
-/* line 30, ../../sass/partials/_next_button.scss */
-.next-button:click {
-  -moz-box-shadow: white, 0px;
-  -webkit-box-shadow: white, 0px;
-  box-shadow: white, 0px;
-}
-/* line 34, ../../sass/partials/_next_button.scss */
-.next-button[type=submit] {
-  font-size: 39px;
-  padding: 0;
-  font-family: FontAwesome;
+/* line 109, ../../sass/partials/_input.scss */
+.calc-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-/* line 41, ../../sass/partials/_next_button.scss */
-.next-button.ng-valid {
-  opacity: 1;
-  cursor: pointer;
-  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
-}
-
-/* line 47, ../../sass/partials/_next_button.scss */
-.next-button-wrapper {
-  padding: 0;
-  width: 100%;
-}
-
-/* line 3, ../../sass/partials/_method.scss */
-.supporting-content {
-  color: #404040;
-  position: relative;
-  padding-left: 0px;
-  padding-bottom: 50px;
-  font-weight: 300;
-  font-size: 15.6px;
-}
-@media screen and (min-width: 992px) {
-  /* line 3, ../../sass/partials/_method.scss */
-  .supporting-content {
-    font-size: 15.6px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  /* line 3, ../../sass/partials/_method.scss */
-  .supporting-content {
-    font-size: 19.5px;
-  }
-}
-
-/* line 21, ../../sass/partials/_method.scss */
-.method-section {
-  margin: 0px auto 0px auto;
-  color: #404040;
-  margin-top: 80px;
-  border-bottom: 1px solid rgba(48, 142, 127, 0.12);
-  width: 100%;
-}
-
-/* line 29, ../../sass/partials/_method.scss */
-.supporting-section-title, .actions-section-title {
-  font-weight: 600;
-  font-size: 39px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* line 36, ../../sass/partials/_method.scss */
-.supporting-section-body, .cannot-retire {
-  line-height: 1.3;
-  padding: 0px auto 0px auto;
-  margin-top: 30px;
-  max-width: 720px;
-}
-/* line 43, ../../sass/partials/_method.scss */
-.supporting-section-body li, .cannot-retire li {
-  list-style-type: circle;
-}
-@media screen and (min-width: 768px) {
-  /* line 36, ../../sass/partials/_method.scss */
-  .supporting-section-body, .cannot-retire {
-    font-size: 19.5px;
-  }
-}
-
-/* line 51, ../../sass/partials/_method.scss */
-.subsection-header {
-  margin: 40px auto 40px auto;
-  font-weight: 600;
-}
-
-/* line 56, ../../sass/partials/_method.scss */
-.about-section {
+/* line 114, ../../sass/partials/_input.scss */
+.dollars-to-time-wrapper {
   background: #fff;
-  width: 100%;
-  border: transparent;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-}
-
-/* line 65, ../../sass/partials/_method.scss */
-.about-text {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-/* line 69, ../../sass/partials/_method.scss */
-.footer-nav-wrapper {
-  max-width: 500px;
-  padding: 20px 0px;
+  border: 1px solid rgba(43, 142, 105, 0.12);
+  border-radius: 4px;
+  border-top: 0;
   margin-left: auto;
   margin-right: auto;
-  font-size: 1.5em;
-  border-top: 1px solid rgba(48, 142, 127, 0.12);
+  max-width: 960px;
+  padding: 1% 5% 3%;
+}
+@media screen and (min-width: 768px) {
+  /* line 114, ../../sass/partials/_input.scss */
+  .dollars-to-time-wrapper {
+    border: 1px solid rgba(43, 142, 105, 0.12);
+    padding: 1% 2% 3%;
+  }
+}
+/* line 129, ../../sass/partials/_input.scss */
+.dollars-to-time-wrapper.input-wrapper {
+  max-width: 615px;
+  padding-bottom: 8%;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  /* line 129, ../../sass/partials/_input.scss */
+  .dollars-to-time-wrapper.input-wrapper {
+    padding-bottom: 3%;
+  }
 }
 
-/* line 78, ../../sass/partials/_method.scss */
-.footer-nav-item {
-  width: 50%;
-  text-align: center;
+/* line 140, ../../sass/partials/_input.scss */
+.calc-time-wrapper {
   display: inline-block;
-  font-size: 0.6em;
-  color: #2b8e69;
-  opacity: 0.7;
+  margin-right: 5%;
+  text-align: center;
+}
+/* line 145, ../../sass/partials/_input.scss */
+.calc-time-wrapper:last-child {
+  margin-right: 0;
+}
+
+/* line 150, ../../sass/partials/_input.scss */
+.calc-control {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* line 155, ../../sass/partials/_input.scss */
+.calc-time-number {
+  font-size: 5em;
+  font-weight: 700;
+}
+
+/* line 160, ../../sass/partials/_input.scss */
+.calc-container {
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+/* line 165, ../../sass/partials/_input.scss */
+.calc-equal {
+  font-size: 6em;
+  padding-top: 3%;
+}
+
+/* line 170, ../../sass/partials/_input.scss */
+.calc-input-error {
+  margin-top: 5%;
+}
+
+/* line 174, ../../sass/partials/_input.scss */
+.calc-view-wrapper {
+  background: rgba(43, 142, 105, 0.05);
+  min-height: 95vh;
+  padding-top: 0%;
+  width: 100vw;
+}
+@media screen and (min-width: 768px) {
+  /* line 174, ../../sass/partials/_input.scss */
+  .calc-view-wrapper {
+    padding-top: 5%;
+  }
+}
+
+/* line 185, ../../sass/partials/_input.scss */
+.calc-title {
+  font-size: 2rem;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  /* line 185, ../../sass/partials/_input.scss */
+  .calc-title {
+    font-size: 4rem;
+  }
+}
+
+/* line 195, ../../sass/partials/_input.scss */
+.calc-time-label {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+/* line 200, ../../sass/partials/_input.scss */
+.calc-input {
+  margin-top: 5%;
+}
+/* line 203, ../../sass/partials/_input.scss */
+.calc-input .leading-dollar {
+  margin-left: 0;
+}
+
+/* line 208, ../../sass/partials/_input.scss */
+.calc-toggle {
+  width: 100px;
+}
+/* line 211, ../../sass/partials/_input.scss */
+.calc-toggle.active {
+  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.12), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.12);
+  font-weight: 700;
+}
+
+/* line 218, ../../sass/partials/_input.scss */
+.calc-output-wrapper {
+  margin-top: 5%;
+  text-align: center;
+}
+
+/* line 223, ../../sass/partials/_input.scss */
+.calc-output-digit-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 228, ../../sass/partials/_input.scss */
+.calc-output-subtext {
+  display: inline-block;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  margin-top: 0;
+  opacity: .6;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 238, ../../sass/partials/_input.scss */
+.calc-val-type-control-wrapper {
+  display: inline-block;
+  margin: auto 5%;
+}
+@media screen and (min-width: 992px) {
+  /* line 238, ../../sass/partials/_input.scss */
+  .calc-val-type-control-wrapper {
+    margin: auto 7%;
+  }
+}
+
+/* line 247, ../../sass/partials/_input.scss */
+.calc-val-type-control {
+  display: inline;
+  font-size: 1.3rem;
+  opacity: .3;
+}
+/* line 252, ../../sass/partials/_input.scss */
+.calc-val-type-control:hover {
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
   -webkit-transition-property: opacity;
@@ -850,240 +876,435 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  cursor: pointer;
+  opacity: 1;
 }
-/* line 87, ../../sass/partials/_method.scss */
+/* line 258, ../../sass/partials/_input.scss */
+.calc-val-type-control.input-type-active {
+  color: #0d412e;
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* line 265, ../../sass/partials/_input.scss */
+.warning-green {
+  color: #2b8e69;
+}
+
+/* line 269, ../../sass/partials/_input.scss */
+.warning-red {
+  color: #d61f1f;
+}
+
+/* line 273, ../../sass/partials/_input.scss */
+.converter-error-message {
+  display: block;
+  margin-top: 3%;
+}
+
+/* line 1, ../../sass/partials/_next_button.scss */
+.next-button {
+  font-family: 'Oxygen', sans-serif;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #fcf5ec;
+  border: #da9b03 solid 2px;
+  color: #da9b03;
+  display: block;
+  height: 80px;
+  margin: 60px auto;
+  position: relative;
+  text-align: center;
+  width: 80px;
+}
+/* line 14, ../../sass/partials/_next_button.scss */
+.next-button.ng-valid {
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0 0 2px 0, rgba(0, 0, 0, 0.24) 0 2px 2px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0 0 2px 0, rgba(0, 0, 0, 0.24) 0 2px 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 0 2px 0, rgba(0, 0, 0, 0.24) 0 2px 2px 0;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 20, ../../sass/partials/_next_button.scss */
+.next-button:hover {
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0 0 8px 0, rgba(0, 0, 0, 0.24) 0 8px 8px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0 0 8px 0, rgba(0, 0, 0, 0.24) 0 8px 8px 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 0 8px 0, rgba(0, 0, 0, 0.24) 0 8px 8px 0;
+}
+/* line 24, ../../sass/partials/_next_button.scss */
+.next-button:click {
+  -moz-box-shadow: 0;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+}
+/* line 28, ../../sass/partials/_next_button.scss */
+.next-button[type=submit] {
+  font-family: FontAwesome;
+  font-size: 48px;
+  padding: 0;
+}
+
+/* line 35, ../../sass/partials/_next_button.scss */
+.next-button-wrapper {
+  padding: 0;
+  width: 100%;
+}
+
+/* line 3, ../../sass/partials/_method.scss */
+.supporting-content {
+  color: #404040;
+  font-size: 19.2px;
+  font-weight: 300;
+  padding-bottom: 2%;
+  padding-left: 0;
+  position: relative;
+}
+@media screen and (min-width: 992px) {
+  /* line 3, ../../sass/partials/_method.scss */
+  .supporting-content {
+    font-size: 19.2px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 3, ../../sass/partials/_method.scss */
+  .supporting-content {
+    font-size: 24px;
+  }
+}
+
+/* line 20, ../../sass/partials/_method.scss */
+.method-section {
+  border-bottom: 1px solid rgba(43, 142, 105, 0.12);
+  color: #404040;
+  margin: 0 auto;
+  margin-top: 1%;
+  width: 100%;
+}
+
+/* line 28, ../../sass/partials/_method.scss */
+.supporting-section-title, .actions-section-title {
+  font-size: 35.2px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  /* line 28, ../../sass/partials/_method.scss */
+  .supporting-section-title, .actions-section-title {
+    font-size: 48px;
+  }
+}
+
+/* line 39, ../../sass/partials/_method.scss */
+.supporting-section-body, .cannot-retire {
+  line-height: 1.3;
+  margin-top: 30px;
+  max-width: 720px;
+  padding: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  /* line 39, ../../sass/partials/_method.scss */
+  .supporting-section-body, .cannot-retire {
+    font-size: 24px;
+  }
+}
+/* line 50, ../../sass/partials/_method.scss */
+.supporting-section-body li, .cannot-retire li {
+  list-style-type: circle;
+}
+
+/* line 55, ../../sass/partials/_method.scss */
+.subsection-header {
+  font-weight: 600;
+  margin: 40px auto;
+}
+
+/* line 60, ../../sass/partials/_method.scss */
+.about-section {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: #fff;
+  border: transparent;
+  width: 100%;
+}
+
+/* line 68, ../../sass/partials/_method.scss */
+.about-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* line 72, ../../sass/partials/_method.scss */
+.footer-nav-wrapper {
+  border-top: 1px solid rgba(43, 142, 105, 0.12);
+  font-size: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  padding: 20px 0;
+}
+
+/* line 81, ../../sass/partials/_method.scss */
+.footer-nav-item {
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  color: #2b8e69;
+  display: inline-block;
+  font-size: .6em;
+  opacity: .7;
+  text-align: center;
+  width: 50%;
+}
+/* line 91, ../../sass/partials/_method.scss */
 .footer-nav-item:hover {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 93, ../../sass/partials/_method.scss */
+/* line 97, ../../sass/partials/_method.scss */
 .footer-nav-item-active {
   font-weight: 600;
   opacity: 1;
 }
 
-/* line 98, ../../sass/partials/_method.scss */
+/* line 102, ../../sass/partials/_method.scss */
 .legal-category {
   font-weight: 600;
 }
 
-/* line 102, ../../sass/partials/_method.scss */
+/* line 106, ../../sass/partials/_method.scss */
 .legal-section {
   width: 100%;
 }
 
-/* line 106, ../../sass/partials/_method.scss */
+/* line 110, ../../sass/partials/_method.scss */
 .supporting-content-wrapper {
-  max-width: 700px;
-  padding: 20px 35px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 700px;
+  padding: 20px 35px;
 }
 
-/* line 22, ../../sass/partials/_time_to_retirement.scss */
+/* line 3, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper .intersection-label-container {
   position: absolute;
   z-index: 1;
 }
-/* line 27, ../../sass/partials/_time_to_retirement.scss */
+/* line 8, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph {
   font-size: 16px;
 }
-/* line 30, ../../sass/partials/_time_to_retirement.scss */
+/* line 11, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .graph-svg {
   overflow: visible;
 }
-/* line 34, ../../sass/partials/_time_to_retirement.scss */
-#graph-wrapper #retirement-graph .expense-line, #graph-wrapper #retirement-graph .withdraw-line {
-  stroke-width: 2;
+/* line 15, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .expense-line,
+#graph-wrapper #retirement-graph .withdraw-line {
   fill: none;
   shapeRendering: crispEdges;
+  stroke-width: 2;
 }
-/* line 40, ../../sass/partials/_time_to_retirement.scss */
+/* line 22, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-line {
   stroke: #da9b03;
 }
-/* line 44, ../../sass/partials/_time_to_retirement.scss */
+/* line 26, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expense-label {
   fill: #da9b03;
 }
-/* line 48, ../../sass/partials/_time_to_retirement.scss */
+/* line 30, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-line {
   stroke: #2b8e69;
 }
-/* line 52, ../../sass/partials/_time_to_retirement.scss */
+/* line 34, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .withdraw-label {
   fill: #2b8e69;
 }
-/* line 56, ../../sass/partials/_time_to_retirement.scss */
-#graph-wrapper #retirement-graph .axis line, #graph-wrapper #retirement-graph .axis path {
+/* line 38, ../../sass/partials/_time_to_retirement.scss */
+#graph-wrapper #retirement-graph .axis line,
+#graph-wrapper #retirement-graph .axis path {
   fill: none;
-  stroke: #000000;
   shapeRendering: crispEdges;
+  stroke: #404040;
 }
-/* line 62, ../../sass/partials/_time_to_retirement.scss */
+/* line 45, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .intersection-point {
   fill: #0d412e;
   stroke: #0d412e;
 }
-/* line 67, ../../sass/partials/_time_to_retirement.scss */
+/* line 50, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .expenses-label {
-  fill: rgba(218, 155, 3, 0.8);
+  fill: #da9b03;
+  opacity: .8;
 }
-/* line 71, ../../sass/partials/_time_to_retirement.scss */
+/* line 55, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .income-label {
-  fill: rgba(43, 142, 105, 0.8);
+  fill: #2b8e69;
+  opacity: .8;
 }
-/* line 75, ../../sass/partials/_time_to_retirement.scss */
+/* line 60, ../../sass/partials/_time_to_retirement.scss */
 #graph-wrapper #retirement-graph .curve-label {
   font-weight: 600;
   max-width: 100px;
 }
 
-/* line 83, ../../sass/partials/_time_to_retirement.scss */
+/* line 67, ../../sass/partials/_time_to_retirement.scss */
 .retirement-main-output {
-  margin-top: 0px;
+  margin-top: 0;
   text-align: center;
 }
 
-/* line 88, ../../sass/partials/_time_to_retirement.scss */
+/* line 72, ../../sass/partials/_time_to_retirement.scss */
 .retirement-time-units {
+  color: #fff;
+  font-size: 24px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 19.5px;
-  color: white;
 }
 
-/* line 96, ../../sass/partials/_time_to_retirement.scss */
+/* line 80, ../../sass/partials/_time_to_retirement.scss */
 .retirement-years {
-  font-weight: 600;
+  color: #fff;
   font-size: 5em;
+  font-weight: 600;
   margin-top: 50px;
-  color: white;
 }
 
-/* line 103, ../../sass/partials/_time_to_retirement.scss */
+/* line 87, ../../sass/partials/_time_to_retirement.scss */
 .months-line {
+  border-top: 0;
   color: rgba(255, 255, 255, 0.25);
+  font-size: 16px;
   margin-top: 5px;
-  border-top: 0px solid black;
-  font-size: 13px;
 }
 
-/* line 114, ../../sass/partials/_time_to_retirement.scss */
+/* line 98, ../../sass/partials/_time_to_retirement.scss */
 .until-fi {
   margin-top: 15px;
   text-align: center;
 }
 
-/* line 120, ../../sass/partials/_time_to_retirement.scss */
+/* line 104, ../../sass/partials/_time_to_retirement.scss */
 .big-number-bg {
-  background: #2b8e69;
-  width: 150px;
-  height: 150px;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  margin-right: auto;
+  background: #2b8e69;
+  height: 150px;
   margin-left: auto;
+  margin-right: auto;
   position: relative;
+  width: 150px;
 }
 
-/* line 130, ../../sass/partials/_time_to_retirement.scss */
+/* line 115, ../../sass/partials/_time_to_retirement.scss */
 .big-number-wrapper {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
-/* line 134, ../../sass/partials/_time_to_retirement.scss */
+/* line 119, ../../sass/partials/_time_to_retirement.scss */
 .input-control {
-  text-align: center;
   margin-bottom: 30px;
+  text-align: center;
 }
-/* line 138, ../../sass/partials/_time_to_retirement.scss */
+/* line 123, ../../sass/partials/_time_to_retirement.scss */
 .input-control:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
-/* line 144, ../../sass/partials/_time_to_retirement.scss */
+/* line 129, ../../sass/partials/_time_to_retirement.scss */
 .primary-control .control-label {
   font-size: 1em;
 }
 
-/* line 150, ../../sass/partials/_time_to_retirement.scss */
+/* line 134, ../../sass/partials/_time_to_retirement.scss */
 .control-label {
-  text-align: center;
-  margin-top: 10px;
   font-size: 1em;
+  margin-top: 10px;
+  text-align: center;
 }
 @media screen and (min-width: 768px) {
-  /* line 150, ../../sass/partials/_time_to_retirement.scss */
+  /* line 134, ../../sass/partials/_time_to_retirement.scss */
   .control-label {
-    font-size: 0.7em;
+    font-size: .7em;
   }
 }
 
-/* line 160, ../../sass/partials/_time_to_retirement.scss */
+/* line 144, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper {
   margin-top: 70px;
 }
 @media screen and (min-width: 768px) {
-  /* line 160, ../../sass/partials/_time_to_retirement.scss */
+  /* line 144, ../../sass/partials/_time_to_retirement.scss */
   .assumptions-controls-wrapper {
     margin-top: 20px;
   }
 }
-
-/* line 170, ../../sass/partials/_time_to_retirement.scss */
+/* line 152, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-controls-wrapper .form-control {
   max-width: 200px;
 }
 
-/* line 175, ../../sass/partials/_time_to_retirement.scss */
+/* line 157, ../../sass/partials/_time_to_retirement.scss */
 .controls-row {
   margin-top: 10px;
 }
+/* line 160, ../../sass/partials/_time_to_retirement.scss */
+.controls-row .control-change-button {
+  display: block;
+  font-size: 1em;
+  height: 31.5px;
+  margin: auto;
+  width: 90px;
+}
 
-/* line 179, ../../sass/partials/_time_to_retirement.scss */
+/* line 169, ../../sass/partials/_time_to_retirement.scss */
 .output-top-section {
-  margin-top: 90px;
-  padding-bottom: 50px;
   border-bottom: 1px solid rgba(43, 142, 105, 0.12);
+  padding-bottom: 3%;
 }
 
-/* line 185, ../../sass/partials/_time_to_retirement.scss */
+/* line 174, ../../sass/partials/_time_to_retirement.scss */
 .graph-section {
-  margin: 0px auto 0px auto;
   background: rgba(43, 142, 105, 0.05);
-  padding-bottom: 0px;
+  margin: 0 auto;
+  padding-bottom: 0;
 }
 
-/* line 191, ../../sass/partials/_time_to_retirement.scss */
+/* line 180, ../../sass/partials/_time_to_retirement.scss */
 .output-control-container {
+  font-size: 16px;
   line-height: 1.3;
-  font-size: 13px;
 }
 @media screen and (min-width: 768px) {
-  /* line 191, ../../sass/partials/_time_to_retirement.scss */
+  /* line 180, ../../sass/partials/_time_to_retirement.scss */
   .output-control-container {
-    font-size: 19.5px;
+    font-size: 24px;
   }
 }
 
-/* line 201, ../../sass/partials/_time_to_retirement.scss */
+/* line 190, ../../sass/partials/_time_to_retirement.scss */
 .output-info-icon {
-  color: rgba(13, 65, 46, 0.4);
-  display: block;
-  margin: 10px auto auto auto;
-  font-size: 19.5px;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   -webkit-transition-timing-function: ease;
@@ -1092,107 +1313,97 @@ input:focus {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  width: 20px;
+  color: rgba(13, 65, 46, 0.4);
+  display: block;
+  font-size: 24px;
+  margin: 10px auto auto;
   text-decoration: none;
+  width: 20px;
 }
-/* line 210, ../../sass/partials/_time_to_retirement.scss */
+/* line 199, ../../sass/partials/_time_to_retirement.scss */
 .output-info-icon:hover {
   color: rgba(13, 65, 46, 0.8);
 }
 
-/* line 215, ../../sass/partials/_time_to_retirement.scss */
+/* line 204, ../../sass/partials/_time_to_retirement.scss */
 .popover {
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 2px;
 }
 
-/* line 219, ../../sass/partials/_time_to_retirement.scss */
-.popover-inner {
-  opacity: 1;
-}
-
-/* line 223, ../../sass/partials/_time_to_retirement.scss */
-#explain-text {
-  font-size: 0.7em;
+/* line 208, ../../sass/partials/_time_to_retirement.scss */
+.explain-text {
+  font-size: .7em;
 }
 @media screen and (min-width: 768px) {
-  /* line 223, ../../sass/partials/_time_to_retirement.scss */
-  #explain-text {
+  /* line 208, ../../sass/partials/_time_to_retirement.scss */
+  .explain-text {
     margin-left: 75px;
   }
 }
 
-/* line 231, ../../sass/partials/_time_to_retirement.scss */
-input[type="text"].form-control {
-  text-align: center;
-  -moz-box-shadow: white 0px 0px 0px;
-  -webkit-box-shadow: white 0px 0px 0px;
-  box-shadow: white 0px 0px 0px;
-  height: 50px;
-  font-size: 26px;
-  margin: auto auto;
-  display: inline-block;
+/* line 216, ../../sass/partials/_time_to_retirement.scss */
+.form-control.secondary-output-field {
+  -moz-box-shadow: 0;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid rgba(13, 65, 46, 0.2);
+  display: inline-block;
+  font-size: 32px;
+  margin: auto;
+  min-height: 50px;
+  text-align: center;
 }
 
-/* line 242, ../../sass/partials/_time_to_retirement.scss */
+/* line 227, ../../sass/partials/_time_to_retirement.scss */
 .icon-answer {
-  text-align: center;
+  color: #fff;
   display: block;
   font-size: 5em;
-  color: #fff;
+  text-align: center;
 }
 
-/* line 249, ../../sass/partials/_time_to_retirement.scss */
+/* line 234, ../../sass/partials/_time_to_retirement.scss */
 .dollar-label, .dollar-ouput-label-exp, .dollar-ouput-label {
-  position: absolute;
-  font-size: 1.2em;
   display: inline-block;
+  font-size: 1.2em;
+  position: absolute;
 }
 
-/* line 255, ../../sass/partials/_time_to_retirement.scss */
+/* line 240, ../../sass/partials/_time_to_retirement.scss */
 .dollar-ouput-label-exp {
+  font-size: 1.5em;
   left: -15px;
   top: 60px;
-  font-size: 1.5em;
 }
 
-/* line 262, ../../sass/partials/_time_to_retirement.scss */
+/* line 247, ../../sass/partials/_time_to_retirement.scss */
 .dollar-ouput-label {
   left: -7.5px;
   top: 40px;
 }
 
-/* line 268, ../../sass/partials/_time_to_retirement.scss */
-#expenses-field {
+/* line 253, ../../sass/partials/_time_to_retirement.scss */
+.expenses-input-field {
+  display: inline-block;
+  font-size: 32px;
   height: 60px;
   width: 100%;
-  font-size: 26px;
-  display: inline-block;
 }
 
-/* line 275, ../../sass/partials/_time_to_retirement.scss */
+/* line 260, ../../sass/partials/_time_to_retirement.scss */
 .control-change-button {
-  display: block;
-  margin: auto auto;
-  height: 45px;
-  width: 101.25px;
-  font-size: 1.2em;
-  padding: 0 0;
-  outline: none !important;
-  background: rgba(84, 168, 136, 0.09);
-  color: #0d412e;
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+  -moz-box-shadow: 0;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  -webkit-transition-property: background;
+  transition-property: background;
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   -webkit-transition-timing-function: ease;
@@ -1201,111 +1412,94 @@ input[type="text"].form-control {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border: 1px solid rgba(13, 65, 46, 0.1);
-}
-/* line 289, ../../sass/partials/_time_to_retirement.scss */
-.control-change-button:focus, .control-change-button:visited {
   background: rgba(84, 168, 136, 0.09);
-  outline: none !important;
   border: 1px solid rgba(13, 65, 46, 0.1);
-}
-/* line 295, ../../sass/partials/_time_to_retirement.scss */
-.control-change-button:hover {
-  background: rgba(84, 168, 136, 0.18);
+  color: #0d412e;
+  display: block;
+  font-size: 1.2em;
+  height: 45px;
+  margin: auto;
+  outline: none;
+  padding: 0;
+  width: 101.25px;
 }
 @media screen and (min-width: 768px) {
-  /* line 275, ../../sass/partials/_time_to_retirement.scss */
+  /* line 260, ../../sass/partials/_time_to_retirement.scss */
   .control-change-button {
     height: 45px;
     width: 135px;
   }
 }
+/* line 279, ../../sass/partials/_time_to_retirement.scss */
+.control-change-button:focus, .control-change-button:visited {
+  background: rgba(84, 168, 136, 0.09);
+  border: 1px solid rgba(13, 65, 46, 0.1);
+  outline: none;
+}
+/* line 286, ../../sass/partials/_time_to_retirement.scss */
+.control-change-button:hover {
+  background: rgba(84, 168, 136, 0.18);
+}
 
-/* line 305, ../../sass/partials/_time_to_retirement.scss */
+/* line 292, ../../sass/partials/_time_to_retirement.scss */
 .control-increase-button {
-  border-radius: 50% / 100%;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: none;
-}
-/* line 311, ../../sass/partials/_time_to_retirement.scss */
-.control-increase-button:hover {
-  border: 1px solid rgba(13, 65, 46, 0.1);
-  border-bottom: none;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
 }
 
-/* line 317, ../../sass/partials/_time_to_retirement.scss */
+/* line 299, ../../sass/partials/_time_to_retirement.scss */
 .control-decrease-button {
-  border-radius: 50% / 100%;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-top: none;
 }
-/* line 323, ../../sass/partials/_time_to_retirement.scss */
+
+/* line 308, ../../sass/partials/_time_to_retirement.scss */
+.control-increase-button:hover,
 .control-decrease-button:hover {
   border: 1px solid rgba(13, 65, 46, 0.1);
-  border-top: none;
 }
 
-/* line 330, ../../sass/partials/_time_to_retirement.scss */
-.controls-row .control-change-button {
-  display: block;
-  margin: auto auto;
-  height: 31.5px;
-  width: 90px;
-  font-size: 1.2em;
-}
-
-/* line 339, ../../sass/partials/_time_to_retirement.scss */
-#assumptions-border-top {
-  border-top: 1px solid rgba(43, 142, 105, 0.3);
-  position: absolute;
-  left: 15%;
-  right: 15%;
-}
-
-/* line 346, ../../sass/partials/_time_to_retirement.scss */
+/* line 313, ../../sass/partials/_time_to_retirement.scss */
 .edit-link {
-  display: inline-block;
-  margin-left: 10px;
   color: #0d412e;
+  display: inline-block;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: .9em;
+  margin-left: 10px;
 }
-/* line 353, ../../sass/partials/_time_to_retirement.scss */
+/* line 320, ../../sass/partials/_time_to_retirement.scss */
 .edit-link:hover {
   cursor: pointer;
 }
 
-/* line 358, ../../sass/partials/_time_to_retirement.scss */
+/* line 325, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-section {
   margin: 20px auto;
   position: relative;
 }
 
-/* line 363, ../../sass/partials/_time_to_retirement.scss */
+/* line 330, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-title-wrapper {
-  margin-top: 20px;
   font-size: 1.2em;
+  margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
-  /* line 363, ../../sass/partials/_time_to_retirement.scss */
+  /* line 330, ../../sass/partials/_time_to_retirement.scss */
   .assumptions-title-wrapper {
-    font-size: 0.8em;
+    font-size: .8em;
   }
 }
 
-/* line 372, ../../sass/partials/_time_to_retirement.scss */
+/* line 339, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-toggle {
-  margin: 20px auto auto 0px;
-  background: rgba(84, 168, 136, 0.09);
-  color: #0d412e;
-  display: block;
-  border: 1px solid rgba(13, 65, 46, 0.1);
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  -webkit-transition-property: background;
+  transition-property: background;
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   -webkit-transition-timing-function: ease;
@@ -1314,52 +1508,57 @@ input[type="text"].form-control {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  background: rgba(84, 168, 136, 0.09);
+  border: 1px solid rgba(13, 65, 46, 0.1);
+  color: #0d412e;
+  display: block;
+  margin: 20px auto auto 0;
 }
-/* line 380, ../../sass/partials/_time_to_retirement.scss */
+@media screen and (min-width: 768px) {
+  /* line 339, ../../sass/partials/_time_to_retirement.scss */
+  .assumptions-toggle {
+    display: inline-block;
+    margin: 0 auto auto 20px;
+  }
+}
+/* line 352, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-toggle:focus, .assumptions-toggle:visited {
   background: rgba(84, 168, 136, 0.09);
-  outline: none !important;
   border: 1px solid rgba(13, 65, 46, 0.1);
+  outline: none;
 }
-/* line 386, ../../sass/partials/_time_to_retirement.scss */
+/* line 359, ../../sass/partials/_time_to_retirement.scss */
 .assumptions-toggle:hover {
   background: rgba(84, 168, 136, 0.18);
   border: 1px solid rgba(13, 65, 46, 0.1);
 }
-@media screen and (min-width: 768px) {
-  /* line 372, ../../sass/partials/_time_to_retirement.scss */
-  .assumptions-toggle {
-    display: inline-block;
-    margin: 0px auto auto 20px;
-  }
-}
 
-/* line 396, ../../sass/partials/_time_to_retirement.scss */
+/* line 366, ../../sass/partials/_time_to_retirement.scss */
 .no-retire-message {
   margin-top: 20px;
   text-align: center;
 }
 
-/* line 401, ../../sass/partials/_time_to_retirement.scss */
+/* line 371, ../../sass/partials/_time_to_retirement.scss */
 .leading-dollar-control {
   z-index: 99;
 }
 
-/* line 407, ../../sass/partials/_time_to_retirement.scss */
+/* line 375, ../../sass/partials/_time_to_retirement.scss */
 .actions-section {
   margin-bottom: 50px;
 }
 
-/* line 411, ../../sass/partials/_time_to_retirement.scss */
+/* line 379, ../../sass/partials/_time_to_retirement.scss */
 .actions-container {
-  padding-left: 0px;
-  padding-right: 0px;
-  border: 1px solid #0d412e;
   background: rgba(43, 142, 105, 0.05);
+  border: 1px solid #0d412e;
+  padding-left: 0;
+  padding-right: 0;
   position: relative;
 }
 
-/* line 419, ../../sass/partials/_time_to_retirement.scss */
+/* line 387, ../../sass/partials/_time_to_retirement.scss */
 .expenses-actions-container {
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -1370,31 +1569,31 @@ input[type="text"].form-control {
   border-bottom: 1px solid #0d412e;
 }
 
-/* line 424, ../../sass/partials/_time_to_retirement.scss */
+/* line 392, ../../sass/partials/_time_to_retirement.scss */
 .income-actions-container {
-  border-top: none;
-  border-right: 1px solid #0d412e;
   border-left: 1px solid #0d412e;
+  border-right: 1px solid #0d412e;
+  border-top: 0;
 }
 
-/* line 430, ../../sass/partials/_time_to_retirement.scss */
+/* line 398, ../../sass/partials/_time_to_retirement.scss */
 .assets-actions-container {
-  -moz-border-radius-bottomleft: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top: none;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 430, ../../sass/partials/_time_to_retirement.scss */
+  /* line 398, ../../sass/partials/_time_to_retirement.scss */
   .assets-actions-container {
-    border-right: none;
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-bottom-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    border-right: 0;
   }
 }
 
-/* line 440, ../../sass/partials/_time_to_retirement.scss */
+/* line 408, ../../sass/partials/_time_to_retirement.scss */
 .debts-actions-container {
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
@@ -1402,49 +1601,44 @@ input[type="text"].form-control {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-top: none;
+  border-top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 440, ../../sass/partials/_time_to_retirement.scss */
+  /* line 408, ../../sass/partials/_time_to_retirement.scss */
   .debts-actions-container {
-    border-left: none;
-    -moz-border-radius-bottomleft: 0px;
-    -webkit-border-bottom-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
   }
 }
 
-/* line 451, ../../sass/partials/_time_to_retirement.scss */
+/* line 419, ../../sass/partials/_time_to_retirement.scss */
 .actions-section-title {
   background: #fff;
   color: #404040;
+  margin: 35px auto;
   text-align: center;
-  margin: 35px auto 35px auto;
 }
 
-/* line 459, ../../sass/partials/_time_to_retirement.scss */
+/* line 427, ../../sass/partials/_time_to_retirement.scss */
 .action-card-container {
   display: inline-block;
-  padding: 0px 20px 20px 20px;
+  padding: 0 20px 20px;
 }
 
-/* line 464, ../../sass/partials/_time_to_retirement.scss */
+/* line 432, ../../sass/partials/_time_to_retirement.scss */
 .action-card {
-  width: 100%;
-  height: 150px;
-  background: #000;
-  color: #fff;
-  position: relative;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 2px 0px;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0 0 2px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0 0 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 0 2px 0;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   -webkit-transition-timing-function: ease;
@@ -1453,105 +1647,106 @@ input[type="text"].form-control {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  background: #000;
+  color: #fff;
+  height: 150px;
+  position: relative;
+  width: 100%;
 }
-/* line 474, ../../sass/partials/_time_to_retirement.scss */
+/* line 442, ../../sass/partials/_time_to_retirement.scss */
 .action-card:hover {
   -moz-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
 }
-
-/* line 480, ../../sass/partials/_time_to_retirement.scss */
+/* line 446, ../../sass/partials/_time_to_retirement.scss */
 .action-card .action-label-wrapper {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  height: 40px;
-  margin: auto auto;
-  font-size: 1.1em;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
-}
-/* line 494, ../../sass/partials/_time_to_retirement.scss */
-.action-card img {
-  display: block;
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  color: #fff;
+  font-size: 1.1em;
+  height: 40px;
+  margin: auto;
+  position: absolute;
+  text-align: center;
   width: 100%;
-  height: 100%;
+}
+/* line 460, ../../sass/partials/_time_to_retirement.scss */
+.action-card img {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
-/* line 502, ../../sass/partials/_time_to_retirement.scss */
+/* line 468, ../../sass/partials/_time_to_retirement.scss */
 .action-title {
-  padding: 20px 20px 20px 0px;
-  font-size: 1.6em;
   color: #0d412e;
+  font-size: 1.6em;
   font-weight: 300;
+  padding: 20px 20px 20px 0;
 }
 
-/* line 509, ../../sass/partials/_time_to_retirement.scss */
+/* line 475, ../../sass/partials/_time_to_retirement.scss */
 .action-label {
   margin-top: 10px;
 }
 
-/* line 513, ../../sass/partials/_time_to_retirement.scss */
+/* line 479, ../../sass/partials/_time_to_retirement.scss */
 .output-controls-section {
   border-bottom: 1px solid rgba(43, 142, 105, 0.12);
 }
 
-/* line 517, ../../sass/partials/_time_to_retirement.scss */
+/* line 483, ../../sass/partials/_time_to_retirement.scss */
 .actions-container-title {
   padding-left: 20px;
 }
 
-/* line 521, ../../sass/partials/_time_to_retirement.scss */
+/* line 487, ../../sass/partials/_time_to_retirement.scss */
 .actions-container-border {
   border-top: 1px solid rgba(218, 155, 3, 0.3);
-  position: absolute;
   left: 15%;
+  position: absolute;
   right: 15%;
 }
 
-/* line 528, ../../sass/partials/_time_to_retirement.scss */
+/* line 494, ../../sass/partials/_time_to_retirement.scss */
 .suggested-amount-content {
   font-size: 1.1em;
-  padding-bottom: 27px;
   font-weight: 300;
+  padding-bottom: 27px;
 }
 
-/* line 534, ../../sass/partials/_time_to_retirement.scss */
+/* line 500, ../../sass/partials/_time_to_retirement.scss */
 .suggested-amount-value {
   font-weight: 600;
 }
 
 @media screen and (min-width: 992px) {
-  /* line 538, ../../sass/partials/_time_to_retirement.scss */
+  /* line 504, ../../sass/partials/_time_to_retirement.scss */
   .add-title-margin {
     margin-bottom: 48px;
   }
 }
 
-/* line 544, ../../sass/partials/_time_to_retirement.scss */
+/* line 510, ../../sass/partials/_time_to_retirement.scss */
 .actions-help-icon {
-  color: rgba(13, 65, 46, 0.4);
-  margin: auto auto auto 5px;
-  font-size: 1.2em;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   -webkit-transition-timing-function: ease;
@@ -1560,114 +1755,105 @@ input[type="text"].form-control {
   -o-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  color: rgba(13, 65, 46, 0.4);
+  font-size: 1.2em;
+  margin: auto auto auto 5px;
   width: 20px;
 }
-/* line 551, ../../sass/partials/_time_to_retirement.scss */
+/* line 517, ../../sass/partials/_time_to_retirement.scss */
 .actions-help-icon:hover {
   color: rgba(13, 65, 46, 0.8);
 }
 
-/* line 556, ../../sass/partials/_time_to_retirement.scss */
-#actions-disclaimer {
-  font-size: 0.8em;
-  opacity: 0.6;
-}
-
-/* line 562, ../../sass/partials/_time_to_retirement.scss */
-#privacy-link:hover {
-  opacity: 1;
-}
-
-/* line 567, ../../sass/partials/_time_to_retirement.scss */
+/* line 522, ../../sass/partials/_time_to_retirement.scss */
 .xaxis-label {
-  font-weight: 600;
-  font-size: 1em;
   display: none;
+  font-size: 1em;
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
-  /* line 567, ../../sass/partials/_time_to_retirement.scss */
+  /* line 522, ../../sass/partials/_time_to_retirement.scss */
   .xaxis-label {
-    font-size: 1.8em;
     display: block;
+    font-size: 1.8em;
   }
 }
 
-/* line 577, ../../sass/partials/_time_to_retirement.scss */
+/* line 533, ../../sass/partials/_time_to_retirement.scss */
 .label-under {
+  display: block;
   text-align: center;
   width: 100%;
-  display: block;
 }
 @media screen and (min-width: 768px) {
-  /* line 577, ../../sass/partials/_time_to_retirement.scss */
+  /* line 533, ../../sass/partials/_time_to_retirement.scss */
   .label-under {
     display: none;
   }
 }
 
-/* line 586, ../../sass/partials/_time_to_retirement.scss */
+/* line 543, ../../sass/partials/_time_to_retirement.scss */
 .no-graph-message-wrapper {
-  background: rgba(255, 255, 255, 0.7);
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  padding: 20px 20px 20px 20px;
-  margin: 0px auto;
-  position: absolute;
-  top: 100px;
+  background: rgba(255, 255, 255, 0.25);
   left: 0;
-  right: 0;
+  margin: 0 auto;
   max-width: 300px;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 100px;
 }
 @media screen and (min-width: 992px) {
-  /* line 586, ../../sass/partials/_time_to_retirement.scss */
+  /* line 543, ../../sass/partials/_time_to_retirement.scss */
   .no-graph-message-wrapper {
     max-width: 400px;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 586, ../../sass/partials/_time_to_retirement.scss */
+  /* line 543, ../../sass/partials/_time_to_retirement.scss */
   .no-graph-message-wrapper {
-    padding: 50px 50px 50px 50px;
     max-width: 700px;
+    padding: 50px;
   }
 }
 
-/* line 606, ../../sass/partials/_time_to_retirement.scss */
+/* line 564, ../../sass/partials/_time_to_retirement.scss */
 .no-graph-message {
+  font-size: .6em;
   text-align: center;
-  font-size: 0.6em;
 }
 @media screen and (min-width: 768px) {
-  /* line 606, ../../sass/partials/_time_to_retirement.scss */
+  /* line 564, ../../sass/partials/_time_to_retirement.scss */
   .no-graph-message {
-    font-size: 0.8em;
+    font-size: .8em;
   }
 }
 
-/* line 614, ../../sass/partials/_time_to_retirement.scss */
+/* line 573, ../../sass/partials/_time_to_retirement.scss */
 .intersection-label {
-  color: white;
-  padding: 16px 15px;
+  color: #fff;
   display: inline-block;
-  line-height: 1.1;
-  z-index: 1;
-  font-weight: 400;
   font-size: 1.1em;
+  font-weight: 400;
+  line-height: 1.1;
+  padding: 16px 15px;
+  z-index: 1;
 }
-/* line 623, ../../sass/partials/_time_to_retirement.scss */
+/* line 582, ../../sass/partials/_time_to_retirement.scss */
 .intersection-label .bold {
   font-weight: 600;
 }
 
-/* line 628, ../../sass/partials/_time_to_retirement.scss */
+/* line 587, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-wrapper {
   text-align: center;
 }
 
-/* line 632, ../../sass/partials/_time_to_retirement.scss */
+/* line 591, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-container {
-  display: inline-block;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -1675,218 +1861,71 @@ input[type="text"].form-control {
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  border: 1px solid #da9b03;
   background: #fcf5ec;
+  border: 1px solid #da9b03;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 643, ../../sass/partials/_time_to_retirement.scss */
+/* line 602, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-caption {
+  font-size: .9em;
   margin-right: 10px;
-  font-size: 0.9em;
 }
 
-/* line 648, ../../sass/partials/_time_to_retirement.scss */
+/* line 607, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button {
   background: #da9b03;
-  color: white;
-  border: none;
+  border: 0;
+  color: #fff;
   font-weight: 700;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
 }
-/* line 655, ../../sass/partials/_time_to_retirement.scss */
+/* line 613, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button:hover, .sign-up-button:focus, .sign-up-button:active, .sign-up-button:visited {
   background: #da9b03;
-  border: none;
-  color: white !important;
-  outline: none !important;
+  border: 0;
+  color: #fff;
+  outline: none;
 }
-/* line 662, ../../sass/partials/_time_to_retirement.scss */
+/* line 623, ../../sass/partials/_time_to_retirement.scss */
 .sign-up-button:hover {
   background: #c58c01;
-  color: white;
+  color: #fff;
 }
 
-/* line 668, ../../sass/partials/_time_to_retirement.scss */
-#expenses-control {
+/* line 629, ../../sass/partials/_time_to_retirement.scss */
+.expenses-control {
   margin-top: 30px;
 }
 
-/* line 672, ../../sass/partials/_time_to_retirement.scss */
-.dollars-to-time-wrapper {
-  border: 1px solid rgba(43, 142, 105, 0.12);
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  background: white;
-  margin-top: 30px;
-  padding: 15px 35px 30px 35px;
-  border-radius: 4px;
-}
-
-/* line 683, ../../sass/partials/_time_to_retirement.scss */
-.calc-time-wrapper {
-  display: inline-block;
-  text-align: center;
-  margin-right: 25px;
-}
-
-/* line 689, ../../sass/partials/_time_to_retirement.scss */
-.calc-control {
-  margin-top: 10px;
-  text-align: center;
-}
-
-/* line 694, ../../sass/partials/_time_to_retirement.scss */
-.calc-time-number {
-  font-size: 5em;
-  font-weight: 700;
-}
-
-/* line 699, ../../sass/partials/_time_to_retirement.scss */
-.calc-container {
-  margin-top: 3%;
-}
-
-/* line 703, ../../sass/partials/_time_to_retirement.scss */
-.calc-equal {
-  font-size: 6em;
-  text-align: center;
-  padding-top: 30px;
-}
-
-/* line 709, ../../sass/partials/_time_to_retirement.scss */
-.calc-view-wrapper {
-  height: 100vh;
-  width: 100vw;
-  background: rgba(43, 142, 105, 0.05);
-  padding-top: 10%;
-}
-@media screen and (min-width: 768px) {
-  /* line 709, ../../sass/partials/_time_to_retirement.scss */
-  .calc-view-wrapper {
-    padding-top: 10%;
-  }
-}
-
-/* line 720, ../../sass/partials/_time_to_retirement.scss */
-.calc-title {
-  text-align: center;
-  font-size: 2rem;
-}
-@media screen and (min-width: 768px) {
-  /* line 720, ../../sass/partials/_time_to_retirement.scss */
-  .calc-title {
-    font-size: 4rem;
-  }
-}
-
-/* line 729, ../../sass/partials/_time_to_retirement.scss */
-.calc-time-label {
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
-
-/* line 734, ../../sass/partials/_time_to_retirement.scss */
-.calc-input {
-  margin-top: 0px;
-}
-/* line 737, ../../sass/partials/_time_to_retirement.scss */
-.calc-input .leading-dollar {
-  margin-left: 0px;
-}
-
-/* line 742, ../../sass/partials/_time_to_retirement.scss */
-.calc-toggle {
-  width: 100px;
-}
-
-/* line 746, ../../sass/partials/_time_to_retirement.scss */
-.calc-output-wrapper {
-  text-align: center;
-}
-
-/* line 751, ../../sass/partials/_time_to_retirement.scss */
-.calc-control .btn.active {
-  font-weight: 700;
-  box-shadow: inset -3px 3px 10px 3px rgba(0, 0, 0, 0.1), inset 3px -3px 10px 3px rgba(0, 0, 0, 0.1);
-}
-
-/* line 758, ../../sass/partials/_time_to_retirement.scss */
-.calc-output-digit-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* line 763, ../../sass/partials/_time_to_retirement.scss */
-.input-type-active {
-  font-weight: 700;
-  text-decoration: underline;
-  color: #0d412e;
-}
-
-/* line 769, ../../sass/partials/_time_to_retirement.scss */
-.calc-output-subtext, .calc-val-type-control {
-  font-size: 1.1em;
-  margin-top: 0px;
-  opacity: 0.6;
-  line-height: 1.2em;
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-}
-
-/* line 779, ../../sass/partials/_time_to_retirement.scss */
-.calc-val-type-control-wrapper {
-  width: 100%;
-}
-
-/* line 783, ../../sass/partials/_time_to_retirement.scss */
-.calc-val-type-control {
-  text-align: left;
-  margin-left: 15px;
-  width: auto;
-}
-/* line 789, ../../sass/partials/_time_to_retirement.scss */
-.calc-val-type-control:hover {
-  cursor: pointer;
-}
-
-/* line 794, ../../sass/partials/_time_to_retirement.scss */
-.calc-output-inactive {
-  opacity: 0.25;
-}
-
-/* line 798, ../../sass/partials/_time_to_retirement.scss */
+/* line 633, ../../sass/partials/_time_to_retirement.scss */
 .output-explain {
   margin-top: 20px;
 }
 
-/* line 802, ../../sass/partials/_time_to_retirement.scss */
+/* line 637, ../../sass/partials/_time_to_retirement.scss */
 .converter-info-icon {
   display: inline-block;
-  margin-top: 1px;
   margin-left: 5px;
+  margin-top: 1px;
+}
+
+/* line 643, ../../sass/partials/_time_to_retirement.scss */
+.cannot-retire-message {
+  border: 1px solid rgba(13, 65, 46, 0.1);
+  border-radius: 5px;
+  display: block;
+  font-size: 22.4px;
+  left: 40%;
+  max-width: 350px;
+  padding: 10px;
+  position: absolute;
+  top: 40%;
 }
 
 /* line 2, ../../sass/partials/_animations.scss */
 .view-animate.ng-enter {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
@@ -1898,12 +1937,8 @@ input[type="text"].form-control {
   opacity: 0;
 }
 
-/* line 9, ../../sass/partials/_animations.scss */
+/* line 8, ../../sass/partials/_animations.scss */
 .view-animate.ng-enter-active {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
@@ -1915,12 +1950,9 @@ input[type="text"].form-control {
   opacity: 1;
 }
 
-/* line 16, ../../sass/partials/_animations.scss */
-.hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
+/* line 14, ../../sass/partials/_animations.scss */
+.hide-fade.ng-hide-add,
+.hide-fade.ng-hide-remove {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
@@ -1929,27 +1961,23 @@ input[type="text"].form-control {
   -o-transition-timing-function: linear;
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
-  display: block !important;
+  display: block;
 }
 
-/* line 23, ../../sass/partials/_animations.scss */
+/* line 21, ../../sass/partials/_animations.scss */
 .hide-fade.ng-hide-add.ng-hide-add-active,
 .hide-fade.ng-hide-remove {
   opacity: 0;
 }
 
-/* line 27, ../../sass/partials/_animations.scss */
+/* line 26, ../../sass/partials/_animations.scss */
 .hide-fade.ng-hide-add,
 .hide-fade.ng-hide-remove.ng-hide-remove-active {
   opacity: 1;
 }
 
-/* line 32, ../../sass/partials/_animations.scss */
+/* line 31, ../../sass/partials/_animations.scss */
 .text-fade-in.ng-enter {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
@@ -1961,12 +1989,8 @@ input[type="text"].form-control {
   opacity: 0;
 }
 
-/* line 39, ../../sass/partials/_animations.scss */
+/* line 37, ../../sass/partials/_animations.scss */
 .text-fade-in.ng-enter-active {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
@@ -1980,12 +2004,12 @@ input[type="text"].form-control {
 
 /* line 1, ../../sass/partials/_intro.scss */
 .intro-content {
-  width: 100vw;
-  height: 100vh;
   background: #0d412e;
-  padding: 35% 5%;
-  text-align: center;
+  min-height: 95vh;
+  padding: 15% 5%;
   position: relative;
+  text-align: center;
+  width: 100vw;
 }
 @media screen and (min-width: 768px) {
   /* line 1, ../../sass/partials/_intro.scss */
@@ -1996,14 +2020,13 @@ input[type="text"].form-control {
 
 /* line 14, ../../sass/partials/_intro.scss */
 .primary-tagline {
-  font-size: 3em;
-  color: white;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0px 0px 3px black;
+  color: #fff;
   display: inline-block;
-  vertical-align: top;
+  font-size: 3em;
+  font-weight: 600;
   margin-left: 15px;
+  text-align: center;
+  vertical-align: top;
 }
 @media screen and (min-width: 768px) {
   /* line 14, ../../sass/partials/_intro.scss */
@@ -2012,106 +2035,94 @@ input[type="text"].form-control {
   }
 }
 
-/* line 29, ../../sass/partials/_intro.scss */
+/* line 28, ../../sass/partials/_intro.scss */
 .secondary-tagline {
-  color: white;
-  opacity: 0.8;
-  margin-top: 10px;
+  color: #fff;
   font-size: 1em;
   font-weight: 300;
-  text-align: center;
   line-height: 1.4em;
-  max-width: 550px;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  max-width: 550px;
+  opacity: .8;
+  text-align: center;
 }
 @media screen and (min-width: 768px) {
-  /* line 29, ../../sass/partials/_intro.scss */
+  /* line 28, ../../sass/partials/_intro.scss */
   .secondary-tagline {
     font-size: 1.7em;
     line-height: 1.4em;
   }
 }
 
-/* line 47, ../../sass/partials/_intro.scss */
+/* line 46, ../../sass/partials/_intro.scss */
 .lp-button-wrapper {
   padding: 0;
   width: 100%;
 }
 
-/* line 52, ../../sass/partials/_intro.scss */
+/* line 51, ../../sass/partials/_intro.scss */
 .lp-button {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  border: white solid 2px;
-  color: white;
-  background: black;
-  margin: 55px auto auto auto;
-  text-align: center;
-  display: block;
   background: #0d412e;
-  padding: 20px 30px;
-  font-size: 1.5em;
+  border: #fff solid 2px;
+  color: #fff;
   cursor: pointer;
+  display: block;
+  font-size: 1.5em;
+  margin: 55px auto auto;
+  padding: 20px 30px;
+  text-align: center;
 }
-/* line 66, ../../sass/partials/_intro.scss */
+/* line 64, ../../sass/partials/_intro.scss */
 .lp-button:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* line 71, ../../sass/partials/_intro.scss */
-#intro-graphic {
+/* line 69, ../../sass/partials/_intro.scss */
+.intro-graphic {
   display: inline-block;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  width: 30%;
   max-width: 160px;
+  width: 30%;
 }
 
 /* line 1, ../../sass/partials/_account_modals.scss */
-.login-modal, .account-modal {
+.login-modal,
+.account-modal {
   position: relative;
 }
 
-/* line 5, ../../sass/partials/_account_modals.scss */
+/* line 6, ../../sass/partials/_account_modals.scss */
 .modal-icon-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 2em;
   color: gray;
+  font-size: 2em;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
-/* line 12, ../../sass/partials/_account_modals.scss */
+/* line 13, ../../sass/partials/_account_modals.scss */
 .modal-icon-close:hover {
   cursor: pointer;
 }
 
-/* line 17, ../../sass/partials/_account_modals.scss */
+/* line 18, ../../sass/partials/_account_modals.scss */
 .modal-header {
-  background-color: rgba(43, 142, 105, 0.05);
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
   border-top-left-radius: 6px;
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
+  background-color: rgba(43, 142, 105, 0.05);
 }
 
-/* line 22, ../../sass/partials/_account_modals.scss */
+/* line 23, ../../sass/partials/_account_modals.scss */
 .modal-content {
   -moz-border-radius-topleft: 7px;
   -webkit-border-top-left-radius: 7px;
@@ -2121,130 +2132,164 @@ input[type="text"].form-control {
   border-top-right-radius: 7px;
 }
 
-/* line 26, ../../sass/partials/_account_modals.scss */
+/* line 27, ../../sass/partials/_account_modals.scss */
 .modal-title {
   color: #404040;
-  letter-spacing: -0.02em;
+  letter-spacing: -.02em;
 }
 
-/* line 31, ../../sass/partials/_account_modals.scss */
+/* line 32, ../../sass/partials/_account_modals.scss */
 .modal-backdrop {
-  background-color: black;
-  width: 100%;
+  background-color: #000;
   height: 100%;
+  width: 100%;
 }
 
-/* line 37, ../../sass/partials/_account_modals.scss */
-.signin-side, .signup-side {
+/* line 38, ../../sass/partials/_account_modals.scss */
+.signin-side,
+.signup-side {
   margin-top: 10px;
 }
-/* line 39, ../../sass/partials/_account_modals.scss */
-.signin-side a:hover, .signup-side a:hover {
+/* line 42, ../../sass/partials/_account_modals.scss */
+.signin-side a:hover,
+.signup-side a:hover {
   cursor: pointer;
 }
 
-/* line 44, ../../sass/partials/_account_modals.scss */
+/* line 47, ../../sass/partials/_account_modals.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 48, ../../sass/partials/_account_modals.scss */
-.signup-side, .signin-side {
+/* line 51, ../../sass/partials/_account_modals.scss */
+.signup-side,
+.signin-side {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
-/* line 52, ../../sass/partials/_account_modals.scss */
+/* line 56, ../../sass/partials/_account_modals.scss */
 .login-form-controls-wrapper {
   width: 100%;
 }
 
-/* line 56, ../../sass/partials/_account_modals.scss */
+/* line 60, ../../sass/partials/_account_modals.scss */
 .forgot-password-link {
   display: inline-block;
   float: right;
-  position: inline-block;
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
+  position: inline-block;
 }
 
-/* line 64, ../../sass/partials/_account_modals.scss */
+/* line 68, ../../sass/partials/_account_modals.scss */
 .remember-me-link {
   display: inline-block;
 }
 
-/* line 68, ../../sass/partials/_account_modals.scss */
+/* line 72, ../../sass/partials/_account_modals.scss */
 .modal-secondary-button {
   margin-left: 10px;
 }
 
-/* line 72, ../../sass/partials/_account_modals.scss */
-.modal-dialog {
-  width: 450px;
-}
-
 /* line 76, ../../sass/partials/_account_modals.scss */
-.form-control.ng-invalid.ng-touched {
-  border-color: red;
+.modal-dialog {
+  width: auto;
 }
-
-/* line 80, ../../sass/partials/_account_modals.scss */
-.field-error {
-  margin-top: 5px;
-  color: red;
+@media screen and (min-width: 992px) {
+  /* line 76, ../../sass/partials/_account_modals.scss */
+  .modal-dialog {
+    max-width: 450px;
+    min-width: 400px;
+  }
 }
 
 /* line 85, ../../sass/partials/_account_modals.scss */
+.form-control.ng-invalid.ng-touched {
+  border-color: #d61f1f;
+}
+
+/* line 89, ../../sass/partials/_account_modals.scss */
+.field-error {
+  color: #d61f1f;
+  margin-top: 5px;
+}
+
+/* line 94, ../../sass/partials/_account_modals.scss */
 .checkbox.login-checkbox {
   margin-top: 25px;
 }
 
 /* line 1, ../../sass/partials/_footer.scss */
 .footer-container {
-  position: relative;
-  width: 100%;
   background: rgba(43, 142, 105, 0.05);
   border-top: 1px solid rgba(43, 142, 105, 0.12);
+  position: relative;
+  width: 100%;
 }
 
 /* line 8, ../../sass/partials/_footer.scss */
 .footer-content-wrapper {
-  max-width: 500px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding: 25px 0px;
+  max-width: 500px;
+  padding: 25px 0;
 }
 /* line 15, ../../sass/partials/_footer.scss */
 .footer-content-wrapper a {
-  width: 150px;
   margin: auto;
+  width: 150px;
 }
 
-/* line 17, ../../sass/screen.scss */
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
+/* line 1, ../../sass/partials/_feedback_box.scss */
+.feedback-box-wrapper {
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  background-color: #2b8e69;
+  border-radius: 10px;
+  bottom: 2%;
+  color: #fff;
+  font-size: 1.2rem;
+  opacity: .7;
+  padding: 10px 20px;
+  position: fixed;
+  right: 1%;
+}
+/* line 14, ../../sass/partials/_feedback_box.scss */
+.feedback-box-wrapper:hover {
+  color: #fff;
+  cursor: pointer;
+  opacity: 1;
+  text-decoration: none;
 }
 
-/* line 26, ../../sass/screen.scss */
-body {
-  font-family: "Source Sans Pro", sans-serif;
+/* line 23, ../../sass/partials/_feedback_box.scss */
+.feedback-modal-message {
+  font-size: 1.2rem;
 }
 
-/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
-*::-moz-selection {
-  color: white;
-  background-color: #7dd193;
+/* line 27, ../../sass/partials/_feedback_box.scss */
+.feedback-modal-email {
+  display: block;
+  font-size: 1.8rem;
+  margin: 5% auto;
+  text-align: center;
 }
-/* line 53, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_selection.scss */
-*::selection {
-  color: white;
-  background-color: #7dd193;
+
+/* line 34, ../../sass/partials/_feedback_box.scss */
+.feedback-close-button {
+  display: block;
+  margin: 2% auto;
 }

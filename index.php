@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/output/screen.css">
         <link rel="icon" type="image/png" href="img/favicon.ico">
-        
+
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -20,9 +20,9 @@
         <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-        
+
         <script type="text/javascript" src="javascript/custom/ng-currency.js"></script>
-        
+
         <script type="text/javascript" src="javascript/app.js"></script>
         <script type="text/javascript" src="javascript/date_service.js"></script>
         <script type="text/javascript" src="javascript/interest_service.js"></script>
@@ -39,10 +39,11 @@
 
         <title>Abound | Free Yourself</title>
     </head>
-    
+
     <body ng-controller="bodyController">
         <abound-header></abound-header>
         <div ui-view class="view-animate"></div>
+        <feedback-box></feedback-box>
         <abound-footer></abound-footer>
     </body>
 </html>

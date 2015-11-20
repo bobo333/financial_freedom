@@ -1,47 +1,35 @@
-$next-button-height-min-sm: 80px;
-$next-button-height: 80px;
-$next-button-border-color: $secondary_brown;
-$next-button-icon-color: $next-button-border-color;
-
 .next-button {
     @include basic-font;
-    width: $next-button-height;
-    height: $next-button-height;
-    background: $light_brown_bg;
-    text-align: center;
-    color: $next-button-icon-color;
-    @include hover-animation(all);
-    border: $next-button-border-color solid 2px;
-    display: block;
-    margin: 60px auto auto auto;
     @include border-radius(50%);
+    background: $light-brown-bg;
+    border: $secondary-brown solid 2px;
+    color: $secondary-brown;
+    display: block;
+    height: $next-button-height;
+    margin: 60px auto;
     position: relative;
+    text-align: center;
+    width: $next-button-height;
 
     &.ng-valid {
-        opacity: 1;
+        @include box-shadow($button-hover-shadow-1 0 0 2px 0, $button-hover-shadow-2 0 2px 2px 0);
         cursor: pointer;
-        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
+        opacity: 1;
     }
 
     &:hover {
-        @include box-shadow(rgba(0,0,0,0.12) 0px 0px 8px 0px, rgba(0,0,0,0.24) 0px 8px 8px 0px);
+        @include box-shadow($button-hover-shadow-1 0 0 8px 0, $button-hover-shadow-2 0 8px 8px 0);
     }
 
     &:click {
-        @include box-shadow(#fff, 0px);
+        @include box-shadow(0);
     }
-    
+
     &[type=submit] {
+        font-family: FontAwesome;
         font-size: $base-font-size * 3;
         padding: 0;
-        font-family: FontAwesome;
     }
-}
-
-.next-button.ng-valid {
-    opacity: 1;
-    cursor: pointer;
-    @include box-shadow(rgba(0,0,0,0.12) 0px 0px 2px 0px, rgba(0,0,0,0.24) 0px 2px 2px 0px);
 }
 
 .next-button-wrapper {

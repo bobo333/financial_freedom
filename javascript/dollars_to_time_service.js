@@ -1,5 +1,5 @@
 FinancialFreedom.service('DollarsToTimeService', function(RetirementCalculatorService, DateService) {
-     
+
     this.calculateDollarsToTime = function(amount, expense, recurring, customData) {
 
         var data = {};
@@ -13,7 +13,7 @@ FinancialFreedom.service('DollarsToTimeService', function(RetirementCalculatorSe
             } else {
                 spendy_data.total_assets -= amount;
             }
-            
+
         } else {
             if (recurring) {
                 thrifty_data.monthly_income += amount;
@@ -35,9 +35,9 @@ FinancialFreedom.service('DollarsToTimeService', function(RetirementCalculatorSe
             data.fewer_months_to_retirement = thrifty_months_to_retirement % 12;
         }
         else {
-            data.fewer_months_to_retirement = Math.floor(spendy_months_to_retirement / 12);
+            data.fewer_years_to_retirement = Math.floor(spendy_months_to_retirement / 12);
             data.fewer_months_to_retirement = spendy_months_to_retirement % 12;
-            data.more_months_to_retirement = Math.floor(thrifty_months_to_retirement / 12);
+            data.more_years_to_retirement = Math.floor(thrifty_months_to_retirement / 12);
             data.more_months_to_retirement = thrifty_months_to_retirement % 12;
         }
 

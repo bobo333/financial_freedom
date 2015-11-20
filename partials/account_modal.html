@@ -7,11 +7,8 @@
     <div class="modal-body row">
 
         <div>Account email: {{ userEmail }} </div>
-
         <div>Account created: {{ userCreatedAt }}</div>
-
-        <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>
-            
+        <button class="btn btn-default" ng-show="passwordResetFormCollapsed" ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed"> Change your password</button>    
         <div collapse="passwordResetFormCollapsed">
             <form name="resetPassword" novalidate role="form" ng-submit="setPassword(credentials)">
 
@@ -34,15 +31,15 @@
                     <div class="form-group">
                         <label for="password">Repeat Password</label>
                         <input type="password" compare-to="credentials.new_password" required name="passwordConfirmField" class="form-control" ng-model="credentials.new_password_confirm" />
-            
+
                         <div ng-show="resetPassword.passwordConfirmField.$dirty" class="field-error">
                             <span ng-show="resetPassword.passwordConfirmField.$error.required">Please confirm your password</span>
                             <span ng-show="resetPassword.passwordConfirmField.$error.compareTo && !resetPassword.passwordConfirmField.$error.required">Your passwords must match.</span>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary" ng-class="{'disabled': !resetPassword.$valid }">Update password</button>
-                    
+
             </form>
             <button ng-click="passwordResetFormCollapsed = !passwordResetFormCollapsed" class="btn btn-primary">Cancel</button>
         </div>
@@ -52,5 +49,5 @@
     <div class="modal-footer" ng-if="passwordResetFormCollapsed">
         <button class="btn btn-primary" ng-click="cancel()">Close</button>
     </div>
-               
+
 </div>

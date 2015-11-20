@@ -1,12 +1,12 @@
 <step-header></step-header>
 <div class="calc-view-wrapper">
-	<form name="incomeForm" ng-submit="setupStep('/assets')" novalidate>
+	<form name="incomeForm" ng-submit="nextSetupStep()" novalidate>
 		<div class="row">
 		    <div class="dollars-to-time-wrapper input-wrapper">
 			    <div class="input-title">Income</div>
-			    
+
 			    <div class="step-subheader">Monthly take-home (after-tax) pay from work</div>
-			    
+
 			    <div class="input-field-wrapper">
 		        	<span class="leading-dollar">$</span>
 		        	<input type="text"
@@ -17,7 +17,7 @@
 		        	class="steps"
 		        	min="0"
 		        	max="99999"
-		        	ng-model="inputVal.income" 
+		        	ng-model="inputVal.income"
 		        	/>
 		        	<span class="after-input-text">per month</span>
 			    </div>

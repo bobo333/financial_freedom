@@ -1,64 +1,51 @@
 <div class="header-wrapper" ng-controller="HeaderController">
-    <div class="navbar-wrapper">
-        <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <header class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-custom" role="navigation">
             <div class="container-fluid nav-content-wrapper">
                 <div class="navbar-header">
-                    <button type="button" id="navbar-toggle-custom" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                    <button type="button" class="navbar-toggle navbar-toggle-custom" ng-click="isCollapsed = !isCollapsed">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" ng-click="logoLink()">
-                        <div id="header-brand-wrapper">
-                            <img src="img/curvy-bowl-white-bg.png" id="brand-logo">
+                    <a class="navbar-brand" ui-sref="intro">
+                        <div class="header-brand-wrapper">
+                            <img src="img/curvy-bowl-white-bg.png" class="brand-logo">
                             <div class="logo-name-wrapper">
                                 <span class="logo-name">Abound</span>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div collapse="isCollapsed">
-                    <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
-                        <li><a class="nav-item-custom" ng-click="openLoginModal()">Sign in</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" ng-if="!data.currentUser">
-                        <li><a class="nav-item-custom" ng-click="openSignUpModal()">Sign up</a></li>
-                    </ul>
+                <div collapse="isCollapsed" ng-click="isCollapsed = !isCollapsed">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-item-custom" ng-click="converterLink()">Money-to-time converter</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
-                        <li><a class="nav-item-custom" ng-click="openAccountModal()"><i class="fa fa-cog"></i>Account</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" ng-click="logout()" ng-if="data.currentUser">
-                        <li><a class="nav-item-custom"><i class="fa fa-cog"></i> Sign out</a></li>
+                        <li class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</li>
+                        <li class="nav-item-custom" ui-sref="time-to-retirement">Countdown</li>
+                        <li class="nav-item-custom" ng-click="openSignUpModal()" ng-if="!data.currentUser">Sign up</li>
+                        <li class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</li>
+                        <li class="nav-item-custom" ng-click="openAccountModal()" ng-if="data.currentUser"<i class="fa fa-cog"></i>Account</li>
+                        <li class="nav-item-custom" ng-click="logout()" ng-if="data.currentUser"><i class="fa fa-cog"></i> Sign out</li>
                     </ul>
                 </div>
                 <div class="expanded-nav">
-                    <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser">
-                        <li class="dropdown" dropdown>
+                    <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser" class="dropdown" dropdown>
                            <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a ng-click="openAccountModal()">Account</a>
-                                    <a ng-click="logout()">Sign out</a>
-                                </li>
+                                <li ng-click="openAccountModal()">Account</li>
+                                <li ng-click="logout()">Sign out</li>
                             </ul>
-                        </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-item-custom" ng-click="openSignUpModal()" ng-if="!data.currentUser">Sign up</a></li>
+                    <ul class="nav navbar-nav navbar-right nav-list-wrapper">
+                        <li class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</li>
+                        <li class="nav-item-custom" ui-sref="time-to-retirement">Countdown</li>
+                        <li class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</li>
+                        <li class="nav-item-custom" ng-click="openSignUpModal()" ng-if="!data.currentUser">Sign up</li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </div>
+    </header>
 </div>
+<div class="header-dummy"></div>

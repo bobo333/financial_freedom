@@ -1,100 +1,88 @@
-// Header
-
-
-// Colors
-$nav-hover-color: #25A793;
-$nav-font-color: white;
-$tab_wrapper_bg: rgba(0,0,0,.1);
-$active_tab_color: rgba($dark_green,0.6);
-$title_color: #404040;
-$border-style: 1px solid rgba(0,0,0,.15);
-$nav-height: 50px;
-$nav-border-radius: 25px;
-
 .header {
 	height: 80px;
+    margin-top: 20px 0 20px 0;
 	position: relative;
-    margin-top: 20px 0px 20px 0px;
-}
-
-.nav {
-    margin-top: 3px;
 }
 
 .navbar-custom {
-    font-family: $base_font_family;
-    color: rgba($primary_green, 0.7);
-    padding: 15px 40px;
-    @include hover-animation(color);
-    display: block;
 
-	a, a:hover {
-		color: $nav-hover-color;
+    @include hover-animation(color);
+
+    color: rgba($primary-green, .7);
+    display: block;
+    font-family: $base-font-family;
+    padding: 15px 0;
+
+	a,
+	a:hover {
 		text-decoration: none;
 	}
-
-    &:hover {
-        color: $nav-hover-color;
-    }
 }
 
-
 .logo-name-wrapper {
-    height: 100%;
-    position: relative;
     display: inline-block;
-    vertical-align: top;
+	font-size: .8rem;
+    height: 100%;
     margin-top: -1px;
+    position: relative;
+    vertical-align: top;
 
-    @include min-screen($screen_sm_min) {
-        margin-top: 3px;    
+    @include min-screen($screen-sm-min) {
+        margin-top: 3px;
     }
 }
 
 .logo-name {
-    font-family: $brand_font_family;
+
+	@include hover-animation(color);
+
+    color: $font-color-dark-bg;
+    font-family: $brand-font-family;
 	font-size: 1.5em;
-	font-weight: $brand_font_weight_bold;
-    color: $nav-font-color;
-    text-shadow: 0px 1px 4px rgba(0,0,0,0.10);
-    @include hover-animation(color);
-    a, a:hover {
+	font-weight: $brand-font-weight-bold;
+    text-shadow: 0 1px 4px $primary-shadow-color;
+
+    @include min-screen($screen-sm-min) {
+        font-size: 2em;
+    }
+
+    a,
+	a:hover {
         text-decoration: none;
     }
 
+
     &:hover {
-        color: $nav-font-color;
+        color: $font-color-dark-bg;
         cursor: pointer;
     }
 
-    @include min-screen($screen_sm_min) {
-        font-size: 2em; 
-    }
 }
 
 .navbar {
-	border: none;
-    margin-bottom: 0px !important;
-    background: white;
-    box-shadow: 0px 2px 4px rgba(0,0,0,.15);
+	border: 0;
+    border-bottom-color: $primary-green;
     border-bottom-style: solid;
-    border-bottom-color: $primary_green;
     border-bottom-width: 3px;
+    box-shadow: 0 2px 4px $primary-shadow-color;
+    margin-bottom: 0;
 }
 
 .tabs-wrapper {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    background: rgba($dark_green, 0.2);
+    background: $tabs-wrapper-bg;
     height: $nav-height;
-    margin: 82px auto auto auto;
+    left: 0;
+    margin: 82px auto auto;
+    position: fixed;
+    right: 0;
+    top: 0;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
+
+        @include border-bottom-radius($nav-border-radius);
         top: 10px;
         width: 50%;
-        @include border-bottom-radius($nav-border-radius);
+
     }
 }
 
@@ -104,165 +92,177 @@ $nav-border-radius: 25px;
 
 .header-tabs {
 
-    @include min-screen($screen_sm_min) {
-        width: 100%;
-        margin: auto auto;
+    @include min-screen($screen-sm-min) {
         height: 98px;
+        margin: auto;
+        width: 100%;
     }
 
     .tab {
+
         @include basic-font;
-        display: inline-block;
-        height: $nav-height;
-        width: 33.3%;
-        text-align: center;
         background: none;
-        color: $dark_green;
-        font-size: $base_font_size * 1.5;
-        margin-right: -4px; // correcting some random margin
-        border-right: 1px solid rgba($dark_green,0.3);
-        @include hover-animation(all);
+        border-right: 1px solid $tabs-wrapper-bg;
+        color: $dark-green;
+        display: inline-block;
+        font-size: $base-font-size * 1.5;
+        height: $nav-height;
+        margin-right: -4px;
+        text-align: center;
+        width: 33.3%;
 
         &:first-child {
 
-            @include min-screen($screen_sm_min) {
+            @include min-screen($screen-sm-min) {
                 @include border-bottom-left-radius($nav-border-radius);
-            }     
+            }
         }
-        
-        &:last-child {
-            width: 33.4%; // to fix the .1% offset it was showing
-            
 
-            @include min-screen($screen_sm_min) {
+        &:last-child {
+
+            border-right: 0;
+            width: 33.4%;
+
+            @include min-screen($screen-sm-min) {
                 @include border-bottom-right-radius($nav-border-radius);
             }
 
-            border-right: 0px solid #000;
         }
-        
+
         &.active {
+            background: $active-tab-color;
+            color: $font-color-dark-bg;
             font-weight: bold;
-            background: $active_tab_color;
-            color: white;
-
-            &:hover {
-                background: $active_tab_color;
-            }
         }
-        
+
         &:hover {
+            background: $tabs-wrapper-bg;
             cursor: pointer;
-            background: rgba($dark_green,0.1);
-        }
-    }
-}
-
-@include min-screen($screen_sm_min) {
-
-    .navbar-right {
-        li {
-            margin-right: 25px;
-        }
-
-        .dropdown-menu {
-            li {
-                margin-right: 0px;
-            }
         }
     }
 }
 
 .nav {
-    li {
-        .nav-item-custom {
-            cursor: pointer;
-            @include hover-animation(all);
-            color: rgba($nav-font-color, 0.7);
-            font-size: 1.2em;
-
-            &:hover {
-                background: rgba($nav-font-color, 1);
-            }
-        }
-    }
+	margin-top: 2%;
 }
 
-#brand-logo {
-    width: 45px;
-    display: inline-block;
+.nav-list-wrapper {
+	width: 70%;
+}
+
+.nav-item-custom {
+
+	@include hover-animation(color);
+
+	color: $nav-item-color;
+	font-size: 1rem;
+	margin-left: 5%;
+	margin-right: 7%;
+	margin-top: 5%;
+
+	@include min-screen($screen-md-min) {
+		font-size: 1.2rem;
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	&:hover {
+		color: $font-color-dark-bg;
+		cursor: pointer;
+	}
+}
+
+.brand-logo {
     cursor: pointer;
-    vertical-align: top;
+    display: inline-block;
     margin-right: 10px;
     margin-top: -2px;
+    vertical-align: top;
+    width: 45px;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
+        width: 55px;
+    }
+
+	@include min-screen($screen-md-min) {
         width: 65px;
     }
 }
 
 .navbar-default {
-    color: white;
-    background: $primary_green;
+    background: $primary-green;
+    color: $font-color-dark-bg;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color: rgba($nav-font-color, 0.8); // override Bootstrap
+.navbar-nav>li>a {
+    color: $nav-item-color;
+
     &:hover {
-        color: rgba($nav-font-color, 1);
+        color: rgba($font-color-dark-bg, 1);
     }
 }
 
 .navbar-brand {
     height: 45px;
-    @include min-screen($screen_sm_min) {
+
+    @include min-screen($screen-sm-min) {
         height: 60px;
     }
 }
 
-#header-brand-wrapper {
+.header-brand-wrapper {
     height: 100%;
 }
 
 .expanded-nav {
     display: none;
 
-    @include min-screen($screen_sm_min) {
+    @include min-screen($screen-sm-min) {
         display: block;
     }
 }
 
-#navbar-toggle-custom {
-    
-    &:hover, &:active, &:visited {
-        background-color: rgba(white, 0.3);
-        border-color: white;
-    }
+.navbar-header {
 
-    &:focus,  {
-        background-color: rgba(white, 0);
-        border-color: white;
-    }
-}
+	.navbar-toggle-custom {
 
-.icon-bar {
-     background-color: white !important;
+
+		border-color: $nav-toggle-border-color;
+
+		@include min-screen($screen-md-min) {
+			display: none;
+		}
+
+	    &:hover {
+	        background-color: $nav-toggle-bg;
+	    }
+
+		&:active,
+		&:focus,
+		&:visited {
+			background-color: $primary-green;
+		}
+
+		.icon-bar {
+		     background-color: $font-color-dark-bg;
+		}
+	}
 }
 
 .settings-cog {
-    margin-right: 5px;
     font-size: 1.3em;
+    margin-right: 5px;
     vertical-align: top;
 }
 
 .dropdown-menu {
 
     min-width: 120px;
-    padding: 0px 0px;
+    padding: 0;
 
     li {
         a {
-            padding: 10px 10px;
+            padding: 10px;
         }
     }
 
@@ -276,16 +276,36 @@ $nav-border-radius: 25px;
 }
 
 .auth-alert {
-    position: absolute;
+    left: 0;
     margin-left: auto;
     margin-right: auto;
-    top: 20px;
-    left: 0;
-    right: 0;
     max-width: 500px;
+    position: absolute;
+    right: 0;
+    top: 20px;
     z-index: 1040;
 }
 
 .nav-content-wrapper {
-    max-width: 960px;
+	max-width: 100%;
+	padding: 0 5%;
+
+	@include min-screen($screen-sm-min) {
+		padding: 0 2%;
+	}
+
+	@include min-screen($screen-md-min) {
+	    max-width: 960px;
+    }
+}
+
+.header-dummy {
+	height: 78px;
+	width: 100%;
+}
+
+.tabs-wrapper-dummy {
+	background-color: $light-bg-green;
+	height: 50px;
+	width: 100%;
 }

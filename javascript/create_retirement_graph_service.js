@@ -2,6 +2,20 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
     this.createRetirementGraph = function(retirement_data) { //graph_points, intersection_point
 
+        if (!retirement_data.can_retire) {
+            d3.select("svg").attr("style","opacity:0.2");
+            d3.select(".tooltip").remove();
+            d3.select(".cannot-retire-message").remove();
+            var cannot_retire_message = d3.select('#retirement-graph').append("rect")
+                .attr("class", "cannot-retire-message")
+                .text('Adjust the numbers you entered for income and expenses to show your projected path to financial independence.');
+            return;
+        }
+
+        else {
+            d3.select(".cannot-retire-message").remove();
+        }
+
         var graph_points = retirement_data.graph_points;
         var intersection_point = retirement_data.intersection_point;
         var show_tooltip = false;
@@ -13,24 +27,24 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         pixels_per_axis_label = 75;
 
         if ($(".tooltip").length > 0) {
-            $( ".tooltip" ).remove();
+            $(".tooltip").remove();
         }
 
         var margin = {top: 20, right: 10, bottom: 30, left: 75},
             width = container_width - margin.left - margin.right - scroll_bar_width,
             height = width / aspect_ratio - margin.top - margin.bottom;
-            
+
         if (height < minimum_graph_height) {
             height = minimum_graph_height;
         }
-        
+
         number_of_x_ticks = Math.min(width / pixels_per_axis_label);
-        
+
         function yTickFormat(tick_value) {
             tick_value = numberWithCommas(tick_value);
             return '$' + tick_value;
         }
-        
+
         var customTimeFormat = d3.time.format.multi([
             [".%L", function(d) { return d.getMilliseconds(); }],
             [":%S", function(d) { return d.getSeconds(); }],
@@ -55,15 +69,15 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
                 return new_years_from_now;
             }
         };
-        
+
         var cur_date = new Date();
         var end_date = new Date();
         end_date.setMonth(end_date.getMonth() + graph_points.length);
-        
+
         var max_value = d3.max(graph_points, function(d) { return d.withdraw_limit; });
-        
+
         d3.select("#retirement-graph svg").remove();
-        
+
         var chart = d3.select('#retirement-graph').append('svg');
         chart.selectAll("*").remove();
         chart.attr('width', width + margin.left + margin.right)
@@ -73,22 +87,22 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var xScale = d3.time.scale()
             .domain([cur_date, end_date])
             .range([0, width]);
-            
+
         var yScale = d3.scale.linear()
             .domain([0, max_value])
             .range([height, 0]);
-            
+
         var xAxis = d3.svg.axis()
             .scale(xScale)
             .orient('bottom')
             .tickFormat(xLabel)
             .ticks(number_of_x_ticks);
-            
+
         var yAxis = d3.svg.axis()
             .scale(yScale)
             .orient("left")
             .tickFormat(yTickFormat);
-            
+
         chart.append("g")
             .attr("class", "axis x-axis")
             .attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
@@ -100,12 +114,12 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("x", width)
             .attr("y", height - 3)
             .text("Years from now");
-        
+
         chart.append("g")
             .attr("class", "axis y-axis")
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
             .call(yAxis);
-        
+
         var expense_line = d3.svg.line()
             .x(function(d, i) {
                 return xScale(d.date);
@@ -113,7 +127,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .y(function(d) {
                 return yScale(d.expenses);
             });
-            
+
         var withdraw_line = d3.svg.line()
             .x(function(d, i) {
                 return xScale(d.date);
@@ -121,7 +135,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .y(function(d) {
                 return yScale(d.withdraw_limit);
             });
-            
+
         chart.append("path")
             .attr("class", "expense-line")
             .attr("d", expense_line(graph_points))
@@ -133,7 +147,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ") ");
 
         var tooltip_text = addToolTipText(retirement_data);
-        
+
         if (intersection_point) {
 
             var intersection_point_x = xScale(intersection_point.x) - 40;
@@ -154,7 +168,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
                 .attr('r', 5)
                 .attr('class', 'intersection-point')
                 .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
-                
+
         }
 
         var expenses_label_coords = findLabelCoordinates(graph_points);
@@ -166,15 +180,25 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
         drawIncomeLabel(chart, label_x, income_label_y);
     };
-    
-    function addToolTipText(retirement_data) {
-        var date = retirement_data.intersection_point.x;
-        var expenses = retirement_data.intersection_point.y;
-        var asset_need = 25 * expenses * 12;
-        asset_need = Math.round(asset_need);
 
-        return "You will be able to safely <br>live off passive income in <br> <span class='bold'>" + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$" + numberWithCommas(asset_need) + "</span>.";
-        
+    function addToolTipText(retirement_data) {
+
+        if (retirement_data.intersection_point) {
+            var date = retirement_data.intersection_point.x;
+            var expenses = retirement_data.intersection_point.y;
+            var asset_need = 25 * expenses * 12;
+            asset_need = Math.round(asset_need);
+
+            return "You will be able to safely <br>live off passive income in <br> <span class='bold'>"
+            + date.getFullYear() + "</span>, when <br>you have total assets <br>of <span class='bold'>$"
+            + numberWithCommas(asset_need) + "</span>.";
+
+        }
+
+        else {
+            return "You will not be able to retire given your current situation.";
+        }
+
     }
 
     function drawExpensesLabel(chart, label_x, expenses_label_y) {
@@ -220,9 +244,9 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("y", 20)
             .text('Monthly passive income');
     }
-            
+
     function drawIntersectionToolTip(chart, intersection_point, intersection_point_x, intersection_point_y) {
-        
+
         var date = intersection_point.x;
         var expenses = intersection_point.y;
         var asset_need = 25 * expenses * 12;
@@ -235,16 +259,16 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
 
         var intersect_adjust = intersection_point_y + 150;
 
-        var lineData = [    {   "x": triangle_start_point_x,   
-                                "y": triangle_start_point_y
-                            },  
-                            {   "x": triangle_start_point_x + triangle_width,  
+        var lineData = [    {   "x": triangle_start_point_x,
                                 "y": triangle_start_point_y
                             },
-                            {   "x": triangle_start_point_x + triangle_width / 2, 
+                            {   "x": triangle_start_point_x + triangle_width,
+                                "y": triangle_start_point_y
+                            },
+                            {   "x": triangle_start_point_x + triangle_width / 2,
                                 "y": triangle_start_point_y - triangle_height
                             },
-                            {   "x": triangle_start_point_x,  
+                            {   "x": triangle_start_point_x,
                                 "y": triangle_start_point_y
                             }
                         ];
@@ -278,7 +302,7 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             .attr("d", drawLinesBetweenPoints(lineData))
             .attr("class", "income-label");
     }
-        
+
     function numberWithCommas(x) {
         var parts = x.toString().split(".");
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -296,9 +320,9 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
         var label_x = graph_points[x_index].date;
         var expenses_label_y = graph_points[x_index].expenses;
         var income_label_y = graph_points[x_index].withdraw_limit;
-        
+
         return {x : label_x, expenses_label_y : expenses_label_y, income_label_y : income_label_y};
     }
 
-        
+
 }]);

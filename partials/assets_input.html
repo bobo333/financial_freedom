@@ -1,6 +1,6 @@
 <step-header></step-header>
 <div class="calc-view-wrapper">
-	<form name="assetsForm" ng-submit="setupStep('/expenses')" novalidate>
+	<form name="assetsForm" ng-submit="nextSetupStep()" novalidate>
 		<div class="row">
 		    <div class="dollars-to-time-wrapper input-wrapper">
 			    <div class="input-title">Assets</div>
@@ -9,20 +9,20 @@
 
 				    <div class="input-field-wrapper">
 				        <span class="leading-dollar">$</span>
-				        <input type="text" 
-			        	autofocus 
+				        <input type="text"
+			        	autofocus
 			        	required
 			        	ng-currency
 			        	min="-999999999"
 			        	max="999999999"
-			        	placeholder="50,000" 
-			        	class="steps" 
+			        	placeholder="50,000"
+			        	class="steps"
 			        	ng-model="inputVal.assets" />
 				    </div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="next-button-wrapper col-xs-12">  
+			<div class="next-button-wrapper col-xs-12">
 				<input type="submit" value="&#xf105;" ng-show="assetsForm.$valid" class="next-button hide-fade" />
 			</div>
 		</div>

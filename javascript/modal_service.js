@@ -1,4 +1,4 @@
-FinancialFreedom.service('modalService', ['$modal', 
+FinancialFreedom.service('modalService', ['$modal',
 	function ($modal) {
 
 		var modalDefaults = {
@@ -16,24 +16,24 @@ FinancialFreedom.service('modalService', ['$modal',
             bodyText: 'Perform this action?'
         };
 
-
         this.showModal = function (customModalDefaults, customModalType) {
 
             var customModalOptions = {};
-        
+
             if (!customModalDefaults) customModalDefaults = {};
             this.showSignUp = true;
 
             if (customModalType === 'loginModalOptions') {
-
             	this.showSignUp = false;
             }
             else if (customModalType === 'accountModalOptions') {
-
             	customModalDefaults.templateUrl = 'partials/account_modal.html';
             	customModalDefaults.controller = 'AccountModalInstanceCtrl';
             }
-
+			else if (customModalType === 'feedbackModalOptions') {
+            	customModalDefaults.templateUrl = 'partials/feedback_modal.html';
+            	customModalDefaults.controller = 'FeedbackCtrl';
+            }
             return this.show(customModalDefaults, customModalOptions);
         };
 
@@ -59,5 +59,9 @@ FinancialFreedom.service('modalService', ['$modal',
 
             return $modal.open(tempModalDefaults).result;
         };
+
+		this.close = function() {
+			$modalInstance.dismiss('cancel');
+		};
 
 	}]);
