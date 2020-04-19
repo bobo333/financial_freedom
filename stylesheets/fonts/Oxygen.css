@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Oxygen Light'), local('Oxygen-Light'), url(http://fonts.gstatic.com/s/oxygen/v9/2sDcZG1Wl4LcnbuCJW8zaGW8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen Regular'), local('Oxygen-Regular'), url(http://fonts.gstatic.com/s/oxygen/v9/2sDfZG1Wl4LcnbuKjk0j.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oxygen Bold'), local('Oxygen-Bold'), url(http://fonts.gstatic.com/s/oxygen/v9/2sDcZG1Wl4LcnbuCNWgzaGW8.ttf) format('truetype');
+}
