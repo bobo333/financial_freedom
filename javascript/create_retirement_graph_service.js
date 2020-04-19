@@ -56,12 +56,12 @@ FinancialFreedom.service('CreateRetirementGraphService', ['DateService', functio
             ["%Y", function() { return true; }]
         ]);
 
+        var current_years_from_now;
         var xLabel = function(date) {
             var cur_date = new Date();
-            var current_years_from_now;
             var new_years_from_now = DateService.calculateYearsBetween(cur_date, date);
 
-            if (current_years_from_now === new_years_from_now) {
+            if (new_years_from_now === 0 || current_years_from_now === new_years_from_now) {
                 return null;
             }
             else {
