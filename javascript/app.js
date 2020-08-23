@@ -99,7 +99,7 @@ FinancialFreedom.directive('autofocus', ['$timeout', function($timeout) {
     };
 }]);
 
-FinancialFreedom.controller('bodyController', function($scope, $rootScope, $window, GoogleAnalyticsService, AuthService, Session, UserDataCache, modalService) {
+FinancialFreedom.controller('bodyController', function($scope, $rootScope, $window, AuthService, Session, UserDataCache, modalService) {
 
     $rootScope.data = Session.data;
     $rootScope.currentUser = Session.data.currentUser;

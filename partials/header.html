@@ -23,25 +23,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</li>
                         <li class="nav-item-custom" ui-sref="time-to-retirement">Countdown</li>
-                        <li class="nav-item-custom" ng-click="openSignUpModal()" ng-if="!data.currentUser">Sign up</li>
-                        <li class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</li>
-                        <li class="nav-item-custom" ng-click="openAccountModal()" ng-if="data.currentUser"<i class="fa fa-cog"></i>Account</li>
-                        <li class="nav-item-custom" ng-click="logout()" ng-if="data.currentUser"><i class="fa fa-cog"></i> Sign out</li>
                     </ul>
                 </div>
                 <div class="expanded-nav">
-                    <ul class="nav navbar-nav navbar-right" ng-if="data.currentUser" class="dropdown" dropdown>
-                           <a class="nav-item-custom dropdown-toggle" dropdown-toggle><i class="fa fa-cog settings-cog"></i></a>
-                            <ul class="dropdown-menu">
-                                <li ng-click="openAccountModal()">Account</li>
-                                <li ng-click="logout()">Sign out</li>
-                            </ul>
-                    </ul>
                     <ul class="nav navbar-nav navbar-right nav-list-wrapper">
                         <li class="nav-item-custom" ui-sref="dollars-to-time">Money-to-time converter</li>
                         <li class="nav-item-custom" ui-sref="time-to-retirement">Countdown</li>
-                        <li class="nav-item-custom" ng-click="openLoginModal()" ng-if="!data.currentUser">Sign in</li>
-                        <li class="nav-item-custom" ng-click="openSignUpModal()" ng-if="!data.currentUser">Sign up</li>
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,2 @@
 node_modules/*
-bower_components/*
 .sass-cache/*
-tests/_output/*
-stylesheets/*

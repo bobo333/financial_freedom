@@ -16,8 +16,15 @@ FinancialFreedom.service('DateService', function() {
     this.calculateYearsBetween = function(date1, date2) {
         var date1_yr = date1.getFullYear();
         var date2_yr = date2.getFullYear();
+        var date1_mo = date1.getMonth();
+        var date2_mo = date2.getMonth();
+        var month_accounter = 0;
 
-        return date2_yr - date1_yr;
+        if (date2_mo < date1_mo) {
+            month_accounter = 1;
+        }
+
+        return date2_yr - date1_yr - month_accounter;
     };
 
     this.calculateDateDifference = function(dateFrom, dateTo) {
